@@ -31,3 +31,5 @@ PiggyBankEvent:
           type: integer
           format: int32
           example: 4291
+    links:
+      $ref: '#/components/schemas/ObjectLink'

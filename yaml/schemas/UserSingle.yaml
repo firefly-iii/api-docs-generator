@@ -3,5 +3,3 @@ UserSingle:
   properties:
     data:
       $ref: '#/components/schemas/User'
-    links:
-      $ref: '#/components/schemas/ObjectLink'

@@ -7,5 +7,3 @@ AttachmentArray:
         $ref: '#/components/schemas/Attachment'
     meta:
       $ref: '#/components/schemas/Meta'
-    links:
-      $ref: '#/components/schemas/PageLink'

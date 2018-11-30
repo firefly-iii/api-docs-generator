@@ -37,3 +37,5 @@ RuleGroup:
           type: boolean
           format: boolean
           example: true
+    links:
+      $ref: '#/components/schemas/ObjectLink'

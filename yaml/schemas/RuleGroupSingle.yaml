@@ -3,5 +3,3 @@ RuleGroupSingle:
   properties:
     data:
       $ref: '#/components/schemas/RuleGroup'
-    links:
-      $ref: '#/components/schemas/ObjectLink'

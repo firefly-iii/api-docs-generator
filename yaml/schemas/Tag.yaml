@@ -55,3 +55,5 @@ Tag:
           example: "6"
           nullable: true
           description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
+    links:
+      $ref: '#/components/schemas/ObjectLink'

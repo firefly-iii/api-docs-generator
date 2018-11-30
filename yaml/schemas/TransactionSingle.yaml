@@ -3,5 +3,3 @@ TransactionSingle:
   properties:
     data:
       $ref: '#/components/schemas/Transaction'
-    links:
-      $ref: '#/components/schemas/ObjectLink'

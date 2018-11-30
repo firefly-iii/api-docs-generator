@@ -5,3 +5,5 @@ Recurring:
   properties:
     name:
       type: string
+    links:
+      $ref: '#/components/schemas/ObjectLink'

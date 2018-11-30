@@ -3,5 +3,3 @@ PiggyBankSingle:
   properties:
     data:
       $ref: '#/components/schemas/PiggyBank'
-    links:
-      $ref: '#/components/schemas/ObjectLink'

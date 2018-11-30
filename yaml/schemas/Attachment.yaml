@@ -66,3 +66,5 @@ Attachment:
           type: integer
           format: int32
           example: 48211
+    links:
+      $ref: '#/components/schemas/ObjectLink'

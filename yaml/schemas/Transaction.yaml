@@ -300,3 +300,5 @@ Transaction:
           format: string
           example: "some,tags,here"
           description: Comma separated list of tags.
+    links:
+      $ref: '#/components/schemas/ObjectLink'

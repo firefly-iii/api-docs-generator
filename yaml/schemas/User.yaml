@@ -43,3 +43,5 @@ User:
           example: "owner"
           nullable: true
           description: If the user is owner of demo user. Otherwise it's NULL
+    links:
+      $ref: '#/components/schemas/ObjectLink'
