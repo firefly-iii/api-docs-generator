@@ -1,0 +1,5 @@
+TagSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/Tag'
