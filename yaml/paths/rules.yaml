@@ -1,1 +1,259 @@
-This is a placeholder
+/api/v1/rules:
+  get:
+    summary: List all rules.
+    description: List all rules.
+    operationId: getRules
+    tags:
+      - rules
+    parameters:
+    - in: query
+      name: page
+      description: Page number. The default pagination is 50.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    responses:
+      '200':
+        description: A list of rules
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleArray'
+  post:
+    summary: Store a new rule
+    description: Creates a new rule. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeRule
+    tags:
+      - rules
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RuleUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RuleUpdate'
+      description: "JSON array or key=value pairs with the necessary rule information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'New rule stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+/api/v1/rules/{id}:
+  get:
+    summary: Get a single rule.
+    description: Get a single rule.
+    operationId: getRule
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    tags:
+      - rules
+    responses:
+      '200':
+        description: 'The requested rule'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      '404':
+        description: Rule not found
+  put:
+    operationId: updateRule
+    tags:
+      - rules
+    description: Update existing rule.
+    summary: Update existing rule.
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RuleUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RuleUpdate'
+      description: JSON array with updated rule information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated rule stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    operationId: deleteRule
+    description: Delete an rule.
+    summary: Delete an rule.
+    tags:
+      - rules
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    responses:
+      '204':
+        description: Rule deleted.
+      '404':
+        description: No such rule
+/api/v1/rules/{id}/test:
+  get:
+    summary: Test which transactions would be hit by the rule. No changes will be made.
+    description: Test which transactions would be hit by the rule. No changes will be made. Limit the result if you want to.
+    operationId: testRule
+    tags:
+      - rules
+    parameters:
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
+    - in: query
+      name: start_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-09-17
+    - in: query
+      name: end_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-12-31
+    - in: query
+      name: search_limit
+      description: |
+        Maximum number of transactions the rule will be triggered on, before Firefly III stops. Don't set this too high.
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: triggered_limit
+      description: |
+        Maximum number of transactions the rule can be triggered on, before Firefly III stops.
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: accounts
+      style: matrix
+      explode: false
+      description: |
+        Limit the testing of the rule to these asset accounts.
+      required: false
+      example: 1,2,3
+      schema:
+        type: string
+    responses:
+      '200':
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transaction'
+/api/v1/rules/{id}/trigger:
+  post:
+    summary: Fire the rule on your transactions.
+    description: Test which transactions would be hit by the rule. No changes will be made. Limit the result if you want to.
+    operationId: testRule
+    tags:
+      - rules
+    parameters:
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
+    - in: query
+      name: start_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-09-17
+    - in: query
+      name: end_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-12-31
+    - in: query
+      name: search_limit
+      description: |
+        Maximum number of transactions the rule will be triggered on, before Firefly III stops. Don't set this too high.
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: triggered_limit
+      description: |
+        Maximum number of transactions the rule can be triggered on, before Firefly III stops.
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: accounts
+      style: matrix
+      explode: false
+      description: |
+        Limit the firing of the rule to these asset accounts.
+      required: false
+      example: 1,2,3
+      schema:
+        type: string
+    responses:
+      '200':
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transaction'
