@@ -216,7 +216,7 @@
 /api/v1/rule_groups/{id}/trigger:
   post:
     summary: Fire the rule group on your transactions.
-    description: Test which transactions would be hit by the rule group. Changes will be made by the rules in the rule group! Limit the result if you want to.
+    description: Fire the rule group on your transactions. Changes will be made by the rules in the rule group! Limit the result if you want to.
     operationId: fireRuleGroup
     tags:
       - rule_groups
