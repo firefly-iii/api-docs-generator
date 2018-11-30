@@ -3,5 +3,15 @@ ValidationError:
   required:
     - name
   properties:
-    name:
+    message:
       type: string
+      example: "The given data was invalid."
+    errors:
+      type: object
+      properties:
+        field1:
+          type: string
+          example: "Error message for field 1"
+        field2:
+          type: string
+          example: "Error message for field 2"
