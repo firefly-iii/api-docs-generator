@@ -38,9 +38,6 @@ foreach ($files as $file) {
 }
 
 
-// add individual paths and models to the yaml file:
-
-
 $result = $builder->render();
 
 echo '<pre>' . $result . '</pre>';
