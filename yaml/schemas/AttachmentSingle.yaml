@@ -1,0 +1,7 @@
+AttachmentSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/Attachment'
+    links:
+      $ref: '#/components/schemas/ObjectLink'

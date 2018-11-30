@@ -1,11 +1,13 @@
 Attachment:
   type: object
+  required:
+    - name
   properties:
     type:
       type: string
       format: string
-      example: "defaults"
-      description: "Immutable value"
+      example: "attachments"
+      description: "Immutable value indicating the object type."
     id:
       type: integer
       format: int32
@@ -21,3 +23,46 @@ Attachment:
           type: string
           format: date-time
           example: "2018-11-25T12:46:47+01:00"
+        attachable_type:
+          type: string
+          format: string
+          example: "FireflyIII\\Models\\TransactionJournal"
+          description: Full class name of the model this attachment is linked to.
+        attachable_id:
+          type: integer
+          format: int32
+          example: 123
+          description: ID of the model this attachment is linked to.
+        md5:
+          type: string
+          format: string
+          example: "0c3f95f34370baa88f9fd9a671fea305"
+          description: MD5 hash of the file for basic duplicate detection.
+        filename:
+          type: string
+          format: string
+          example: "file.pdf"
+        download_uri:
+          type: string
+          format: string
+          example: "https://demo.firefly-iii.org/api/v1/attachments/191/download"
+        upload_uri:
+          type: string
+          format: string
+          example: "https://demo.firefly-iii.org/api/v1/attachments/191/download"
+        title:
+          type: string
+          format: title
+          example: "Example PDF file"
+        notes:
+          type: string
+          format: string
+          example: "Some sample notes"
+        mime:
+          type: string
+          format: string
+          example: "application/pdf"
+        size:
+          type: integer
+          format: int32
+          example: 48211
