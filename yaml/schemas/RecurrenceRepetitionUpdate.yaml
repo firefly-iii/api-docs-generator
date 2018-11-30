@@ -1,0 +1,40 @@
+RecurrenceRepetitionUpdate:
+  type: object
+  properties:
+    type:
+      type: string
+      format: string
+      example: "weekly"
+      description: "The type of the repetition. ndom means: the n-th weekday of the month, where you can also specify which day of the week."
+      enum:
+      - daily
+      - weekly
+      - ndom
+      - monthly
+      - yearly
+    moment:
+      type: string
+      format: string
+      example: "3"
+      description: |
+        Information that defined the type of repetition.
+        - For 'daily', this is empty.
+        - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
+        - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). Effectively, this means: the 2nd Wednesday of the month
+        - For 'monthly' it is the day of the month (1 - 31)
+        - For yearly, it is a full date, ie '2018-09-17'. The year you use does not matter.
+    skip:
+      type: integer
+      format: int32
+      example: 0
+      description: How many occurrences to skip. 0 means skip nothing. 1 means every other.
+    weekend:
+      type: integer
+      format: int32
+      example: 1
+      description: |
+        How to respond when the recurring transaction falls in the weekend. Possible values:
+        1. Do nothing, just create it
+        2. Create no transaction.
+        3. Skip to the previous Friday.
+        4. Skip to the next Monday.

@@ -1,7 +1,64 @@
 RecurrenceUpdate:
   type: object
   required:
-    - name
+    - type
   properties:
-    name:
+    type:
       type: string
+      format: string
+      example: "Withdrawal"
+      enum:
+      - Withdrawal
+      - Deposit
+      - Transfer
+    title:
+      type: string
+      format: string
+      example: "My first recurring transaction"
+    description:
+      type: string
+      format: string
+      example: "Description of the recurring transaction."
+      description: Not to be confused with the description of the actual transaction(s) being created.
+    first_date:
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: "First time the recurring transaction will fire."
+    apply_rules:
+      type: boolean
+      format: boolean
+      example: true
+      description: "Whether or not to fire the rules after the creation of a transaction."
+    active:
+      type: boolean
+      format: boolean
+      example: true
+    repeat_until:
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: "Date until the recurring transaction can fire. Use either this field or repetitions."
+    repetitions:
+      type: integer
+      format: int32
+      example: 5
+      description: Max number of created transactions. Use either this field or repeat_until.
+    tags:
+      type: string
+      format: string
+      example: "some,tags,here"
+      description: Tags to be used for each created transaction, comma separated.
+    piggy_bank_id:
+      type: integer
+      format: int32
+      example: 12
+      description: Piggy bank to relate the newly created transaction to. Will only work for transfers.
+    recurrence_repetitions:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecurrenceRepetitionUpdate'
+    transactions:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecurrenceTransactionUpdate'

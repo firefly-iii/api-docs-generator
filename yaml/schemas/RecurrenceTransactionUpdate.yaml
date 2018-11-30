@@ -1,0 +1,70 @@
+RecurrenceTransactionUpdate:
+  type: object
+  properties:
+    description:
+      type: string
+      format: string
+      example: "Rent for the current month"
+    amount:
+      type: number
+      format: double
+      example: -810.12
+      description: Amount of the transaction.
+    foreign_amount:
+      type: number
+      format: double
+      example: -990
+      description: Foreign amount of the transaction.
+      nullable: true
+    currency_id:
+      type: integer
+      format: int32
+      example: 3
+      description: Submit either a currency_id or a currency_code.
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: Submit either a currency_id or a currency_code.
+    foreign_currency_id:
+      type: integer
+      format: int32
+      example: 17
+      nullable: true
+      description: Submit either a foreign_currency_id or a foreign_currency_code, or neither.
+    foreign_currency_code:
+      type: string
+      format: string
+      example: "GBP"
+      nullable: true
+      description: Submit either a foreign_currency_id or a foreign_currency_code, or neither.
+    budget_id:
+      type: integer
+      format: int32
+      example: 5
+      description: Budget ID for this transaction.
+    category_name:
+      type: string
+      format: string
+      description: Category name for this transaction.
+      example: "Bills"
+    source_id:
+      type: integer
+      format: int32
+      example: 913
+      description: ID of the source account. Submit either this or source_name.
+    source_name:
+      type: string
+      format: string
+      example: "Checking account"
+      description: Name of the source account. Submit either this or source_id.
+    destination_id:
+      type: integer
+      format: int32
+      example: 258
+      description: ID of the destination account. Submit either this or destination_name.
+    destination_name:
+      type: string
+      format: string
+      example: "Buy and Large"
+      description: Name of the destination account. Submit either this or destination_id.

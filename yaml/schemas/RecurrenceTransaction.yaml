@@ -1,0 +1,80 @@
+RecurrenceTransaction:
+  type: object
+  properties:
+    currency_id:
+      type: integer
+      format: int32
+      example: 3
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+    currency_symbol:
+      type: string
+      format: string
+      example: "€"
+    currency_dp:
+      type: integer
+      format: int32
+      example: 2
+      description: Number of decimals in the currency
+    foreign_currency_id:
+      type: integer
+      format: int32
+      example: 17
+      nullable: true
+    foreign_currency_code:
+      type: string
+      format: string
+      example: "GBP"
+      nullable: true
+    foreign_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      nullable: true
+    foreign_currency_dp:
+      type: integer
+      format: int32
+      example: 2
+      description: Number of decimals in the currency
+      nullable: true
+    source_id:
+      type: integer
+      format: int32
+      example: 913
+      description: ID of the source account.
+    source_name:
+      type: string
+      format: string
+      example: "Checking account"
+      description: Name of the source account.
+    destination_id:
+      type: integer
+      format: int32
+      example: 258
+      description: ID of the destination account.
+    destination_name:
+      type: string
+      format: string
+      example: "Buy and Large"
+      description: Name of the source account.
+    amount:
+      type: number
+      format: double
+      example: -810.12
+      description: Amount of the transaction.
+    foreign_amount:
+      type: number
+      format: double
+      example: -990
+      description: Foreign amount of the transaction.
+      nullable: true
+    description:
+      type: string
+      format: string
+      example: "Rent for the current month"
+    meta_fields:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecurrenceTransactionMeta'

@@ -1,0 +1,5 @@
+RecurrenceSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/Recurrence'
