@@ -1,7 +1,18 @@
 RuleGroupUpdate:
   type: object
   required:
-    - name
+    - title
+    - active
   properties:
-    name:
+    title:
       type: string
+      format: string
+      example: "New rule group title"
+    active:
+      type: boolean
+      format: boolean
+      example: true
+    text:
+      type: string
+      format: string
+      example: "New rule group description"

@@ -1,7 +1,39 @@
 RuleGroup:
   type: object
-  required:
-    - name
   properties:
-    name:
+    type:
       type: string
+      format: string
+      example: "rule_groups"
+      description: "Immutable value indicating the object type."
+    id:
+      type: integer
+      format: int32
+      example: 2
+    attributes:
+      type: object
+      properties:
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        title:
+          type: string
+          format: string
+          example: "Default rule group"
+        text:
+          type: string
+          format: string
+          example: "Description of this rule group"
+        order:
+          type: int
+          format: int32
+          example: 4
+        active:
+          type: boolean
+          format: boolean
+          example: true

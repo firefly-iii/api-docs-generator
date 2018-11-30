@@ -1,0 +1,7 @@
+RuleGroupSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/RuleGroup'
+    links:
+      $ref: '#/components/schemas/ObjectLink'

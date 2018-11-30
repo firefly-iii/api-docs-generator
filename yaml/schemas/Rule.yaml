@@ -4,7 +4,7 @@ Rule:
     type:
       type: string
       format: string
-      example: "defaults"
+      example: "rules"
       description: "Immutable value"
     id:
       type: integer
@@ -21,3 +21,37 @@ Rule:
           type: string
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
+        title:
+          type: string
+          format: string
+          example: "My first rule"
+        text:
+          type: string
+          format: string
+          example: "First rule description"
+        order:
+          type: integer
+          format: int32
+          example: 5
+        active:
+          type: boolean
+          format: boolean
+          example: true
+        strict:
+          type: boolean
+          format: boolean
+          example: true
+          description: When the rule is strict, ALL triggers must be triggerd for the actions to fire. If not, one is enough.
+        stop_processing:
+          type: boolean
+          format: boolean
+          example: true
+          description: If set to true, other rules in this group will not fire if this rule has fired.
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleTrigger'
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleAction'

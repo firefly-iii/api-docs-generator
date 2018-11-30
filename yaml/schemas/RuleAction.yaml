@@ -1,0 +1,51 @@
+RuleAction:
+  type: object
+  properties:
+    type:
+      type: string
+      format: string
+      example: "set_category"
+      description: The type of thing this action will do. A limited set is possible.
+      enum:
+      - user_action
+      - set_category
+      - clear_category
+      - set_budget
+      - clear_budget
+      - add_tag
+      - remove_tag
+      - remove_all_tags
+      - set_description
+      - append_description
+      - prepend_description
+      - aet_source_account
+      - set_destination_account
+      - set_notes
+      - append_notes
+      - prepend_notes
+      - clear_notes
+      - link_to_bill
+      - convert_withdrawal
+      - convert_deposit
+      - convert_transfer
+    value:
+      type: string
+      format: string
+      example: "Daily groceries"
+      nullable: true
+      description: "The accompanying value the action will set, change or update. Can be empty."
+    order:
+      type: boolean
+      format: boolean
+      example: true
+      description: "Order of the action"
+    active:
+      type: boolean
+      format: boolean
+      example: true
+      description: If the action is active.
+    stop_processing:
+      type: boolean
+      format: boolean
+      example: false
+      description: When true, other actions will not be fired after this action has fired.
