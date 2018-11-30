@@ -1,0 +1,156 @@
+/api/v1/recurrences:
+  get:
+    summary: List all recurring transactions.
+    description: List all recurring transactions.
+    operationId: getRecurring
+    tags:
+      - recurrences
+    parameters:
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of recurring transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recurrence'
+  post:
+    summary: Store a new recurring transaction
+    description: Creates a new recurring transaction. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeRecurrence
+    tags:
+      - recurrences
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RecurrenceUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RecurrenceUpdate'
+      description: "JSON array or key=value pairs with the necessary recurring transaction information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'New recurring transaction stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recurrence'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+/api/v1/recurrences/{id}:
+  get:
+    summary: Get a single recurring transaction.
+    description: Get a single recurring transaction.
+    operationId: getRecurrence
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    tags:
+      - recurrences
+    responses:
+      '200':
+        description: 'The requested recurring transaction'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recurrence'
+      '404':
+        description: Recurring transaction not found
+  put:
+    operationId: updateRecurrence
+    tags:
+      - recurrences
+    description: Update existing recurring transaction.
+    summary: Update existing recurring transaction.
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RecurrenceUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RecurrenceUpdate'
+      description: JSON array with updated recurring transaction information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated recurring transaction stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recurrence'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    operationId: deleteRecurrence
+    description: Delete a recurring transaction. Transactions created will not be deleted.
+    summary: Delete a recurring transaction.
+    tags:
+      - recurrences
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    responses:
+      '204':
+        description: Recurring transaction deleted.
+      '404':
+        description: No such recurring transaction
+/api/v1/recurrences/{id}/transactions:
+  get:
+    summary: List all transactions created by a recurring transaction.
+    description: List all transactions created by a recurring transaction, optionally limited to the date ranges specified.
+    operationId: getTransactionsByRecurrence
+    tags:
+      - recurrences
+    parameters:
+{{ includeDefaultParameter('page', 2) }}
+{{ includeDefaultParameter('start_date', 2) }}
+{{ includeDefaultParameter('end_date', 2) }}
+{{ includeDefaultParameter('transaction_type', 2) }}
+    responses:
+      '200':
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transaction'
+/api/v1/recurrences/{id}/trigger:
+  post:
+    summary: Trigger the recurring transaction.
+    description: |
+        Triggers the creation of a new transaction, based on a recurring transaction. If the schedule does not call for a new transaction to be created, nothing will happen. Use the optional parameter to force this. Keep in mind that this will not stop the schedule or block the next one or anything like that.
+    operationId: triggerRecurrence
+    tags:
+      - recurrences
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    - in: query
+      name: force
+      description: |
+        Force the creation of the transaction.
+      required: false
+      schema:
+        type: boolean
+    responses:
+      '204':
+        description: 'Triggered but nothing was created.'
+      '200':
+        description: 'Triggered and a transaction was created'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'

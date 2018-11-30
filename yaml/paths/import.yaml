@@ -1,0 +1,126 @@
+/api/v1/import/list:
+  get:
+    description: List all imports
+    tags:
+      - import
+    operationId: getImports
+    parameters:
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    summary: List al imports
+    responses:
+      '200':
+        description: A list of imports
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ImportJob'
+/api/v1/import/{key}:
+  get:
+    description: Show info on single import.
+    tags:
+    - import
+    summary: Show info on a single import
+    operationId: getImport
+    parameters:
+    - in: path
+      name: key
+      required: true
+      schema:
+        type: string
+        example: x2Akaijm2
+      description: The job key of an import job.
+    responses:
+      '200':
+        description: 'The requested import job'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportJob'
+      '404':
+        description: Import job not found
+/api/v1/import/{key}/transactions:
+  get:
+    tags:
+      - import
+    summary: List all transactions related to the import job. The correlation is made through the tag.
+    description: |
+      See summary
+    operationId: getTransactionsByImport
+    parameters:
+    - in: path
+      name: key
+      required: true
+      schema:
+        type: string
+        example: abcde
+      description: The key of the import job
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    - in: query
+      name: start_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-09-17
+    - in: query
+      name: end_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-12-31
+    - in: query
+      name: type
+      description: Optional filter on the transaction type(s) returned.
+      required: false
+      schema:
+        type: string
+        enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
+    responses:
+      '200':
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transaction'
+
+# upload import file.
+# Download used config file
+# set config value for provider
+# list of config values for provider that need filling in
+# read config value of provider
+# set config value for job
+# read config value for job
+# list of config values for job that need filling in

@@ -1,0 +1,21 @@
+UserUpdate:
+  type: object
+  required:
+    - email
+    - blocked
+  properties:
+    email:
+      type: string
+      example: "thegrumpydictator@gmail.com"
+      description: The new users email address.
+    blocked:
+      type: boolean
+      example: false
+      description: Creates a new users who is blocked immediately.
+    blocked_code:
+      type: string
+      nullable: true
+      example: "email_changed"
+      description: If you say the user must be blocked, this will be the reason code.
+      enum:
+      - email_changed

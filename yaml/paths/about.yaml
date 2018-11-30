@@ -1,0 +1,30 @@
+/api/v1/about:
+  get:
+    tags:
+      - about
+    operationId: getAbout
+    summary: System information end point.
+    description: |
+      Returns general system information and versions of the (supporting) software.
+    responses:
+      '200':
+        description: The available system information
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemInfo'
+/api/v1/about/user:
+  get:
+    tags:
+      - about
+    summary: Currently authenticated user endpoint.
+    operationId: getCurrentUser
+    description: |
+      Returns the currently authenticated user.
+    responses:
+      '200':
+        description: The user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'

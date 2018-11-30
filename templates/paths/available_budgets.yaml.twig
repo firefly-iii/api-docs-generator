@@ -1,0 +1,112 @@
+/api/v1/available_budgets:
+  get:
+    summary: List all available budget amounts.
+    description: |
+      Firefly III allows users to set the amount that is available to be budgeted in so-called "available budgets". For example, the user could have 1200,- available to be divided during the coming month. This amount is used on the /budgets page. This endpoint returns all of these amounts and the periods for which they are set.
+    operationId: getAvailableBudgets
+    tags:
+      - available_budgets
+    parameters:
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        # TODO make sure that currency is always included.
+        description: A list of available budget amounts.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AvailableBudget'
+  post:
+    summary: Store a new available budget
+    description: |
+      Creates a new available budget for a specified period. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeAvailableBudget
+    tags:
+      - available_budgets
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AvailableBudgetUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/AvailableBudgetUpdate'
+      description: "JSON array or key=value pairs with the necessary available budget information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'New available budget stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailableBudget'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+/api/v1/available_budgets/{id}:
+  get:
+    summary: Get a single available budget.
+    description: Get a single available budget, by ID.
+    operationId: getAvailableBudget
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    tags:
+      - available_budgets
+    responses:
+      '200':
+        description: 'The requested available budget'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailableBudget'
+      '404':
+        description: AvailableBudget not found
+  put:
+    operationId: updateAvailableBudget
+    tags:
+      - available_budgets
+    description: Update existing available budget.
+    summary: Update existing available budget, to change for example the date range of the amount or the amount itself.
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AvailableBudgetUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/AvailableBudgetUpdate'
+      description: JSON array or form value with updated available budget information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated available budget stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailableBudget'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    operationId: deleteAvailableBudget
+    description: Delete an available budget. Not much more to say.
+    summary: Delete an available budget.
+    tags:
+      - available_budgets
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    responses:
+      '204':
+        description: Available budget deleted.
+      '404':
+      description: No such available budget

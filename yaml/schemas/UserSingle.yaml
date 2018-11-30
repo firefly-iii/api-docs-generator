@@ -1,0 +1,7 @@
+UserSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/User'
+    links:
+      $ref: '#/components/schemas/ObjectLink'

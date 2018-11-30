@@ -1,0 +1,164 @@
+/api/v1/tags:
+  get:
+    summary: List all tags.
+    description: List all tags.
+    operationId: getTags
+    tags:
+      - tags
+    parameters:
+      - in: query
+        name: page
+        description: Page number
+        required: false
+        schema:
+          type: integer
+      - in: query
+        name: include
+        style: form
+        explode: false
+        description: Comma-separated list of other items that are related to this tag and must be included as well.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            minItems: 1
+            enum:
+              - user
+    responses:
+      '200':
+        description: A list of tags
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Tag'
+  post:
+    summary: Store a new tag
+    description: Creates a new tag. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeTag
+    tags:
+      - tags
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TagUpdate'
+      description: "JSON array or key=value pairs with the necessary tag information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'New tag stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+/api/v1/tags/{id}:
+  get:
+    summary: Get a single tag.
+    description: Get a single tag.
+    operationId: getTag
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+      description: The tag ID
+    - in: query
+      name: page
+      description: Page number
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: include
+      style: form
+      explode: false
+      description: Comma-separated list of other items that are related to the tag and must be included as well.
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 1
+          enum:
+            - user
+    tags:
+      - tags
+    responses:
+      '200':
+        description: 'The requested tag'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      '404':
+        description: Tag not found
+  put:
+    operationId: updateTag
+    tags:
+      - tags
+    description: Update existing tag.
+    summary: Update existing tag.
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+      description: The tag ID
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TagUpdate'
+      description: JSON array with updated tag information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated tag stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    operationId: deleteTag
+    description: Delete an tag.
+    summary: Delete an tag.
+    tags:
+      - tags
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+      description: The tag ID
+    responses:
+      '204':
+        description: Tag deleted.
+      '404':
+        description: No such tag

@@ -1,0 +1,166 @@
+/api/v1/bills:
+  get:
+    summary: List all bills.
+    description: This endpoint will list all the user's bills.
+    operationId: getBills
+    tags:
+      - bills
+    parameters:
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of bills
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Bill'
+  post:
+    summary: Store a new bill
+    description: Creates a new bill. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeBill
+    tags:
+      - bills
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BillUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/BillUpdate'
+      description: "JSON array or key=value pairs with the necessary bill information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'New bill stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bill'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+/api/v1/bills/{id}:
+  get:
+    summary: Get a single bill.
+    description: Get a single bill.
+    operationId: getBill
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    tags:
+      - bills
+    responses:
+      '200':
+        description: 'The requested bill'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bill'
+      '404':
+        description: Bill not found
+  put:
+    operationId: updateBill
+    tags:
+      - bills
+    description: Update existing bill.
+    summary: Update existing bill.
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BillUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/BillUpdate'
+      description: JSON array or key=value pairs with updated bill information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated bill stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bill'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    operationId: deleteBill
+    description: Delete an bill. This will not delete any associated rules. Will not remove associated transactions. WILL remove all associated attachments.
+    summary: Delete an bill.
+    tags:
+      - bills
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    responses:
+      '204':
+        description: Bill deleted.
+      '404':
+      description: No such bill
+/api/v1/bills/{id}/attachments:
+  get:
+    summary: List all attachments uploaded to the bill.
+    description: This endpoint will list all attachments linked to the bill.
+    operationId: getAttachmentsByBill
+    tags:
+      - bills
+    parameters:
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of bills
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Bill'
+/api/v1/bills/{id}/rules:
+  get:
+    summary: List all rules associated with the bill.
+    description: This endpoint will list all rules that have an action to set the bill to this bill.
+    operationId: getRulesByBill
+    tags:
+      - bills
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    responses:
+      '200':
+        description: A list of rules
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Rule'
+/api/v1/bills/{id}/transactions:
+  get:
+    summary: List all transactions associated with the  bill.
+    description: This endpoint will list all transactions linked to this bill.
+    operationId: getTransactionsByBill
+    tags:
+      - bills
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('start_date', 2) }}
+{{ includeDefaultParameter('end_date', 2) }}
+{{ includeDefaultParameter('transaction_type', 2) }}
+    responses:
+      '200':
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transaction'

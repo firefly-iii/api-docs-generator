@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: Firefly III API
+  description: |
+    This is the official documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues.
+  version: "{{ version }}"
+  contact:
+    name: James Cole
+    email: thegrumpydictator@gmail.com
+    url: https://firefly-iii.org
+  license:
+    name: GPLv3
+    url: 'https://www.gnu.org/licenses/gpl-3.0.en.html'
+{% if tags != '' %}
+{{ tags }}
+{% endif %}
+{% if paths|length > 0 %}
+paths:
+{% for path in paths %}
+{{ path|raw }}
+{% endfor %}
+{% endif %}
+{% if schemas|length > 0 %}
+components:
+{% endif %}
+{% if schemas|length > 0 %}
+  schemas:
+{% for schema in schemas %}
+{{ schema|raw }}
+{% endfor %}
+{% endif %}

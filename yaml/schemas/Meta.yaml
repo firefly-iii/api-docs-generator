@@ -1,0 +1,21 @@
+Meta:
+  type: object
+  properties:
+    pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+          example: 3
+        count:
+          type: integer
+          example: 20
+        per_page:
+          type: integer
+          example: 100
+        current_page:
+          type: integer
+          example: 1
+        total_pages:
+          type: integer
+          example: 1

@@ -1,0 +1,51 @@
+
+/api/v1/preferences:
+  get:
+    summary: List all users preferences
+    description: List all prefs
+    operationId: getPreferences
+    tags:
+      - preferences
+    parameters:
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of preferences
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Preference'
+/api/v1/preferences/{id}:
+  put:
+    summary: Update preference
+    description: Update pref
+    operationId: updatePreference
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    tags:
+      - preferences
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PreferenceUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/PreferenceUpdate'
+      description: "JSON array or key=value pairs with the necessary piggy bank information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'Updated preference.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Preference'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'

@@ -1,0 +1,288 @@
+# list link types. Edit them.
+# list transactions for link type
+/api/v1/link_types:
+  get:
+    tags:
+      - links
+    summary: List all types of links.
+    description: |
+      List all the link types
+    operationId: getLinkTypes
+    parameters:
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    responses:
+      '200':
+        description: A list of link types
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LinkType'
+  post:
+    tags:
+      - links
+    summary: Create a new link type
+    operationId: storeLinkType
+    description: Creates a new link type. The data required can be submitted as a JSON body or as a list of parameters (in key=value pairs, like a webform).
+    responses:
+      '200':
+        description: 'New link type stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkType'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LinkTypeUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/LinkTypeUpdate'
+      description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
+      required: true
+/api/v1/link_types/{id}:
+  get:
+    tags:
+    - links
+    summary: Get single a link type.
+    description: |
+      Returns a single link type by its ID.
+    operationId: getLinkType
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the link type.
+    responses:
+      '200':
+        description: 'The requested link type'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkType'
+      '404':
+        description: Link type not found
+  put:
+    summary: Update existing link type.
+    description: |
+      Used to update a single link type. All fields that are not submitted will be cleared (set to NULL). The model will tell you which fields are mandatory.
+    operationId: updateLinkType
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the link type.
+    tags:
+      - links
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LinkTypeUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/LinkTypeUpdate'
+      description: JSON array or formdata with updated link type information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated link type stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkType'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    summary: Permanently delete link type.
+    description: |
+      Will permanently delete a link type. The links between transactions will be removed. The transactions themselves remain.
+    operationId: deleteLinkType
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the link type.
+    tags:
+      - links
+    responses:
+      '204':
+        description: Link type deleted
+      '404':
+        description: No such link type
+/api/v1/link_types/{id}/transactions:
+  get:
+    tags:
+      - links
+    summary: List all transactions under this link type.
+    description: |
+      List all transactions under this link type.
+    operationId: getTransactionsByLinkType
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the link type.
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    - in: query
+      name: start_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-09-17
+    - in: query
+      name: end_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-12-31
+    - in: query
+      name: type
+      description: Optional filter on the transaction type(s) returned.
+      required: false
+      schema:
+        type: string
+        enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
+    responses:
+      '200':
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transaction'
+/api/v1/transaction_links:
+  get:
+    tags:
+      - links
+    summary: List all transaction links
+    description: |
+      List all the transaction links
+    operationId: getLinks
+    parameters:
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    responses:
+      '200':
+        description: A list of transaction links
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TransactionLink'
+/api/v1/transaction_links/{id}:
+  post:
+    tags:
+    - links
+    summary: Submit a new link between two transactions under this link type.
+    description: |
+      Submit a new link between two transactions under this link type.
+    operationId: storeNewLink
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the link type.
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TransactionLinkSubmission'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TransactionLinkSubmission'
+      description: JSON array with the necessary info to create a new link between transactions, or key=value pairs. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'New link stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionLink'
+      '404':
+        description: 'Link type not found, either transaction not found.'
+  delete:
+    summary: Permanently delete link between transactions.
+    description: |
+      Will permanently delete link. Transactions remain
+    operationId: deleteLink
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the transaction link.
+    tags:
+      - links
+    responses:
+      '204':
+        description: Transaction link deleted
+      '404':
+        description: No such transaction link

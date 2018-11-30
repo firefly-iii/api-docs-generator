@@ -1,0 +1,264 @@
+/api/v1/currencies:
+  get:
+    summary: List all currencies.
+    description: List all currencies.
+    operationId: getCurrencies
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of currencies
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Currency'
+  post:
+    summary: Store a new currency
+    description: Creates a new currency. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeCurrency
+    tags:
+      - currencies
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/CurrencyUpdate'
+      description: "JSON array or key=value pairs with the necessary currency information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'New currency stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Currency'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+/api/v1/currencies/{id}:
+  get:
+    summary: Get a single currency.
+    description: Get a single currency.
+    operationId: getCurrency
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    tags:
+      - currencies
+    responses:
+      '200':
+        description: 'The requested currency'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Currency'
+      '404':
+        description: Currency not found
+  put:
+    operationId: updateCurrency
+    tags:
+      - currencies
+    description: Update existing currency.
+    summary: Update existing currency.
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/CurrencyUpdate'
+      description: JSON array with updated currency information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated currency stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Currency'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    operationId: deleteCurrency
+    description: Delete an currency.
+    summary: Delete an currency.
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+    responses:
+      '204':
+        description: Currency deleted.
+      '404':
+        description: No such currency
+/api/v1/currencies/{id}/accounts:
+  get:
+    summary: List all accounts with this currency.
+    description: List all accounts with this currency.
+    operationId: getAccountsByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of accounts
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Accounts'
+/api/v1/currencies/{id}/available_budgets:
+  get:
+    summary: List all available budgets with this currency.
+    description: List all available budgets with this currency.
+    operationId: getAvailableBudgetsByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of available budgets
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AvailableBudget'
+/api/v1/currencies/{id}/bills:
+  get:
+    summary: List all bills with this currency.
+    description: List all bills with this currency.
+    operationId: getBillsByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of bills
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Bill'
+/api/v1/currencies/{id}/budget_limits:
+  get:
+    summary: List all budget limits with this currency
+    description: List all budget limits with this currency
+    operationId: getBudgetLimitsByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of budget limits
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/BudgetLimit'
+/api/v1/currencies/{id}/cer:
+  get:
+    summary: List all known exchange rates with (from or to) this currency.
+    description: List all known exchange rates.
+    operationId: getExchangeRatesByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of exchange rates
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ExchangeRate'
+/api/v1/currencies/{id}/recurrences:
+  get:
+    summary: List all recurring transactions with this currency.
+    description: List all recurring transactions with this currency.
+    operationId: getRecurrencesByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of recurring transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recurring'
+/api/v1/currencies/{id}/rules:
+  get:
+    summary: List all rules with this currency.
+    description: List all rules with this currency.
+    operationId: getRulesByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+    responses:
+      '200':
+        description: A list of rules with this currency
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Rule'
+/api/v1/currencies/{id}/transactions:
+  get:
+    summary: List all transactions with this currency.
+    description: List all transactions with this currency.
+    operationId: getTransactionsByCurrency
+    tags:
+      - currencies
+    parameters:
+{{ includeDefaultParameter('id', 2) }}
+{{ includeDefaultParameter('page', 2) }}
+{{ includeDefaultParameter('start_date', 2) }}
+{{ includeDefaultParameter('end_date', 2) }}
+{{ includeDefaultParameter('transaction_type', 2) }}
+    responses:
+      '200':
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transaction'

@@ -1,0 +1,28 @@
+SystemInfo:
+  required:
+    - data
+  properties:
+    data:
+      required:
+        - version
+        - api_version
+        - php_version
+        - os
+        - driver
+      properties:
+        version:
+          type: string
+          example: 4.7.1
+        api_version:
+          type: string
+          example: '0.1'
+        php_version:
+          type: string
+          example: 7.1.13-1
+        os:
+          type: string
+          example: Linux vagrant-ubuntu-trusty-64
+        driver:
+          type: string
+          example: mysql
+      type: object

@@ -1,0 +1,15 @@
+ObjectLink:
+  type: object
+  properties:
+    0:
+      type: object
+      properties:
+        rel:
+          type: string
+          example: "self"
+        uri:
+          type: string
+          example: "/OBJECTS/1"
+    self:
+      type: string
+      example: "https://demo.firefly-iii.org/api/v1/OBJECTS/1"

@@ -1,0 +1,12 @@
+PageLink:
+  type: object
+  properties:
+    self:
+      type: string
+      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=4"
+    first:
+      type: string
+      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=1"
+    last:
+      type: string
+      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"

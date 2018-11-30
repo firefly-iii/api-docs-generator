@@ -1,0 +1,23 @@
+Rule:
+  type: object
+  properties:
+    type:
+      type: string
+      format: string
+      example: "defaults"
+      description: "Immutable value"
+    id:
+      type: integer
+      format: integer
+      example: 2
+    attributes:
+      type: object
+      properties:
+        updated_at:
+          type: string
+          format: atomDateString
+          example: "2018-11-25T12:46:47+01:00"
+        created_at:
+          type: string
+          format: atomDateString
+          example: "2018-11-25T12:46:47+01:00"

@@ -1,0 +1,40 @@
+/api/v1/configuration:
+  get:
+    summary: Get Firefly III system configuration.
+    description: Get system configuration
+    operationId: getConfiguration
+    tags:
+      - configuration
+    responses:
+      '200':
+        description: System configuration
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Configuration'
+  post:
+    tags:
+      - configuration
+    summary: Update configuration
+    operationId: setConfiguration
+    description: Set a single config file.
+    responses:
+      '200':
+        description: 'New config stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Configuration'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+    requestBody:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/ConfigurationUpdate'
+      description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
+      required: true

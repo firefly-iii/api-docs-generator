@@ -1,0 +1,134 @@
+/api/v1/users:
+  get:
+    summary: List all users.
+    description: List all the users in this instance of Firefly III.
+    operationId: getUsers
+    tags:
+      - users
+    parameters:
+    - in: query
+      name: page
+      description: The page number, if necessary. The default pagination is 50, so 50 users per page.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    responses:
+      '200':
+        description: A list of users!
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserArray'
+  post:
+    summary: Store a new user
+    description: |
+        Creates a new user. The data required can be submitted as a JSON body or as a list of parameters. The user will be given a random password, which they can reset using the "forgot password" function.
+    operationId: storeUser
+    tags:
+      - users
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/UserUpdate'
+      description: "JSON array or key=value pairs with the necessary user information. See the model for the exact specifications."
+      required: true
+    responses:
+      '200':
+        description: 'New user stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSingle'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+/api/v1/users/{id}:
+  get:
+    summary: Get a single user.
+    description: Gets all info of a single user.
+    operationId: getUser
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The user ID.
+    tags:
+      - users
+    responses:
+      '200':
+        description: 'The requested user.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSingle'
+      '404':
+        description: User not found.
+  put:
+    operationId: updateUser
+    tags:
+      - users
+    description: Update existing user.
+    summary: Update an existing user's information.
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The user ID.
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/UserUpdate'
+      description: JSON array with updated user information. See the model for the exact specifications.
+      required: true
+    responses:
+      '200':
+        description: 'Updated user stored, result in response'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSingle'
+      '422':
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+  delete:
+    operationId: deleteUser
+    description: Delete a user. You cannot delete the current user.
+    summary: Delete an user.
+    tags:
+      - users
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The user ID.
+    responses:
+      '204':
+        description: User deleted.
+      '404':
+        description: No such user.
+      '500':
+        description: Error when deleting, or when it is the currently authenticated user.
