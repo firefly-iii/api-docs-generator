@@ -1,0 +1,120 @@
+TransactionUpdate:
+  type: object
+  required:
+    - email
+    - blocked
+  properties:
+    type:
+      type: string
+      format: string
+      description: Type of transaction
+      enum:
+      - withdrawal
+      - transfer
+      - deposit
+    description:
+      type: string
+      format: string
+    date:
+      type: string
+      format: date
+      example: "2018-09-17"
+    piggy_bank_id:
+      type: integer
+      format: int32
+      description: Optional. Use either this or the piggy_bank_name
+    piggy_bank_name:
+      type: string
+      format: string
+      description: Optional. Use either this or the piggy_bank_id
+    bill_id:
+      type: integer
+      format: int32
+      description: Optional. Use either this or the bill_name
+    bill_name:
+      type: string
+      format: string
+      description: Optional. Use either this or the bill_id
+    tags:
+      type: string
+      format: string
+      description: Comma-separated list of tags.
+      example: "some,tags,here"
+    notes:
+      type: string
+      format: string
+    reconciled:
+      type: boolean
+      format: boolean
+      example: false
+    sepa_cc:
+      type: string
+      format: string
+      nullable: true
+      description: SEPA Clearing Code
+    sepa_ct_op:
+      type: string
+      format: string
+      description: SEPA Opposing Account Identifier
+    sepa_ct_id:
+      type: string
+      format: string
+      nullable: true
+      description: SEPA end-to-end Identifier
+    sepa_db:
+      type: string
+      format: string
+      nullable: true
+      description: SEPA mandate identifier
+    sepa_country:
+      type: string
+      nullable: true
+      format: string
+      description: SEPA Country
+    sepa_ep:
+      type: string
+      nullable: true
+      format: string
+      description: SEPA External Purpose indicator
+    sepa_ci:
+      type: string
+      nullable: true
+      description: SEPA Creditor Identifier
+    sepa_batch_id:
+      type: string
+      nullable: true
+      description: SEPA Batch ID
+    interest_date:
+      type: string
+      format: date
+      nullable: true
+    book_date:
+      type: string
+      format: date
+      nullable: true
+    process_date:
+      type: string
+      format: date
+      nullable: true
+    due_date:
+      type: string
+      format: date
+      nullable: true
+    payment_date:
+      type: string
+      format: date
+      nullable: true
+    invoice_date:
+      type: string
+      format: date
+      nullable: true
+    internal_reference:
+      type: string
+      format: string
+      nullable: true
+      description: Reference to internal reference of other systems.
+    external_id:
+      type: string
+      nullable: true
+      format: string
+      description: Reference to internal reference of other systems.

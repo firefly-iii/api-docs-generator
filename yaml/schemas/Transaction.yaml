@@ -3,5 +3,300 @@ Transaction:
   required:
     - name
   properties:
-    name:
+    type:
       type: string
+      format: string
+      example: "transactions"
+      description: "Immutable value indicating the object type."
+    id:
+      type: integer
+      format: int32
+      example: 2
+    attributes:
+      type: object
+      properties:
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-11-25T12:46:47+01:00"
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-11-25T12:46:47+01:00"
+        description:
+          type: string
+          format: string
+          example: "Shopping for groceries"
+        transaction_description:
+          type: string
+          format: string
+          example: "Shopping for groceries"
+          nullable: true
+        date:
+          type: string
+          format: date
+          example: "2018-11-28"
+        type:
+          type: string
+          format: string
+          example:  "Withdrawal"
+          enum:
+          - Withdrawal
+          - Expense
+          - Transfer
+          - Opening balance
+          - Reconciliation
+        identifier:
+          type: integer
+          format: int32
+          example: 0
+        journal_id:
+          type: integer
+          format: int32
+          example: 10421
+        reconciled:
+          type: boolean
+          format: boolean
+          example: false
+        amount:
+          type: number
+          format: double
+          example:  -12.85
+        currency_id:
+          type: integer
+          format: int32
+          example: 5
+        currency_code:
+          type: string
+          format: string
+          example: "EUR"
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_dp:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of decimals used in this currency.
+        foreign_amount:
+          type: number
+          format: double
+          example: -19.32
+          nullable: true
+        foreign_currency_id:
+          type: integer
+          format: int32
+          nullable: true
+        foreign_currency_code:
+          type: string
+          format: string
+          nullable: true
+        foreign_currency_symbol:
+          type: string
+          format: string
+          nullable: true
+        foreign_currency_dp:
+          type: integer
+          format: int32
+          nullable: true
+        bill_id:
+          type: integer
+          format: int32
+          nullable: true
+          example: 111
+        bill_name:
+          type: string
+          format: string
+          example: "Monthly rent"
+          nullable: true
+        category_id:
+          type: integer
+          example: 5
+          format: int32
+          nullable: true
+        category_name:
+          type: string
+          format: string
+          example: "Daily groceries"
+          nullable: true
+        budget_id:
+          type: integer
+          format: int32
+          example: 15
+          nullable: true
+        budget_name:
+          type: string
+          format: string
+          example: "Monthly bills"
+          nullable: true
+        notes:
+          type: string
+          format: string
+          example: "Some example notes"
+          nullable: true
+        source_id:
+          type: integer
+          format: int32
+          example: 131
+        source_name:
+          type: string
+          format: string
+          example: "My checking account"
+        source_iban:
+          type: string
+          format: string
+          example: "NL02ABNA0123456789"
+          nullable: true
+        source_type:
+          type: string
+          format: string
+          example: "Asset account"
+          enum:
+          - Default account
+          - Cash account
+          - Asset account
+          - Expense account
+          - Revenue account
+          - Initial balance account
+          - Beneficiary account
+          - Import account
+          - Reconciliation account
+          - Loan
+          - Debt
+          - Mortgage
+          - Credit card
+        destination_id:
+          type: integer
+          format: int32
+          example: 3513
+        destination_name:
+          type: string
+          format: string
+          example: "My local gym"
+        destination_iban:
+          type: string
+          format: string
+          example: "NL02ABNA0123456789"
+          nullable: true
+        destination_type:
+          type: string
+          format: string
+          example: "Asset account"
+          enum:
+          - Default account
+          - Cash account
+          - Asset account
+          - Expense account
+          - Revenue account
+          - Initial balance account
+          - Beneficiary account
+          - Import account
+          - Reconciliation account
+          - Loan
+          - Debt
+          - Mortgage
+          - Credit card
+        sepa_cc:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA Clearing Code
+        sepa_ct_op:
+          type: string
+          format: string
+          description: SEPA Opposing Account Identifier
+        sepa_ct_id:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA end-to-end Identifier
+        sepa_db:
+          type: string
+          format: string
+          nullable: true
+          description: SEPA mandate identifier
+        sepa_country:
+          type: string
+          nullable: true
+          format: string
+          description: SEPA Country
+        sepa_ep:
+          type: string
+          nullable: true
+          format: string
+          description: SEPA External Purpose indicator
+        sepa_ci:
+          type: string
+          nullable: true
+          description: SEPA Creditor Identifier
+        sepa_batch_id:
+          type: string
+          nullable: true
+          description: SEPA Batch ID
+        interest_date:
+          type: string
+          format: date
+          nullable: true
+        book_date:
+          type: string
+          format: date
+          nullable: true
+        process_date:
+          type: string
+          format: date
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        payment_date:
+          type: string
+          format: date
+          nullable: true
+        invoice_date:
+          type: string
+          format: date
+          nullable: true
+        internal_reference:
+          type: string
+          format: string
+          nullable: true
+          description: Reference to internal reference of other systems.
+        bunq_payment_id:
+          type: string
+          nullable: true
+          format: string
+          description: Internal ID of bunq transaction.
+        importHash:
+          type: string
+          nullable: true
+          format: string
+          description: Deprecated format of import hash (for duplicate detection).
+          deprecated: true
+        importHashV2:
+          type: string
+          nullable: true
+          format: string
+          description: Hash value of original import transaction (for duplicate detection).
+        recurrence_id:
+          type: integer
+          nullable: true
+          format: int32
+          description: Reference to recurrence that made the transaction.
+        external_id:
+          type: string
+          nullable: true
+          format: string
+          description: Reference to internal reference of other systems.
+        original_source:
+          type: string
+          nullable: true
+          format: string
+          description: System generated identifier for original creator of transaction.
+        tags:
+          type: string
+          nullable: true
+          format: string
+          example: "some,tags,here"
+          description: Comma separated list of tags.
