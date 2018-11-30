@@ -42,7 +42,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RuleGroup'
+              $ref: '#/components/schemas/RuleGroupSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -159,7 +159,7 @@
       required: false
       schema:
         type: string
-        example: 2018-12-31
+        example: 2018-09-17
     - in: query
       name: search_limit
       description: |
@@ -245,7 +245,7 @@
       required: false
       schema:
         type: string
-        example: 2018-12-31
+        example: 2018-09-17
         format: date
     - in: query
       name: search_limit

@@ -41,7 +41,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/TagSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -88,7 +88,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/TagSingle'
       '404':
         description: Tag not found
   put:
@@ -121,7 +121,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/TagSingle'
       '422':
         description: 'Validation errors (see body)'
         content:

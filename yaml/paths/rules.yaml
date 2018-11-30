@@ -42,7 +42,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Rule'
+              $ref: '#/components/schemas/RuleSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -70,7 +70,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Rule'
+              $ref: '#/components/schemas/RuleSingle'
       '404':
         description: Rule not found
   put:
@@ -103,7 +103,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Rule'
+              $ref: '#/components/schemas/RuleSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -123,7 +123,7 @@
       schema:
         type: integer
         example: 1
-      description: The ID of the object.X
+      description: The ID of the rule.
     responses:
       '204':
         description: Rule deleted.
@@ -159,7 +159,7 @@
       required: false
       schema:
         type: string
-        example: 2018-12-31
+        example: 2018-09-17
     - in: query
       name: search_limit
       description: |
@@ -223,7 +223,7 @@
       required: false
       schema:
         type: string
-        example: 2018-12-31
+        example: 2018-09-17
         format: date
     - in: query
       name: search_limit
