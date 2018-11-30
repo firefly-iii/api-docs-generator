@@ -18,9 +18,7 @@
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/TagArray'
+              $ref: '#/components/schemas/TagArray'
   post:
     summary: Store a new tag
     description: Creates a new tag. The data required can be submitted as a JSON body or as a list of parameters.

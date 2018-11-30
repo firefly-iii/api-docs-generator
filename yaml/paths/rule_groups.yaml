@@ -19,9 +19,7 @@
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/RuleGroupArray'
+              $ref: '#/components/schemas/RuleGroupArray'
   post:
     summary: Store a new rule group.
     description: Creates a new rule group. The data required can be submitted as a JSON body or as a list of parameters.
@@ -192,9 +190,7 @@
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/TransactionArray'
+              $ref: '#/components/schemas/TransactionArray'
 /api/v1/rule_groups/{id}/rules:
   get:
     summary: List rules in this rule group.
@@ -216,9 +212,7 @@
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/RuleArray'
+              $ref: '#/components/schemas/RuleArray'
 /api/v1/rule_groups/{id}/trigger:
   post:
     summary: Fire the rule group on your transactions.
@@ -283,6 +277,4 @@
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/TransactionArray'
+              $ref: '#/components/schemas/TransactionArray'
