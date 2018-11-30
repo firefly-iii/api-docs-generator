@@ -1,7 +1,7 @@
 /api/v1/tags:
   get:
     summary: List all tags.
-    description: List all tags.
+    description: List all of the user's tags.
     operationId: getTags
     tags:
       - tags
@@ -12,19 +12,6 @@
         required: false
         schema:
           type: integer
-      - in: query
-        name: include
-        style: form
-        explode: false
-        description: Comma-separated list of other items that are related to this tag and must be included as well.
-        required: false
-        schema:
-          type: array
-          items:
-            type: string
-            minItems: 1
-            enum:
-              - user
     responses:
       '200':
         description: A list of tags
@@ -33,7 +20,7 @@
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Tag'
+                $ref: '#/components/schemas/TagArray'
   post:
     summary: Store a new tag
     description: Creates a new tag. The data required can be submitted as a JSON body or as a list of parameters.

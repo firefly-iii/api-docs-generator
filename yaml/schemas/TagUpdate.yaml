@@ -1,0 +1,33 @@
+TagUpdate:
+  type: object
+  required:
+    - tag
+  properties:
+    tag:
+      type: string
+      format: string
+      description: The new tag
+      example: "your-new-tag"
+    date:
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: Date to which the new tag applies.
+    description:
+      type: string
+      format: string
+      description: The new description.
+    latitude:
+      type: string
+      format: string
+      example: "51.983333"
+      description: New latitude of the tag.
+    longitude:
+      type: string
+      format: string
+      example: "5.916667"
+      description: New longitude of the tag.
+    zoom_level:
+      type: string
+      format: string
+      description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."

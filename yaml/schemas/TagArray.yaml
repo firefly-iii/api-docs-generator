@@ -1,0 +1,11 @@
+TagArray:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+    meta:
+      $ref: '#/components/schemas/Meta'
+    links:
+      $ref: '#/components/schemas/PageLink'
