@@ -8,16 +8,16 @@ Rule:
       description: "Immutable value"
     id:
       type: integer
-      format: integer
+      format: int32
       example: 2
     attributes:
       type: object
       properties:
         updated_at:
           type: string
-          format: atomDateString
+          format: date-time
           example: "2018-11-25T12:46:47+01:00"
         created_at:
           type: string
-          format: atomDateString
+          format: date-time
           example: "2018-11-25T12:46:47+01:00"
