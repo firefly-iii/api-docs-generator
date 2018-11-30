@@ -4,7 +4,7 @@ declare(strict_types=1);
 $version     = '0.0.1-test';
 $destination = '/sites/FF3/api-docs';
 
-define('ROOT', '/sites/projects/api-doc-generator');
+define('ROOT', '/sites/FF3/api-docs-generator');
 
 $tags = [
     'about'                   => 'General system information, versions, and the currently logged in user.',
@@ -25,9 +25,9 @@ $tags = [
     'recurrences'             => 'Manage the user\'s recurring transactions, trigger the creation of transactions and manage the settings.',
     'rules'                   => 'Manage all of the user\'s rules and trigger the execution of rules.',
     'rule_groups'             => 'Manage all of the user\'s groups of rules and trigger the execution of entire groups.',
-    'transactions'            => 'Manage all the user\'s transactions.',
     'search'                  => 'Search through the user\'s financial data.',
     'tags'                    => 'Manage all the user\'s tags.',
+    'transactions'            => 'Manage all the user\'s transactions.',
     'users'                   => 'Manage the users registered within Firefly III.',
 ];
 
