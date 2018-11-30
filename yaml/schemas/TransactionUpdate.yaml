@@ -117,4 +117,4 @@ TransactionUpdate:
       type: string
       nullable: true
       format: string
-      description: Reference to internal reference of other systems.
+      description: Reference to external ID in other systems.
