@@ -1,0 +1,5 @@
+LinkTypeSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/LinkType'

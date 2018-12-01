@@ -1,0 +1,5 @@
+TransactionLinkSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/TransactionLink'

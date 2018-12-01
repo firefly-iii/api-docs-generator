@@ -1,0 +1,33 @@
+LinkType:
+  type: object
+  properties:
+    type:
+      type: string
+      format: string
+      example: "link_types"
+      description: "Immutable value"
+    id:
+      type: integer
+      format: int32
+      example: 2
+    attributes:
+      type: object
+      properties:
+        name:
+          type: string
+          format: string
+          example: "Paid"
+        outward:
+          type: string
+          format: string
+          example: "(partially) pays for"
+        inward:
+          type: string
+          format: string
+          example: "is (partially) paid for by"
+        editable:
+          type: boolean
+          format: boolean
+          example: false
+    links:
+      $ref: '#/components/schemas/ObjectLink'
