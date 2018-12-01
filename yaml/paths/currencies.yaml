@@ -6,7 +6,13 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('page', 2) }}
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of currencies
@@ -51,7 +57,13 @@
     description: Get a single currency.
     operationId: getCurrency
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
     tags:
       - currencies
     responses:
@@ -70,7 +82,13 @@
     description: Update existing currency.
     summary: Update existing currency.
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
     requestBody:
       content:
         application/json:
@@ -101,7 +119,13 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
     responses:
       '204':
         description: Currency deleted.
@@ -115,8 +139,20 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of accounts
@@ -134,8 +170,20 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of available budgets
@@ -153,8 +201,20 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of bills
@@ -172,8 +232,20 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of budget limits
@@ -191,8 +263,20 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of exchange rates
@@ -210,8 +294,20 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of recurring transactions
@@ -229,8 +325,20 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of rules with this currency
@@ -248,11 +356,57 @@
     tags:
       - currencies
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('page', 2) }}
-{{ includeDefaultParameter('start_date', 2) }}
-{{ includeDefaultParameter('end_date', 2) }}
-{{ includeDefaultParameter('transaction_type', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the object.X
+    - in: query
+      name: page
+      description: Page number. The default pagination is per 50 items. X
+      required: false
+      schema:
+        type: integer
+        example: 1
+    - in: query
+      name: start_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-09-17
+    - in: query
+      name: end_date
+      description: |
+        A date formatted YYYY-MM-DD. X
+      required: false
+      schema:
+        type: string
+        example: 2018-12-31
+    - in: query
+      name: type
+      description: Optional filter on the transaction type(s) returned
+      required: false
+      schema:
+        type: string
+        enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
     responses:
       '200':
         description: A list of transactions
