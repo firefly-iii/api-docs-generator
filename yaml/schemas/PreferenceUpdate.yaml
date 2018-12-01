@@ -1,7 +1,10 @@
 PreferenceUpdate:
   type: object
   required:
-    - name
+    - data
   properties:
-    name:
+    data:
       type: string
+      format: string
+      example: EUR
+      description: "This field can also be an array"

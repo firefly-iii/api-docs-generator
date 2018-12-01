@@ -1,0 +1,5 @@
+PreferenceSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/Preference'

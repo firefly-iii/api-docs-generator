@@ -1,29 +1,38 @@
-
 /api/v1/preferences:
   get:
-    summary: List all users preferences
-    description: List all prefs
+    summary: List all users preferences.
+    description: List all preferences of the user.
     operationId: getPreferences
     tags:
       - preferences
     parameters:
-{{ includeDefaultParameter('page', 2) }}
+    - in: query
+      name: page
+      description: Page number. The default pagination is 50.
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
-        description: A list of preferences
+        description: A list of preferences.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Preference'
-/api/v1/preferences/{id}:
+              $ref: '#/components/schemas/PreferenceArray'
+/api/v1/preferences/{name}:
   put:
     summary: Update preference
-    description: Update pref
+    description: Update a user's preference.
     operationId: updatePreference
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: name
+      required: true
+      schema:
+        type: string
+        example: currencyPreference
+      description: The name of the preference. Will always overwrite. Will be created if it does not exist.
     tags:
       - preferences
     requestBody:
@@ -42,7 +51,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Preference'
+              $ref: '#/components/schemas/PreferenceSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
