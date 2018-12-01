@@ -1,9 +1,93 @@
 PiggyBank:
   type: object
-  required:
-    - name
   properties:
-    name:
+    type:
       type: string
+      format: string
+      example: "piggy_banks"
+      description: "Immutable value"
+    id:
+      type: integer
+      format: int32
+      example: 2
+    attributes:
+      type: object
+      properties:
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        account_id:
+          type: integer
+          format: int32
+          example: 13
+          description: The ID of the asset account this piggy bank is connected to.
+        name:
+          type: string
+          format: string
+          example: "New digital camera"
+        currency_id:
+          type: integer
+          format: int32
+          example: 5
+        currency_code:
+          type: string
+          format: string
+          example: "USD"
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_dp:
+          type: int
+          format: int32
+          example: 2
+          description: Number of decimals supported by the currency
+        target_amount:
+          type: number
+          format: double
+          example: 800
+        percentage:
+          type: number
+          format: float
+          example: 12.5
+        current_amount:
+          type: number
+          format: double
+          example: 100
+        left_to_save:
+          type: number
+          format: double
+          example: 700
+        save_per_month:
+          type: number
+          format: double
+          example: 12.45
+        start_date:
+          type: string
+          format: date
+          example: "2017-09-17"
+          description: The date you started with this piggy bank.
+        target_date:
+          type: string
+          format: date
+          example: "2019-09-17"
+          description: The date you intend to finish saving money.
+        order:
+          type: integer
+          format: int32
+          example: 5
+        active:
+          type: boolean
+          format: boolean
+          example: true
+        notes:
+          type: string
+          format: string
+          example: "These are some notes"
     links:
       $ref: '#/components/schemas/ObjectLink'
