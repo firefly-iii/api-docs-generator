@@ -15,13 +15,11 @@
     summary: List al imports
     responses:
       '200':
-        description: A list of imports
+        description: A list of import jobs.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/ImportJob'
+              $ref: '#/components/schemas/ImportJobArray'
 /api/v1/import/{key}:
   get:
     description: Show info on single import.
@@ -43,7 +41,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ImportJob'
+              $ref: '#/components/schemas/ImportJobSingle'
       '404':
         description: Import job not found
 /api/v1/import/{key}/transactions:
@@ -64,7 +62,7 @@
       description: The key of the import job
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items.
+      description: Page number. The default pagination is 50.
       required: false
       schema:
         type: integer
@@ -72,7 +70,7 @@
     - in: query
       name: start_date
       description: |
-        A date formatted YYYY-MM-DD. X
+        A date formatted YYYY-MM-DD. This is the start date of the selected range (inclusive).
       required: false
       schema:
         type: string
@@ -80,7 +78,7 @@
     - in: query
       name: end_date
       description: |
-        A date formatted YYYY-MM-DD. X
+        A date formatted YYYY-MM-DD. This is the end date of the selected range (inclusive).
       required: false
       schema:
         type: string
@@ -108,14 +106,13 @@
         - default
     responses:
       '200':
-        description: A list of transactions
+        description: A list of transactions.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Transaction'
+              $ref: '#/components/schemas/TransactionArray'
 
+# TODO
 # upload import file.
 # Download used config file
 # set config value for provider

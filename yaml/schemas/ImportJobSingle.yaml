@@ -1,0 +1,5 @@
+ImportJobSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/ImportJob'
