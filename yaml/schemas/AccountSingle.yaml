@@ -1,0 +1,5 @@
+AccountSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/Account'

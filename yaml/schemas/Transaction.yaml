@@ -165,7 +165,6 @@ Transaction:
           - Loan
           - Debt
           - Mortgage
-          - Credit card
         destination_id:
           type: integer
           format: int32
@@ -196,7 +195,6 @@ Transaction:
           - Loan
           - Debt
           - Mortgage
-          - Credit card
         sepa_cc:
           type: string
           format: string
