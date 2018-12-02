@@ -1,10 +1,13 @@
 <?php
 declare(strict_types=1);
 
-$version     = '0.9.0';
-$destination = '/sites/FF3/api-docs';
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
-define('ROOT', '/sites/FF3/api-docs-generator');
+$version     = getenv('API_VERSION');
+$destination = getenv('API_DESTINATION');
+
+define('ROOT', getenv('API_ROOT'));
 
 $tags = [
     'about'                   => 'General system information, versions, and the currently logged in user.',
