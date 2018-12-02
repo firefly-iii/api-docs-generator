@@ -2,6 +2,17 @@ ConfigurationUpdate:
   type: object
   required:
     - name
+    - value
   properties:
     name:
       type: string
+      format: string
+      example: "permission_update_check"
+      enum:
+      - is_demo_site
+      - permission_update_check
+      - single_user_mode.
+    value:
+      type: string
+      format: string
+      example: "1"

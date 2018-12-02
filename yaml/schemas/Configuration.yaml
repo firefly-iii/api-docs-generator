@@ -1,7 +1,28 @@
 Configuration:
   type: object
-  required:
-    - name
   properties:
-    name:
-      type: string
+    data:
+      type: object
+      properties:
+        is_demo_site:
+          type: boolean
+          format: boolean
+          example: true
+        permission_update_check:
+          type: integer
+          format: int32
+          example: -1
+          description: |
+            If the user has given permission to check for updates.
+            - -1 = never asked.
+            - 0 = no permission.
+            - 1 = permission
+        last_update_check:
+          type: string
+          format: date-time
+          example: "2018-11-25T12:46:47+01:00"
+        single_user_mode:
+          type: boolean
+          format: boolean
+          example: true
+          description: Whether other users can register.

@@ -33,7 +33,6 @@ Account:
         name:
           type: string
           example: "My Checking Account"
-
         active:
           type: boolean
           example: true
