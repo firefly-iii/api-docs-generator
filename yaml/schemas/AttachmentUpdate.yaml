@@ -2,6 +2,8 @@ AttachmentUpdate:
   type: object
   required:
     - filename
+    - model
+    - model_id
   properties:
     filename:
       type: string
