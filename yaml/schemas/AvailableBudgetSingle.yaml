@@ -1,0 +1,5 @@
+AvailableBudgetSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/AvailableBudget'

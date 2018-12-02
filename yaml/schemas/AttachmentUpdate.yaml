@@ -1,7 +1,31 @@
 AttachmentUpdate:
   type: object
   required:
-    - name
+    - filename
   properties:
-    name:
+    filename:
       type: string
+      format: string
+      example: "file.pdf"
+    model:
+      type: string
+      format: string
+      example: "Bill"
+      description: The object class to which the attachment must be linked.
+      enum:
+      - Bill
+      - Attachment
+      - Transaction
+      - ImportJob
+    model_id:
+      type: integer
+      format: int32
+      example: 134
+    title:
+      type: string
+      format: string
+      example: "Some PDF file"
+    notes:
+      type: string
+      format: string
+      example: "Some notes"

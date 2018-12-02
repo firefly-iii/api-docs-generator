@@ -7,18 +7,22 @@
     tags:
       - attachments
     parameters:
-{{ includeDefaultParameter('page', 2) }}
+    - in: query
+      name: page
+      description: Page number. The default pagination is 50.
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of attachments.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Attachment'
+              $ref: '#/components/schemas/AttachmentArray'
   post:
-    summary: Store a new attachment
+    summary: Store a new attachment.
     description: |
       Creates a new attachment. The data required can be submitted as a JSON body or as a list of parameters. You cannot use this endpoint to upload the actual file data (see below). This endpoint only creates the attachment object.
     operationId: storeAttachment
@@ -40,7 +44,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Attachment'
+              $ref: '#/components/schemas/AttachmentSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -54,7 +58,13 @@
       Get a single attachment. This endpoint only returns the available metadata for the attachment. Actual file data is handled in two other endpoints (see below).
     operationId: getAttachment
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the attachment.
     tags:
       - attachments
     responses:
@@ -63,7 +73,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Attachment'
+              $ref: '#/components/schemas/AttachmentSingle'
       '404':
         description: Attachment not found
   put:
@@ -74,7 +84,13 @@
     description: |
       Update the meta data for an existing attachment. This endpoint does not allow you to upload or download data. For that, see below.
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the attachment.
     requestBody:
       content:
         application/json:
@@ -91,7 +107,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Attachment'
+              $ref: '#/components/schemas/AttachmentSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -106,7 +122,13 @@
     tags:
       - attachments
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the single.
     responses:
       '204':
         description: Attachment deleted.
@@ -119,7 +141,13 @@
       This endpoint allows you to download the binary content of a transaction. It will be sent to you as a download, using the content type "application/octet-stream" and content disposition "attachment; filename=example.pdf".
     operationId: downloadAttachment
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the attachment.
     tags:
       - attachments
     responses:
@@ -139,7 +167,13 @@
       Use this endpoint to upload (and possible overwrite) the file contents of an attachment. Simply put the entire file in the body as binary data.
     operationId: uploadAttachment
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the attachment.
     tags:
       - attachments
     responses:
