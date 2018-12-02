@@ -8,20 +8,18 @@
     parameters:
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is 50.
       required: false
       schema:
         type: integer
         example: 1
     responses:
       '200':
-        description: A list of currencies
+        description: A list of currencies.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Currency'
+              $ref: '#/components/schemas/CurrencyArray'
   post:
     summary: Store a new currency
     description: Creates a new currency. The data required can be submitted as a JSON body or as a list of parameters.
@@ -44,26 +42,64 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Currency'
+              $ref: '#/components/schemas/CurrencySingle'
       '422':
         description: 'Validation errors (see body)'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/currencies/{id}:
+/api/v1/currencies/{code}/enable:
+  post:
+    summary: Enable a single currency.
+    description: Enable a single currency.
+    operationId: enableCurrency
+    tags:
+      - currencies
+    parameters:
+    - in: path
+      name: code
+      required: true
+      schema:
+        type: string
+        example: USD
+      description: The currency code.
+    responses:
+      '204':
+        description: Currency was enabled.
+/api/v1/currencies/{code}/disable:
+  post:
+    summary: Disable a currency.
+    description: Disable a currency.
+    operationId: disableCurrency
+    tags:
+      - currencies
+    parameters:
+    - in: path
+      name: code
+      required: true
+      schema:
+        type: integer
+        example: GBP
+      description: The currency code.
+    responses:
+      '204':
+        description: Currency was disabled.
+      '409':
+        description: Currency cannot be disabled, because it is still in use.
+/api/v1/currencies/{code}:
   get:
     summary: Get a single currency.
     description: Get a single currency.
     operationId: getCurrency
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: USD
+      description: The currency code.
     tags:
       - currencies
     responses:
@@ -72,7 +108,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Currency'
+              $ref: '#/components/schemas/CurrencySingle'
       '404':
         description: Currency not found
   put:
@@ -83,12 +119,12 @@
     summary: Update existing currency.
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: EUR
+      description: The currency code.
     requestBody:
       content:
         application/json:
@@ -105,7 +141,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Currency'
+              $ref: '#/components/schemas/CurrencySingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -114,24 +150,24 @@
               $ref: '#/components/schemas/ValidationError'
   delete:
     operationId: deleteCurrency
-    description: Delete an currency.
-    summary: Delete an currency.
+    description: Delete a currency.
+    summary: Delete a currency.
     tags:
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: GBP
+      description: The currency code.
     responses:
       '204':
         description: Currency deleted.
       '404':
         description: No such currency
-/api/v1/currencies/{id}/accounts:
+/api/v1/currencies/{code}/accounts:
   get:
     summary: List all accounts with this currency.
     description: List all accounts with this currency.
@@ -140,29 +176,66 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: USD
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is 50.
       required: false
       schema:
         type: integer
         example: 1
+    - in: query
+      name: date
+      description: |
+        A date formatted YYYY-MM-DD. When added to the request, Firefly III will show the account's balance on that day.
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: type
+      description: Optional filter on the account type(s) returned
+      required: false
+      schema:
+        type: string
+        enum:
+          - all
+          - asset
+          - cash
+          - expense
+          - revenue
+          - special
+          - hidden
+          - liability
+          - liabilities
+          - cc
+          - creditcard
+          - credit card
+          - Default account
+          - Cash account
+          - Asset account
+          - Expense account
+          - Revenue account
+          - Initial balance account
+          - Beneficiary account
+          - Import account
+          - Reconciliation account
+          - Loan
+          - Debt
+          - Mortgage
+          - Credit card
     responses:
       '200':
         description: A list of accounts
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Accounts'
-/api/v1/currencies/{id}/available_budgets:
+              $ref: '#/components/schemas/AccountArray'
+/api/v1/currencies/{code}/available_budgets:
   get:
     summary: List all available budgets with this currency.
     description: List all available budgets with this currency.
@@ -171,15 +244,15 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: EUR
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is 50
       required: false
       schema:
         type: integer
@@ -190,10 +263,8 @@
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/AvailableBudget'
-/api/v1/currencies/{id}/bills:
+              $ref: '#/components/schemas/AvailableBudgetArray'
+/api/v1/currencies/{code}/bills:
   get:
     summary: List all bills with this currency.
     description: List all bills with this currency.
@@ -205,26 +276,24 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: USD
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is 50.
       required: false
       schema:
         type: integer
         example: 1
     responses:
       '200':
-        description: A list of bills
+        description: A list of bills.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Bill'
-/api/v1/currencies/{id}/budget_limits:
+              $ref: '#/components/schemas/BillArray'
+/api/v1/currencies/{code}/budget_limits:
   get:
     summary: List all budget limits with this currency
     description: List all budget limits with this currency
@@ -233,29 +302,27 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: USD
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is 50.
       required: false
       schema:
         type: integer
         example: 1
     responses:
       '200':
-        description: A list of budget limits
+        description: A list of budget limits.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/BudgetLimit'
-/api/v1/currencies/{id}/cer:
+              $ref: '#/components/schemas/BudgetLimitArray'
+/api/v1/currencies/{code}/cer:
   get:
     summary: List all known exchange rates with (from or to) this currency.
     description: List all known exchange rates.
@@ -264,29 +331,51 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: GBP
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is 50.
       required: false
       schema:
         type: integer
         example: 1
+    - in: query
+      name: date
+      description: |
+        The date of which you want to know the exchange rate
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: start_date
+      description: |
+        Use this instead of the date parameter to search for a range of currency exchange values.
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: end_date
+      description: |
+        Use this instead of the date parameter to search for a range of currency exchange values.
+      required: false
+      schema:
+        type: string
+        format: date
     responses:
       '200':
         description: A list of exchange rates
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/ExchangeRate'
-/api/v1/currencies/{id}/recurrences:
+              $ref: '#/components/schemas/ExchangeRateArray'
+/api/v1/currencies/{code}/recurrences:
   get:
     summary: List all recurring transactions with this currency.
     description: List all recurring transactions with this currency.
@@ -295,15 +384,15 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: EUR
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is 50.
       required: false
       schema:
         type: integer
@@ -314,10 +403,8 @@
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Recurring'
-/api/v1/currencies/{id}/rules:
+              $ref: '#/components/schemas/RecurrenceArray'
+/api/v1/currencies/{code}/rules:
   get:
     summary: List all rules with this currency.
     description: List all rules with this currency.
@@ -326,29 +413,27 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: USD
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination per 50.
       required: false
       schema:
         type: integer
         example: 1
     responses:
       '200':
-        description: A list of rules with this currency
+        description: A list of rules
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Rule'
-/api/v1/currencies/{id}/transactions:
+              $ref: '#/components/schemas/RuleArray'
+/api/v1/currencies/{code}/transactions:
   get:
     summary: List all transactions with this currency.
     description: List all transactions with this currency.
@@ -357,15 +442,15 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the object.X
+        type: string
+        example: USD
+      description: The currency code.
     - in: query
       name: page
-      description: Page number. The default pagination is per 50 items. X
+      description: Page number. The default pagination is per 50.
       required: false
       schema:
         type: integer
@@ -373,7 +458,7 @@
     - in: query
       name: start_date
       description: |
-        A date formatted YYYY-MM-DD. X
+        A date formatted YYYY-MM-DD, to limit the list of transactions.
       required: false
       schema:
         type: string
@@ -381,7 +466,7 @@
     - in: query
       name: end_date
       description: |
-        A date formatted YYYY-MM-DD. X
+        A date formatted YYYY-MM-DD, to limit the list of transactions.
       required: false
       schema:
         type: string
@@ -409,10 +494,8 @@
         - default
     responses:
       '200':
-        description: A list of transactions
+        description: A list of transactions.
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Transaction'
+              $ref: '#/components/schemas/TransactionArray'

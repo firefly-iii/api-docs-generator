@@ -1,0 +1,9 @@
+AccountArray:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/Account'
+    meta:
+      $ref: '#/components/schemas/Meta'

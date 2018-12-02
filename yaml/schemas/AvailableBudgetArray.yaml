@@ -1,0 +1,9 @@
+AvailableBudgetArray:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/AvailableBudget'
+    meta:
+      $ref: '#/components/schemas/Meta'

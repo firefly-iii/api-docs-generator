@@ -4,7 +4,7 @@ Bill:
     type:
       type: string
       format: string
-      example: "defaults"
+      example: "bills"
       description: "Immutable value"
     id:
       type: integer
@@ -21,3 +21,61 @@ Bill:
           type: string
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
+        currency_id:
+          type: integer
+          format: integer
+          example: 5
+        currency_code:
+          type: string
+          format: string
+          example: EUR
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_dp:
+          type: integer
+          format: integer
+          example: 2
+        name:
+          type: string
+          format: string
+          example: "Monthly rent"
+        amount_min:
+          type: number
+          format: number
+          example: 500
+        amount_max:
+          type: number
+          format: number
+          example: 550
+        date:
+          type: string
+          format: date
+          example: "2017-09-17"
+          description: The date the bill was paid the first time.
+        repeat_freq:
+          type: string
+          format: string
+          example: "monthly"
+          description: How often the bill must be paid.
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - "half-year"
+          - yearly
+        skip:
+          type: integer
+          format: int32
+          example: 0
+          description: How often the bill must be skipped. 1 means a bi-monthly bill.
+        active:
+          type: boolean
+          format: boolean
+          example: true
+          description: If the bill is active.
+        notes:
+          type: string
+          format: string
+          example: "Any example notes"

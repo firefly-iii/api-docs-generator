@@ -1,0 +1,29 @@
+CurrencyUpdate:
+  type: object
+  required:
+    - enabled
+    - code
+    - name
+    - symbol
+  properties:
+    enabled:
+      type: boolean
+      format: boolean
+      example: true
+    code:
+      type: string
+      format: string
+      example: USD
+    name:
+      type: string
+      format: string
+      example: Ankh-Morpork dollar
+    symbol:
+      type: string
+      format: string
+      example: "AM$"
+    decimal_places:
+      type: string
+      format: string
+      example: 2
+      description: Supports 0-16 decimals.

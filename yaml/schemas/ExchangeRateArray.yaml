@@ -1,0 +1,11 @@
+ExchangeRateArray:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/ExchangeRate'
+    meta:
+      $ref: '#/components/schemas/Meta'
+    links:
+      $ref: '#/components/schemas/PageLink'

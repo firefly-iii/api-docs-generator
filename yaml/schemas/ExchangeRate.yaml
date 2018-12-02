@@ -1,7 +1,63 @@
 ExchangeRate:
   type: object
-  required:
-    - name
   properties:
-    name:
+    type:
       type: string
+      format: string
+      example: "currency_exchange_rates"
+      description: "Immutable value"
+    id:
+      type: integer
+      format: int32
+      example: 2
+    attributes:
+      type: object
+      properties:
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        from_currency_id:
+          type: integer
+          format: integer
+          example: 5
+        from_currency_code:
+          type: string
+          format: string
+          example: EUR
+        from_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        from_currency_dp:
+          type: integer
+          format: integer
+          example: 2
+        to_currency_id:
+          type: integer
+          format: integer
+          example: 5
+        to_currency_code:
+          type: string
+          format: string
+          example: EUR
+        to_currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        to_currency_dp:
+          type: integer
+          format: integer
+          example: 2
+        date:
+          type: string
+          format: date
+          example: "2018-09-17"
+        rate:
+          type: number
+          format: float
+          example: 1.1213

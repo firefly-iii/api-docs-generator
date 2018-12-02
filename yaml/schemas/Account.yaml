@@ -1,7 +1,143 @@
 Account:
   type: object
-  required:
-    - name
   properties:
-    name:
+    type:
       type: string
+      format: string
+      example: "accounts"
+      description: "Immutable value"
+    id:
+      type: integer
+      format: integer
+      example: 2
+    attributes:
+      type: object
+      properties:
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-11-25T12:46:47+01:00"
+        created_at:
+          type: string
+          format: date-time
+          example: "2018-11-25T12:46:47+01:00"
+        type:
+          type: string
+          format: string
+          example: "asset"
+          enum:
+            - asset
+            - expense
+            - revenue
+            - liability
+        name:
+          type: string
+          example: "My Checking Account"
+
+        active:
+          type: boolean
+          example: true
+        account_role:
+          type: string
+          format: string
+          example: "defaultAsset"
+          enum:
+            - defaultAsset
+            - sharedAsset
+            - savingsAsset
+            - ccAsset
+            - cashWalletAsset
+        currency_id:
+          type: integer
+          format: integer
+          example: 5
+        currency_code:
+          type: string
+          format: string
+          example: EUR
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_dp:
+          type: integer
+          format: integer
+          example: 2
+        current_balance:
+          type: number
+          format: number
+          example: 152.34
+        current_balance_date:
+          type: string
+          format: date
+          example: "2018-04-01"
+        notes:
+          type: string
+          format: string
+          example: "These are some notes"
+        monthly_payment_date:
+          type: string
+          format: date
+          example: "2017-01-01"
+        credit_card_type:
+          type: string
+          format: string
+          example: "monthlyFull"
+          enum:
+            - "monthlyFull"
+        account_number:
+          type: string
+          format: string
+          example: "1986191135"
+        iban:
+          type: string
+          format: iban
+          example: "GB98MIDL07009312345678"
+        bic:
+          type: string
+          format: string
+          example: "BOFAUS3N"
+        virtual_balance:
+          type: number
+          format: number
+          example: 1000.00
+        opening_balance:
+          type: number
+          format: number
+          example: 1200.45
+        opening_balance_date:
+          type: string
+          format: date
+          example: "2015-06-14"
+        liability_type:
+          type: string
+          format: string
+          example: "Loan"
+          enum:
+            - Loan
+            - Debt
+            - Mortgage
+        liability_amount:
+          type: number
+          format: number
+          example: -10000.00
+        liability_start_date:
+          type: string
+          format: date
+          example: "1990-11-05"
+        interest:
+          type: string
+          format: string
+          example: "0.2"
+        interest_period:
+          type: string
+          format: string
+          example: "monthly"
+          enum:
+            - daily
+            - monthly
+            - yearly
+        include_net_worth:
+          type: boolean
+          format: boolean
+          example: true
