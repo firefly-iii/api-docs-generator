@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$version     = '0.0.1-test';
+$version     = '0.9.0';
 $destination = '/sites/FF3/api-docs';
 
 define('ROOT', '/sites/FF3/api-docs-generator');
