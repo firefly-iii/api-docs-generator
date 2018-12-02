@@ -1,8 +1,0 @@
-- in: query
-  name: end_date
-  description: |
-    A date formatted YYYY-MM-DD. X
-  required: false
-  schema:
-    type: string
-    example: 2018-12-31

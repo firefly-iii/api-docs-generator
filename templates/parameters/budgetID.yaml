@@ -1,8 +1,0 @@
-- in: path
-  name: budgetID
-  required: true
-  schema:
-    type: integer
-    minimum: 1
-    example: 1
-  description: The ID of the requested budget. X

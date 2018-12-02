@@ -33,7 +33,6 @@ class Builder
         $this->schemas = [];
         $loader        = new Twig_Loader_Filesystem($templatePath);
         $this->twig    = new Twig_Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
-        $this->twig->addExtension(new Functions());
     }
 
     /**

@@ -1,8 +1,0 @@
-- in: path
-  name: budgetLimitID
-  required: true
-  schema:
-    type: integer
-    minimum: 1
-    example: 1
-  description: The ID of the requested budget limit. The budget limit MUST be associated to the budget ID. X
