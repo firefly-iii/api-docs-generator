@@ -5,3 +5,9 @@ BudgetUpdate:
   properties:
     name:
       type: string
+      format: string
+      example: "Bills"
+    active:
+      type: boolean
+      format: boolean
+      example: false

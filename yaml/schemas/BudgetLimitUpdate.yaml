@@ -1,7 +1,31 @@
 BudgetLimitUpdate:
   type: object
   required:
-    - name
+    - amount
+    - start_date
+    - end_date
   properties:
-    name:
+    start_date:
       type: string
+      format: date
+      example: "2017-09-17"
+      description: Start date of the budget limit.
+    end_date:
+      type: string
+      format: date
+      example: "2017-09-17"
+      description: End date of the budget limit.
+    amount:
+      type: number
+      format: double
+      example: 250
+    currency_id:
+      type: integer
+      format: int32
+      example: 5
+      description: Use either currency_id or currency_code.
+    currency_code:
+      type: string
+      format: string
+      example: EUR
+      description: Use either currency_id or currency_code.

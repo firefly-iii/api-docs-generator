@@ -55,3 +55,7 @@ BudgetLimit:
           type: number
           format: double
           example: 250
+        spent:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetSpent'

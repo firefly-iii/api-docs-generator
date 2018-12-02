@@ -1,0 +1,5 @@
+BudgetLimitSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/BudgetLimit'
