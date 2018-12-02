@@ -5,3 +5,5 @@ CategoryUpdate:
   properties:
     name:
       type: string
+      format: string
+      example: "Lunch"
