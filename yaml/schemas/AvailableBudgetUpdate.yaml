@@ -4,6 +4,8 @@ AvailableBudgetUpdate:
     - amount
     - start_date
     - end_date
+    - currency_id
+    - currency_code
   properties:
     start_date:
       type: string

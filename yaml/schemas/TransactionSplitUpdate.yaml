@@ -1,0 +1,84 @@
+TransactionSplitUpdate:
+  type: object
+  required:
+    - amount
+    - source_id
+    - destination_id
+  properties:
+    amount:
+      type: number
+      format: double
+      example: 12.95
+    currency_id:
+      type: integer
+      format: int32
+      example: 12
+      description: Currency ID. Default is the source account's currency, or the user's default currency.
+    currency_code:
+      type: string
+      format: string
+      example: EUR
+      description: Currency code. Default is the source account's currency, or the user's default currency. Can be used instead of currency_id.
+    foreign_amount:
+      type: number
+      format: double
+      example: 16.95
+    foreign_currency_id:
+      type: integer
+      format: int32
+      example: 15
+      description: Currency ID. Default is null.
+    foreign_currency_code:
+      type: string
+      format: string
+      example: USD
+      description: Currency code. Default is NULL. Can be used instead of the currency_id.
+    source_id:
+      type: integer
+      format: int32
+      example: 2
+      description: "ID of the source account. For a withdrawal, this is always an asset account."
+    source_name:
+      type: string
+      format: string
+      example: "Checking account"
+      description: "Name of the source account. For a withdrawal, this is always an asset account. Can be used instead of the source_id"
+    destination_id:
+      type: integer
+      format: int32
+      example: 2
+      description: "ID of the destination account."
+    destination_name:
+      type: string
+      format: string
+      example: "Buy and Large"
+      description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown."
+    description:
+      type: string
+      format: string
+      example: "Vegetables"
+      description: "Description of the transaction. Will only be used if more than one split is submitted."
+    reconciled:
+      type: boolean
+      format: boolean
+      example: false
+    budget_id:
+      type: int
+      format: int32
+      example: 4
+      description: The budget ID for this transaction.
+    budget_name:
+      type: string
+      format: string
+      example: Groceries
+      description: The name of the budget to be used.
+    category_id:
+      type: int
+      format: int32
+      example: 43
+      description: The category ID for this transaction.
+    category_name:
+      type: string
+      format: string
+      example: Groceries
+      description: The name of the category to be used.

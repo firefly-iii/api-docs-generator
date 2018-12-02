@@ -2,7 +2,6 @@ RuleGroupUpdate:
   type: object
   required:
     - title
-    - active
   properties:
     title:
       type: string

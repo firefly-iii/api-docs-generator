@@ -1,7 +1,6 @@
 CurrencyUpdate:
   type: object
   required:
-    - enabled
     - code
     - name
     - symbol
@@ -10,10 +9,11 @@ CurrencyUpdate:
       type: boolean
       format: boolean
       example: true
+      description: defaults to true
     code:
       type: string
       format: string
-      example: USD
+      example: AMS
     name:
       type: string
       format: string

@@ -3,7 +3,6 @@ AccountUpdate:
   required:
     - name
     - type
-    - currency_id
     - account_role
     - cc_type
     - cc_monthly_payment_date
@@ -55,12 +54,12 @@ AccountUpdate:
       type: integer
       format: int32
       example: 12
-      description: Mandatory is either currency_id OR currency_code.
+      description: Use either currency_id or currency_code. Defaults to the user's default currency.
     currency_code:
       type: string
       format: string
       example: EUR
-      description: Mandatory is either currency_id OR currency_code.
+      description: Use either currency_id or currency_code. Defaults to the user's default currency.
     active:
       type: boolean
       format: boolean

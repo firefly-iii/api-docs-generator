@@ -1,8 +1,10 @@
 TransactionUpdate:
   type: object
   required:
-    - email
-    - blocked
+    - type
+    - description
+    - date
+    - transactions
   properties:
     type:
       type: string
@@ -15,6 +17,7 @@ TransactionUpdate:
     description:
       type: string
       format: string
+      example: "Groceries"
     date:
       type: string
       format: date
@@ -43,10 +46,7 @@ TransactionUpdate:
     notes:
       type: string
       format: string
-    reconciled:
-      type: boolean
-      format: boolean
-      example: false
+      example: "Some notes"
     sepa_cc:
       type: string
       format: string
@@ -118,3 +118,7 @@ TransactionUpdate:
       nullable: true
       format: string
       description: Reference to external ID in other systems.
+    transactions:
+      type: array
+      items:
+        $ref: '#/components/schemas/TransactionSplitUpdate'

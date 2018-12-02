@@ -5,6 +5,9 @@ BillUpdate:
     - amount_min
     - amount_max
     - date
+    - repeat_freq
+    - currency_id
+    - currency_code
   properties:
     name:
       type: string
