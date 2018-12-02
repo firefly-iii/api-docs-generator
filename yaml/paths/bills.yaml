@@ -6,16 +6,20 @@
     tags:
       - bills
     parameters:
-{{ includeDefaultParameter('page', 2) }}
+    - in: query
+      name: page
+      description: Page number. The default pagination is 50.
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
         description: A list of bills
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Bill'
+              $ref: '#/components/schemas/BillArray'
   post:
     summary: Store a new bill
     description: Creates a new bill. The data required can be submitted as a JSON body or as a list of parameters.
@@ -38,7 +42,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Bill'
+              $ref: '#/components/schemas/BillSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -51,7 +55,13 @@
     description: Get a single bill.
     operationId: getBill
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the bill.
     tags:
       - bills
     responses:
@@ -60,7 +70,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Bill'
+              $ref: '#/components/schemas/BillSingle'
       '404':
         description: Bill not found
   put:
@@ -70,7 +80,13 @@
     description: Update existing bill.
     summary: Update existing bill.
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the bill.
     requestBody:
       content:
         application/json:
@@ -87,7 +103,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Bill'
+              $ref: '#/components/schemas/BillSingle'
       '422':
         description: 'Validation errors (see body)'
         content:
@@ -96,12 +112,18 @@
               $ref: '#/components/schemas/ValidationError'
   delete:
     operationId: deleteBill
-    description: Delete an bill. This will not delete any associated rules. Will not remove associated transactions. WILL remove all associated attachments.
-    summary: Delete an bill.
+    description: Delete a bill. This will not delete any associated rules. Will not remove associated transactions. WILL remove all associated attachments.
+    summary: Delete a bill.
     tags:
       - bills
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the bill.
     responses:
       '204':
         description: Bill deleted.
@@ -115,16 +137,20 @@
     tags:
       - bills
     parameters:
-{{ includeDefaultParameter('page', 2) }}
+    - in: query
+      name: page
+      description: Page number. The default pagination is 50.
+      required: false
+      schema:
+        type: integer
+        example: 1
     responses:
       '200':
-        description: A list of bills
+        description: A list of attachments
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Bill'
+              $ref: '#/components/schemas/AttachmentArray'
 /api/v1/bills/{id}/rules:
   get:
     summary: List all rules associated with the bill.
@@ -133,16 +159,20 @@
     tags:
       - bills
     parameters:
-{{ includeDefaultParameter('id', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the bill.
     responses:
       '200':
         description: A list of rules
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Rule'
+              $ref: '#/components/schemas/RuleArray'
 /api/v1/bills/{id}/transactions:
   get:
     summary: List all transactions associated with the  bill.
@@ -151,16 +181,54 @@
     tags:
       - bills
     parameters:
-{{ includeDefaultParameter('id', 2) }}
-{{ includeDefaultParameter('start_date', 2) }}
-{{ includeDefaultParameter('end_date', 2) }}
-{{ includeDefaultParameter('transaction_type', 2) }}
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the bill.
+    - in: query
+      name: start_date
+      description: |
+        A date formatted YYYY-MM-DD.
+      required: false
+      schema:
+        type: string
+        example: 2018-09-17
+    - in: query
+      name: end_date
+      description: |
+        A date formatted YYYY-MM-DD.
+      required: false
+      schema:
+        type: string
+        example: 2018-12-31
+    - in: query
+      name: type
+      description: Optional filter on the transaction type(s) returned
+      required: false
+      schema:
+        type: string
+        enum:
+        - all
+        - withdrawal
+        - withdrawals
+        - expense
+        - deposit
+        - deposits
+        - income
+        - transfer
+        - transfers
+        - opening_balance
+        - reconciliation
+        - special
+        - specials
+        - default
     responses:
       '200':
         description: A list of transactions
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Transaction'
+              $ref: '#/components/schemas/TransactionArray'

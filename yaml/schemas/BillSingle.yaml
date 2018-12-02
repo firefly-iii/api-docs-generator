@@ -1,0 +1,5 @@
+BillSingle:
+  type: object
+  properties:
+    data:
+      $ref: '#/components/schemas/Bill'
