@@ -40,12 +40,10 @@ foreach ($files as $file) {
 
 $result = $builder->render();
 
-echo '<pre>' . $result . '</pre>';
-
 // put result in file:
 $finalDestination = sprintf('%s/firefly-iii-latest.yaml', $destination);
 
 file_put_contents($finalDestination, $result);
-
+echo "\nDone\n";
 
 
