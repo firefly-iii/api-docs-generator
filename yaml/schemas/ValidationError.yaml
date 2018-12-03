@@ -10,8 +10,11 @@ ValidationError:
       type: object
       properties:
         field1:
-          type: string
-          example: "Error message for field 1"
+          type: array
+          items:
+            type: string
+            example: "Error message for field 1"
         field2:
-          type: string
-          example: "Error message for field 2"
+          type: array
+          items:
+            type: string
