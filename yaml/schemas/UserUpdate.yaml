@@ -2,7 +2,6 @@ UserUpdate:
   type: object
   required:
     - email
-    - blocked
   properties:
     email:
       type: string
@@ -19,3 +18,11 @@ UserUpdate:
       description: If you say the user must be blocked, this will be the reason code.
       enum:
       - email_changed
+    role:
+      type: string
+      nullable: true
+      example: "owner"
+      description: Role for the new user. 
+      enum:
+      - owner
+      - demo
