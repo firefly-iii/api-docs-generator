@@ -26,8 +26,13 @@ Attachment:
         attachable_type:
           type: string
           format: string
-          example: "FireflyIII\\Models\\TransactionJournal"
-          description: Full class name of the model this attachment is linked to.
+          example: "TransactionJournal"
+          description: Class name of the model this attachment is linked to.
+          enum:
+          - Bill
+          - Attachment
+          - TransactionJournal
+          - ImportJob
         attachable_id:
           type: integer
           format: int32

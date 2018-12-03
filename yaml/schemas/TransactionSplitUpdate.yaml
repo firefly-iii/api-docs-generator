@@ -3,7 +3,6 @@ TransactionSplitUpdate:
   required:
     - amount
     - source_id
-    - destination_id
   properties:
     amount:
       type: number

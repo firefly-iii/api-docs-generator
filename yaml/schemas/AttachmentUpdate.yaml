@@ -17,7 +17,7 @@ AttachmentUpdate:
       enum:
       - Bill
       - Attachment
-      - Transaction
+      - TransactionJournal
       - ImportJob
     model_id:
       type: integer
