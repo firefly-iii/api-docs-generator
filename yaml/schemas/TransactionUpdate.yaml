@@ -113,6 +113,10 @@ TransactionUpdate:
       format: string
       nullable: true
       description: Reference to internal reference of other systems.
+    bunq_payment_id:
+      type: string
+      format: string
+      nullable: true
     external_id:
       type: string
       nullable: true

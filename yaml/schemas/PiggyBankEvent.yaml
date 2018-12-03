@@ -23,6 +23,22 @@ PiggyBankEvent:
           type: string
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
+        currency_id:
+          type: integer
+          format: integer
+          example: 5
+        currency_code:
+          type: string
+          format: string
+          example: EUR
+        currency_symbol:
+          type: string
+          format: string
+          example: "$"
+        currency_dp:
+          type: integer
+          format: integer
+          example: 2
         amount:
           type: number
           format: double
