@@ -13,7 +13,6 @@ ValidationError:
           type: array
           items:
             type: string
-            example: "Error message for field 1"
         field2:
           type: array
           items:
