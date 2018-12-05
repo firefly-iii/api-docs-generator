@@ -48,19 +48,19 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/tags/{id}:
+/api/v1/tags/{tag}:
   get:
     summary: Get a single tag.
     description: Get a single tag.
     operationId: getTag
     parameters:
     - in: path
-      name: id
+      name: tag
+      description: Either the tag itself or the tag ID.
       required: true
       schema:
-        type: integer
-        minimum: 1
-      description: The tag ID
+        type: string
+        example: groceries
     - in: query
       name: page
       description: Page number
@@ -99,12 +99,12 @@
     summary: Update existing tag.
     parameters:
     - in: path
-      name: id
+      name: tag
+      description: Either the tag itself or the tag ID.
       required: true
       schema:
-        type: integer
-        minimum: 1
-      description: The tag ID
+        type: string
+        example: groceries
     requestBody:
       content:
         application/json:
@@ -136,12 +136,12 @@
       - tags
     parameters:
     - in: path
-      name: id
+      name: tag
+      description: Either the tag itself or the tag ID.
       required: true
       schema:
-        type: integer
-        minimum: 1
-      description: The tag ID
+        type: string
+        example: groceries
     responses:
       '204':
         description: Tag deleted.
