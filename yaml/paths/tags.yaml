@@ -146,11 +146,12 @@
       '204':
         description: Tag deleted.
       '404':
-        description: No such tag
+        description: "No such tag"
+
 /api/v1/tags/{tag}/transactions:
   get:
-    summary: List all transactions with this tag.
-    description: List all transactions with this tag.
+    summary: "List all transactions with this tag."
+    description: "List all transactions with this tag."
     operationId: getTransactionsByTag
     tags:
       - tags
