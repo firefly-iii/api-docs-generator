@@ -145,17 +145,17 @@
         type: integer
         example: 1
     - in: query
-      name: start_date
+      name: start
       description: |
-        A date formatted YYYY-MM-DD.
+        A date formatted YYYY-MM-DD. Both the start and end date must be present.
       required: false
       schema:
         type: string
         example: 2018-09-17
     - in: query
-      name: end_date
+      name: end
       description: |
-        A date formatted YYYY-MM-DD.
+        A date formatted YYYY-MM-DD. Both the start and end date must be present.
       required: false
       schema:
         type: string
@@ -188,35 +188,16 @@
           application/json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
-/api/v1/recurrences/{id}/trigger:
+/api/v1/recurrences/trigger:
   post:
-    summary: Trigger the recurring transaction.
+    summary: "Trigger the creation of recurring transactions (like a cron job)."
     description: |
-        Triggers the creation of a new transaction, based on a recurring transaction. If the schedule does not call for a new transaction to be created, nothing will happen. Use the optional parameter to force this. Keep in mind that this will not stop the schedule or block the next one or anything like that.
+        Triggers the recurring transactions, like a cron job would. If the schedule does not call for a new transaction to be created, nothing will happen.
     operationId: triggerRecurrence
     tags:
       - recurrences
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the recurring transaction.
-    - in: query
-      name: force
-      description: |
-        Force the creation of the transaction.
-      required: false
-      schema:
-        type: boolean
     responses:
       '204':
-        description: 'Triggered but nothing was created.'
+        description: 'Not triggered (not yet due or unable to).'
       '200':
-        description: 'Triggered and a transaction was created'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TransactionSingle'
+        description: "Triggered. Due to the way it's fired (an asynchronous job), the result cannot be shown to you."

@@ -145,17 +145,17 @@
         type: integer
         example: 1
     - in: query
-      name: start_date
+      name: start
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start_date and the end_date must be present.
+        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start date and the end date must be present.
       required: false
       schema:
         type: string
         example: 2018-09-17
     - in: query
-      name: end_date
+      name: end
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start_date and the end_date must be present.
+        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start date and the end date must be present.
       required: false
       schema:
         type: string
@@ -200,18 +200,18 @@
       - rules
     parameters:
     - in: query
-      name: start_date
+      name: start
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start_date and the end_date must be present.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start date and the end date must be present.
       required: false
       schema:
         type: string
         example: 2018-09-17
         format: date
     - in: query
-      name: end_date
+      name: end
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start_date and the end_date must be present.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start date and the end date must be present.
       required: false
       schema:
         type: string
