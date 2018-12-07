@@ -250,9 +250,5 @@
       schema:
         type: string
     responses:
-      '200':
-        description: A list of transactions
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TransactionArray'
+      '204':
+        description: "The rules in the group are executed. Due to the setup of this function (asynchronous job execution) the result cannot be displayed."
