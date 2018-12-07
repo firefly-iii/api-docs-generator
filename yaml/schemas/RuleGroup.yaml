@@ -25,7 +25,7 @@ RuleGroup:
           type: string
           format: string
           example: "Default rule group"
-        text:
+        description:
           type: string
           format: string
           example: "Description of this rule group"

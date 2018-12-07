@@ -147,7 +147,7 @@
     - in: query
       name: start_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
@@ -155,7 +155,7 @@
     - in: query
       name: end_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
@@ -222,17 +222,9 @@
       - rule_groups
     parameters:
     - in: query
-      name: page
-      description: |
-        Page number. This end point will make page 1 as large as is necessary to fit the transactions that have been changed when you fired the rule group. Browsing to page two of an endpoint like this one makes no sense: the rule group would be applied again, possibly leading to different results.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    - in: query
       name: start_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
@@ -241,26 +233,12 @@
     - in: query
       name: end_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
         example: 2018-09-17
         format: date
-    - in: query
-      name: search_limit
-      description: |
-        Maximum number of transactions Firefly III will fire the rule group on. You would preferrable not set this, because if it is too low the rules in the rule group will not apply to all the users transactions, but only to a selection.
-      required: false
-      schema:
-        type: integer
-    - in: query
-      name: triggered_limit
-      description: |
-        Maximum number of transactions the rule group can change, before Firefly III stops. You would preferrable not set this, because if it is too low the rules in the rule group will not apply to all the users transactions, but only to a selection.
-      required: false
-      schema:
-        type: integer
     - in: query
       name: accounts
       style: matrix

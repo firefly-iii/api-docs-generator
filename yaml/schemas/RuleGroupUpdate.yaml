@@ -11,7 +11,7 @@ RuleGroupUpdate:
       type: boolean
       format: boolean
       example: true
-    text:
+    description:
       type: string
       format: string
       example: "New rule group description"

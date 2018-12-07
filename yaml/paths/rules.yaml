@@ -147,7 +147,7 @@
     - in: query
       name: start_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
@@ -155,7 +155,7 @@
     - in: query
       name: end_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
@@ -210,7 +210,7 @@
     - in: query
       name: start_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
@@ -219,7 +219,7 @@
     - in: query
       name: end_date
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start_date and the end_date must be present.
       required: false
       schema:
         type: string
