@@ -1,18 +1,6 @@
-RuleAction:
+RuleActionUpdate:
   type: object
   properties:
-    id:
-      type: integer
-      format: int32
-      example: 2
-    created_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-    updated_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
     type:
       type: string
       format: string
@@ -46,11 +34,6 @@ RuleAction:
       example: "Daily groceries"
       nullable: true
       description: "The accompanying value the action will set, change or update. Can be empty."
-    order:
-      type: integer
-      format: int32
-      example: 5
-      description: "Order of the action"
     active:
       type: boolean
       format: boolean

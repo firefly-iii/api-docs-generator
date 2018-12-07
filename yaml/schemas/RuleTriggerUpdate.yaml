@@ -1,18 +1,9 @@
-RuleTrigger:
+RuleTriggerUpdate:
   type: object
+  required:
+    - type
+    - value
   properties:
-    id:
-      type: integer
-      format: int32
-      example: 2
-    created_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-    updated_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
     type:
       type: string
       format: string
@@ -58,11 +49,6 @@ RuleTrigger:
       format: string
       example: "store-journal"
       description: "The accompanying value the trigger responds to"
-    order:
-      type: integer
-      format: int32
-      example: 5
-      description: "Order of the trigger"
     active:
       type: boolean
       format: boolean

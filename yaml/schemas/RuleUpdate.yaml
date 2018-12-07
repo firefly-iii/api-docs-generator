@@ -52,9 +52,9 @@ RuleUpdate:
     triggers:
       type: array
       items:
-        $ref: '#/components/schemas/RuleTrigger'
+        $ref: '#/components/schemas/RuleTriggerUpdate'
     actions:
       type: array
       items:
-        $ref: '#/components/schemas/RuleAction'
+        $ref: '#/components/schemas/RuleActionUpdate'
 
