@@ -5,11 +5,11 @@ BudgetSpent:
       type: integer
       format: int32
       example: 5
-    start_date:
+    start:
       type: string
       format: date
       example: "2018-04-01"
-    end_date:
+    end:
       type: string
       format: date
       example: "2018-04-30"

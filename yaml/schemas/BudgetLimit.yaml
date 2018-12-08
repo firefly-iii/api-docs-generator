@@ -41,12 +41,12 @@ BudgetLimit:
           type: integer
           format: integer
           example: 13
-        start_date:
+        start:
           type: string
           format: date
           example: "2017-09-17"
           description: Start date of the budget limit.
-        end_date:
+        end:
           type: string
           format: date
           example: "2017-09-17"

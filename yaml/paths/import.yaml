@@ -68,7 +68,7 @@
         type: integer
         example: 1
     - in: query
-      name: start_date
+      name: start
       description: |
         A date formatted YYYY-MM-DD. This is the start date of the selected range (inclusive).
       required: false
@@ -76,7 +76,7 @@
         type: string
         example: 2018-09-17
     - in: query
-      name: end_date
+      name: end
       description: |
         A date formatted YYYY-MM-DD. This is the end date of the selected range (inclusive).
       required: false

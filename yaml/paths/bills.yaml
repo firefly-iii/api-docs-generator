@@ -189,7 +189,7 @@
         example: 1
       description: The ID of the bill.
     - in: query
-      name: start_date
+      name: start
       description: |
         A date formatted YYYY-MM-DD.
       required: false
@@ -197,7 +197,7 @@
         type: string
         example: 2018-09-17
     - in: query
-      name: end_date
+      name: end
       description: |
         A date formatted YYYY-MM-DD.
       required: false

@@ -87,6 +87,24 @@
         description: Currency was disabled.
       '409':
         description: Currency cannot be disabled, because it is still in use.
+/api/v1/currencies/{code}/default:
+  post:
+    summary: Make currency default currency.
+    description: Make this currency the default currency. If the currency is not enabled, it will be enabled as well.
+    operationId: defaultCurrency
+    tags:
+      - currencies
+    parameters:
+    - in: path
+      name: code
+      required: true
+      schema:
+        type: string
+        example: USD
+      description: The currency code.
+    responses:
+      '204':
+        description: Currency has been made the default currency.
 /api/v1/currencies/{code}:
   get:
     summary: Get a single currency.
@@ -353,7 +371,7 @@
         type: string
         format: date
     - in: query
-      name: start_date
+      name: start
       description: |
         Use this instead of the date parameter to search for a range of currency exchange values.
       required: false
@@ -361,7 +379,7 @@
         type: string
         format: date
     - in: query
-      name: end_date
+      name: end
       description: |
         Use this instead of the date parameter to search for a range of currency exchange values.
       required: false

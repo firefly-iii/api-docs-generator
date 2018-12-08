@@ -2,17 +2,17 @@ AvailableBudgetUpdate:
   type: object
   required:
     - amount
-    - start_date
-    - end_date
+    - start
+    - end
     - currency_id
     - currency_code
   properties:
-    start_date:
+    start:
       type: string
       format: date
       example: "2017-09-17"
       description: Start date of the available budget.
-    end_date:
+    end:
       type: string
       format: date
       example: "2017-09-17"

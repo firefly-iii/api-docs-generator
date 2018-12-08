@@ -4,7 +4,7 @@ TransactionLink:
     type:
       type: string
       format: string
-      example: "journal_links"
+      example: "transaction_links"
       description: "Immutable value indicating the object type."
     id:
       type: integer

@@ -41,11 +41,11 @@ AvailableBudget:
           type: number
           format: number
           example: 152.34
-        start_date:
+        start:
           type: string
           format: date
           example: "2018-04-01"
-        end_date:
+        end:
           type: string
           format: date
           example: "2018-04-01"

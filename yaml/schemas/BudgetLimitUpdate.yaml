@@ -2,15 +2,15 @@ BudgetLimitUpdate:
   type: object
   required:
     - amount
-    - start_date
-    - end_date
+    - start
+    - end
   properties:
-    start_date:
+    start:
       type: string
       format: date
       example: "2017-09-17"
       description: Start date of the budget limit.
-    end_date:
+    end:
       type: string
       format: date
       example: "2017-09-17"
