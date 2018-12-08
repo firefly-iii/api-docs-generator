@@ -67,6 +67,10 @@
     responses:
       '204':
         description: Currency was enabled.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencySingle'
 /api/v1/currencies/{code}/disable:
   post:
     summary: Disable a currency.
@@ -85,6 +89,10 @@
     responses:
       '204':
         description: Currency was disabled.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencySingle'
       '409':
         description: Currency cannot be disabled, because it is still in use.
 /api/v1/currencies/{code}/default:
@@ -105,6 +113,10 @@
     responses:
       '204':
         description: Currency has been made the default currency.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencySingle'
 /api/v1/currencies/{code}:
   get:
     summary: Get a single currency.
