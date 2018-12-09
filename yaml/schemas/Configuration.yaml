@@ -12,8 +12,10 @@ Configuration:
           type: integer
           format: int32
           example: -1
+          nullable: true
           description: |
             If the user has given permission to check for updates.
+            - null = never asked.
             - -1 = never asked.
             - 0 = no permission.
             - 1 = permission

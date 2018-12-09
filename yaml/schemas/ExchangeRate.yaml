@@ -25,6 +25,10 @@ ExchangeRate:
           type: integer
           format: integer
           example: 5
+        from_currency_name:
+          type: string
+          format: string
+          example: "Euro"
         from_currency_code:
           type: string
           format: string
@@ -65,4 +69,4 @@ ExchangeRate:
           type: number
           format: double
           example: 82.12
-          description: The amount in the "to"-currency, if provided.
+          description: The amount in the "to"-currency, if provided in the request.

@@ -12,12 +12,25 @@
           application/json:
             schema:
               $ref: '#/components/schemas/Configuration'
+/api/v1/configuration/{name}:
   post:
     tags:
       - configuration
     summary: Update configuration
     operationId: setConfiguration
-    description: Set a single config file.
+    description: Set a single config value.
+    parameters:
+    - in: path
+      name: name
+      description: The configuration value name.
+      required: true
+      schema:
+        type: string
+        example: "single_user_mode"
+        enum:
+          - is_demo_site
+          - last_update_check
+          - single_user_mode
     responses:
       '200':
         description: 'New config stored, result in response.'
@@ -32,9 +45,12 @@
             schema:
               $ref: '#/components/schemas/ValidationError'
     requestBody:
+      description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
       content:
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/ConfigurationUpdate'
-      description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfigurationUpdate'
       required: true
