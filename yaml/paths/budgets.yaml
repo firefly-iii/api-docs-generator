@@ -16,7 +16,7 @@
     - in: query
       name: start
       description: |
-        A date formatted YYYY-MM-DD, to get info on how much the user has spent.
+        A date formatted YYYY-MM-DD, to get info on how much the user has spent. You must submit both start and end.
       required: false
       schema:
         type: string
@@ -24,7 +24,7 @@
     - in: query
       name: end
       description: |
-        A date formatted YYYY-MM-DD, to get info on how much the user has spent.
+        A date formatted YYYY-MM-DD, to get info on how much the user has spent. You must submit both start and end.
       required: false
       schema:
         type: string
@@ -65,18 +65,17 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/budgets/{budgetID}:
+/api/v1/budgets/{id}:
   get:
     summary: Get a single budget.
     description: Get a single budget. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.
     operationId: getBudget
     parameters:
     - in: path
-      name: budgetID
+      name: id
       required: true
       schema:
         type: integer
-        minimum: 1
         example: 1
       description: The ID of the requested budget.
     - in: query
@@ -114,7 +113,7 @@
     summary: Update existing budget.
     parameters:
     - in: path
-      name: budgetID
+      name: id
       required: true
       schema:
         type: integer
@@ -152,7 +151,7 @@
       - budgets
     parameters:
     - in: path
-      name: budgetID
+      name: id
       required: true
       schema:
         type: integer
@@ -165,10 +164,10 @@
       '404':
         description: No such budget
 
-/api/v1/budgets/{budgetID}/transactions:
+/api/v1/budgets/{id}/transactions:
   get:
     summary: All transactions to a budget.
-    description: Get all transactions linked to a budget, possibly limited by start_date and end_date
+    description: Get all transactions linked to a budget, possibly limited by start and end
     operationId: getTransactionsByBudget
     tags:
       - budgets
@@ -224,7 +223,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
-/api/v1/budgets/{budgetID}/limits:
+/api/v1/budgets/{id}/limits:
   get:
     operationId: getBudgetLimits
     description: |
@@ -234,7 +233,7 @@
       - budgets
     parameters:
     - in: path
-      name: budgetID
+      name: id
       required: true
       schema:
         type: integer
@@ -272,7 +271,7 @@
       - budgets
     parameters:
     - in: path
-      name: budgetID
+      name: id
       required: true
       schema:
         type: integer
@@ -302,7 +301,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/budgets/{budgetID}/limits/{budgetLimitID}:
+/api/v1/budgets/limits/{id}:
   get:
     summary: Get single budget limit.
     operationId: getBudgetLimit
@@ -310,21 +309,13 @@
       - budgets
     parameters:
     - in: path
-      name: budgetID
+      name: id
       required: true
       schema:
         type: integer
         minimum: 1
         example: 1
-      description: The ID of the budget.
-    - in: path
-      name: budgetLimitID
-      required: true
-      schema:
-        type: integer
-        minimum: 1
-        example: 1
-      description: The ID of the requested budget limit. The budget limit MUST be associated to the budget ID.
+      description: The ID of the requested budget limit.
     responses:
       '200':
         description: 'The requested budget limit'
@@ -342,15 +333,7 @@
     summary: Update existing budget limit.
     parameters:
     - in: path
-      name: budgetID
-      required: true
-      schema:
-        type: integer
-        minimum: 1
-        example: 1
-      description: The ID of the budget.
-    - in: path
-      name: budgetLimitID
+      name: id
       required: true
       schema:
         type: integer
@@ -388,27 +371,19 @@
       - budgets
     parameters:
     - in: path
-      name: budgetID
+      name: id
       required: true
       schema:
         type: integer
         minimum: 1
         example: 1
-      description: The ID of the budget.
-    - in: path
-      name: budgetLimitID
-      required: true
-      schema:
-        type: integer
-        minimum: 1
-        example: 1
-      description: The ID of the requested budget limit. The budget limit MUST be associated to the budget ID.
+      description: The ID of the requested budget limit.
     responses:
       '204':
         description: Budget limit deleted.
       '404':
         description: No such budget limit
-/api/v1/budgets/{budgetID}/limits/{budgetLimitID}/transactions:
+/api/v1/budgets/limits/{id}/transactions:
   get:
     summary: List all transactions by a budget limit ID.
     description: List all the transactions within one budget limit. The start and end date are dictated by the budget limit.
@@ -416,6 +391,14 @@
     tags:
       - budgets
     parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+        example: 1
+      description: The ID of the requested budget limit.
     - in: query
       name: page
       description: Page number. The default pagination is 50.
