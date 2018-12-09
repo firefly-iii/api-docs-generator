@@ -16,11 +16,11 @@ AvailableBudget:
         updated_at:
           type: string
           format: date-time
-          example: "2018-11-25T12:46:47+01:00"
+          example: "2018-09-17T12:46:47+01:00"
         created_at:
           type: string
           format: date-time
-          example: "2018-11-25T12:46:47+01:00"
+          example: "2018-09-17T12:46:47+01:00"
         currency_id:
           type: integer
           format: integer
@@ -44,8 +44,8 @@ AvailableBudget:
         start:
           type: string
           format: date
-          example: "2018-04-01"
+          example: "2018-09-17"
         end:
           type: string
           format: date
-          example: "2018-04-01"
+          example: "2018-09-17"

@@ -16,26 +16,36 @@ Account:
         updated_at:
           type: string
           format: date-time
-          example: "2018-11-25T12:46:47+01:00"
+          example: "2018-09-17T12:46:47+01:00"
         created_at:
           type: string
           format: date-time
-          example: "2018-11-25T12:46:47+01:00"
-        type:
-          type: string
-          format: string
-          example: "asset"
-          enum:
-            - asset
-            - expense
-            - revenue
-            - liability
-        name:
-          type: string
-          example: "My Checking Account"
+          example: "2018-09-17T12:46:47+01:00"
         active:
           type: boolean
           example: true
+        name:
+          type: string
+          format: string
+          example: "My Checking Account"
+        type:
+          type: string
+          format: string
+          example: "Asset account"
+          enum:
+          - "Default account"
+          - "Cash account"
+          - "Asset account"
+          - "Expense account"
+          - "Revenue account"
+          - "Initial balance account"
+          - "Beneficiary account"
+          - "Import account"
+          - "Reconciliation account"
+          - "Loan"
+          - "Debt"
+          - "Mortgage"
+          - "Credit card"
         account_role:
           type: string
           format: string
@@ -69,7 +79,7 @@ Account:
         current_balance_date:
           type: string
           format: date
-          example: "2018-04-01"
+          example: "2018-09-17"
         notes:
           type: string
           format: string
@@ -118,7 +128,7 @@ Account:
             - Mortgage
         liability_amount:
           type: number
-          format: number
+          format: double
           example: -10000.00
         liability_start_date:
           type: string
