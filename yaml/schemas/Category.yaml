@@ -25,3 +25,11 @@ Category:
           type: string
           format: string
           example: "Lunch"
+        spent:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategorySpent'
+        earned:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryEarned'

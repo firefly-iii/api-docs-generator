@@ -13,11 +13,11 @@ Recurrence:
     attributes:
       type: object
       properties:
-        updated_at:
+        created_at:
           type: string
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
-        created_at:
+        updated_at:
           type: string
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
@@ -85,7 +85,7 @@ Recurrence:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceTransaction'
-        meta_fields:
+        meta:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceMeta'

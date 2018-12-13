@@ -15,14 +15,19 @@ Attachment:
     attributes:
       type: object
       properties:
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
         created_at:
           type: string
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2018-09-17T12:46:47+01:00"
+        attachable_id:
+          type: integer
+          format: int32
+          example: 123
+          description: ID of the model this attachment is linked to.
         attachable_type:
           type: string
           format: string
@@ -33,11 +38,6 @@ Attachment:
           - Attachment
           - TransactionJournal
           - ImportJob
-        attachable_id:
-          type: integer
-          format: int32
-          example: 123
-          description: ID of the model this attachment is linked to.
         md5:
           type: string
           format: string

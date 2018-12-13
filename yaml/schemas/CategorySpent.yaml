@@ -1,4 +1,4 @@
-BudgetSpent:
+CategorySpent:
   type: object
   properties:
     currency_id:

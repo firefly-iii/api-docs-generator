@@ -17,14 +17,14 @@ LinkType:
           type: string
           format: string
           example: "Paid"
-        outward:
-          type: string
-          format: string
-          example: "(partially) pays for"
         inward:
           type: string
           format: string
           example: "is (partially) paid for by"
+        outward:
+          type: string
+          format: string
+          example: "(partially) pays for"
         editable:
           type: boolean
           format: boolean

@@ -74,7 +74,7 @@ RecurrenceTransaction:
       type: string
       format: string
       example: "Rent for the current month"
-    meta_fields:
+    meta:
       type: array
       items:
         $ref: '#/components/schemas/RecurrenceTransactionMeta'

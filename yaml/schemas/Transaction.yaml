@@ -135,66 +135,6 @@ Transaction:
           format: string
           example: "Some example notes"
           nullable: true
-        source_id:
-          type: integer
-          format: int32
-          example: 131
-        source_name:
-          type: string
-          format: string
-          example: "My checking account"
-        source_iban:
-          type: string
-          format: string
-          example: "NL02ABNA0123456789"
-          nullable: true
-        source_type:
-          type: string
-          format: string
-          example: "Asset account"
-          enum:
-          - Default account
-          - Cash account
-          - Asset account
-          - Expense account
-          - Revenue account
-          - Initial balance account
-          - Beneficiary account
-          - Import account
-          - Reconciliation account
-          - Loan
-          - Debt
-          - Mortgage
-        destination_id:
-          type: integer
-          format: int32
-          example: 3513
-        destination_name:
-          type: string
-          format: string
-          example: "My local gym"
-        destination_iban:
-          type: string
-          format: string
-          example: "NL02ABNA0123456789"
-          nullable: true
-        destination_type:
-          type: string
-          format: string
-          example: "Asset account"
-          enum:
-          - Default account
-          - Cash account
-          - Asset account
-          - Expense account
-          - Revenue account
-          - Initial balance account
-          - Beneficiary account
-          - Import account
-          - Reconciliation account
-          - Loan
-          - Debt
-          - Mortgage
         sepa_cc:
           type: string
           format: string
@@ -266,12 +206,6 @@ Transaction:
           nullable: true
           format: string
           description: Internal ID of bunq transaction.
-        importHash:
-          type: string
-          nullable: true
-          format: string
-          description: Deprecated format of import hash (for duplicate detection).
-          deprecated: true
         importHashV2:
           type: string
           nullable: true
@@ -298,5 +232,65 @@ Transaction:
           format: string
           example: "some,tags,here"
           description: Comma separated list of tags.
+        source_id:
+          type: integer
+          format: int32
+          example: 131
+        source_name:
+          type: string
+          format: string
+          example: "My checking account"
+        source_iban:
+          type: string
+          format: string
+          example: "NL02ABNA0123456789"
+          nullable: true
+        source_type:
+          type: string
+          format: string
+          example: "Asset account"
+          enum:
+          - Default account
+          - Cash account
+          - Asset account
+          - Expense account
+          - Revenue account
+          - Initial balance account
+          - Beneficiary account
+          - Import account
+          - Reconciliation account
+          - Loan
+          - Debt
+          - Mortgage
+        destination_id:
+          type: integer
+          format: int32
+          example: 3513
+        destination_name:
+          type: string
+          format: string
+          example: "My local gym"
+        destination_iban:
+          type: string
+          format: string
+          example: "NL02ABNA0123456789"
+          nullable: true
+        destination_type:
+          type: string
+          format: string
+          example: "Asset account"
+          enum:
+          - Default account
+          - Cash account
+          - Asset account
+          - Expense account
+          - Revenue account
+          - Initial balance account
+          - Beneficiary account
+          - Import account
+          - Reconciliation account
+          - Loan
+          - Debt
+          - Mortgage
     links:
       $ref: '#/components/schemas/ObjectLink'

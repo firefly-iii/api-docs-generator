@@ -34,6 +34,7 @@ Budget:
           format: int32
           example: 5
         spent:
+          description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted."
           type: array
           items:
             $ref: '#/components/schemas/BudgetSpent'

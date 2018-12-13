@@ -1,4 +1,4 @@
-BudgetSpent:
+CategoryEarned:
   type: object
   properties:
     currency_id:
@@ -29,5 +29,5 @@ BudgetSpent:
     amount:
       type: number
       format: double
-      example: -1929.11
-      description: The amount spent.
+      example: 1929.11
+      description: The amount earned.
