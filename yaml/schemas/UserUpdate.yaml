@@ -22,7 +22,7 @@ UserUpdate:
       type: string
       nullable: true
       example: "owner"
-      description: Role for the new user. 
+      description: Role for the new user. Can be empty or omitted.
       enum:
       - owner
       - demo

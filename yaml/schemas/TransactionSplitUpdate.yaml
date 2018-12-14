@@ -8,11 +8,12 @@ TransactionSplitUpdate:
       type: number
       format: double
       example: 12.95
+      description: "Amount of the transaction."
     currency_id:
       type: integer
       format: int32
       example: 12
-      description: Currency ID. Default is the source account's currency, or the user's default currency.
+      description: Currency ID. Default is the source account's currency, or the user's default currency. Can be used instead of currency_code.
     currency_code:
       type: string
       format: string
@@ -22,36 +23,37 @@ TransactionSplitUpdate:
       type: number
       format: double
       example: 16.95
+      description: The amount in a foreign currency.
     foreign_currency_id:
       type: integer
       format: int32
       example: 15
-      description: Currency ID. Default is null.
+      description: Currency ID. Default is null. Is required when you submit a foreign amount.
     foreign_currency_code:
       type: string
       format: string
       example: USD
-      description: Currency code. Default is NULL. Can be used instead of the currency_id.
+      description: Currency code. Default is NULL. Can be used instead of the foreign_currency_id, but either is required when submitting a foreign amount.
     source_id:
       type: integer
       format: int32
       example: 2
-      description: "ID of the source account. For a withdrawal, this is always an asset account."
+      description: "ID of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account."
     source_name:
       type: string
       format: string
       example: "Checking account"
-      description: "Name of the source account. For a withdrawal, this is always an asset account. Can be used instead of the source_id"
+      description: "Name of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account. Can be used instead of the source_id. If the transaction is a deposit, the source_name can be filled in freely: the account will be created based on the name."
     destination_id:
       type: integer
       format: int32
       example: 2
-      description: "ID of the destination account."
+      description: "ID of the destination account. For a deposit or a transfer, this must always be an asset account. For withdrawals this must be an expense account."
     destination_name:
       type: string
       format: string
       example: "Buy and Large"
-      description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown."
+      description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown, so submitting a name is enough."
     description:
       type: string
       format: string
@@ -61,6 +63,7 @@ TransactionSplitUpdate:
       type: boolean
       format: boolean
       example: false
+      description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
     budget_id:
       type: int
       format: int32
@@ -70,7 +73,7 @@ TransactionSplitUpdate:
       type: string
       format: string
       example: Groceries
-      description: The name of the budget to be used.
+      description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
     category_id:
       type: int
       format: int32
@@ -80,4 +83,4 @@ TransactionSplitUpdate:
       type: string
       format: string
       example: Groceries
-      description: The name of the category to be used.
+      description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
