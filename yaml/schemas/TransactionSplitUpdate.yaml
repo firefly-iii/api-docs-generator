@@ -58,11 +58,6 @@ TransactionSplitUpdate:
       format: string
       example: Groceries
       description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
-    reconciled:
-      type: boolean
-      format: boolean
-      example: false
-      description: "Indicates if the transaction is reconciled. Not recommended for new transaction. It will block changing the amount."
     source_id:
       type: integer
       format: int32
