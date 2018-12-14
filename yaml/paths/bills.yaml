@@ -128,7 +128,7 @@
       '204':
         description: Bill deleted.
       '404':
-      description: No such bill
+        description: No such bill
 /api/v1/bills/{id}/attachments:
   get:
     summary: List all attachments uploaded to the bill.
