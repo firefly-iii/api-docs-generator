@@ -303,7 +303,7 @@
       - currencies
     parameters:
     - in: path
-      name: id
+      name: code
       required: true
       schema:
         type: string

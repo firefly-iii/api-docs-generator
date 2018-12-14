@@ -16,7 +16,6 @@ RecurrenceMeta:
       description: "Either the (valid) ID of a piggy bank or a comma separated list of tags."
     tags:
       type: array
-      style: simple
       description: "An array of tags (so the exploded version of the name-field). Will only be set when the name is 'tags'."
       items:
         type: string

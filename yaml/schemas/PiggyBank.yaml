@@ -43,7 +43,7 @@ PiggyBank:
           format: string
           example: "$"
         currency_dp:
-          type: int
+          type: integer
           format: int32
           example: 2
           description: Number of decimals supported by the currency

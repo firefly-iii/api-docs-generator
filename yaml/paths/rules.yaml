@@ -137,6 +137,13 @@
     tags:
       - rules
     parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the rule.
     - in: query
       name: page
       description: Page number. The default pagination is 50 items.
@@ -176,12 +183,11 @@
         type: integer
     - in: query
       name: accounts
-      style: matrix
       explode: false
       description: |
         Limit the testing of the rule to these asset accounts. Only asset accounts will be accepted. Other types will be silently dropped.
       required: false
-      example: 1,2,3
+      example: "1,2,3"
       schema:
         type: string
     responses:
@@ -199,6 +205,13 @@
     tags:
       - rules
     parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the rule.
     - in: query
       name: start
       description: |
@@ -219,12 +232,11 @@
         format: date
     - in: query
       name: accounts
-      style: matrix
       explode: false
       description: |
         Limit the testing of the rule to these asset accounts. Only asset accounts will be accepted. Other types will be silently dropped.
       required: false
-      example: 1,2,3
+      example: "1,2,3"
       schema:
         type: string
     responses:

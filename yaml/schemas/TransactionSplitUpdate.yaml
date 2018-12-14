@@ -39,7 +39,7 @@ TransactionSplitUpdate:
       example: USD
       description: Currency code. Default is NULL. Can be used instead of the foreign_currency_id, but either is required when submitting a foreign amount.
     budget_id:
-      type: int
+      type: integer
       format: int32
       example: 4
       description: The budget ID for this transaction.
@@ -49,7 +49,7 @@ TransactionSplitUpdate:
       example: Groceries
       description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
     category_id:
-      type: int
+      type: integer
       format: int32
       example: 43
       description: The category ID for this transaction.

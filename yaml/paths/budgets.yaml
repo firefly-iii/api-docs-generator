@@ -172,6 +172,13 @@
     tags:
       - budgets
     parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the budget.
     - in: query
       name: page
       description: Page number. The default pagination is 50.

@@ -20,7 +20,7 @@ AccountUpdate:
       type: string
       format: string
       example: asset
-      description: Can only be one one these four account types.
+      description: "Can only be one one these four account types."
       enum:
       - asset
       - expense
@@ -30,15 +30,15 @@ AccountUpdate:
     iban:
       type: string
       format: string
-      example: GB98MIDL07009312345678
+      example: "GB98MIDL07009312345678"
     bic:
       type: string
       format: string
-      example: BOFAUS3N
+      example: "BOFAUS3N"
     account_number:
       type: string
       format: string
-      example: 7009312345678
+      example: "7009312345678"
     opening_balance:
       type: number
       format: double
@@ -55,27 +55,27 @@ AccountUpdate:
       type: integer
       format: int32
       example: 12
-      description: Use either currency_id or currency_code. Defaults to the user's default currency.
+      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
     currency_code:
       type: string
       format: string
-      example: EUR
-      description: Use either currency_id or currency_code. Defaults to the user's default currency.
+      example: "EUR"
+      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
     active:
       type: boolean
       format: boolean
       example: true
-      description: If omitted, defaults to true.
+      description: "If omitted, defaults to true."
     include_net_worth:
       type: boolean
       format: boolean
       example: true
-      description: If omitted, defaults to true.
+      description: "If omitted, defaults to true."
     account_role:
       type: string
       format: string
-      example: defaultAsset
-      description: Is only mandatory when the type is asset.
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
       enum:
       - defaultAsset
       - sharedAsset
@@ -86,7 +86,7 @@ AccountUpdate:
       type: string
       format: string
       example: monthlyFull
-      description: Mandatory when the account_role is ccAsset. Can only be monthlyFull.
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull."
       nullable: true
       enum:
       - monthlyFull
@@ -95,12 +95,12 @@ AccountUpdate:
       type: string
       format: date
       example: "2018-09-17"
-      description: Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank.
+      description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
     liability_type:
       type: string
       format: string
       example: loan
-      description: Mandatory when type is liability. Specifies the exact type.
+      description: "Mandatory when type is liability. Specifies the exact type."
       enum:
       - loan
       - debt
@@ -109,24 +109,22 @@ AccountUpdate:
       type: number
       format: double
       example: 12000
-      description: Mandatory when type is liability. Amount of money in the liability. Must be positive.
+      description: "Mandatory when type is liability. Amount of money in the liability. Must be positive."
     liability_start_date:
       type: string
       format: date
       example: "2017-09-17"
-      description: Mandatory when type is liability. Start date for the liability.
+      description: "Mandatory when type is liability. Start date for the liability."
     interest:
       type: number
       format: float
       example: 3
-      min: 0
-      max: 100
-      description: Mandatory when type is liability. Interest percentage.
+      description: "Mandatory when type is liability. Interest percentage."
     interest_period:
       type: string
       format: string
       example: monthly
-      description: Mandatory when type is liability. Period over which the interest is calculated.
+      description: "Mandatory when type is liability. Period over which the interest is calculated."
     notes:
       type: string
       format: string

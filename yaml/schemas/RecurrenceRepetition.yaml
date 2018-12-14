@@ -57,7 +57,6 @@ RecurrenceRepetition:
       description: Auto-generated repetition description.
     occurrences:
       type: array
-      style: simple
       description: "Array of future dates when the repetition will apply to. Auto generated."
       items:
         type: string

@@ -22,7 +22,7 @@ ImportJob:
           format: date-time
           example: "2018-09-17T12:46:47+01:00"
         tag_id:
-          type: int
+          type: integer
           format: int32
           example: 121
           description: ID of the tag related to the import job, if present.

@@ -30,7 +30,7 @@ RuleGroup:
           format: string
           example: "Description of this rule group"
         order:
-          type: int
+          type: integer
           format: int32
           example: 4
         active:
