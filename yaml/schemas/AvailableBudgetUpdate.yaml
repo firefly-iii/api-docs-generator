@@ -4,8 +4,6 @@ AvailableBudgetUpdate:
     - amount
     - start
     - end
-    - currency_id
-    - currency_code
   properties:
     start:
       type: string

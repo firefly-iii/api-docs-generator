@@ -26,6 +26,7 @@ AccountUpdate:
       - expense
       - revenue
       - liability
+      - liabilities
     iban:
       type: string
       format: string

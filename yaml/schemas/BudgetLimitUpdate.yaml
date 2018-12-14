@@ -4,7 +4,13 @@ BudgetLimitUpdate:
     - amount
     - start
     - end
+    - budget_id
   properties:
+    budget_id:
+      type: integer
+      format: int32
+      example: 23
+      description: The budget ID of the associated budget.
     start:
       type: string
       format: date

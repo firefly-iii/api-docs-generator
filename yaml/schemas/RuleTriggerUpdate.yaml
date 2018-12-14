@@ -48,7 +48,7 @@ RuleTriggerUpdate:
       type: string
       format: string
       example: "store-journal"
-      description: "The accompanying value the trigger responds to"
+      description: "The accompanying value the trigger responds to. This value is often mandatory, but this depends on the trigger."
     active:
       type: boolean
       format: boolean

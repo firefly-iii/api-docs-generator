@@ -30,4 +30,4 @@ TransactionLinkUpdate:
       type: string
       format: string
       example: "Some example notes"
-      description: Optional. Some notes
+      description: Optional. Some notes.

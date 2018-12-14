@@ -1,5 +1,8 @@
 RuleActionUpdate:
   type: object
+  required:
+    - type
+    - value
   properties:
     type:
       type: string
@@ -33,7 +36,7 @@ RuleActionUpdate:
       format: string
       example: "Daily groceries"
       nullable: true
-      description: "The accompanying value the action will set, change or update. Can be empty."
+      description: "The accompanying value the action will set, change or update. Can be empty, but for some types this value is mandatory."
     active:
       type: boolean
       format: boolean
@@ -41,6 +44,6 @@ RuleActionUpdate:
       description: If the action is active.
     stop_processing:
       type: boolean
-      format: boolean
+      format: boolean 
       example: false
       description: When true, other actions will not be fired after this action has fired.

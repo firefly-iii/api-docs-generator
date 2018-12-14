@@ -1,7 +1,6 @@
 ConfigurationUpdate:
   type: object
   required:
-    - name
     - value
   properties:
     value:

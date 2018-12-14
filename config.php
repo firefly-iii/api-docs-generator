@@ -16,6 +16,7 @@ $tags = [
     'available_budgets'       => 'The total available amount that is available for budgeting every period.',
     'bills'                   => 'All bills by the user.',
     'budgets'                 => 'Manage all the user\'s budgets',
+    'charts'                  => 'This endpoint will deliver optimised data for charts and graphics.',
     'categories'              => 'Manage all the user\'s categories',
     'currency_exchange_rates' => 'Manage system currency exchange rates, add your own rates or read them from providers configured in Firefly III',
     'configuration'           => 'Manage the global Firefly III configuration',

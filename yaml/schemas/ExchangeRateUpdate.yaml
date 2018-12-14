@@ -1,5 +1,9 @@
 ExchangeRateUpdate:
   type: object
+  required:
+    - from
+    - to
+    - date
   properties:
     from:
       type: string
