@@ -82,7 +82,7 @@ AccountUpdate:
       - savingsAsset
       - ccAsset
       - cashWalletAsset
-    cc_type:
+    credit_card_type:
       type: string
       format: string
       example: monthlyFull
@@ -90,7 +90,7 @@ AccountUpdate:
       nullable: true
       enum:
       - monthlyFull
-    cc_monthly_payment_date:
+    monthly_payment_date:
       nullable: true
       type: string
       format: date

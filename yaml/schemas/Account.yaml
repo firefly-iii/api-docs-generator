@@ -84,16 +84,16 @@ Account:
           type: string
           format: string
           example: "These are some notes"
-        monthly_payment_date:
-          type: string
-          format: date
-          example: "2017-01-01"
         credit_card_type:
           type: string
           format: string
           example: "monthlyFull"
           enum:
             - "monthlyFull"
+        monthly_payment_date:
+          type: string
+          format: date
+          example: "2017-01-01"
         account_number:
           type: string
           format: string
