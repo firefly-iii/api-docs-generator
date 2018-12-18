@@ -31,21 +31,14 @@ Account:
         type:
           type: string
           format: string
-          example: "Asset account"
+          example: "asset"
           enum:
-          - "Default account"
-          - "Cash account"
-          - "Asset account"
-          - "Expense account"
-          - "Revenue account"
-          - "Initial balance account"
-          - "Beneficiary account"
-          - "Import account"
-          - "Reconciliation account"
-          - "Loan"
-          - "Debt"
-          - "Mortgage"
-          - "Credit card"
+            - asset
+            - expense
+            - import
+            - revenue
+            - cash
+            - liabilities
         account_role:
           type: string
           format: string
