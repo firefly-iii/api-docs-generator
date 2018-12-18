@@ -37,7 +37,7 @@ ExchangeRate:
           type: string
           format: string
           example: "$"
-        from_currency_dp:
+        from_currency_decimal_places:
           type: integer
           format: integer
           example: 2
@@ -53,7 +53,7 @@ ExchangeRate:
           type: string
           format: string
           example: "$"
-        to_currency_dp:
+        to_currency_decimal_places:
           type: integer
           format: integer
           example: 2

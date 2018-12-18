@@ -13,7 +13,7 @@ RecurrenceTransaction:
       type: string
       format: string
       example: "€"
-    currency_dp:
+    currency_decimal_places:
       type: integer
       format: int32
       example: 2
@@ -33,7 +33,7 @@ RecurrenceTransaction:
       format: string
       example: "$"
       nullable: true
-    foreign_currency_dp:
+    foreign_currency_decimal_places:
       type: integer
       format: int32
       example: 2

@@ -21,7 +21,7 @@ CategorySpent:
       type: string
       format: string
       example: "$"
-    currency_dp:
+    currency_decimal_places:
       type: integer
       format: int32
       example: 2

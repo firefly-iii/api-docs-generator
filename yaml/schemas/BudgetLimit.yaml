@@ -33,7 +33,7 @@ BudgetLimit:
           type: string
           format: string
           example: "$"
-        currency_dp:
+        currency_decimal_places:
           type: integer
           format: integer
           example: 2
