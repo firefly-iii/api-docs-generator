@@ -25,7 +25,7 @@ PiggyBankEvent:
           example: "2018-09-17T12:46:47+01:00"
         currency_id:
           type: integer
-          format: integer
+          format: int32
           example: 5
         currency_code:
           type: string
@@ -37,12 +37,17 @@ PiggyBankEvent:
           example: "$"
         currency_decimal_places:
           type: integer
-          format: integer
+          format: int32
           example: 2
         amount:
           type: number
           format: double
           example: 250
+        journal_id:
+          type: integer
+          format: int32
+          example: 4291
+          description: The journal associated with the event.
         transaction_id:
           type: integer
           format: int32

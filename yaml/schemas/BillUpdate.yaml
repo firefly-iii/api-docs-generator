@@ -46,7 +46,7 @@ BillUpdate:
       description: If the bill is active.
     currency_id:
       type: integer
-      format: integer
+      format: int32
       example: 5
       description: Use either currency_id or currency_code
     currency_code:

@@ -8,7 +8,7 @@ Account:
       description: "Immutable value"
     id:
       type: integer
-      format: integer
+      format: int32
       example: 2
     attributes:
       type: object
@@ -51,7 +51,7 @@ Account:
             - cashWalletAsset
         currency_id:
           type: integer
-          format: integer
+          format: int32
           example: 5
         currency_code:
           type: string
@@ -63,7 +63,7 @@ Account:
           example: "$"
         currency_decimal_places:
           type: integer
-          format: integer
+          format: int32
           example: 2
         current_balance:
           type: number

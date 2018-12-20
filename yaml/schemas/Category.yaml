@@ -8,7 +8,7 @@ Category:
       description: "Immutable value"
     id:
       type: integer
-      format: integer
+      format: int32
       example: 2
     attributes:
       type: object
