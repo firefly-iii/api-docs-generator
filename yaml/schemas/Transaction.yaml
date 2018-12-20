@@ -26,11 +26,16 @@ Transaction:
         description:
           type: string
           format: string
-          example: "Shopping for groceries"
-        transaction_description:
+          example: "Shopping for groceries (optional split)"
+        journal_description:
           type: string
           format: string
           example: "Shopping for groceries"
+          description: "This field always contains the transaction's original description."
+        transaction_description:
+          type: string
+          format: string
+          example: "optional split"
           nullable: true
         date:
           type: string
