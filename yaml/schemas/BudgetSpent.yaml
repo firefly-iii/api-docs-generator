@@ -1,14 +1,6 @@
 BudgetSpent:
   type: object
   properties:
-    start:
-      type: string
-      format: date
-      example: "2018-04-01"
-    end:
-      type: string
-      format: date
-      example: "2018-04-30"
     currency_id:
       type: integer
       format: int32

@@ -2,6 +2,7 @@ TransactionSplitUpdate:
   type: object
   required:
     - amount
+    - source_id
   properties:
     amount:
       type: number

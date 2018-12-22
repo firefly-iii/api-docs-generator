@@ -12,11 +12,11 @@ RecurrenceUpdate:
     type:
       type: string
       format: string
-      example: "Withdrawal"
+      example: "withdrawal"
       enum:
-      - Withdrawal
-      - Deposit
-      - Transfer
+      - withdrawal
+      - deposit
+      - transfer
     title:
       type: string
       format: string

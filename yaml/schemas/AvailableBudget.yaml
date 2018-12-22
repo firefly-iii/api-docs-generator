@@ -49,3 +49,11 @@ AvailableBudget:
           type: string
           format: date
           example: "2018-09-17"
+        spent_in_budgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetSpent'
+        spent_outside_budget:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetSpent'

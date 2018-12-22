@@ -37,9 +37,6 @@
           - hidden
           - liability
           - liabilities
-          - cc
-          - creditcard
-          - credit card
           - Default account
           - Cash account
           - Asset account
@@ -52,6 +49,9 @@
           - Loan
           - Debt
           - Mortgage
+          - loan
+          - debt
+          - mortgage
     responses:
       '200':
         description: A list of accounts

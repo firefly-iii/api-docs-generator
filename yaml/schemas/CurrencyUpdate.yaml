@@ -10,6 +10,11 @@ CurrencyUpdate:
       format: boolean
       example: true
       description: defaults to true
+    default:
+      type: boolean
+      format: boolean
+      example: false
+      description: Make this currency the default currency.
     code:
       type: string
       format: string

@@ -2,7 +2,6 @@ TransactionLinkUpdate:
   type: object
   required:
     - link_type_id
-    - link_type_name
     - inward_id
     - outward_id
   properties:

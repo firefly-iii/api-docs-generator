@@ -3,7 +3,6 @@ RuleUpdate:
   required:
     - title
     - rule_group_id
-    - rule_group_title
     - trigger
     - triggers
     - actions
@@ -32,8 +31,8 @@ RuleUpdate:
       example: store-journal
       description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
       enum:
-      - store-journal
-      - update-journal
+      - "store-journal"
+      - "update-journal"
     strict:
       type: boolean
       format: boolean

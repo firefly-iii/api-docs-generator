@@ -16,7 +16,7 @@ AttachmentUpdate:
       description: The object class to which the attachment must be linked.
       enum:
       - Bill
-      - Attachment
+      - Transaction
       - TransactionJournal
       - ImportJob
     model_id:

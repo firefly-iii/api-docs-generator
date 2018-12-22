@@ -2,6 +2,8 @@ RecurrenceTransactionUpdate:
   type: object
   required:
     - description
+    - amount
+    - source_id
   properties:
     description:
       type: string
@@ -45,6 +47,16 @@ RecurrenceTransactionUpdate:
       format: int32
       example: 5
       description: Budget ID for this transaction.
+    budget_name:
+      type: string
+      format: string
+      example: "Groceries"
+      description: Budget name for this transaction.
+    category_id:
+      type: integer
+      format: int32
+      description: Category ID for this transaction.
+      example: 211
     category_name:
       type: string
       format: string

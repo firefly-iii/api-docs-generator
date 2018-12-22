@@ -116,7 +116,6 @@ Account:
           format: string
           example: "loan"
           enum:
-            - creditcard
             - loan
             - debt
             - mortgage
