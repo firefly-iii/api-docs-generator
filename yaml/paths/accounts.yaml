@@ -13,6 +13,7 @@
       required: false
       schema:
         type: integer
+        format: int32
         example: 1
     - in: query
       name: date
@@ -21,6 +22,7 @@
       required: false
       schema:
         type: string
+        format: date
     - in: query
       name: type
       description: Optional filter on the account type(s) returned
