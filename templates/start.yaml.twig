@@ -1,8 +1,13 @@
 openapi: 3.0.0
+servers:
+  - description: Firefly III demo site
+    url: https://demo.firefly-iii.org/
 info:
   title: Firefly III API
   description: |
     This is the official documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. This version of the API is not yet live in any version of Firefly III.
+
+    If you want to try the API from this page (using the "Authorize"-button) use Client ID **2** and Authorization Token `tfWoJQbmV88Fxej1ysAPIxFireflyIIIApiToken`.
   version: "{{ version }}"
   contact:
     name: James Cole
@@ -20,8 +25,8 @@ paths:
 {{ path|raw }}
 {% endfor %}
 {% endif %}
-{% if schemas|length > 0 %}
 components:
+{% if schemas|length > 0 %}
 {% endif %}
 {% if schemas|length > 0 %}
   schemas:
@@ -29,3 +34,13 @@ components:
 {{ schema|raw }}
 {% endfor %}
 {% endif %}
+  securitySchemes:
+    firefly_iii_auth:
+      type: oauth2
+      description: Default OAuth2 flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://demo.firefly-iii.org/oauth/authorize
+          tokenUrl: https://demo.firefly-iii.org/oauth/token
+          refreshUrl: http://your-app.com/oauth/token
+          scopes: {}
