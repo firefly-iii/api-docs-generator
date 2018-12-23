@@ -107,13 +107,6 @@
         example: 1
       description: The ID of the account.
     - in: query
-      name: page
-      description: Page number. The default pagination is per 50 items.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    - in: query
       name: date
       description: |
         A date formatted YYYY-MM-DD. When added to the request, Firefly III will show the account's balance on that day.
