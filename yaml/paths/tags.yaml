@@ -67,19 +67,6 @@
       required: false
       schema:
         type: integer
-    - in: query
-      name: include
-      style: form
-      explode: false
-      description: Comma-separated list of other items that are related to the tag and must be included as well.
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          minItems: 1
-          enum:
-            - user
     tags:
       - tags
     responses:
