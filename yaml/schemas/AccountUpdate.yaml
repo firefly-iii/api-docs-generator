@@ -79,7 +79,7 @@ AccountUpdate:
       enum:
       - defaultAsset
       - sharedAsset
-      - savingsAsset
+      - savingAsset
       - ccAsset
       - cashWalletAsset
     credit_card_type:

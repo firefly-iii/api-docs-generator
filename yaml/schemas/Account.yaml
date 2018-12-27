@@ -46,7 +46,7 @@ Account:
           enum:
             - defaultAsset
             - sharedAsset
-            - savingsAsset
+            - savingAsset
             - ccAsset
             - cashWalletAsset
         currency_id:
