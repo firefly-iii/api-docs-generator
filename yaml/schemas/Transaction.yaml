@@ -48,6 +48,7 @@ Transaction:
           enum:
           - Withdrawal
           - Expense
+          - Deposit
           - Transfer
           - Opening balance
           - Reconciliation
