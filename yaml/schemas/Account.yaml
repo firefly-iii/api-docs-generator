@@ -87,6 +87,7 @@ Account:
         monthly_payment_date:
           type: string
           format: date
+          nullable: true
           example: "2017-01-01"
         account_number:
           type: string
