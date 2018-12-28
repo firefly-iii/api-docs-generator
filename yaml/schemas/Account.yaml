@@ -82,6 +82,7 @@ Account:
           format: string
           example: "monthlyFull"
           enum:
+            - ""
             - "monthlyFull"
         monthly_payment_date:
           type: string
