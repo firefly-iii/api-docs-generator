@@ -39,6 +39,7 @@ Account:
             - revenue
             - cash
             - liabilities
+            - "initial-balance"
         account_role:
           type: string
           format: string
