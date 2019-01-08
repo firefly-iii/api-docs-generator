@@ -8,6 +8,14 @@
     parameters:
     - in: query
       name: page
+      start: 
+        type: string
+        format: date
+        example: "2018-11-28"
+      end:
+        type: string
+        format: date
+        example: "2018-11-28"
       description: Page number. The default pagination is 50.
       required: false
       schema:
