@@ -41,7 +41,7 @@ foreach ($files as $file) {
 $result = $builder->render();
 
 // put result in file:
-$finalDestination = sprintf('%s/firefly-iii-latest.yaml', $destination);
+$finalDestination = sprintf('%s/firefly-iii-%s.yaml', $destination, $version);
 
 file_put_contents($finalDestination, $result);
 echo "\nDone\n";
