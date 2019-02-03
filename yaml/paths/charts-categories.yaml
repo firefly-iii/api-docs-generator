@@ -1,0 +1,32 @@
+/api/v1/chart/category/overview:
+  get:
+    tags:
+      - charts
+    summary: Dashboard chart with an overview of the users categories.
+    description: |
+      This endpoint returns the data required to generate a bar chart for the expenses and incomes on the users categories.
+    operationId: getChartCategoryOverview
+    parameters:
+    - in: query
+      name: start
+      description: |
+        A date formatted YYYY-MM-DD. 
+      required: true
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: end
+      description: |
+        A date formatted YYYY-MM-DD. 
+      required: true
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Bar chart oriented chart information. Check out the model for more details. Each entry is a set of bars in the chart.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartLine'

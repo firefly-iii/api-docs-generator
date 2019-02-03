@@ -26,6 +26,11 @@ PiggyBank:
           format: int32
           example: 13
           description: The ID of the asset account this piggy bank is connected to.
+        account_name:
+          type: string
+          format: string
+          example: "Savings account"
+          description: The name of the asset account this piggy bank is connected to.
         name:
           type: string
           format: string

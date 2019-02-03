@@ -1,0 +1,51 @@
+BasicSummaryEntry:
+  type: object
+  properties:
+    key:
+      type: string
+      format: string
+      example: "balance-in-EUR"
+      description: "This is a reference to the type of info shared, not influenced by translations or user preferences."
+    title:
+      type: string
+      format: string
+      example: "Balance ($)"
+      description: "A translated title for the information shared."
+    monetary_value:
+      type: number
+      format: double
+      example: 123.45
+      description: "The amount as a float."
+    currency_id:
+      type: number
+      format: int32
+      example: 5
+      description: "The currency ID of the associated currency."
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+    currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: "Number of decimals for the associated currency."
+    value_parsed:
+      type: string
+      format: string
+      example: "$ 12.45"
+      description: "The amount formatted according to the users locale"
+    local_icon:
+      type: string
+      format: string
+      example: "balance-scale"
+      description: "Reference to a font-awesome icon without the fa- part."
+    sub_title:
+      type: string
+      format: string
+      example: "$20 + $-40"
+      description: "A short explanation of the amounts origin. Already formatted according to the locale of the user or translated, if relevant."

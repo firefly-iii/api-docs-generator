@@ -1,0 +1,8 @@
+ChartDataPoint:
+  type: object
+  properties:
+    key:
+      type: string
+      format: string
+      example: "value"
+      description: "The key is the label of the value, so for example: '2018-01-01' => 13 or 'Groceries' => -123."

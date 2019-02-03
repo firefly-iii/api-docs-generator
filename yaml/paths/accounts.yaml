@@ -233,6 +233,13 @@
         type: integer
         example: 1
     - in: query
+      name: limit
+      description: Limits the number of results on one page.
+      required: false
+      schema:
+        type: integer
+        example: 5
+    - in: query
       name: start
       description: |
         A date formatted YYYY-MM-DD.

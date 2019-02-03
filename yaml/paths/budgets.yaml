@@ -180,6 +180,13 @@
         example: 1
       description: The ID of the budget.
     - in: query
+      name: limit
+      description: Limits the number of results on one page.
+      required: false
+      schema:
+        type: integer
+        example: 5
+    - in: query
       name: page
       description: Page number. The default pagination is 50.
       required: false

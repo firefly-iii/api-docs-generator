@@ -21,6 +21,19 @@
             schema:
               $ref: '#/components/schemas/PreferenceArray'
 /api/v1/preferences/{name}:
+  get:
+    summary: Return a single preference.
+    description: Return a single preference.
+    operationId: getPreference
+    tags:
+      - preferences
+    responses:
+      '200':
+        description: A single preference.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PreferenceSingle'
   put:
     summary: Update preference
     description: Update a user's preference.

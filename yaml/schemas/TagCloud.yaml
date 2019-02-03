@@ -1,0 +1,7 @@
+TagCloud:
+  type: object
+  properties:
+    tags:
+      type: array
+      items:
+        $ref: '#/components/schemas/TagCloudTag'

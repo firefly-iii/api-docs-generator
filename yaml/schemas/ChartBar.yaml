@@ -1,0 +1,4 @@
+ChartBar:
+  type: array
+  items:
+    $ref: '#/components/schemas/ChartDataSet'
