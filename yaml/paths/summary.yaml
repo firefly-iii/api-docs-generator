@@ -1,4 +1,4 @@
-/api/v1/summary/about:
+/api/v1/summary/basic:
   get:
     tags:
       - summary
