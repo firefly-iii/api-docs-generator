@@ -25,6 +25,14 @@
     summary: Return a single preference.
     description: Return a single preference.
     operationId: getPreference
+    parameters:
+    - in: path
+      name: name
+      required: true
+      schema:
+        type: string
+        example: currencyPreference
+      description: The name of the preference.    
     tags:
       - preferences
     responses:
