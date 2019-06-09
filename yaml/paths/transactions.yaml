@@ -1,6 +1,7 @@
 /api/v1/transactions:
   get:
-    summary: List all the user's transactions.
+    summary: |
+      List all the user's transactions.
     description: List all the user's transactions.
     operationId: getTransactions
     tags:

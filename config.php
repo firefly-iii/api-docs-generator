@@ -21,7 +21,6 @@ $tags = [
     'currency_exchange_rates' => 'Manage system currency exchange rates, add your own rates or read them from providers configured in Firefly III',
     'configuration'           => 'Manage the global Firefly III configuration',
     'currencies'              => 'Manage all currencies in the system, disable and enable them or add new ones.',
-    'export'                  => 'Manage and run exports.',
     'import'                  => 'Manage and run imports.',
     'links'                   => 'Manage links between transactions, and manage the type of links available.',
     'piggy_banks'             => 'Control all of the user\'s piggy banks, including money management',
