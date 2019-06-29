@@ -27,6 +27,8 @@ What it does is simply join all YAML files in `/yaml/` together, preceded by the
 
 The resulting `firefly-iii-${API_VERSION}.yaml` file can be imported into your favorite API development environment to play around with, e.g. [Postman](https://www.getpostman.com/).
 
+![Firefly III API collection in Postman](postman-firefly-iii-collection.png "Firefly III API collection in Postman")
+
 ## Current state
 I'm actively writing all API documentation, so the file may change.
 
