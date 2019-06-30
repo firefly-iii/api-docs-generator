@@ -5,6 +5,30 @@ This is a very basic script that renders the YAML file (in the OpenAPI 3.0 spec)
 ## How it works
 What it does is simply join all YAML files in `/yaml/` together, preceded by the `start.yaml.twig` file in the `/templates/` directory.
 
+1. Rename `.env.example` to `.env` and adjust the variables accordingly, e.g.
+
+    ```ini
+    API_VERSION=0.10.0
+    API_DESTINATION=./
+    API_ROOT=./
+    ```
+
+2. Install dependencies via [Composer](https://getcomposer.org/)
+
+    `$ composer install`
+
+3. Install PHP `yaml.so` extension. It should be added to your `php.ini` automatically.
+
+    `$ pecl install yaml`
+
+4. Generate `firefly-iii-${API_VERSION}.yaml` file
+
+    `$ php index.php`
+
+The resulting `firefly-iii-${API_VERSION}.yaml` file can be imported into your favorite API development environment to play around with, e.g. [Postman](https://www.getpostman.com/).
+
+![Firefly III API collection in Postman](postman-firefly-iii-collection.png "Firefly III API collection in Postman")
+
 ## Current state
 I'm actively writing all API documentation, so the file may change.
 
