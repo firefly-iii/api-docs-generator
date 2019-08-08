@@ -20,7 +20,7 @@ AccountUpdate:
       type: string
       format: string
       example: asset
-      description: "Can only be one one these four account types."
+      description: "Can only be one one these account types."
       enum:
       - asset
       - expense
