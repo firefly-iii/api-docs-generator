@@ -57,7 +57,7 @@ Attachment:
           example: "https://demo.firefly-iii.org/api/v1/attachments/191/download"
         title:
           type: string
-          format: title
+          format: string
           example: "Example PDF file"
         notes:
           type: string
