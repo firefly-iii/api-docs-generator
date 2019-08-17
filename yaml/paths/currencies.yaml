@@ -62,6 +62,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     responses:
@@ -108,6 +109,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     responses:
@@ -128,6 +130,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     tags:
@@ -153,6 +156,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: EUR
       description: The currency code.
     requestBody:
@@ -190,6 +194,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: GBP
       description: The currency code.
     responses:
@@ -210,6 +215,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     - in: query
@@ -226,12 +232,14 @@
       required: false
       schema:
         type: string
+        format: string
     - in: query
       name: type
       description: Optional filter on the account type(s) returned
       required: false
       schema:
         type: string
+        format: string
         enum:
           - all
           - asset
@@ -277,6 +285,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: EUR
       description: The currency code.
     - in: query
@@ -306,6 +315,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     - in: query
@@ -335,6 +345,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     - in: query
@@ -380,6 +391,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: GBP
       description: The currency code.
     - in: query
@@ -433,6 +445,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: EUR
       description: The currency code.
     - in: query
@@ -462,6 +475,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     - in: query
@@ -491,6 +505,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: USD
       description: The currency code.
     - in: query
@@ -507,6 +522,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end_date
@@ -515,6 +531,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-12-31
     - in: query
       name: type
@@ -522,6 +539,7 @@
       required: false
       schema:
         type: string
+        format: string
         enum:
         - all
         - withdrawal

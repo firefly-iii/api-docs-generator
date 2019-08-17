@@ -26,6 +26,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: "single_user_mode"
         enum:
           - is_demo_site

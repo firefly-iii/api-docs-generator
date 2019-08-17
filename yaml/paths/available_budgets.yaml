@@ -21,6 +21,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end
@@ -29,6 +30,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-12-31
     responses:
       '200':

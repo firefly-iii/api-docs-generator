@@ -19,6 +19,7 @@ RecurrenceMeta:
       description: "An array of tags (so the exploded version of the name-field). Will only be set when the name is 'tags'."
       items:
         type: string
+        format: string
     piggy_bank_id:
       type: integer
       format: int32
