@@ -4,13 +4,6 @@ AccountUpdate:
     - name
     - type
     - account_role
-    - cc_type
-    - cc_monthly_payment_date
-    - liability_type
-    - liability_amount
-    - liability_start_date
-    - interest
-    - interest_period
   properties:
     name:
       type: string
