@@ -1,7 +1,5 @@
 PiggyBankEvent:
   type: object
-  required:
-    - name
   properties:
     type:
       type: string

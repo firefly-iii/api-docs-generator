@@ -1,7 +1,5 @@
 ValidationError:
   type: object
-  required:
-    - name
   properties:
     message:
       type: string
