@@ -5,6 +5,7 @@ ValidationError:
   properties:
     message:
       type: string
+      format: string
       example: "The given data was invalid."
     errors:
       type: object
@@ -13,7 +14,9 @@ ValidationError:
           type: array
           items:
             type: string
+            format: string
         field2:
           type: array
           items:
             type: string
+            format: string

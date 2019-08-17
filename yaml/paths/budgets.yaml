@@ -20,6 +20,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end
@@ -28,6 +29,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-12-31
     responses:
       '200':
@@ -85,6 +87,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end_date
@@ -93,6 +96,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-12-31
     tags:
       - budgets
@@ -200,6 +204,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end
@@ -208,6 +213,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-12-31
     - in: query
       name: type
@@ -215,6 +221,7 @@
       required: false
       schema:
         type: string
+        format: string
         enum:
         - all
         - withdrawal
@@ -261,6 +268,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end
@@ -269,6 +277,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-12-31
     responses:
       '200':
@@ -426,6 +435,7 @@
       required: false
       schema:
         type: string
+        format: string
         enum:
         - all
         - withdrawal

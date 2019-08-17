@@ -91,6 +91,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: groceries
     - in: query
       name: page
@@ -122,6 +123,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: groceries
     requestBody:
       content:
@@ -159,6 +161,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: groceries
     responses:
       '204':
@@ -180,6 +183,7 @@
       required: true
       schema:
         type: string
+        format: string
         example: groceries
     - in: query
       name: page
@@ -195,6 +199,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end
@@ -203,6 +208,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: type
@@ -210,6 +216,7 @@
       required: false
       schema:
         type: string
+        format: string
         enum:
         - all
         - withdrawal

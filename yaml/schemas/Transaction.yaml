@@ -281,10 +281,12 @@ Transaction:
               description: SEPA External Purpose indicator
             sepa_ci:
               type: string
+              format: string
               nullable: true
               description: SEPA Creditor Identifier
             sepa_batch_id:
               type: string
+              format: string
               nullable: true
               description: SEPA Batch ID
             interest_date:

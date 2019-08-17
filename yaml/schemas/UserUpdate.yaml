@@ -5,6 +5,7 @@ UserUpdate:
   properties:
     email:
       type: string
+      format: email
       example: "thegrumpydictator@gmail.com"
       description: The new users email address.
     blocked:
@@ -13,6 +14,7 @@ UserUpdate:
       description: Creates a new users who is blocked immediately.
     blocked_code:
       type: string
+      format: string
       nullable: true
       example: "email_changed"
       description: If you say the user must be blocked, this will be the reason code.
@@ -20,6 +22,7 @@ UserUpdate:
       - email_changed
     role:
       type: string
+      format: string
       nullable: true
       example: "owner"
       description: Role for the new user. Can be empty or omitted.

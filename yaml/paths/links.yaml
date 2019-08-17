@@ -167,6 +167,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: end
@@ -175,6 +176,7 @@
       required: false
       schema:
         type: string
+        format: date
         example: 2018-09-17
     - in: query
       name: type
@@ -182,6 +184,7 @@
       required: false
       schema:
         type: string
+        format: string
         enum:
         - all
         - withdrawal
