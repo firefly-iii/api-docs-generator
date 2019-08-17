@@ -1,7 +1,5 @@
 Transaction:
   type: object
-  required:
-    - name
   properties:
     type:
       type: string

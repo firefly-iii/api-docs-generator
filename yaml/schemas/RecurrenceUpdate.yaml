@@ -6,7 +6,6 @@ RecurrenceUpdate:
     - first_date
     - repeat_until
     - repetitions
-    - recurrence_repetitions
     - transactions
   properties:
     type:
