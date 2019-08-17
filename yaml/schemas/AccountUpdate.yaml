@@ -29,7 +29,7 @@ AccountUpdate:
       - liabilities
     iban:
       type: string
-      format: string
+      format: iban
       example: "GB98MIDL07009312345678"
     bic:
       type: string
