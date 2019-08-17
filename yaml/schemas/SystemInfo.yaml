@@ -1,4 +1,5 @@
 SystemInfo:
+  type: object
   required:
     - data
   properties:
