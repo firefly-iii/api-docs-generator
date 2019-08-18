@@ -42,8 +42,8 @@ Currency:
           format: string
           example: "AM$"
         decimal_places:
-          type: string
-          format: string
+          type: integer
+          format: int32
           example: 2
           description: Supports 0-16 decimals.
     links:
