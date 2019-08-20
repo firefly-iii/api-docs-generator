@@ -91,8 +91,11 @@ Bill:
             type: string
             format: date
         paid_dates:
-          type: array
-          description: "Array of past dates when the bill was paid."
-          items:
-            type: string
-            format: date
+          type: object
+          description: "Object of past dates when the bill was paid."
+          properties:
+            paid:
+              type: string
+              format: date
+              description: "The key is the transaction journal ID, and the value is the date the bill was paid."
+
