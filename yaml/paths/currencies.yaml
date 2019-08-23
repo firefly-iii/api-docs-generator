@@ -2,7 +2,7 @@
   get:
     summary: List all currencies.
     description: List all currencies.
-    operationId: getCurrencies
+    operationId: listCurrency
     tags:
       - currencies
     parameters:
@@ -206,7 +206,7 @@
   get:
     summary: List all accounts with this currency.
     description: List all accounts with this currency.
-    operationId: getAccountsByCurrency
+    operationId: listAccountByCurrency
     tags:
       - currencies
     parameters:
@@ -276,7 +276,7 @@
   get:
     summary: List all available budgets with this currency.
     description: List all available budgets with this currency.
-    operationId: getAvailableBudgetsByCurrency
+    operationId: listAvailableBudgetByCurrency
     tags:
       - currencies
     parameters:
@@ -306,7 +306,7 @@
   get:
     summary: List all bills with this currency.
     description: List all bills with this currency.
-    operationId: getBillsByCurrency
+    operationId: listBillByCurrency
     tags:
       - currencies
     parameters:
@@ -336,7 +336,7 @@
   get:
     summary: List all budget limits with this currency
     description: List all budget limits with this currency
-    operationId: getBudgetLimitsByCurrency
+    operationId: listBudgetLimitByCurrency
     tags:
       - currencies
     parameters:
@@ -382,7 +382,7 @@
   get:
     summary: List all known exchange rates with (from or to) this currency.
     description: List all known exchange rates.
-    operationId: getExchangeRatesByCurrency
+    operationId: listExchangeRateByCurrency
     tags:
       - currencies
     parameters:
@@ -436,7 +436,7 @@
   get:
     summary: List all recurring transactions with this currency.
     description: List all recurring transactions with this currency.
-    operationId: getRecurrencesByCurrency
+    operationId: listRecurrenceByCurrency
     tags:
       - currencies
     parameters:
@@ -466,7 +466,7 @@
   get:
     summary: List all rules with this currency.
     description: List all rules with this currency.
-    operationId: getRulesByCurrency
+    operationId: listRuleByCurrency
     tags:
       - currencies
     parameters:
@@ -496,7 +496,7 @@
   get:
     summary: List all transactions with this currency.
     description: List all transactions with this currency.
-    operationId: getTransactionsByCurrency
+    operationId: listTransactionByCurrency
     tags:
       - currencies
     parameters:

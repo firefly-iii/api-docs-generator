@@ -2,7 +2,7 @@
   get:
     summary: List all piggy banks.
     description: List all piggy banks.
-    operationId: getPiggyBanks
+    operationId: listPiggyBank
     tags:
       - piggy_banks
     parameters:
@@ -133,7 +133,7 @@
   get:
     summary: List all events linked to a piggy bank.
     description: List all events linked to a piggy bank (adding and removing money).
-    operationId: getEventsByPiggyBank
+    operationId: listEventByPiggyBank
     tags:
       - piggy_banks
     parameters:

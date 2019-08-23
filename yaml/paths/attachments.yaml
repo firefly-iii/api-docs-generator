@@ -3,7 +3,7 @@
     summary: List all attachments.
     description: |
       This endpoint lists all attachments.
-    operationId: getAttachments
+    operationId: listAttachment
     tags:
       - attachments
     parameters:

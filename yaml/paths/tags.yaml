@@ -33,7 +33,7 @@
   get:
     summary: List all tags.
     description: List all of the user's tags.
-    operationId: getTags
+    operationId: listTag
     tags:
       - tags
     parameters:
@@ -173,7 +173,7 @@
   get:
     summary: "List all transactions with this tag."
     description: "List all transactions with this tag."
-    operationId: getTransactionsByTag
+    operationId: listTransactionByTag
     tags:
       - tags
     parameters:

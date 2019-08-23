@@ -2,7 +2,7 @@
   get:
     summary: List all users preferences.
     description: List all preferences of the user.
-    operationId: getPreferences
+    operationId: listPreference
     tags:
       - preferences
     parameters:
