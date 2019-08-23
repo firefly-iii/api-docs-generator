@@ -1,147 +1,163 @@
 Account:
   type: object
+  required:
+    - name
+    - type
+    - account_role
   properties:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "My checking account"
     type:
       type: string
       format: string
-      example: "accounts"
-      description: "Immutable value"
-    id:
+      example: asset
+      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
+      enum:
+        - asset
+        - expense
+        - import
+        - revenue
+        - cash
+        - liability
+        - liabilities
+        - "initial-balance"
+        - reconciliation
+    iban:
+      type: string
+      format: iban
+      example: "GB98MIDL07009312345678"
+    bic:
+      type: string
+      format: string
+      example: "BOFAUS3N"
+    account_number:
+      type: string
+      format: string
+      example: "7009312345678"
+    opening_balance:
+      type: number
+      format: double
+      example: -1012.12
+    opening_balance_date:
+      type: string
+      format: date
+      example: "2018-09-17"
+    virtual_balance:
+      type: number
+      format: double
+      example: 1000
+    current_balance:
+      type: number
+      format: number
+      example: 152.34
+      readOnly: true
+    current_balance_date:
+      type: string
+      format: date
+      example: "2018-09-17"
+      readOnly: true
+    currency_id:
+      type: integer
+      format: int32
+      example: 12
+      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+    currency_decimal_places:
       type: integer
       format: int32
       example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        active:
-          type: boolean
-          example: true
-        name:
-          type: string
-          format: string
-          example: "My Checking Account"
-        type:
-          type: string
-          format: string
-          example: "asset"
-          enum:
-            - asset
-            - expense
-            - import
-            - revenue
-            - cash
-            - liabilities
-            - "initial-balance"
-            - reconciliation
-        account_role:
-          type: string
-          format: string
-          example: "defaultAsset"
-          enum:
-            - defaultAsset
-            - sharedAsset
-            - savingAsset
-            - ccAsset
-            - cashWalletAsset
-        currency_id:
-          type: integer
-          format: int32
-          example: 5
-        currency_code:
-          type: string
-          format: string
-          example: EUR
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
-        current_balance:
-          type: number
-          format: number
-          example: 152.34
-        current_balance_date:
-          type: string
-          format: date
-          example: "2018-09-17"
-        notes:
-          type: string
-          format: string
-          example: "These are some notes"
-        credit_card_type:
-          type: string
-          format: string
-          example: "monthlyFull"
-          enum:
-            - "monthlyFull"
-        monthly_payment_date:
-          type: string
-          format: date
-          example: "2017-01-01"
-        account_number:
-          type: string
-          format: string
-          example: "1986191135"
-        iban:
-          type: string
-          format: iban
-          example: "GB98MIDL07009312345678"
-        bic:
-          type: string
-          format: string
-          example: "BOFAUS3N"
-        virtual_balance:
-          type: number
-          format: number
-          example: 1000.00
-        opening_balance:
-          type: number
-          format: number
-          example: 1200.45
-        opening_balance_date:
-          type: string
-          format: date
-          example: "2015-06-14"
-        liability_type:
-          type: string
-          format: string
-          example: "loan"
-          enum:
-            - loan
-            - debt
-            - mortgage
-        liability_amount:
-          type: number
-          format: double
-          example: -10000.00
-        liability_start_date:
-          type: string
-          format: date
-          example: "1990-11-05"
-        interest:
-          type: string
-          format: string
-          example: "0.2"
-        interest_period:
-          type: string
-          format: string
-          example: "monthly"
-          enum:
-            - daily
-            - monthly
-            - yearly
-        include_net_worth:
-          type: boolean
-          format: boolean
-          example: true
+      readOnly: true
+    active:
+      type: boolean
+      format: boolean
+      example: true
+      description: "If omitted, defaults to true."
+    include_net_worth:
+      type: boolean
+      format: boolean
+      example: true
+      description: "If omitted, defaults to true."
+      writeOnly: true
+    account_role:
+      type: string
+      format: string
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
+      enum:
+      - defaultAsset
+      - sharedAsset
+      - savingAsset
+      - ccAsset
+      - cashWalletAsset
+    credit_card_type:
+      type: string
+      format: string
+      example: monthlyFull
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull."
+      nullable: true
+      enum:
+      - monthlyFull
+    monthly_payment_date:
+      nullable: true
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
+    liability_type:
+      type: string
+      format: string
+      example: loan
+      description: "Mandatory when type is liability. Specifies the exact type."
+      enum:
+      - loan
+      - debt
+      - mortgage
+    liability_amount:
+      type: number
+      format: double
+      example: 12000
+      description: "Mandatory when type is liability. Amount of money in the liability. Must be positive."
+    liability_start_date:
+      type: string
+      format: date
+      example: "2017-09-17"
+      description: "Mandatory when type is liability. Start date for the liability."
+    interest:
+      type: number
+      format: float
+      example: 3
+      description: "Mandatory when type is liability. Interest percentage."
+    interest_period:
+      type: string
+      format: string
+      example: monthly
+      description: "Mandatory when type is liability. Period over which the interest is calculated."
+      enum:
+        - daily
+        - monthly
+        - yearly
+    notes:
+      type: string
+      format: string
+      example: "Some example notes"

@@ -4,6 +4,6 @@ AccountArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Account'
+        $ref: '#/components/schemas/AccountRead'
     meta:
       $ref: '#/components/schemas/Meta'
