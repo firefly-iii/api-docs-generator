@@ -2,7 +2,7 @@
   get:
     summary: List all recurring transactions.
     description: List all recurring transactions.
-    operationId: getRecurring
+    operationId: listRecurrence
     tags:
       - recurrences
     parameters:
