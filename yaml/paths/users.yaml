@@ -2,7 +2,7 @@
   get:
     summary: List all users.
     description: List all the users in this instance of Firefly III.
-    operationId: getUsers
+    operationId: listUser
     tags:
       - users
     parameters:

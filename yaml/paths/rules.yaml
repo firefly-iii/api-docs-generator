@@ -2,7 +2,7 @@
   get:
     summary: List all rules.
     description: List all rules.
-    operationId: getRules
+    operationId: listRule
     tags:
       - rules
     parameters:

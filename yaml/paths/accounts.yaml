@@ -5,7 +5,7 @@
     summary: List all accounts.
     description: |
       This endpoint returns a list of all the accounts owned by the authenticated user.
-    operationId: getAccounts
+    operationId: listAccount
     parameters:
     - in: query
       name: page
@@ -189,7 +189,7 @@
     summary: List all piggy banks related to the account.
     description: |
       This endpoint returns a list of all the piggy banks connected to the account.
-    operationId: getPiggiesByAccount
+    operationId: listPiggyBankByAccount
     parameters:
     - in: path
       name: id
@@ -218,7 +218,7 @@
     summary: List all transactions related to the account.
     description: |
       This endpoint returns a list of all the transactions connected to the account.
-    operationId: getTransactionsByAccount
+    operationId: listTransactionByAccount
     parameters:
     - in: path
       name: id

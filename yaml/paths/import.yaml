@@ -3,7 +3,7 @@
     description: List all imports
     tags:
       - import
-    operationId: getImports
+    operationId: listImport
     parameters:
     - in: query
       name: page
@@ -52,7 +52,7 @@
     summary: List all transactions related to the import job. The correlation is made through the tag.
     description: |
       See summary
-    operationId: getTransactionsByImport
+    operationId: listTransactionByImport
     parameters:
     - in: path
       name: key

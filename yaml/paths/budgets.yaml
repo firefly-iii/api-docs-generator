@@ -2,7 +2,7 @@
   get:
     summary: List all budgets.
     description: List all the budgets the user has made. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.
-    operationId: getBudgets
+    operationId: listBudget
     tags:
       - budgets
     parameters:
@@ -172,7 +172,7 @@
   get:
     summary: All transactions to a budget.
     description: Get all transactions linked to a budget, possibly limited by start and end
-    operationId: getTransactionsByBudget
+    operationId: listTransactionByBudget
     tags:
       - budgets
     parameters:
@@ -246,7 +246,7 @@
               $ref: '#/components/schemas/TransactionArray'
 /api/v1/budgets/{id}/limits:
   get:
-    operationId: getBudgetLimits
+    operationId: listBudgetLimit
     description: |
         Get all budget limits for this budget and the money spent, and money left. You can limit the list by submitting a date range as well. The "spent" array for each budget limit is NOT influenced by the start and end date of your query, but by the start and end date of the budget limit itself.
     summary: Get all limits
@@ -410,7 +410,7 @@
   get:
     summary: List all transactions by a budget limit ID.
     description: List all the transactions within one budget limit. The start and end date are dictated by the budget limit.
-    operationId: getTransactionsByBudgetLimit
+    operationId: listTransactionByBudgetLimit
     tags:
       - budgets
     parameters:

@@ -5,7 +5,7 @@
     summary: List all types of links.
     description: |
       List all the link types the system has. These include the default ones as well as any new ones.
-    operationId: getLinkTypes
+    operationId: listLinkType
     parameters:
     - in: query
       name: page
@@ -144,7 +144,7 @@
     summary: List all transactions under this link type.
     description: |
       List all transactions under this link type, both the inward and outward transactions.
-    operationId: getTransactionsByLinkType
+    operationId: listTransactionByLinkType
     parameters:
     - in: path
       name: id
@@ -214,7 +214,7 @@
     summary: List all transaction links.
     description: |
       List all the transaction links.
-    operationId: getTransactionLinks
+    operationId: listTransactionLink
     parameters:
     - in: query
       name: page

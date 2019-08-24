@@ -2,7 +2,7 @@
   get:
     summary: List all categories.
     description: List all categories.
-    operationId: getCategories
+    operationId: listCategory
     tags:
       - categories
     parameters:
@@ -133,7 +133,7 @@
   get:
     summary: List all transactions in a category.
     description: List all transactions in a category, optionally limited to the date ranges specified.
-    operationId: getTransactionsByCategory
+    operationId: listTransactionByCategory
     tags:
       - categories
     parameters:

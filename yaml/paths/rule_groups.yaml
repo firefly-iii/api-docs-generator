@@ -2,7 +2,7 @@
   get:
     summary: List all rule groups.
     description: List all rule groups.
-    operationId: getRuleGroups
+    operationId: listRuleGroup
     tags:
       - rule_groups
     parameters:
@@ -204,7 +204,7 @@
   get:
     summary: List rules in this rule group.
     description: List rules in this rule group.
-    operationId: getRulesByGroup
+    operationId: listRuleByGroup
     tags:
       - rule_groups
     parameters:

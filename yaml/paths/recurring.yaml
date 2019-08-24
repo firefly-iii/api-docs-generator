@@ -133,7 +133,7 @@
   get:
     summary: List all transactions created by a recurring transaction.
     description: List all transactions created by a recurring transaction, optionally limited to the date ranges specified.
-    operationId: getTransactionsByRecurrence
+    operationId: listTransactionByRecurrence
     tags:
       - recurrences
     parameters:

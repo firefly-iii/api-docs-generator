@@ -2,7 +2,7 @@
   get:
     summary: List all bills.
     description: This endpoint will list all the user's bills.
-    operationId: getBills
+    operationId: listBill
     tags:
       - bills
     parameters:
@@ -169,7 +169,7 @@
   get:
     summary: List all attachments uploaded to the bill.
     description: This endpoint will list all attachments linked to the bill.
-    operationId: getAttachmentsByBill
+    operationId: listAttachmentByBill
     tags:
       - bills
     parameters:
@@ -198,7 +198,7 @@
   get:
     summary: List all rules associated with the bill.
     description: This endpoint will list all rules that have an action to set the bill to this bill.
-    operationId: getRulesByBill
+    operationId: listRuleByBill
     tags:
       - bills
     parameters:
@@ -220,7 +220,7 @@
   get:
     summary: List all transactions associated with the  bill.
     description: This endpoint will list all transactions linked to this bill.
-    operationId: getTransactionsByBill
+    operationId: listTransactionByBill
     tags:
       - bills
     parameters:
