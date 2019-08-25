@@ -246,7 +246,7 @@
               $ref: '#/components/schemas/TransactionArray'
 /api/v1/budgets/{id}/limits:
   get:
-    operationId: listBudgetLimit
+    operationId: listBudgetLimitByBudget
     description: |
         Get all budget limits for this budget and the money spent, and money left. You can limit the list by submitting a date range as well. The "spent" array for each budget limit is NOT influenced by the start and end date of your query, but by the start and end date of the budget limit itself.
     summary: Get all limits
