@@ -1,59 +1,61 @@
 AvailableBudget:
   type: object
+  required:
+    - amount
+    - start
+    - end
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    currency_id:
+      type: integer
+      format: int32
+      example: 5
+      description: Use either currency_id or currency_code.
+    currency_code:
       type: string
       format: string
-      example: "available_budgets"
-      description: "Immutable value"
-    id:
+      example: EUR
+      description: Use either currency_id or currency_code.
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+    currency_decimal_places:
       type: integer
       format: int32
       example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        currency_id:
-          type: integer
-          format: int32
-          example: 5
-        currency_code:
-          type: string
-          format: string
-          example: EUR
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
-        amount:
-          type: number
-          format: number
-          example: 152.34
-        start:
-          type: string
-          format: date
-          example: "2018-09-17"
-        end:
-          type: string
-          format: date
-          example: "2018-09-17"
-        spent_in_budgets:
-          type: array
-          items:
-            $ref: '#/components/schemas/BudgetSpent'
-        spent_outside_budget:
-          type: array
-          items:
-            $ref: '#/components/schemas/BudgetSpent'
+      readOnly: true
+    amount:
+      type: number
+      format: double
+      example: 250
+    start:
+      type: string
+      format: date
+      example: "2017-09-17"
+      description: Start date of the available budget.
+    end:
+      type: string
+      format: date
+      example: "2017-09-17"
+      description: End date of the available budget.
+    spent_in_budgets:
+      type: array
+      items:
+        $ref: '#/components/schemas/BudgetSpent'
+      readOnly: true
+    spent_outside_budget:
+      type: array
+      items:
+        $ref: '#/components/schemas/BudgetSpent'
+      readOnly: true

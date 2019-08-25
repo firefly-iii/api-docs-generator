@@ -2,4 +2,4 @@ AvailableBudgetSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/AvailableBudget'
+      $ref: '#/components/schemas/AvailableBudgetRead'

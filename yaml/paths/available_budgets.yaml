@@ -50,10 +50,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/AvailableBudgetUpdate'
+            $ref: '#/components/schemas/AvailableBudget'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/AvailableBudgetUpdate'
+            $ref: '#/components/schemas/AvailableBudget'
       description: "JSON array or key=value pairs with the necessary available budget information. See the model for the exact specifications."
       required: true
     responses:
@@ -111,10 +111,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/AvailableBudgetUpdate'
+            $ref: '#/components/schemas/AvailableBudget'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/AvailableBudgetUpdate'
+            $ref: '#/components/schemas/AvailableBudget'
       description: JSON array or form value with updated available budget information. See the model for the exact specifications.
       required: true
     responses:
