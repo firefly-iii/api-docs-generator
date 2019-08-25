@@ -1,50 +1,44 @@
 Currency:
   type: object
+  required:
+    - code
+    - name
+    - symbol
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    enabled:
+      type: boolean
+      format: boolean
+      example: true
+      description: defaults to true
+    default:
+      type: boolean
+      format: boolean
+      example: false
+      description: Make this currency the default currency.
+    code:
       type: string
       format: string
-      example: "currencies"
-      description: "Immutable value"
-    id:
+      example: AMS
+    name:
+      type: string
+      format: string
+      example: Ankh-Morpork dollar
+    symbol:
+      type: string
+      format: string
+      example: "AM$"
+    decimal_places:
       type: integer
       format: int32
       example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        enabled:
-          type: boolean
-          format: boolean
-          example: true
-        default:
-          type: boolean
-          format: boolean
-          example: true
-        name:
-          type: string
-          format: string
-          example: Ankh-Morpork dollar
-        code:
-          type: string
-          format: string
-          example: USD
-        symbol:
-          type: string
-          format: string
-          example: "AM$"
-        decimal_places:
-          type: integer
-          format: int32
-          example: 2
-          description: Supports 0-16 decimals.
-    links:
-      $ref: '#/components/schemas/ObjectLink'
+      description: Supports 0-16 decimals.

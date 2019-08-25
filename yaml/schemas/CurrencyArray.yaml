@@ -4,7 +4,7 @@ CurrencyArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Currency'
+        $ref: '#/components/schemas/CurrencyRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:
