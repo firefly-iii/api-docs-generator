@@ -2,4 +2,4 @@ CategorySingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/Category'
+      $ref: '#/components/schemas/CategoryRead'

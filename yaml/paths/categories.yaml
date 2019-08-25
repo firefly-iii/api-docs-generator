@@ -30,10 +30,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CategoryUpdate'
+            $ref: '#/components/schemas/Category'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/CategoryUpdate'
+            $ref: '#/components/schemas/Category'
       description: "JSON array or key=value pairs with the necessary category information. See the model for the exact specifications."
       required: true
     responses:
@@ -91,10 +91,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CategoryUpdate'
+            $ref: '#/components/schemas/Category'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/CategoryUpdate'
+            $ref: '#/components/schemas/Category'
       description: JSON array with updated category information. See the model for the exact specifications.
       required: true
     responses:

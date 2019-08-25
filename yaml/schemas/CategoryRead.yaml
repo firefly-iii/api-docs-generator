@@ -1,0 +1,14 @@
+CategoryRead:
+  type: object
+  properties:
+    type:
+      type: string
+      format: string
+      example: "categories"
+      description: "Immutable value"
+    id:
+      type: integer
+      format: int32
+      example: 2
+    attributes:
+      $ref: '#/components/schemas/Category'
