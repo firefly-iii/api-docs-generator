@@ -42,6 +42,14 @@ Rule:
           type: boolean
           format: boolean
           example: true
+        trigger:
+          type: string
+          format: string
+          example: store-journal
+          description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
+          enum:
+          - "store-journal"
+          - "update-journal"
         strict:
           type: boolean
           format: boolean
