@@ -1,59 +1,49 @@
 Tag:
   title: A single tag
   type: object
+  required:
+    - tag
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    tag:
       type: string
       format: string
-      example: "tags"
-      description: "Immutable value indicating the object type."
-    id:
+      example: "expensive"
+      description: The tag
+    date:
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: The date to which the tag is applicable.
+      nullable: true
+    description:
+      type: string
+      format: string
+      example: "Tag for expensive stuff"
+    latitude:
+      type: number
+      format: double
+      example: 51.983333
+      nullable: true
+      description: Latitude of the tag's location, if applicable. Can be used to draw a map.
+    longitude:
+      type: number
+      format: double
+      example: 5.916667
+      nullable: true
+      description: Latitude of the tag's location, if applicable. Can be used to draw a map.
+    zoom_level:
       type: integer
       format: int32
-      example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        tag:
-          type: string
-          format: string
-          example: "expensive"
-          description: The tag
-        date:
-          type: string
-          format: date
-          example: "2018-09-17"
-          description: The date to which the tag is applicable.
-          nullable: true
-        description:
-          type: string
-          format: string
-          example: "Tag for expensive stuff"
-        latitude:
-          type: string
-          format: string
-          example: "51.983333"
-          nullable: true
-          description: Latitude of the tag's location, if applicable. Can be used to draw a map.
-        longitude:
-          type: string
-          format: string
-          example: "5.916667"
-          nullable: true
-          description: Latitude of the tag's location, if applicable. Can be used to draw a map.
-        zoom_level:
-          type: string
-          format: string
-          example: "6"
-          nullable: true
-          description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
-    links:
-      $ref: '#/components/schemas/ObjectLink'
+      example: 6
+      nullable: true
+      description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
