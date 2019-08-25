@@ -4,7 +4,7 @@ PiggyBankEventArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/PiggyBankEvent'
+        $ref: '#/components/schemas/PiggyBankEventRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:

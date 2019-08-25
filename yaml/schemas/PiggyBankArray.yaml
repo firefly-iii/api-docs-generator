@@ -4,7 +4,7 @@ PiggyBankArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/PiggyBank'
+        $ref: '#/components/schemas/PiggyBankRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:
