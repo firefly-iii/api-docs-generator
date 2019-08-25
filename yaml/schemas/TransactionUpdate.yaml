@@ -1,9 +1,0 @@
-TransactionUpdate:
-  type: object
-  required:
-    - transactions
-  properties:
-    transactions:
-      type: array
-      items:
-        $ref: '#/components/schemas/TransactionSplitUpdate'

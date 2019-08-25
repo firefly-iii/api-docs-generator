@@ -1,4 +1,4 @@
-TransactionSplitUpdate:
+TransactionSplit:
   type: object
   required:
     - amount
@@ -7,16 +7,32 @@ TransactionSplitUpdate:
     - date
     - description
   properties:
+    user:
+      type: integer
+      format: int32
+      example: 3
+      description: "User ID"
+      readOnly: true
+    transaction_journal_id:
+      type: integer
+      format: int32
+      example: 10421
+      description: |
+        ID of the underlying transaction journal. Each transaction consists of a transaction group (see the top ID) and one or more journals
+        making up the splits of the transaction.
+      readOnly: true
     type:
       type: string
       format: string
-      description: Type of transaction
+      example:  "withdrawal"
+      description: Type of transaction. expense cannot be written.
       enum:
-      - withdrawal
-      - transfer
-      - deposit
-      - "opening-balance"
-      - reconciliation
+        - withdrawal
+        - expense
+        - deposit
+        - transfer
+        - "opening-balance"
+        - reconciliation
     date:
       type: string
       format: date
@@ -32,6 +48,11 @@ TransactionSplitUpdate:
       format: string
       example: "Vegetables"
       description: "Description of the transaction. Will only be used if more than one split is submitted."
+    order:
+      type: integer
+      format: int32
+      example: 0
+      description: "Order of this entry in the list of transactions."
     currency_id:
       type: integer
       format: int32
@@ -42,6 +63,22 @@ TransactionSplitUpdate:
       format: string
       example: EUR
       description: Currency code. Default is the source account's currency, or the user's default currency. Can be used instead of currency_id.
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+    currency_name:
+      type: string
+      format: string
+      example: "Euro"
+      readOnly: true
+    currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: Number of decimals used in this currency.
+      readOnly: true
     foreign_amount:
       type: number
       format: double
@@ -50,6 +87,7 @@ TransactionSplitUpdate:
     foreign_currency_id:
       type: integer
       format: int32
+      nullable: true
       example: 15
       description: Currency ID. Default is null. Is required when you submit a foreign amount.
     foreign_currency_code:
@@ -57,6 +95,17 @@ TransactionSplitUpdate:
       format: string
       example: USD
       description: Currency code. Default is NULL. Can be used instead of the foreign_currency_id, but either is required when submitting a foreign amount.
+      nullable: true
+    foreign_currency_symbol:
+      type: string
+      format: string
+      nullable: true
+      readOnly: true
+    foreign_currency_decimal_places:
+      type: integer
+      format: int32
+      nullable: true
+      readOnly: true
     budget_id:
       type: integer
       format: int32
@@ -67,9 +116,12 @@ TransactionSplitUpdate:
       format: string
       example: Groceries
       description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
+      nullable: true
+      readOnly: true
     category_id:
       type: integer
       format: int32
+      nullable: true
       example: 43
       description: The category ID for this transaction.
     category_name:
@@ -87,6 +139,30 @@ TransactionSplitUpdate:
       format: string
       example: "Checking account"
       description: "Name of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account. Can be used instead of the source_id. If the transaction is a deposit, the source_name can be filled in freely: the account will be created based on the name."
+    source_iban:
+      type: string
+      format: string
+      example: "NL02ABNA0123456789"
+      nullable: true
+      readOnly: true
+    source_type:
+      type: string
+      format: string
+      example: "Asset account"
+      readOnly: true
+      enum:
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
     destination_id:
       type: integer
       format: int32
@@ -97,6 +173,30 @@ TransactionSplitUpdate:
       format: string
       example: "Buy and Large"
       description: "Name of the destination account. You can submit the name instead of the ID. For everything except transfers, the account will be auto-generated if unknown, so submitting a name is enough."
+    destination_iban:
+      type: string
+      format: string
+      example: "NL02ABNA0123456789"
+      nullable: true
+      readOnly: true
+    destination_type:
+      type: string
+      format: string
+      example: "Asset account"
+      readOnly: true
+      enum:
+        - Default account
+        - Cash account
+        - Asset account
+        - Expense account
+        - Revenue account
+        - Initial balance account
+        - Beneficiary account
+        - Import account
+        - Reconciliation account
+        - Loan
+        - Debt
+        - Mortgage
     reconciled:
       type: boolean
       format: boolean
@@ -106,27 +206,76 @@ TransactionSplitUpdate:
       type: integer
       format: int32
       description: Optional. Use either this or the piggy_bank_name
+      writeOnly: true
     piggy_bank_name:
       type: string
       format: string
       description: Optional. Use either this or the piggy_bank_id
+      writeOnly: true
     bill_id:
       type: integer
       format: int32
+      nullable: true
+      example: 111
       description: Optional. Use either this or the bill_name
     bill_name:
       type: string
       format: string
+      example: "Monthly rent"
+      nullable: true
       description: Optional. Use either this or the bill_id
     tags:
       type: string
       format: string
-      description: Comma-separated list of tags.
       example: "some,tags,here"
+      description: "Comma separated list of tags"
+      # type: array
+      # nullable: true
+      # example:
+      # description: Array of tags.
+      # items:
+      #   type: string
+      #   format: string
+      #   description: Tag.
+      #   example: Barbecue preparation
     notes:
       type: string
       format: string
-      example: "Some notes"
+      example: "Some example notes"
+      nullable: true
+    internal_reference:
+      type: string
+      format: string
+      nullable: true
+      description: Reference to internal reference of other systems.
+    external_id:
+      type: string
+      nullable: true
+      format: string
+      description: Reference to external ID in other systems.
+    original_source:
+      type: string
+      nullable: true
+      format: string
+      description: System generated identifier for original creator of transaction.
+      readOnly: true
+    recurrence_id:
+      type: integer
+      nullable: true
+      format: int32
+      description: Reference to recurrence that made the transaction.
+      readOnly: true
+    bunq_payment_id:
+      type: string
+      nullable: true
+      format: string
+      description: Internal ID of bunq transaction.
+    import_hash_v2:
+      type: string
+      nullable: true
+      format: string
+      description: Hash value of original import transaction (for duplicate detection).
+      readOnly: true
     sepa_cc:
       type: string
       format: string
@@ -190,17 +339,3 @@ TransactionSplitUpdate:
       type: string
       format: date
       nullable: true
-    internal_reference:
-      type: string
-      format: string
-      nullable: true
-      description: Reference to internal reference of other systems.
-    bunq_payment_id:
-      type: string
-      format: string
-      nullable: true
-    external_id:
-      type: string
-      nullable: true
-      format: string
-      description: Reference to external ID in other systems.
