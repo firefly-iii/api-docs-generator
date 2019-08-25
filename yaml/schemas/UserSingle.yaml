@@ -2,4 +2,4 @@ UserSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/User'
+      $ref: '#/components/schemas/UserRead'

@@ -1,47 +1,43 @@
 User:
   title: A single user
   type: object
+  required:
+    - email
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    email:
+      type: string
+      format: email
+      example: "thegrumpydictator@gmail.com"
+      description: The new users email address.
+    blocked:
+      type: boolean
+      format: boolean
+      example: false
+      description: Boolean to indicate if the user is blocked.
+    blocked_code:
       type: string
       format: string
-      example: "users"
-      description: "Immutable value indicating the object type."
-    id:
-      type: integer
-      format: int32
-      example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        email:
-          type: string
-          format: string
-          example: "thegrumpydictator@gmail.com"
-        blocked:
-          type: boolean
-          format: boolean
-          example: false
-          description: Boolean to indicate if the user is blocked.
-        blocked_code:
-          type: boolean
-          format: boolean
-          example: "email_changed"
-          nullable: true
-          description: If the user is blocked, this is the reason.
-        role:
-          type: string
-          format: string
-          example: "owner"
-          nullable: true
-          description: If the user is owner of demo user. Otherwise it's NULL
-    links:
-      $ref: '#/components/schemas/ObjectLink'
+      nullable: true
+      example: "email_changed"
+      description: If you say the user must be blocked, this will be the reason code.
+      enum:
+      - email_changed
+    role:
+      type: string
+      format: string
+      nullable: true
+      example: "owner"
+      description: Role for the new user. Can be empty or omitted.
+      enum:
+      - owner
+      - demo
