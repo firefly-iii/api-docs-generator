@@ -4,6 +4,6 @@ AttachmentArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Attachment'
+        $ref: '#/components/schemas/AttachmentRead'
     meta:
       $ref: '#/components/schemas/Meta'
