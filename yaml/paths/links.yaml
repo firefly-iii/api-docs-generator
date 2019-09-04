@@ -44,10 +44,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/LinkTypeUpdate'
+            $ref: '#/components/schemas/LinkType'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/LinkTypeUpdate'
+            $ref: '#/components/schemas/LinkType'
       description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
       required: true
 /api/v1/link_types/{id}:
@@ -94,10 +94,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/LinkTypeUpdate'
+            $ref: '#/components/schemas/LinkType'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/LinkTypeUpdate'
+            $ref: '#/components/schemas/LinkType'
       description: JSON array or formdata with updated link type information. See the model for the exact specifications.
       required: true
     responses:
@@ -253,10 +253,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/TransactionLinkUpdate'
+            $ref: '#/components/schemas/TransactionLink'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/TransactionLinkUpdate'
+            $ref: '#/components/schemas/TransactionLink'
       description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
       required: true
 /api/v1/transaction_links/{id}:
@@ -299,10 +299,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/TransactionLinkUpdate'
+            $ref: '#/components/schemas/TransactionLink'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/TransactionLinkUpdate'
+            $ref: '#/components/schemas/TransactionLink'
       description: JSON array or formdata with updated link type information. See the model for the exact specifications.
       required: true
     responses:

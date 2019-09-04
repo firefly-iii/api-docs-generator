@@ -4,7 +4,7 @@ LinkTypeArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/LinkType'
+        $ref: '#/components/schemas/LinkTypeRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:

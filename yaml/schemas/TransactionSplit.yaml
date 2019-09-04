@@ -87,6 +87,7 @@ TransactionSplit:
     foreign_currency_id:
       type: integer
       format: int32
+      example: 17
       nullable: true
       example: 15
       description: Currency ID. Default is null. Is required when you submit a foreign amount.
@@ -99,11 +100,14 @@ TransactionSplit:
     foreign_currency_symbol:
       type: string
       format: string
+      example: "$"
       nullable: true
       readOnly: true
     foreign_currency_decimal_places:
       type: integer
       format: int32
+      example: 2
+      description: Number of decimals in the currency
       nullable: true
       readOnly: true
     budget_id:
@@ -225,19 +229,15 @@ TransactionSplit:
       nullable: true
       description: Optional. Use either this or the bill_id
     tags:
-      type: string
-      format: string
-      example: "some,tags,here"
-      description: "Comma separated list of tags"
-      # type: array
-      # nullable: true
-      # example:
-      # description: Array of tags.
-      # items:
-      #   type: string
-      #   format: string
-      #   description: Tag.
-      #   example: Barbecue preparation
+      type: array
+      nullable: true
+      example:
+      description: Array of tags.
+      items:
+        type: string
+        format: string
+        description: Tag.
+        example: Barbecue preparation
     notes:
       type: string
       format: string
