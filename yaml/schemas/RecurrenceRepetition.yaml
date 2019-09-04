@@ -1,18 +1,24 @@
 RecurrenceRepetition:
   type: object
+  required:
+    - type
+    - moment
   properties:
     id:
       type: integer
       format: int32
       example: 2
+      readOnly: true
     created_at:
       type: string
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
     updated_at:
       type: string
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
     type:
       type: string
       format: string
@@ -32,7 +38,7 @@ RecurrenceRepetition:
         Information that defined the type of repetition.
         - For 'daily', this is empty.
         - For 'weekly', it is day of the week between 1 and 7 (Monday - Sunday).
-        - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). Effectively, this means: the 2nd Wednesday of the month
+        - For 'ndom', it is '1,2' or '4,5' or something else, where the first number is the week in the month, and the second number is the day in the week (between 1 and 7). '2,3' means: the 2nd Wednesday of the month
         - For 'monthly' it is the day of the month (1 - 31)
         - For yearly, it is a full date, ie '2018-09-17'. The year you use does not matter.
     skip:
@@ -55,9 +61,11 @@ RecurrenceRepetition:
       format: string
       example: "Every week on Friday"
       description: Auto-generated repetition description.
+      readOnly: true
     occurrences:
       type: array
       description: "Array of future dates when the repetition will apply to. Auto generated."
+      readOnly: true
       items:
         type: string
         format: date
