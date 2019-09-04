@@ -4,7 +4,7 @@ PreferenceArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Preference'
+        $ref: '#/components/schemas/PreferenceRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:
