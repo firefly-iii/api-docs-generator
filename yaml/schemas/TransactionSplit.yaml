@@ -89,7 +89,6 @@ TransactionSplit:
       format: int32
       example: 17
       nullable: true
-      example: 15
       description: Currency ID. Default is null. Is required when you submit a foreign amount.
     foreign_currency_code:
       type: string
