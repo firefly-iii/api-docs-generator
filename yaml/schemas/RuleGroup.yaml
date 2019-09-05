@@ -30,8 +30,3 @@ RuleGroup:
       type: boolean
       format: boolean
       example: true
-    description:
-      type: string
-      format: string
-      example: "New rule group description"
-      writeOnly: true
