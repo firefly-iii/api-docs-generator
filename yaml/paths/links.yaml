@@ -260,6 +260,30 @@
       description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
       required: true
 /api/v1/transaction_links/{id}:
+  get:
+    tags:
+    - links
+    summary: Get a single link.
+    description: |
+      Returns a single link by its ID.
+    operationId: getTransactionLink
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the transaction link.
+    responses:
+      '200':
+        description: 'The requested link'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionLinkSingle'
+      '404':
+        description: No such transaction link.
   delete:
     summary: Permanently delete link between transactions.
     description: |
