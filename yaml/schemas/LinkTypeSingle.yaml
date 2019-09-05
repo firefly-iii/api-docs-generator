@@ -2,4 +2,4 @@ LinkTypeSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/LinkType'
+      $ref: '#/components/schemas/LinkTypeRead'

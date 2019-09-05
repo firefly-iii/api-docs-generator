@@ -2,4 +2,4 @@ BillSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/Bill'
+      $ref: '#/components/schemas/BillRead'

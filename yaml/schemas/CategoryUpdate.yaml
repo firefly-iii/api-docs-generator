@@ -1,9 +1,0 @@
-CategoryUpdate:
-  type: object
-  required:
-    - name
-  properties:
-    name:
-      type: string
-      format: string
-      example: "Lunch"

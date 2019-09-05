@@ -4,7 +4,7 @@ RuleGroupArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/RuleGroup'
+        $ref: '#/components/schemas/RuleGroupRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:

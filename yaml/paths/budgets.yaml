@@ -48,10 +48,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/BudgetUpdate'
+            $ref: '#/components/schemas/Budget'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/BudgetUpdate'
+            $ref: '#/components/schemas/Budget'
       description: "JSON array or key=value pairs with the necessary budget information. See the model for the exact specifications."
       required: true
     responses:
@@ -128,10 +128,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/BudgetUpdate'
+            $ref: '#/components/schemas/Budget'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/BudgetUpdate'
+            $ref: '#/components/schemas/Budget'
       description: JSON array with updated budget information. See the model for the exact specifications.
       required: true
     responses:
@@ -305,10 +305,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/BudgetLimitUpdate'
+            $ref: '#/components/schemas/BudgetLimit'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/BudgetLimitUpdate'
+            $ref: '#/components/schemas/BudgetLimit'
       description: "JSON array or key=value pairs with the necessary budget information. See the model for the exact specifications."
       required: true
     responses:
@@ -367,10 +367,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/BudgetLimitUpdate'
+            $ref: '#/components/schemas/BudgetLimit'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/BudgetLimitUpdate'
+            $ref: '#/components/schemas/BudgetLimit'
       description: JSON array with updated budget limit information. See the model for the exact specifications.
       required: true
     responses:

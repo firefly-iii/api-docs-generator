@@ -4,6 +4,6 @@ CategoryArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Category'
+        $ref: '#/components/schemas/CategoryRead'
     meta:
       $ref: '#/components/schemas/Meta'

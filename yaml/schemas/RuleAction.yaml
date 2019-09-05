@@ -1,18 +1,24 @@
 RuleAction:
   type: object
+  required:
+    - type
+    - value
   properties:
     id:
       type: integer
       format: int32
       example: 2
+      readOnly: true
     created_at:
       type: string
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
     updated_at:
       type: string
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
     type:
       type: string
       format: string
@@ -45,7 +51,7 @@ RuleAction:
       format: string
       example: "Daily groceries"
       nullable: true
-      description: "The accompanying value the action will set, change or update. Can be empty."
+      description: "The accompanying value the action will set, change or update. Can be empty, but for some types this value is mandatory."
     order:
       type: integer
       format: int32

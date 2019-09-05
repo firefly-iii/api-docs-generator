@@ -1,39 +1,44 @@
 TransactionLink:
   type: object
+  required:
+    - link_type_id
+    - inward_id
+    - outward_id
   properties:
-    type:
+    created_at:
       type: string
-      format: string
-      example: "transaction_links"
-      description: "Immutable value indicating the object type."
-    id:
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    link_type_id:
       type: integer
       format: int32
-      example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        inward_id:
-          type: integer
-          format: int32
-          example: 1241
-          description: ID of the inward transaction.
-        outward_id:
-          type: integer
-          format: string
-          example: 8171
-          description: ID of the outward transaction.
-        notes:
-          type: string
-          format: string
-          example: "Some notes"
-    links:
-      $ref: '#/components/schemas/ObjectLink'
+      example: 5
+      description: The link type ID to use. You can also use the link_type_name field.
+      writeOnly: true
+    link_type_name:
+      type: string
+      format: string
+      example: "Is paid by"
+      description: The link type name to use. You can also use the link_type_id field.
+      writeOnly: true
+    inward_id:
+      type: integer
+      format: int32
+      example: 131
+      description: "The inward transaction transaction_journal_id for the link. This becomes the 'is paid by' transaction of the set."
+    outward_id:
+      type: integer
+      format: int32
+      example: 131
+      description: "The outward transaction transaction_journal_id for the link. This becomes the 'pays for' transaction of the set."
+    notes:
+      type: string
+      format: string
+      example: "Some example notes"
+      description: Optional. Some notes.

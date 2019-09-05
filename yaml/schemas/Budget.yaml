@@ -1,40 +1,34 @@
 Budget:
   type: object
+  required:
+    - name
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    name:
       type: string
       format: string
-      example: "budgets"
-      description: "Immutable value"
-    id:
+      example: "Bills"
+    active:
+      type: boolean
+      format: boolean
+      example: false
+    order:
       type: integer
       format: int32
-      example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        name:
-          type: string
-          format: string
-          example: "Bills"
-        active:
-          type: string
-          format: string
-          example: true
-        order:
-          type: integer
-          format: int32
-          example: 5
-        spent:
-          description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted."
-          type: array
-          items:
-            $ref: '#/components/schemas/BudgetSpent'
+      example: 5
+      readOnly: true
+    spent:
+      description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted."
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/BudgetSpent'

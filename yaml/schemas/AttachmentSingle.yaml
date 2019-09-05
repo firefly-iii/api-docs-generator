@@ -2,4 +2,4 @@ AttachmentSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/Attachment'
+      $ref: '#/components/schemas/AttachmentRead'

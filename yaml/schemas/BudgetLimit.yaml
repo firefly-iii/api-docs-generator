@@ -1,61 +1,62 @@
 BudgetLimit:
   type: object
+  required:
+    - amount
+    - start
+    - end
+    - budget_id
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    currency_id:
+      type: integer
+      format: int32
+      example: 5
+      description: Use either currency_id or currency_code. Defaults to the user's default currency.
+    currency_code:
       type: string
       format: string
-      example: "budget_limits"
-      description: "Immutable value"
-    id:
+      example: EUR
+      description: Use either currency_id or currency_code. Defaults to the user's default currency.
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+    currency_decimal_places:
       type: integer
       format: int32
       example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        currency_id:
-          type: integer
-          format: int32
-          example: 5
-        currency_code:
-          type: string
-          format: string
-          example: EUR
-        currency_symbol:
-          type: string
-          format: string
-          example: "$"
-        currency_decimal_places:
-          type: integer
-          format: int32
-          example: 2
-        budget_id:
-          type: integer
-          format: int32
-          example: 13
-        start:
-          type: string
-          format: date
-          example: "2017-09-17"
-          description: Start date of the budget limit.
-        end:
-          type: string
-          format: date
-          example: "2017-09-17"
-          description: End date of the budget limit.
-        amount:
-          type: number
-          format: double
-          example: 250
-        spent:
-          type: array
-          items:
-            $ref: '#/components/schemas/BudgetSpent'
+      readOnly: true
+    budget_id:
+      type: integer
+      format: int32
+      example: 23
+      description: The budget ID of the associated budget.
+    start:
+      type: string
+      format: date
+      example: "2017-09-17"
+      description: Start date of the budget limit.
+    end:
+      type: string
+      format: date
+      example: "2017-09-17"
+      description: End date of the budget limit.
+    amount:
+      type: number
+      format: double
+      example: 250
+    spent:
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/BudgetSpent'

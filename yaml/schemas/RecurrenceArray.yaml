@@ -4,7 +4,7 @@ RecurrenceArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Recurrence'
+        $ref: '#/components/schemas/RecurrenceRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:

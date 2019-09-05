@@ -2,4 +2,4 @@ RuleSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/Rule'
+      $ref: '#/components/schemas/RuleRead'

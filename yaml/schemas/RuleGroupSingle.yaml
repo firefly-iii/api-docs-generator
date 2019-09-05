@@ -2,4 +2,4 @@ RuleGroupSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/RuleGroup'
+      $ref: '#/components/schemas/RuleGroupRead'

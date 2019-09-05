@@ -2,4 +2,4 @@ TransactionLinkSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/TransactionLink'
+      $ref: '#/components/schemas/TransactionLinkRead'

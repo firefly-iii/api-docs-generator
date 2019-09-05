@@ -30,10 +30,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/RuleUpdate'
+            $ref: '#/components/schemas/Rule'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/RuleUpdate'
+            $ref: '#/components/schemas/Rule'
       description: "JSON array or key=value pairs with the necessary rule information. See the model for the exact specifications."
       required: true
     responses:
@@ -91,10 +91,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/RuleUpdate'
+            $ref: '#/components/schemas/Rule'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/RuleUpdate'
+            $ref: '#/components/schemas/Rule'
       description: JSON array with updated rule information. See the model for the exact specifications.
       required: true
     responses:

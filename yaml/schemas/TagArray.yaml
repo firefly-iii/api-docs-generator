@@ -4,7 +4,7 @@ TagArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Tag'
+        $ref: '#/components/schemas/TagRead'
     meta:
       $ref: '#/components/schemas/Meta'
     links:

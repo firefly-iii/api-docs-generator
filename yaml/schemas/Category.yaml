@@ -1,35 +1,29 @@
 Category:
   type: object
+  required:
+    - name
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    name:
       type: string
       format: string
-      example: "categories"
-      description: "Immutable value"
-    id:
-      type: integer
-      format: int32
-      example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        name:
-          type: string
-          format: string
-          example: "Lunch"
-        spent:
-          type: array
-          items:
-            $ref: '#/components/schemas/CategorySpent'
-        earned:
-          type: array
-          items:
-            $ref: '#/components/schemas/CategoryEarned'
+      example: "Lunch"
+    spent:
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategorySpent'
+    earned:
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategoryEarned'

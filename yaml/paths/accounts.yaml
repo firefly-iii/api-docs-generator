@@ -85,10 +85,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/AccountUpdate'
+            $ref: '#/components/schemas/Account'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/AccountUpdate'
+            $ref: '#/components/schemas/Account'
       description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
       required: true
 /api/v1/accounts/{id}:
@@ -143,10 +143,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/AccountUpdate'
+            $ref: '#/components/schemas/Account'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/AccountUpdate'
+            $ref: '#/components/schemas/Account'
       description: JSON array or formdata with updated account information. See the model for the exact specifications.
       required: true
     responses:

@@ -4,6 +4,6 @@ BudgetArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Budget'
+        $ref: '#/components/schemas/BudgetRead'
     meta:
       $ref: '#/components/schemas/Meta'

@@ -4,6 +4,6 @@ BillArray:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/Bill'
+        $ref: '#/components/schemas/BillRead'
     meta:
       $ref: '#/components/schemas/Meta'

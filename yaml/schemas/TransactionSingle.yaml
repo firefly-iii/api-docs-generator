@@ -2,4 +2,4 @@ TransactionSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/Transaction'
+      $ref: '#/components/schemas/TransactionRead'

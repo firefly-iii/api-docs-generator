@@ -2,4 +2,4 @@ PreferenceSingle:
   type: object
   properties:
     data:
-      $ref: '#/components/schemas/Preference'
+      $ref: '#/components/schemas/PreferenceRead'

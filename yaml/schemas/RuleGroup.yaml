@@ -1,41 +1,37 @@
 RuleGroup:
   type: object
+  required:
+    - title
   properties:
-    type:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    title:
       type: string
       format: string
-      example: "rule_groups"
-      description: "Immutable value indicating the object type."
-    id:
+      example: "Default rule group"
+    description:
+      type: string
+      format: string
+      example: "Description of this rule group"
+    order:
       type: integer
       format: int32
-      example: 2
-    attributes:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        updated_at:
-          type: string
-          format: date-time
-          example: "2018-09-17T12:46:47+01:00"
-        title:
-          type: string
-          format: string
-          example: "Default rule group"
-        description:
-          type: string
-          format: string
-          example: "Description of this rule group"
-        order:
-          type: integer
-          format: int32
-          example: 4
-        active:
-          type: boolean
-          format: boolean
-          example: true
-    links:
-      $ref: '#/components/schemas/ObjectLink'
+      example: 4
+      readOnly: true
+    active:
+      type: boolean
+      format: boolean
+      example: true
+    description:
+      type: string
+      format: string
+      example: "New rule group description"
+      writeOnly: true
