@@ -26,7 +26,6 @@ Attachment:
       description: The object class to which the attachment must be linked.
       enum:
       - Bill
-      - Transaction
       - TransactionJournal
       - ImportJob
       readOnly: true
@@ -37,7 +36,6 @@ Attachment:
       description: The object class to which the attachment must be linked.
       enum:
       - Bill
-      - Transaction
       - TransactionJournal
       - ImportJob
       writeOnly: true
