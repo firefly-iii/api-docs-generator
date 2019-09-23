@@ -1,6 +1,11 @@
 BudgetSpent:
   type: object
   properties:
+    sum:
+      type: number
+      format: double
+      example: -1929.11
+      description: The amount spent.
     currency_id:
       type: integer
       format: int32
@@ -18,8 +23,3 @@ BudgetSpent:
       format: int32
       example: 2
       description: Number of decimals supported by the currency
-    amount:
-      type: number
-      format: double
-      example: -1929.11
-      description: The amount spent.
