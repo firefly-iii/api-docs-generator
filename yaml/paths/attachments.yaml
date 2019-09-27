@@ -51,7 +51,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/attachment/{id}:
+/api/v1/attachments/{id}:
   get:
     summary: Get a single attachment.
     description: |
