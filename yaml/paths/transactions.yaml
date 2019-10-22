@@ -102,7 +102,7 @@
       schema:
         type: integer
         example: 1
-      description: The ID of the transaction. Note that this ID is different from the ID you see in the URL of your Firefly III instance.
+      description: The ID of the transaction.
     tags:
       - transactions
     responses:
@@ -232,3 +232,27 @@
               $ref: '#/components/schemas/PiggyBankEventArray'
       '404':
         description: No such transaction.
+/api/v1/transaction-journals/{id}:
+  get:
+    summary: Get a single transaction, based on one of the underlying transaction journals.
+    description: Get a single transaction by underlying journal.
+    operationId: getTransactionByJournal
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the transaction journal.
+    tags:
+      - transactions
+    responses:
+      '200':
+        description: 'The requested transaction.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionSingle'
+      '404':
+        description: Transaction not found.

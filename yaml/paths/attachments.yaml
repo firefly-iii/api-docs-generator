@@ -181,6 +181,8 @@
         description: 'Upload was a success'
       '404':
         description: File not found
+      '422':
+        description: Upload invalid or empty file.
     requestBody:
       content:
         application/octet-stream:
