@@ -1,0 +1,17 @@
+TransactionTypeFilter:
+  type: string
+  enum:
+    - all
+    - withdrawal
+    - withdrawals
+    - expense
+    - deposit
+    - deposits
+    - income
+    - transfer
+    - transfers
+    - opening_balance
+    - reconciliation
+    - special
+    - specials
+    - default

@@ -238,33 +238,7 @@
       description: Optional filter on the account type(s) returned
       required: false
       schema:
-        type: string
-        format: string
-        enum:
-          - all
-          - asset
-          - cash
-          - expense
-          - revenue
-          - special
-          - hidden
-          - liability
-          - liabilities
-          - Default account
-          - Cash account
-          - Asset account
-          - Expense account
-          - Revenue account
-          - Initial balance account
-          - Beneficiary account
-          - Import account
-          - Reconciliation account
-          - Loan
-          - Debt
-          - Mortgage
-          - loan
-          - debt
-          - mortgage
+        $ref: '#/components/schemas/AccountTypeFilter'
     responses:
       '200':
         description: A list of accounts
@@ -538,23 +512,7 @@
       description: Optional filter on the transaction type(s) returned
       required: false
       schema:
-        type: string
-        format: string
-        enum:
-        - all
-        - withdrawal
-        - withdrawals
-        - expense
-        - deposit
-        - deposits
-        - income
-        - transfer
-        - transfers
-        - opening_balance
-        - reconciliation
-        - special
-        - specials
-        - default
+        $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
       '200':
         description: A list of transactions.

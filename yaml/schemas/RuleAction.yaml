@@ -36,7 +36,7 @@ RuleAction:
       - set_description
       - append_description
       - prepend_description
-      - aet_source_account
+      - set_source_account
       - set_destination_account
       - set_notes
       - append_notes

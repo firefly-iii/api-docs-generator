@@ -11,6 +11,6 @@ TagRead:
       format: int32
       example: 2
     attributes:
-      $ref: '#/components/schemas/Tag'
+      $ref: '#/components/schemas/TagModel'
     links:
       $ref: '#/components/schemas/ObjectLink'

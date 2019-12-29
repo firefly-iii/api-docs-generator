@@ -1,0 +1,18 @@
+AccountTypeProperty:
+  type: string
+  format: string
+  example: "Asset account"
+  readOnly: true
+  enum:
+    - Default account
+    - Cash account
+    - Asset account
+    - Expense account
+    - Revenue account
+    - Initial balance account
+    - Beneficiary account
+    - Import account
+    - Reconciliation account
+    - Loan
+    - Debt
+    - Mortgage

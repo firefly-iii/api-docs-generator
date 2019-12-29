@@ -183,23 +183,7 @@
       description: Optional filter on the transaction type(s) returned.
       required: false
       schema:
-        type: string
-        format: string
-        enum:
-        - all
-        - withdrawal
-        - withdrawals
-        - expense
-        - deposit
-        - deposits
-        - income
-        - transfer
-        - transfers
-        - opening_balance
-        - reconciliation
-        - special
-        - specials
-        - default
+        $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
       '200':
         description: A list of transactions

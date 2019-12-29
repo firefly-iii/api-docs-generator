@@ -1,4 +1,4 @@
-Tag:
+TagModel:
   title: A single tag
   type: object
   required:

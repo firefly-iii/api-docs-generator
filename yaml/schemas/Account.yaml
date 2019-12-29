@@ -60,7 +60,7 @@ Account:
       example: 1000
     current_balance:
       type: number
-      format: number
+      format: double
       example: 152.34
       readOnly: true
     current_balance_date:

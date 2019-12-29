@@ -1,0 +1,24 @@
+AccountTypeFilter:
+  type: string
+  enum:
+    - all
+    - asset
+    - cash
+    - expense
+    - revenue
+    - special
+    - hidden
+    - liability
+    - liabilities
+    - Default account
+    - Cash account
+    - Asset account
+    - Expense account
+    - Revenue account
+    - Initial balance account
+    - Beneficiary account
+    - Import account
+    - Reconciliation account
+    - Loan
+    - Debt
+    - Mortgage

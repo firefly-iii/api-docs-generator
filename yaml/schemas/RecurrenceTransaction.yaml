@@ -104,23 +104,7 @@ RecurrenceTransaction:
       nullable: true
       readOnly: true
     source_type:
-      type: string
-      format: string
-      example: "Asset account"
-      readOnly: true
-      enum:
-        - Default account
-        - Cash account
-        - Asset account
-        - Expense account
-        - Revenue account
-        - Initial balance account
-        - Beneficiary account
-        - Import account
-        - Reconciliation account
-        - Loan
-        - Debt
-        - Mortgage
+      $ref: '#/components/schemas/AccountTypeProperty'
     destination_id:
       type: integer
       format: int32
@@ -138,23 +122,7 @@ RecurrenceTransaction:
       nullable: true
       readOnly: true
     destination_type:
-      type: string
-      format: string
-      example: "Asset account"
-      readOnly: true
-      enum:
-        - Default account
-        - Cash account
-        - Asset account
-        - Expense account
-        - Revenue account
-        - Initial balance account
-        - Beneficiary account
-        - Import account
-        - Reconciliation account
-        - Loan
-        - Debt
-        - Mortgage
+      $ref: '#/components/schemas/AccountTypeProperty'
     tags:
       type: array
       nullable: true
