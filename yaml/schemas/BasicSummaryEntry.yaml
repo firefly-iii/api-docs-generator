@@ -17,7 +17,7 @@ BasicSummaryEntry:
       example: 123.45
       description: "The amount as a float."
     currency_id:
-      type: number
+      type: integer
       format: int32
       example: 5
       description: "The currency ID of the associated currency."

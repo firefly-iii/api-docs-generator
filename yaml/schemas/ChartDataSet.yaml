@@ -7,7 +7,7 @@ ChartDataSet:
       example: "Checking account"
       description: "This is the title of the current set. It can refer to an account, a budget or another object (by name)."
     currency_id:
-      type: number
+      type: integer
       format: int32
       example: 5
       description: "The currency ID of the currency associated to the data in the entries."
