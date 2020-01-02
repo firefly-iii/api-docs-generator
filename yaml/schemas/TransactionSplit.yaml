@@ -52,16 +52,19 @@ TransactionSplit:
       type: integer
       format: int32
       example: 0
+      nullable: true
       description: "Order of this entry in the list of transactions."
     currency_id:
       type: integer
       format: int32
       example: 12
+      nullable: true
       description: Currency ID. Default is the source account's currency, or the user's default currency. Can be used instead of currency_code.
     currency_code:
       type: string
       format: string
       example: EUR
+      nullable: true
       description: Currency code. Default is the source account's currency, or the user's default currency. Can be used instead of currency_id.
     currency_symbol:
       type: string
