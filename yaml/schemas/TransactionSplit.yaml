@@ -25,13 +25,12 @@ TransactionSplit:
       type: string
       format: string
       example:  "withdrawal"
-      description: Type of transaction. expense cannot be written.
+      description: Type of transaction.
       enum:
         - withdrawal
         - expense
         - deposit
         - transfer
-        - "opening-balance"
         - reconciliation
     date:
       type: string
