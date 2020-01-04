@@ -7,8 +7,8 @@ UserRead:
       example: "users"
       description: "Immutable value"
     id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       example: 2
     attributes:
       $ref: '#/components/schemas/User'
