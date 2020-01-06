@@ -1,5 +1,7 @@
 PiggyBankSingle:
   type: object
+  required:
+    - data
   properties:
     data:
       $ref: '#/components/schemas/PiggyBankRead'
