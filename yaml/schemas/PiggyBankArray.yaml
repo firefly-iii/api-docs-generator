@@ -1,5 +1,9 @@
 PiggyBankArray:
   type: object
+  required:
+    - data
+    - meta
+    - links
   properties:
     data:
       type: array
