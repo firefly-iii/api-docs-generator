@@ -1,5 +1,7 @@
 RuleSingle:
   type: object
+  required:
+    - data
   properties:
     data:
       $ref: '#/components/schemas/RuleRead'

@@ -1,5 +1,10 @@
 UserRead:
   type: object
+  required:
+    - type
+    - id
+    - attributes
+    - links
   properties:
     type:
       type: string

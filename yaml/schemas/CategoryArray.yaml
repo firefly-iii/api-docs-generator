@@ -1,5 +1,8 @@
 CategoryArray:
   type: object
+  required:
+    - data
+    - meta
   properties:
     data:
       type: array

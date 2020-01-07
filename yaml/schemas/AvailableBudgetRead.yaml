@@ -1,5 +1,9 @@
 AvailableBudgetRead:
   type: object
+  required:
+    - type
+    - id
+    - attributes
   properties:
     type:
       type: string

@@ -1,5 +1,7 @@
 TransactionSingle:
   type: object
+  required:
+    - data
   properties:
     data:
       $ref: '#/components/schemas/TransactionRead'
