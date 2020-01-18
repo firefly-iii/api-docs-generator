@@ -28,7 +28,6 @@ TransactionSplit:
       description: Type of transaction.
       enum:
         - withdrawal
-        - expense
         - deposit
         - transfer
         - reconciliation
