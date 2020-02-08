@@ -2,8 +2,8 @@ Attachment:
   type: object
   required:
     - filename
-    - model
-    - model_id
+    - attachable_type
+    - attachable_id
   properties:
     created_at:
       type: string
@@ -28,29 +28,11 @@ Attachment:
       - Bill
       - TransactionJournal
       - ImportJob
-      readOnly: true
-    model:
-      type: string
-      format: string
-      example: "Bill"
-      description: The object class to which the attachment must be linked.
-      enum:
-      - Bill
-      - TransactionJournal
-      - ImportJob
-      writeOnly: true
     attachable_id:
       type: integer
       format: int32
       example: 134
       description: ID of the model this attachment is linked to.
-      readOnly: true
-    model_id:
-      type: integer
-      format: int32
-      example: 134
-      description: ID of the model this attachment is linked to.
-      writeOnly: true
     md5:
       type: string
       format: string
