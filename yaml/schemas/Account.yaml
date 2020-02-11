@@ -143,9 +143,9 @@ Account:
       example: "2017-09-17"
       description: "Mandatory when type is liability. Start date for the liability."
     interest:
-      type: number
-      format: float
-      example: 3
+      type: string
+      format: string
+      example: "5.3"
       description: "Mandatory when type is liability. Interest percentage."
     interest_period:
       type: string
