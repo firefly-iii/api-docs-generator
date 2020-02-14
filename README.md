@@ -36,4 +36,4 @@ I'm actively writing all API documentation, so the file may change.
 Feel free to create a PR on anything. If you want to change endpoints, check out `/yaml/paths`. Or edit objects in `/yaml/schemas`. This is my first API document so feel free to tell me how to improve.
 
 ## See the result
-You can see the result [on this page](https://api-docs.firefly-iii.org/). It will auto-update every 4 hours.
+You can see the result [on this page](https://api-docs.firefly-iii.org/).
