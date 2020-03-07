@@ -17,7 +17,7 @@ User:
     email:
       type: string
       format: email
-      example: "thegrumpydictator@gmail.com"
+      example: "james@firefly-iii.org"
       description: The new users email address.
     blocked:
       type: boolean
