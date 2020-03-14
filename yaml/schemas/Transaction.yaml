@@ -19,12 +19,18 @@ Transaction:
       example: 3
       description: "User ID"
       readOnly: true
+    apply_rules:
+      type: boolean
+      format: boolean
+      example: false
+      description: "Whether or not to apply rules when submitting transaction."
+      readOnly: false
     group_title:
       type: string
       format: string
       description: "Title of the transaction if it has been split in more than one piece. Empty otherwise."
       example: "Split transaction title."
-      readOnly: true
+      readOnly: false
     transactions:
       type: array
       items:
