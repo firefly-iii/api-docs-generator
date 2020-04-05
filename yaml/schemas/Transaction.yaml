@@ -19,6 +19,12 @@ Transaction:
       example: 3
       description: "User ID"
       readOnly: true
+    error_if_duplicate_hash:
+      type: boolean
+      format: boolean
+      example: false
+      description: "Break if the submitted transaction exists already."
+      readOnly: false
     apply_rules:
       type: boolean
       format: boolean
