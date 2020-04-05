@@ -182,3 +182,34 @@
           application/json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
+/api/v1/categories/{id}/attachments:
+  get:
+    summary: Lists all attachments.
+    description: Lists all attachments.
+    operationId: listAttachmentByCategory
+    tags:
+      - categories
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 1
+      description: The ID of the category.
+    - in: query
+      name: page
+      description: Page number. The default pagination is 50.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    responses:
+      '200':
+        description: A list of attachments
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttachmentArray'
+      '404':
+        description: No such category.

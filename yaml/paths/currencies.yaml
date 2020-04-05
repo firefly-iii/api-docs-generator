@@ -520,3 +520,17 @@
           application/json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
+/api/v1/currencies/default:
+  get:
+    summary: Get the user's default currency.
+    description: Get the user's default currency.
+    operationId: getDefaultCurrency
+    tags:
+      - currencies
+    responses:
+      '200':
+        description: 'The default currency'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencySingle'
