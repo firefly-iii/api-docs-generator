@@ -45,7 +45,7 @@ TransactionSplit:
       type: string
       format: string
       example: "Vegetables"
-      description: "Description of the transaction. Will only be used if more than one split is submitted."
+      description: "Description of the transaction."
     order:
       type: integer
       format: int32
@@ -91,12 +91,12 @@ TransactionSplit:
       format: int32
       example: 17
       nullable: true
-      description: Currency ID. Default is null. Is required when you submit a foreign amount.
+      description: Currency ID of the foreign currency. Default is null. Is required when you submit a foreign amount.
     foreign_currency_code:
       type: string
       format: string
       example: USD
-      description: Currency code. Default is NULL. Can be used instead of the foreign_currency_id, but either is required when submitting a foreign amount.
+      description: Currency code of the foreign currency. Default is NULL. Can be used instead of the foreign_currency_id, but this or the ID is required when submitting a foreign amount.
       nullable: true
     foreign_currency_symbol:
       type: string
