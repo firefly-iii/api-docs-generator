@@ -232,12 +232,13 @@
       - tags
     parameters:
     - in: path
-      name: id
+      name: tag
+      description: Either the tag itself or the tag ID.
       required: true
       schema:
-        type: integer
-        example: 1
-      description: The ID of the tag.
+        type: string
+        format: string
+        example: groceries
     - in: query
       name: page
       description: Page number. The default pagination is 50.
