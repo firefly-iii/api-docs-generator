@@ -37,9 +37,9 @@ TransactionSplit:
       example: "2018-09-17"
       description: "Date of the transaction"
     amount:
-      type: number
-      format: double
-      example: 12.95
+      type: string
+      format: string
+      example: "12.95"
       description: "Amount of the transaction."
     description:
       type: string
@@ -81,9 +81,9 @@ TransactionSplit:
       description: Number of decimals used in this currency.
       readOnly: true
     foreign_amount:
-      type: number
-      format: double
-      example: 16.95
+      type: string
+      format: string
+      example: "16.95"
       nullable: true
       description: The amount in a foreign currency.
     foreign_currency_id:
