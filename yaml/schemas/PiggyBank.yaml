@@ -88,7 +88,6 @@ PiggyBank:
       type: integer
       format: int32
       example: 5
-      readOnly: true
     active:
       type: boolean
       format: boolean

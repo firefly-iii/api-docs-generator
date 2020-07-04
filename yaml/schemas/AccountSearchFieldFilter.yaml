@@ -1,0 +1,8 @@
+AccountSearchFieldFilter:
+  type: string
+  enum:
+    - all
+    - iban
+    - name
+    - number
+    - id
