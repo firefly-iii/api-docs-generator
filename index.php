@@ -18,11 +18,6 @@ foreach ($tags as $name => $description) {
 $files = scandir(ROOT . '/yaml/paths', SCANDIR_SORT_ASCENDING);
 foreach ($files as $file) {
     if (!\in_array($file, ['.', '..','.DS_Store'])) {
-        if ('twig' === substr($file, -4)) {
-            // render file, not add file
-            echo sprintf("Add %s\n", $file);
-            $builder->renderYamlFile('paths', $file, 1);
-        }
         if ('yaml' === substr($file, -4)) {
             echo sprintf("Add %s\n", $file);
             $builder->addYamlFile('paths', ROOT . '/yaml/paths/' . $file, 1);
