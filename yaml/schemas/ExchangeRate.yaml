@@ -66,7 +66,7 @@ ExchangeRate:
           format: float
           example: 1.1213
         amount:
-          type: number
-          format: double
-          example: 82.12
+          type: string
+          format: amount
+          example: "123.45"
           description: The amount in the "to"-currency, if provided in the request.

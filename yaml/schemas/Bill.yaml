@@ -42,13 +42,13 @@ Bill:
       format: string
       example: "Rent"
     amount_min:
-      type: number
-      format: double
-      example: 600
+      type: string
+      format: amount
+      example: "123.45"
     amount_max:
-      type: number
-      format: double
-      example: 601
+      type: string
+      format: amount
+      example: "123.45"
     date:
       type: string
       format: date

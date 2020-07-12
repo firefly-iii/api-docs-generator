@@ -9,14 +9,14 @@ RecurrenceTransaction:
       format: string
       example: "Rent for the current month"
     amount:
-      type: number
-      format: double
-      example: -810.12
+      type: string
+      format: amount
+      example: "123.45"
       description: Amount of the transaction.
     foreign_amount:
-      type: number
-      format: double
-      example: -990
+      type: string
+      format: amount
+      example: "123.45"
       description: Foreign amount of the transaction.
       nullable: true
     currency_id:

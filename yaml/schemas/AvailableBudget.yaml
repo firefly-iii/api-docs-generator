@@ -36,9 +36,9 @@ AvailableBudget:
       example: 2
       readOnly: true
     amount:
-      type: number
-      format: double
-      example: 250
+      type: string
+      format: amount
+      example: "123.45"
     start:
       type: string
       format: date

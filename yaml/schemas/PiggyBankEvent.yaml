@@ -26,9 +26,9 @@ PiggyBankEvent:
       format: int32
       example: 2
     amount:
-      type: number
-      format: double
-      example: 250
+      type: string
+      format: amount
+      example: "123.45"
     journal_id:
       type: integer
       format: int32

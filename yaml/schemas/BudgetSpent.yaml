@@ -2,9 +2,9 @@ BudgetSpent:
   type: object
   properties:
     sum:
-      type: number
-      format: double
-      example: -1929.11
+      type: string
+      format: amount
+      example: "123.45"
       description: The amount spent.
     currency_id:
       type: integer

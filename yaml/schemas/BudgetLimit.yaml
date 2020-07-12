@@ -52,9 +52,9 @@ BudgetLimit:
       example: "2017-09-17"
       description: End date of the budget limit.
     amount:
-      type: number
-      format: double
-      example: 250
+      type: string
+      format: amount
+      example: "123.45"
     spent:
       type: array
       readOnly: true

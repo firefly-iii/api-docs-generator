@@ -54,13 +54,13 @@ Account:
       format: date
       example: "2018-09-17"
     virtual_balance:
-      type: number
-      format: double
-      example: 1000
+      type: string
+      format: amount
+      example: "123.45"
     current_balance:
-      type: number
-      format: double
-      example: 152.34
+      type: string
+      format: amount
+      example: "123.45"
       readOnly: true
     current_balance_date:
       type: string
@@ -133,9 +133,9 @@ Account:
       - debt
       - mortgage
     liability_amount:
-      type: number
-      format: double
-      example: 12000
+      type: string
+      format: amount
+      example: "123.45"
       description: "Mandatory when type is liability. Amount of money in the liability. Must be positive."
     liability_start_date:
       type: string

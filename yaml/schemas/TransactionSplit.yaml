@@ -38,8 +38,8 @@ TransactionSplit:
       description: "Date of the transaction"
     amount:
       type: string
-      format: string
-      example: "12.95"
+      format: amount
+      example: "123.45"
       description: "Amount of the transaction."
     description:
       type: string
@@ -82,8 +82,8 @@ TransactionSplit:
       readOnly: true
     foreign_amount:
       type: string
-      format: string
-      example: "16.95"
+      format: amount
+      example: "123.45"
       nullable: true
       description: The amount in a foreign currency.
     foreign_currency_id:

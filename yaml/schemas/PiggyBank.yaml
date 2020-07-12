@@ -52,18 +52,18 @@ PiggyBank:
       description: Number of decimals supported by the currency
       readOnly: true
     target_amount:
-      type: number
-      format: double
-      example: 800
+      type: string
+      format: amount
+      example: "123.45"
     percentage:
       type: number
       format: float
       example: 12.5
       readOnly: true
     current_amount:
-      type: number
-      format: double
-      example: 100
+      type: string
+      format: amount
+      example: "123.45"
     left_to_save:
       type: number
       format: double
