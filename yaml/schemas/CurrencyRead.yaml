@@ -11,8 +11,8 @@ CurrencyRead:
       example: "currencies"
       description: "Immutable value"
     id:
-      type: string
-      format: string
+      type: integer
+      format: int32
       example: 2
     attributes:
       $ref: '#/components/schemas/Currency'

@@ -13,6 +13,7 @@ $tags = [
     'about'                   => 'General system information, versions, and the currently logged in user.',
     'accounts'                => 'All asset, expense and other accounts (and the metadata) together with related transactions, piggy banks and other objects.',
     'attachments'             => 'All attachments of the authenticated user, including up- and downloading of the files.',
+    'autocomplete'            => 'All auto-complete endpoints.',
     'available_budgets'       => 'The total available amount that is available for budgeting every period.',
     'bills'                   => 'All bills by the user.',
     'budgets'                 => 'Manage all the user\'s budgets',

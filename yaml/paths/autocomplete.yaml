@@ -1,0 +1,63 @@
+/api/v1/autocomplete/accounts:
+  get:
+    tags:
+      - autocomplete
+    operationId: getAccountsAC
+    parameters:
+    - in: query
+      name: query
+      description: The autocomplete search query.
+      required: false
+      schema:
+        type: string
+        format: string
+      example: "chec"
+    - in: query
+      name: date
+      description: A date.
+      required: false
+      schema:
+        type: string
+        format: string
+      example: "2020-09-17"
+      description: "For asset accounts, returns the balance on this date."
+    - in: query
+      name: type
+      description: Optional filter on the account type(s) returned
+      required: false
+      schema:
+        $ref: '#/components/schemas/AccountTypeFilter'
+    summary: All accounts of the users returned in a basic auto-complete array.
+    description: |
+      All accounts of the users returned in a basic auto-complete array.
+    responses:
+      '200':
+        description: A list of accounts with very basic information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompleteAccountArray'
+/api/v1/autocomplete/bills:
+  get:
+    tags:
+      - autocomplete
+    operationId: getBillsAC
+    parameters:
+    - in: query
+      name: query
+      description: The autocomplete search query.
+      required: false
+      schema:
+        type: string
+        format: string
+      example: "chec"
+    summary: All bills of the users returned in a basic auto-complete array.
+    description: |
+      All accounts of the users returned in a basic auto-complete array.
+    responses:
+      '200':
+        description: A list of bills with very basic information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompleteBillArray'
