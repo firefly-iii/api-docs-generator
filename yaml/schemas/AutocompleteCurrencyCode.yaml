@@ -1,0 +1,36 @@
+AutocompleteCurrencyCode:
+  type: object
+  required:
+    - id
+    - name
+    - code
+    - symbol
+    - decimal_places
+  properties:
+    id:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "Currency name (XCN)"
+      description: Currency name with the code between brackets.
+      readOnly: true
+    code:
+      type: string
+      format: string
+      example: "EUR"
+      description: Currency code for this account.
+      readOnly: true
+    symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+    decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true

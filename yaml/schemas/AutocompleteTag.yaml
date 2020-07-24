@@ -1,0 +1,24 @@
+AutocompleteTag:
+  type: object
+  required:
+    - id
+    - name
+    - tag
+  properties:
+    id:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "too-expensive-tag-example"
+      description: Name of the tag found by an auto-complete search.
+      readOnly: true
+    tag:
+      type: string
+      format: string
+      example: "too-expensive-tag-example"
+      description: Name of the tag found by an auto-complete search.
+      readOnly: true

@@ -1,0 +1,4 @@
+AutocompleteTransactionIDArray:
+  type: array
+  items:
+    $ref: '#/components/schemas/AutocompleteTransactionID'

@@ -1,0 +1,17 @@
+AutocompleteRule:
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "Rule one"
+      description: Name of the rule found by an auto-complete search.
+      readOnly: true

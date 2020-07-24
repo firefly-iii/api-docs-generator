@@ -1,0 +1,4 @@
+AutocompleteRuleGroupArray:
+  type: array
+  items:
+    $ref: '#/components/schemas/AutocompleteRuleGroup'

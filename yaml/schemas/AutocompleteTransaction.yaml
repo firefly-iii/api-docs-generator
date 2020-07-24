@@ -1,0 +1,24 @@
+AutocompleteTransaction:
+  type: object
+  required:
+    - id
+    - name
+    - description
+  properties:
+    id:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "Transaction"
+      description: Transaction description with ID
+      readOnly: true
+    description:
+      type: string
+      format: string
+      example: "Transaction"
+      description: Transaction description with ID
+      readOnly: true

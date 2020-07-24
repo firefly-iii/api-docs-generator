@@ -1,0 +1,24 @@
+AutocompleteTransactionType:
+  type: object
+  required:
+    - id
+    - name
+    - type
+  properties:
+    id:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "Withdrawal"
+      description: Type of the object found by an auto-complete search.
+      readOnly: true
+    type:
+      type: string
+      format: string
+      example: "Withdrawal"
+      description: Name of the object found by an auto-complete search.
+      readOnly: true

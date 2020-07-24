@@ -1,0 +1,24 @@
+AutocompleteObjectGroup:
+  type: object
+  required:
+    - id
+    - title
+    - name
+  properties:
+    id:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+    title:
+      type: string
+      format: string
+      example: "Object Group one"
+      description: Title of the object group found by an auto-complete search.
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "Object Group one"
+      description: Title of the object group found by an auto-complete search.
+      readOnly: true

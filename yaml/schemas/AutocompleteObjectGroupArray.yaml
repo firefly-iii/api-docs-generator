@@ -1,0 +1,4 @@
+AutocompleteObjectGroupArray:
+  type: array
+  items:
+    $ref: '#/components/schemas/AutocompleteObjectGroup'

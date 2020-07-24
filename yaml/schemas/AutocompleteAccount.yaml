@@ -4,6 +4,11 @@ AutocompleteAccount:
     - id
     - name
     - name_with_balance
+    - type
+    - currency_id
+    - currency_code
+    - currency_symbol
+    - currency_decimal_places
   properties:
     id:
       type: integer
