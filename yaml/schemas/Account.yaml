@@ -90,14 +90,18 @@ Account:
     active:
       type: boolean
       format: boolean
-      example: true
+      example: false
       description: "If omitted, defaults to true."
+    order:
+      type: integer
+      format: int32
+      example: false
+      description: "Order of the account"
     include_net_worth:
       type: boolean
       format: boolean
       example: true
       description: "If omitted, defaults to true."
-      writeOnly: true
     account_role:
       type: string
       format: string
