@@ -6,6 +6,7 @@ TransactionSplit:
     - destination_id
     - date
     - description
+    - type
   properties:
     user:
       type: integer
@@ -239,6 +240,18 @@ TransactionSplit:
       nullable: true
       format: int32
       description: Reference to recurrence that made the transaction.
+      readOnly: true
+    recurrence_total:
+      type: integer
+      format: int32
+      example: 0
+      description: "Total number of transactions expected to be created by this recurrence repetition. Will be 0 if infinite."
+      readOnly: true
+    recurrence_count:
+      type: integer
+      format: int32
+      example: 12
+      description: "The # of the current transaction created under this recurrence."
       readOnly: true
     bunq_payment_id:
       type: string
