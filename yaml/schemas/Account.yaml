@@ -46,9 +46,9 @@ Account:
       format: string
       example: "7009312345678"
     opening_balance:
-      type: number
-      format: double
-      example: -1012.12
+      type: string
+      format: amount
+      example: "-1012.12"
     opening_balance_date:
       type: string
       format: date
