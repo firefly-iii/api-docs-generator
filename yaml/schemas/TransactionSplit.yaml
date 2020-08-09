@@ -36,7 +36,7 @@ TransactionSplit:
     date:
       type: string
       format: date
-      example: "2018-09-17"
+      example: "2018-09-17T08:00+08:00"
       description: "Date of the transaction"
     amount:
       type: string
