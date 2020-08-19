@@ -19,7 +19,6 @@ $tags = [
     'budgets'                 => 'Manage all the user\'s budgets',
     'charts'                  => 'This endpoint delivers optimised data for charts and graphics.',
     'categories'              => 'Manage all the user\'s categories',
-    'currency_exchange_rates' => 'Manage system currency exchange rates, add your own rates or read them from providers configured in Firefly III',
     'configuration'           => 'Manage the global Firefly III configuration',
     'currencies'              => 'Manage all currencies in the system, disable and enable them or add new ones.',
     'import'                  => 'Manage and run imports.',
