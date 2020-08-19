@@ -81,7 +81,7 @@
         example: 1
       description: The ID of the requested budget.
     - in: query
-      name: start_date
+      name: start
       description: |
         A date formatted YYYY-MM-DD, to get info on how much the user has spent.
       required: false
@@ -90,7 +90,7 @@
         format: date
         example: 2018-09-17
     - in: query
-      name: end_date
+      name: end
       description: |
         A date formatted YYYY-MM-DD, to get info on how much the user has spent.
       required: false
