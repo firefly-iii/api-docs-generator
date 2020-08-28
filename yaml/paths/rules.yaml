@@ -145,13 +145,6 @@
         example: 1
       description: The ID of the rule.
     - in: query
-      name: page
-      description: Page number. The default pagination is 50 items.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    - in: query
       name: start
       description: |
         A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start date and the end date must be present.
@@ -169,20 +162,6 @@
         type: string
         format: date
         example: 2018-09-17
-    - in: query
-      name: search_limit
-      description: |
-        Maximum number of transactions Firefly III will try. Don't set this too high, or it will take Firefly III very long to run the test. I suggest a max of 200.
-      required: false
-      schema:
-        type: integer
-    - in: query
-      name: triggered_limit
-      description: |
-        Maximum number of transactions the rule can actually trigger on, before Firefly III stops. I would suggest setting this to 10 or 15. Don't go above the user's page size, because browsing to page 2 or 3 of a test result would fire the test again, making any navigation efforts very slow.
-      required: false
-      schema:
-        type: integer
     - in: query
       name: accounts
       explode: false
