@@ -17,6 +17,10 @@ Category:
       type: string
       format: string
       example: "Lunch"
+    notes:
+      type: string
+      format: string
+      example: "Some example notes"
     spent:
       type: array
       readOnly: true
