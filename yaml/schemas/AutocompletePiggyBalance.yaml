@@ -1,4 +1,4 @@
-AutocompletePiggy:
+AutocompletePiggyBalance:
   type: object
   required:
     - id
