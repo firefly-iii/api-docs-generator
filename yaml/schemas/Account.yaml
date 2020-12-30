@@ -95,7 +95,7 @@ Account:
     order:
       type: integer
       format: int32
-      example: false
+      example: 1
       description: "Order of the account"
     include_net_worth:
       type: boolean
