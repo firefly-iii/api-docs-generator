@@ -33,5 +33,6 @@ $tags = [
     'tags'                    => 'Manage all the user\'s tags.',
     'transactions'            => 'Manage all the user\'s transactions.',
     'users'                   => 'Manage the users registered within Firefly III.',
+    'webhooks'                => 'Manage the user\'s webhooks.',
 ];
 
