@@ -79,7 +79,7 @@
     tags:
       - webhooks
     description: Update existing webhook.
-    summary: Update an existing webhook's information.
+    summary: Update an existing webhook's information. If you wish to reset the secret, submit any value as the "secret". Firefly III will take this as a hint and reset the secret of the webhook.
     parameters:
     - in: path
       name: id
