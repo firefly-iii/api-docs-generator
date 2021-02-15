@@ -4,7 +4,7 @@ declare(strict_types=1);
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
-$version     = getenv('API_VERSION');
+$version     = '1.5.0';
 $destination = getenv('API_DESTINATION');
 
 define('ROOT', getenv('API_ROOT'));
@@ -21,7 +21,6 @@ $tags = [
     'categories'              => 'Manage all the user\'s categories',
     'configuration'           => 'Manage the global Firefly III configuration',
     'currencies'              => 'Manage all currencies in the system, disable and enable them or add new ones.',
-    'import'                  => 'Manage and run imports.',
     'links'                   => 'Manage links between transactions, and manage the type of links available.',
     'piggy_banks'             => 'Control all of the user\'s piggy banks, including money management',
     'preferences'             => 'Manage the user\'s preferences, including some hidden ones.',
