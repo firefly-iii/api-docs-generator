@@ -8,9 +8,9 @@ TagCloudTag:
       example: "expensive"
       description: The tag
     id:
-      type: integer
-      format: int32
-      example: 2
+      type: string
+      format: string
+      example: "2"
       description: "ID of the tag"
     size:
       type: number
