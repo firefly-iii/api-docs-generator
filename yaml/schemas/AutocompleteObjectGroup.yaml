@@ -6,9 +6,9 @@ AutocompleteObjectGroup:
     - name
   properties:
     id:
-      type: integer
-      format: int32
-      example: 2
+      type: string
+      format: string
+      example: "2"
       readOnly: true
     title:
       type: string

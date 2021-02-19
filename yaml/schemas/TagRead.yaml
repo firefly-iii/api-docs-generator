@@ -12,9 +12,9 @@ TagRead:
       example: "tags"
       description: "Immutable value"
     id:
-      type: integer
-      format: int32
-      example: 2
+      type: string
+      format: string
+      example: "2"
     attributes:
       $ref: '#/components/schemas/TagModel'
     links:
