@@ -35,7 +35,7 @@ ChartDataSet:
       example: 0
       description: "Used to indicate the Y axis for this data set. Is usually between 0 and 1 (left and right side of the chart)."
     entries:
-      type: array
+      type: object
       description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
       items:
         $ref: '#/components/schemas/ChartDataPoint'

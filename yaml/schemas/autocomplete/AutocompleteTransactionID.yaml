@@ -14,11 +14,11 @@ AutocompleteTransactionID:
       type: string
       format: string
       example: "#12: Transaction"
-      description: Transaction description with ID
+      description: Transaction description with ID in the name.
       readOnly: true
     description:
       type: string
       format: string
       example: "#12: Transaction"
-      description: Transaction description with ID
+      description: Transaction description with ID in the name.
       readOnly: true

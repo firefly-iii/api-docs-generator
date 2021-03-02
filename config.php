@@ -11,7 +11,7 @@ define('ROOT', getenv('API_ROOT'));
 
 $tags = [
     // autocomplete
-    'autocomplete'      => ['description' => 'Auto-complete endpoints show basic information about Firefly III models, like the name and maybe some amounts. They all support a search query and can be used to autocomplete data in forms.',],
+    'autocomplete'      => ['description' => 'Auto-complete endpoints show basic information about Firefly III models, like the name and maybe some amounts. They all support a search query and can be used to autocomplete data in forms. Autocomplete return values always have a "name"-field.',],
 
     // charts
     'charts'            => ['description' => 'The "charts" endpoints deliver optimised data for charts and graphs.',],

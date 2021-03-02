@@ -23,9 +23,10 @@ foreach ($tags as $name => $info) {
     $builder->addTag($name, $info['description']);
 }
 
-// scan directories and add them!
+// scan directories and add all paths:
 $directories = [
-    'yaml/autocomplete',
+    'yaml/paths/autocomplete',
+    'yaml/paths/chart',
 ];
 
 foreach ($directories as $directory) {
@@ -47,19 +48,31 @@ foreach ($directories as $directory) {
     }
 }
 
-// add all models to the final YAML file by also looping the directory:
-$fullDirectory = sprintf('%s/yaml/schemas', ROOT);
-$files         = scandir($fullDirectory, SCANDIR_SORT_ASCENDING);
-foreach ($files as $file) {
-    $fullPath = sprintf('%s/%s', $fullDirectory, $file);
-    if ('yaml' === substr($fullPath, -4)) {
-        //echo sprintf("Add %s\n", $file);
-        $builder->addYamlFile('schemas', ROOT . '/yaml/schemas/' . $file, 2);
+// scan directories and add all models (schemas):
+$directories = [
+    'yaml/schemas/arrays', // always need this
+    'yaml/schemas/filters', // always need this
+    'yaml/schemas/autocomplete',
+    'yaml/schemas/chart',
+];
+
+foreach($directories as $directory) {
+    // list all files in the directory:
+    $fullDirectory = sprintf('%s/%s', ROOT, $directory);
+    $files         = scandir($fullDirectory, SCANDIR_SORT_ASCENDING);
+
+    // loop al files in this directory:
+    foreach ($files as $file) {
+        // must be YAML file.
+        $fullPath = sprintf('%s/%s', $fullDirectory, $file);
+
+        // add to thing:
+        if ('yaml' === substr($fullPath, -4)) {
+            //echo sprintf("Adding file %s\n", $fullPath);
+            $builder->addYamlFile('schemas', $fullPath, 2);
+        }
     }
 }
-
-
-//$files = scandir(ROOT . '/yaml/paths', SCANDIR_SORT_ASCENDING);
 
 $result = $builder->render();
 echo '<pre>';

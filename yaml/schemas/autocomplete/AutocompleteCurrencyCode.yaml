@@ -22,7 +22,7 @@ AutocompleteCurrencyCode:
       type: string
       format: string
       example: "EUR"
-      description: Currency code for this account.
+      description: Currency code.
       readOnly: true
     symbol:
       type: string

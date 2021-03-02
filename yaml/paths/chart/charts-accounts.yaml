@@ -1,0 +1,32 @@
+/api/v1/chart/account/overview:
+  get:
+    tags:
+      - charts
+    summary: Dashboard chart with asset account balance information.
+    description: |
+      This endpoint returns the data required to generate a chart with basic asset account balance information.
+    operationId: getChartAccountOverview
+    parameters:
+    - in: query
+      name: start
+      description: |
+        A date formatted YYYY-MM-DD. 
+      required: true
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: end
+      description: |
+        A date formatted YYYY-MM-DD. 
+      required: true
+      schema:
+        type: string
+        format: date
+    responses:
+      200:
+        description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartLine'
