@@ -1,6 +1,6 @@
 {
   "require": {
-    "php": ">=7.2",
+    "php": ">=7.4",
     "nesbot/carbon": "^2.6",
     "twig/twig": "^2.0",
     "vlucas/phpdotenv": "^2.5"

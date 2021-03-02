@@ -4,21 +4,19 @@ declare(strict_types=1);
 namespace ApiDocBuilder\Builder;
 
 use ApiDocBuilder\TwigExtension\Functions;
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
+/**
+ * Class Builder
+ */
 class Builder
 {
-    /** @var array List of YAML strings to be pasted under the "paths" tag. */
-    private $paths;
-    /** @var array */
-    private $schemas;
-    /** @var array */
-    private $tags;
-    /** @var Twig_Environment */
-    private $twig;
-    /** @var string */
-    private $version;
+    private array       $paths;
+    private array       $schemas;
+    private array       $tags;
+    private Environment $twig;
+    private string      $version;
 
     /**
      * Builder constructor.
@@ -31,8 +29,9 @@ class Builder
         $this->tags    = [];
         $this->paths   = [];
         $this->schemas = [];
-        $loader        = new Twig_Loader_Filesystem($templatePath);
-        $this->twig    = new Twig_Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
+
+        $loader     = new FilesystemLoader($templatePath);
+        $this->twig = new Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
     }
 
     /**
