@@ -48,6 +48,7 @@ $tags = [
     'users'             => ['description' => 'Use these endpoints to manage the users registered within Firefly III. You need to have the "owner" role to access these endpoints.'],
 
     // user
+    'destruction'       => ['description' => 'This endpoint allows you to mass-destroy user data.',],
     'preferences'       => ['description' => 'These endpoints can be used to manage the user\'s preferences, including some hidden ones.'],
     'webhooks'          => ['description' => 'These endpoints can be used to manage the user\'s webhooks and triggers them if necessary.'],
 ];

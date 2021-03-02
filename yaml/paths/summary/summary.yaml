@@ -30,10 +30,10 @@
         type: string
         format: string
     description: |
-      Returns basic sums of the users data, like the net worth, spent and earned amounts. It is multi-currency, and is in Firefly III to populate the dashboard.
+      Returns basic sums of the users data, like the net worth, spent and earned amounts. It is multi-currency, and is used in Firefly III to populate the dashboard.
     responses:
       '200':
-        description: An array of sums. It depends on the user what you can expect to get back, so please check out the documentation and try this out on the demo site.
+        description: An array of sums. It depends on the user what you can expect to get back, so please try this out on the demo site.
         content:
           application/json:
             schema:
