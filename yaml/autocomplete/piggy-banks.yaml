@@ -20,7 +20,7 @@
           type: integer
           format: int32
         example: 10
-    summary: All piggy banks of the user returned in a basic auto-complete array.
+    summary: Returns all piggy banks of the user returned in a basic auto-complete array.
     responses:
       200:
         description: A list of piggy banks with very basic information.
@@ -50,7 +50,7 @@
           type: integer
           format: int32
         example: 10
-    summary: All piggy banks of the user returned in a basic auto-complete array complemented with balance information.
+    summary: Returns all piggy banks of the user returned in a basic auto-complete array complemented with balance information.
     responses:
       200:
         description: A list of piggy banks with very basic balance information.

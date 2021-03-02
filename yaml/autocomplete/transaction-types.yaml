@@ -20,7 +20,7 @@
           type: integer
           format: int32
         example: 10
-    summary: All transaction types returned in a basic auto-complete array. English only.
+    summary: Returns all transaction types returned in a basic auto-complete array. English only.
     responses:
       200:
         description: A list of transaction types with very basic information.
