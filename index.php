@@ -27,6 +27,7 @@ foreach ($tags as $name => $info) {
 $directories = [
     'yaml/paths/autocomplete',
     'yaml/paths/chart',
+    'yaml/paths/summary',
 ];
 
 foreach ($directories as $directory) {
@@ -54,6 +55,7 @@ $directories = [
     'yaml/schemas/filters', // always need this
     'yaml/schemas/autocomplete',
     'yaml/schemas/chart',
+    'yaml/schemas/summary',
 ];
 
 foreach($directories as $directory) {
