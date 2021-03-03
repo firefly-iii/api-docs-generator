@@ -1,0 +1,49 @@
+/api/v1/data/export/transactions:
+  get:
+    summary: Export transaction data from Firefly III
+    description: |
+      This endpoint allows you to export transactions from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportTransactions
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: accounts
+        explode: false
+        description: |
+          Limit the export of transactions to these accounts only. Only asset accounts will be accepted. Other types will be silently dropped.
+        required: false
+        example: "1,2,3"
+        schema:
+          type: string
+          format: string
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary

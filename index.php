@@ -28,6 +28,7 @@ $directories = [
     'yaml/paths/autocomplete',
     'yaml/paths/chart',
     'yaml/paths/summary',
+    'yaml/paths/data',
 ];
 
 foreach ($directories as $directory) {
