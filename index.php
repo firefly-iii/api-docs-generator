@@ -44,7 +44,7 @@ foreach ($directories as $directory) {
 
         // add to thing:
         if ('yaml' === substr($fullPath, -4)) {
-            echo sprintf("Added %s\n", $fullPath);
+            //echo sprintf("Added %s\n", $fullPath);
 
             //echo sprintf("Adding file %s\n", $fullPath);
             $builder->addYamlFile('paths', $fullPath, 1);
@@ -56,6 +56,9 @@ foreach ($directories as $directory) {
 $directories = [
     'yaml/schemas/arrays', // always need this
     'yaml/schemas/filters', // always need this
+    'yaml/schemas/lists', // always need this
+    'yaml/schemas/properties', // always need this
+    'yaml/schemas/models', // always need this
 
     'yaml/schemas/autocomplete',
     'yaml/schemas/charts',
@@ -74,7 +77,7 @@ foreach($directories as $directory) {
 
         // add to thing:
         if ('yaml' === substr($fullPath, -4)) {
-            echo sprintf("Added %s\n", $fullPath);
+            //echo sprintf("Added %s\n", $fullPath);
             //echo sprintf("Adding file %s\n", $fullPath);
             $builder->addYamlFile('schemas', $fullPath, 2);
         }

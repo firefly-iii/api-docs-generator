@@ -17,12 +17,10 @@ Budget:
       type: string
       format: string
       example: "Bills"
-      required: true
     active:
       type: boolean
       format: boolean
       example: false
-      required: false
     order:
       type: integer
       format: int32
@@ -33,7 +31,6 @@ Budget:
       format: string
       example: reset
       description: "The type of auto-budget that Firefly III must create."
-      required: false
       enum:
         - reset
         - rollover
