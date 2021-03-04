@@ -13,6 +13,7 @@ include 'config.php';
 
 $builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
 $builder->setVersion($version);
+echo '<pre>';
 
 // add tags
 /**
@@ -26,8 +27,7 @@ foreach ($tags as $name => $info) {
 // scan directories and add all paths:
 $directories = [
     'yaml/paths/autocomplete',
-    'yaml/paths/chart',
-    'yaml/paths/summary',
+    'yaml/paths/charts',
     'yaml/paths/data',
 ];
 
@@ -44,6 +44,8 @@ foreach ($directories as $directory) {
 
         // add to thing:
         if ('yaml' === substr($fullPath, -4)) {
+            echo sprintf("Added %s\n", $fullPath);
+
             //echo sprintf("Adding file %s\n", $fullPath);
             $builder->addYamlFile('paths', $fullPath, 1);
         }
@@ -54,9 +56,10 @@ foreach ($directories as $directory) {
 $directories = [
     'yaml/schemas/arrays', // always need this
     'yaml/schemas/filters', // always need this
+
     'yaml/schemas/autocomplete',
-    'yaml/schemas/chart',
-    'yaml/schemas/summary',
+    'yaml/schemas/charts',
+    'yaml/schemas/data',
 ];
 
 foreach($directories as $directory) {
@@ -71,14 +74,14 @@ foreach($directories as $directory) {
 
         // add to thing:
         if ('yaml' === substr($fullPath, -4)) {
+            echo sprintf("Added %s\n", $fullPath);
             //echo sprintf("Adding file %s\n", $fullPath);
             $builder->addYamlFile('schemas', $fullPath, 2);
         }
     }
 }
-
+echo "\n\n";
 $result = $builder->render();
-echo '<pre>';
 echo $result;
 // put in file:
 // put result in file:

@@ -197,7 +197,7 @@
     - in: query
       name: start
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start date and the end date must be present.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. If the start date is not present, it will be set to one year ago. If you use this field, both the start date and the end date must be present.
       required: false
       schema:
         type: string
@@ -206,7 +206,7 @@
     - in: query
       name: end
       description: |
-        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start date and the end date must be present.
+        A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. If the end date is not present, it will be set to today. If you use this field, both the start date and the end date must be present.
       required: false
       schema:
         type: string

@@ -1,3 +1,187 @@
+/api/v1/data/export/accounts:
+  get:
+    summary: Export account data from Firefly III
+    description: |
+      This endpoint allows you to export your accounts from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportAccounts
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+/api/v1/data/export/bills:
+  get:
+    summary: Export bills from Firefly III
+    description: |
+      This endpoint allows you to export your bills from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportBills
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+/api/v1/data/export/budgets:
+  get:
+    summary: Export budgets and budget amount data from Firefly III
+    description: |
+      This endpoint allows you to export your budgets and associated budget data from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportBudgets
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+/api/v1/data/export/categories:
+  get:
+    summary: Export category data from Firefly III
+    description: |
+      This endpoint allows you to export your categories from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportCategories
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+/api/v1/data/export/piggy-banks:
+  get:
+    summary: Export piggy banks from Firefly III
+    description: |
+      This endpoint allows you to export your piggy banks from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportPiggies
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+/api/v1/data/export/recurring:
+  get:
+    summary: Export recurring transaction data from Firefly III
+    description: |
+      This endpoint allows you to export your recurring transactions from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportRecurring
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+/api/v1/data/export/rules:
+  get:
+    summary: Export rule groups and rule data from Firefly III
+    description: |
+      This endpoint allows you to export your rules and rule groups from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportRules
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+/api/v1/data/export/tags:
+  get:
+    summary: Export tag data from Firefly III
+    description: |
+      This endpoint allows you to export your tags from Firefly III into a file. Currently supports CSV exports only.
+    operationId: exportTags
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: type
+        description: The file type the export file (CSV is currently the only option).
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFilter'
+    responses:
+      200:
+        description: 'The exported transaction in a file.'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
 /api/v1/data/export/transactions:
   get:
     summary: Export transaction data from Firefly III
