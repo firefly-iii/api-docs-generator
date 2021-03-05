@@ -3,7 +3,7 @@
     summary: Insight into expenses, grouped by category.
     description: |
       This endpoint gives a summary of the expenses made by the user, grouped by (any) category.
-    operationId: insightExpensecategory
+    operationId: insightExpenseCategory
     tags:
       - insight
     parameters:
@@ -54,13 +54,13 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InsightExpense'
+              $ref: '#/components/schemas/InsightGroup'
 /api/v1/insight/expense/no-category:
   get:
     summary: Insight into expenses, without category.
     description: |
       This endpoint gives a summary of the expenses made by the user, including only expenses with no category.
-    operationId: insightExpenseNocategory
+    operationId: insightExpenseNoCategory
     tags:
       - insight
     parameters:
@@ -96,6 +96,108 @@
     responses:
       200:
         description: 'A list of expense details. One row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightTotal'
+/api/v1/insight/income/category:
+  get:
+    summary: Insight into income, grouped by category.
+    description: |
+      This endpoint gives a summary of the income received by the user, grouped by (any) category.
+    operationId: insightExpenseCategory
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: categories[]
+        description: |
+          The categories to be included in the results.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only deposits to those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: 'A list of category and income details. Each category has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightGroup'
+/api/v1/insight/income/no-category:
+  get:
+    summary: Insight into income, without category.
+    description: |
+      This endpoint gives a summary of the income received by the user, including only income with no category.
+    operationId: insightIncomeNoCategory
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only deposits to those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: 'A list of income details. One row per currency.'
         content:
           application/json:
             schema:

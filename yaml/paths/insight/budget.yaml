@@ -54,7 +54,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InsightExpense'
+              $ref: '#/components/schemas/InsightGroup'
 /api/v1/insight/expense/no-budget:
   get:
     summary: Insight into expenses, without budget.

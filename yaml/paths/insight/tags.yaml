@@ -1,9 +1,9 @@
-/api/v1/insight/expense/expense:
+/api/v1/insight/expense/tag:
   get:
-    summary: Insight into expenses, grouped by expense account.
+    summary: Insight into expenses, grouped by tag.
     description: |
-      This endpoint gives a summary of the expenses made by the user, grouped by expense account.
-    operationId: insightExpenseExpense
+      This endpoint gives a summary of the expenses made by the user, grouped by (any) tag.
+    operationId: insightExpensetag
     tags:
       - insight
     parameters:
@@ -24,12 +24,22 @@
           type: string
           format: date
       - in: query
+        name: tags[]
+        description: |
+          The tags to be included in the results.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+      - in: query
         name: accounts[]
         description: |
-          The accounts to be included in the results. If you add the accounts ID's of expense accounts, only those accounts
-          are included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
-          asset accounts / liabilities will be included. You can combine both asset / liability and expense account ID's.
-          Other account ID's will be ignored.
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
         required: false
         explode: true
         schema:
@@ -40,17 +50,17 @@
           example: [ 1, 2, 3 ]
     responses:
       200:
-        description: 'A list of expense accounts and expense details. Each expense acccount has one row per currency.'
+        description: 'A list of tag and expense details. Each tag has one row per currency.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/expense/asset:
+/api/v1/insight/expense/no-tag:
   get:
-    summary: Insight into expenses, grouped by asset account.
+    summary: Insight into expenses, without tag.
     description: |
-      This endpoint gives a summary of the expenses made by the user, grouped by asset account.
-    operationId: insightExpenseAsset
+      This endpoint gives a summary of the expenses made by the user, including only expenses with no tag.
+    operationId: insightExpenseNotag
     tags:
       - insight
     parameters:
@@ -85,17 +95,17 @@
           example: [ 1, 2, 3 ]
     responses:
       200:
-        description: 'A list of asset accounts and expense details. Each asset account has one row per currency.'
+        description: 'A list of expense details. One row per currency.'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/income/revenue:
+              $ref: '#/components/schemas/InsightTotal'
+/api/v1/insight/income/tag:
   get:
-    summary: Insight into income, grouped by revenue account.
+    summary: Insight into income, grouped by tag.
     description: |
-      This endpoint gives a summary of the income received by the user, grouped by revenue account.
-    operationId: insightIncomeRevenue
+      This endpoint gives a summary of the income received by the user, grouped by (any) tag.
+    operationId: insightExpensetag
     tags:
       - insight
     parameters:
@@ -116,12 +126,22 @@
           type: string
           format: date
       - in: query
+        name: tags[]
+        description: |
+          The tags to be included in the results.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+      - in: query
         name: accounts[]
         description: |
-          The accounts to be included in the results. If you add the accounts ID's of revenue accounts, only those accounts
-          are included in the results. If you include ID's of asset accounts or liabilities, only deposits to those
-          asset accounts / liabilities will be included. You can combine both asset / liability and deposit account ID's.
-          Other account ID's will be ignored.
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only deposits to those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
         required: false
         explode: true
         schema:
@@ -132,17 +152,17 @@
           example: [ 1, 2, 3 ]
     responses:
       200:
-        description: 'A list of revenue accounts and income details. Each revenue acccount has one row per currency.'
+        description: 'A list of tag and income details. Each tag has one row per currency.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/income/asset:
+/api/v1/insight/income/no-tag:
   get:
-    summary: Insight into expenses, grouped by asset account.
+    summary: Insight into income, without tag.
     description: |
-      This endpoint gives a summary of the income received by the user, grouped by asset account.
-    operationId: insightIncomeAsset
+      This endpoint gives a summary of the income received by the user, including only income with no tag.
+    operationId: insightIncomeNotag
     tags:
       - insight
     parameters:
@@ -177,8 +197,8 @@
           example: [ 1, 2, 3 ]
     responses:
       200:
-        description: 'A list of asset accounts and income details. Each asset account has one row per currency.'
+        description: 'A list of income details. One row per currency.'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InsightGroup'
+              $ref: '#/components/schemas/InsightTotal'

@@ -1,9 +1,66 @@
-/api/v1/insight/expense/total:
+/api/v1/insight/expense/bill:
   get:
-    summary: Insight into total expenses.
+    summary: Insight into expenses, grouped by bill.
     description: |
-      This endpoint gives a sum of the total expenses made by the user.
-    operationId: insightExpenseTotal
+      This endpoint gives a summary of the expenses made by the user, grouped by (any) bill.
+    operationId: insightExpenseBill
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: bills[]
+        description: |
+          The bills to be included in the results.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: 'A list of budget and expense details. Each budget has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightGroup'
+/api/v1/insight/expense/no-bill:
+  get:
+    summary: Insight into expenses, without bill.
+    description: |
+      This endpoint gives a summary of the expenses made by the user, including only expenses with no bill.
+    operationId: insightExpenseNoBill
     tags:
       - insight
     parameters:
@@ -38,52 +95,7 @@
           example: [ 1, 2, 3 ]
     responses:
       200:
-        description: 'A list of sums in different currencies.'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/InsightTotal'
-/api/v1/insight/income/total:
-  get:
-    summary: Insight into total income.
-    description: |
-      This endpoint gives a sum of the total income received by the user.
-    operationId: insightIncomeTotal
-    tags:
-      - insight
-    parameters:
-      - in: query
-        name: start
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: accounts[]
-        description: |
-          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only deposits to those
-          asset accounts / liabilities will be included. Other account ID's will be ignored.
-        required: false
-        explode: true
-        schema:
-          type: array
-          items:
-            type: integer
-            format: int64
-          example: [ 1, 2, 3 ]
-    responses:
-      200:
-        description: 'A list of sums in different currencies.'
+        description: 'A list of expense details. One row per currency.'
         content:
           application/json:
             schema:

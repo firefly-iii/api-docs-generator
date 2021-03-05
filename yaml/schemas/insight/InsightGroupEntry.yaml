@@ -1,4 +1,4 @@
-InsightExpenseEntry:
+InsightGroupEntry:
   type: object
   properties:
     id:
