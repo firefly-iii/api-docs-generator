@@ -1,0 +1,23 @@
+InsightTotalEntry:
+  type: object
+  properties:
+    difference:
+      type: string
+      format: string
+      example: "123.45"
+      description: "The amount spent between start date and end date, defined as a string, for this expense account and all asset accounts."
+    difference_float:
+      type: number
+      format: double
+      example: 123.45
+      description: "The amount spent between start date and end date, defined as a string, for this expense account and all asset accounts. This number is a float (double) and may have rounding errors."
+    currency_id:
+      type: string
+      format: string
+      example: "5"
+      description: "The currency ID of the expenses listed for this expense account."
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: "The currency code of the expenses listed for this expense account."

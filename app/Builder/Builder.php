@@ -116,7 +116,13 @@ class Builder
             $tags          = substr(substr(yaml_emit($array, YAML_UTF8_ENCODING), 4), 0, -4);
         }
 
-        return $template->render(['version' => $this->getVersion(), 'tags' => $tags, 'paths' => $this->paths, 'schemas' => $this->schemas]);
+        return $template->render(
+            [
+                'version' => $this->getVersion(),
+                'tags' => $tags,
+                'paths' => $this->paths,
+                'schemas' => $this->schemas
+            ]);
     }
 
     /**

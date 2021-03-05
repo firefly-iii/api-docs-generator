@@ -1,4 +1,4 @@
-AutocompleteRuleGroup:
+AutocompleteRecurrence:
   type: object
   required:
     - id
@@ -12,12 +12,12 @@ AutocompleteRuleGroup:
     name:
       type: string
       format: string
-      example: "Rule group one"
-      description: Name of the rule group found by an auto-complete search.
+      example: "Yearly bill"
+      description: Name of the recurrence found by an auto-complete search.
       readOnly: true
     description:
       type: string
       format: string
-      example: "Some rule group."
-      description: Description of the rule group found by auto-complete.
+      example: "Should trigger daily."
+      description: Description of the recurrence found by auto-complete.
       readOnly: true

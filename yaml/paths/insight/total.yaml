@@ -1,9 +1,9 @@
-/api/v1/insight/expense/expense:
+/api/v1/insight/expense/total:
   get:
-    summary: TODO
+    summary: Insight into total expenses.
     description: |
-      This endpoint gives a summary of the expenses made by the user, grouped by expense account.
-    operationId: insightExpenseExpense
+      This endpoint gives a sum of the total expenses made by the user.
+    operationId: insightExpenseTotal
     tags:
       - insight
     parameters:
@@ -25,8 +25,8 @@
           format: date
     responses:
       200:
-        description: 'A list of expense accounts and expense details. Each expense acccounts has one row per currency.'
+        description: 'A list of sums in different currencies.'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InsightExpense'
+              $ref: '#/components/schemas/InsightTotal'

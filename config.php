@@ -7,6 +7,9 @@ $dotenv->load();
 $version     = '1.5.0';
 $destination = getenv('API_DESTINATION');
 
+//$server = 'https://demo.firefly-iii.org/';
+$server = 'http://firefly.sd.local/';
+
 define('ROOT', getenv('API_ROOT'));
 
 $tags = [
@@ -17,10 +20,10 @@ $tags = [
     'charts'            => ['description' => 'The "charts" endpoints deliver optimised data for charts and graphs.',],
 
     // data
-    'data'              => ['description' => 'This "data" endpoints deliver generic Firefly III and user-specific data.',],
+    'data'              => ['description' => 'The "data"-endpoints deliver generic Firefly III and user-specific data.',],
 
     // insight
-//    'insight'           => ['description' => 'The "insight" endpoints try to deliver sums, balances and insightful information in the broadest sense of the word.'],
+    'insight'           => ['description' => 'The "insight" endpoints try to deliver sums, balances and insightful information in the broadest sense of the word.'],
 //    'summary'           => ['description' => 'These endpoints deliver summaries, like sums, lists of numbers and other processed information. Mainly used for the main dashboard and pretty specific for Firefly III itself.'],
 //
 //    // models

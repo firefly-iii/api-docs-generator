@@ -1,26 +1,26 @@
 InsightExpenseEntry:
   type: object
   properties:
-    key:
+    id:
       type: string
       format: string
       example: "123"
-      description: "This ID is a reference to the original expense account."
+      description: "This ID is a reference to the original object."
     name:
       type: string
       format: string
       example: "Land lord"
-      description: "This is the name of the expense account.."
+      description: "This is the name of the object."
     difference:
       type: string
       format: string
-      example: "123.45"
-      description: "The amount spent between start date and end date, defined as a string, for this expense account and all asset accounts."
+      example: "-123.45"
+      description: "The amount spent between start date and end date, a negative number defined as a string, for this object and all asset accounts."
     difference_float:
       type: number
       format: double
-      example: 123.45
-      description: "The amount spent between start date and end date, defined as a string, for this expense account and all asset accounts. This number is a float (double) and may have rounding errors."
+      example: -123.45
+      description: "The amount spent between start date and end date, a negative number as a float, for this object and all asset accounts. May have rounding errors."
     currency_id:
       type: string
       format: string

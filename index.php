@@ -29,6 +29,7 @@ $directories = [
     'yaml/paths/autocomplete',
     'yaml/paths/charts',
     'yaml/paths/data',
+    'yaml/paths/insight',
 ];
 
 foreach ($directories as $directory) {
@@ -63,6 +64,7 @@ $directories = [
     'yaml/schemas/autocomplete',
     'yaml/schemas/charts',
     'yaml/schemas/data',
+    'yaml/schemas/insight',
 ];
 
 foreach($directories as $directory) {

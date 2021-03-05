@@ -1,0 +1,32 @@
+/api/v1/insight/expense/budget:
+  get:
+    summary: Insight into expenses, grouped by budget.
+    description: |
+      This endpoint gives a summary of the expenses made by the user, grouped by (any) budget.
+    operationId: insightExpenseBudget
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+    responses:
+      200:
+        description: 'A list of budget and expense details. Each budget has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightExpense'

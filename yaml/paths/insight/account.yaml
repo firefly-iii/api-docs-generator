@@ -1,0 +1,64 @@
+/api/v1/insight/expense/expense:
+  get:
+    summary: Insight into expenses, grouped by expense account.
+    description: |
+      This endpoint gives a summary of the expenses made by the user, grouped by expense account.
+    operationId: insightExpenseExpense
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+    responses:
+      200:
+        description: 'A list of expense accounts and expense details. Each expense acccount has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightExpense'
+/api/v1/insight/expense/asset:
+  get:
+    summary: Insight into expenses, grouped by asset account.
+    description: |
+      This endpoint gives a summary of the expenses made by the user, grouped by asset account.
+    operationId: insightExpenseAsset
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+    responses:
+      200:
+        description: 'A list of asset accounts and expense details. Each asset acccount has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightExpense'

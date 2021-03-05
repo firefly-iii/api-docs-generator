@@ -15,3 +15,9 @@ AutocompleteRule:
       example: "Rule one"
       description: Name of the rule found by an auto-complete search.
       readOnly: true
+    description:
+      type: string
+      format: string
+      example: "Useful rule."
+      description: Description of the rule found by auto-complete.
+      readOnly: true
