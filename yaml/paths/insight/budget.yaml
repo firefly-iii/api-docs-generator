@@ -23,6 +23,31 @@
         schema:
           type: string
           format: date
+      - in: query
+        name: budgets[]
+        description: |
+          The budgets to be included in the results.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
     responses:
       200:
         description: 'A list of budget and expense details. Each budget has one row per currency.'
@@ -30,3 +55,48 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightExpense'
+/api/v1/insight/expense/no-budget:
+  get:
+    summary: Insight into expenses, without budget.
+    description: |
+      This endpoint gives a summary of the expenses made by the user, including only expenses with no budget.
+    operationId: insightExpenseNoBudget
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: 'A list of expense details. One row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightTotal'

@@ -23,6 +23,19 @@
         schema:
           type: string
           format: date
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
     responses:
       200:
         description: 'A list of sums in different currencies.'
