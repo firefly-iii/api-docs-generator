@@ -37,13 +37,16 @@ Account:
       type: string
       format: iban
       example: "GB98MIDL07009312345678"
+      nullable: true
     bic:
       type: string
       format: string
       example: "BOFAUS3N"
+      nullable: true
     account_number:
       type: string
       format: string
+      nullable: true
       example: "7009312345678"
     opening_balance:
       type: string
@@ -53,6 +56,7 @@ Account:
       type: string
       format: date
       example: "2018-09-17"
+      nullable: true
     virtual_balance:
       type: string
       format: amount
@@ -113,14 +117,16 @@ Account:
       - savingAsset
       - ccAsset
       - cashWalletAsset
+      - null
     credit_card_type:
       type: string
       format: string
       example: monthlyFull
-      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull."
+      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
       nullable: true
       enum:
       - monthlyFull
+      - null
     monthly_payment_date:
       nullable: true
       type: string
@@ -132,35 +138,43 @@ Account:
       format: string
       example: loan
       description: "Mandatory when type is liability. Specifies the exact type."
+      nullable: true
       enum:
       - loan
       - debt
       - mortgage
+      - null
     liability_amount:
       type: string
       format: amount
       example: "123.45"
       description: "Mandatory when type is liability. Amount of money in the liability. Must be positive."
+      nullable: true
     liability_start_date:
       type: string
       format: date
       example: "2017-09-17"
       description: "Mandatory when type is liability. Start date for the liability."
+      nullable: true
     interest:
       type: string
       format: string
       example: "5.3"
       description: "Mandatory when type is liability. Interest percentage."
+      nullable: true
     interest_period:
       type: string
       format: string
       example: monthly
       description: "Mandatory when type is liability. Period over which the interest is calculated."
+      nullable: true
       enum:
         - daily
         - monthly
         - yearly
+        - null
     notes:
       type: string
       format: string
+      nullable: true
       example: "Some example notes"

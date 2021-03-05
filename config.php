@@ -24,10 +24,10 @@ $tags = [
 
     // insight
     'insight'           => ['description' => 'The "insight" endpoints try to deliver sums, balances and insightful information in the broadest sense of the word.'],
-//    'summary'           => ['description' => 'These endpoints deliver summaries, like sums, lists of numbers and other processed information. Mainly used for the main dashboard and pretty specific for Firefly III itself.'],
-//
-//    // models
-//    'accounts'          => ['description' => 'Endpoints that deliver all of the user\'s asset, expense and other accounts (and the metadata) together with related transactions, piggy banks and other objects. Also delivers endpoints for CRUD operations for accounts.'],
+    'summary'           => ['description' => 'These endpoints deliver summaries, like sums, lists of numbers and other processed information. Mainly used for the main dashboard and pretty specific for Firefly III itself.'],
+
+    // models
+    'accounts'          => ['description' => 'Endpoints that deliver all of the user\'s asset, expense and other accounts (and the metadata) together with related transactions, piggy banks and other objects. Also delivers endpoints for CRUD operations for accounts.'],
 //    'attachments'       => ['description' => 'Endpoints to manage the attachments of the authenticated user, including up- and downloading of the files.'],
 //    'available_budgets' => ['description' => 'Endpoints to manage the total available amount that the user has made available to themselves. Used in periodic budgeting.'],
 //    'bills'             => ['description' => 'Endpoints to manage a user\'s bills and all related objects.'],

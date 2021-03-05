@@ -37,6 +37,7 @@ Transaction:
       description: "Title of the transaction if it has been split in more than one piece. Empty otherwise."
       example: "Split transaction title."
       readOnly: false
+      nullable: true
     transactions:
       type: array
       items:

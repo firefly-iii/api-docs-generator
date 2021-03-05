@@ -30,6 +30,8 @@ $directories = [
     'yaml/paths/charts',
     'yaml/paths/data',
     'yaml/paths/insight',
+    'yaml/paths/summary',
+    'yaml/paths/models',
 ];
 
 foreach ($directories as $directory) {
@@ -59,12 +61,14 @@ $directories = [
     'yaml/schemas/filters', // always need this
     'yaml/schemas/lists', // always need this
     'yaml/schemas/properties', // always need this
-    'yaml/schemas/models', // always need this
 
     'yaml/schemas/autocomplete',
     'yaml/schemas/charts',
     'yaml/schemas/data',
     'yaml/schemas/insight',
+    'yaml/schemas/summary',
+    'yaml/schemas/models', // always need this
+
 ];
 
 foreach($directories as $directory) {
