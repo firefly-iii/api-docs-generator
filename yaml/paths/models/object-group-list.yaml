@@ -1,0 +1,57 @@
+/api/v1/object_groups/{id}/piggy_banks:
+  get:
+    tags:
+      - object_groups
+    summary: List all piggy banks related to the object group.
+    description: |
+      This endpoint returns a list of all the piggy banks connected to the object group.
+    operationId: listPiggyBankByObjectGroup
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The ID of the account.
+      - in: query
+        name: page
+        description: Page number. The default pagination is per 50 items.
+        required: false
+        schema:
+          type: integer
+    responses:
+      200:
+        description: A list of piggy banks
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/PiggyBankArray'
+/api/v1/object_groups/{id}/bills:
+  get:
+    summary: List all bills with this object group.
+    description: List all bills with this object group.
+    operationId: listBillByObjectGroup
+    tags:
+      - object_groups
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The ID of the account.
+      - in: query
+        name: page
+        description: Page number. The default pagination is per 50 items.
+        required: false
+        schema:
+          type: integer
+    responses:
+      200:
+        description: A list of bills.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/BillArray'
