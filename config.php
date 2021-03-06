@@ -40,8 +40,8 @@ $tags = [
     'transactions'      => ['description' => 'The most-used endpoints in Firefly III, these endpoints are used to manage the user\'s transactions.'],
     'currencies'        => ['description' => 'Endpoints to manage the currencies in Firefly III. Depending on the user\'s role you can also disable and enable them, or add new ones.'],
     'links'             => ['description' => 'Endpoints to manage links between transactions, and manage the type of links available.'],
-    //
-    //    // search
+
+        // search
     //    'search'            => ['description' => 'Endpoints that allow you to search through the user\'s financial data. Different from the autocomplete endpoints, the search accepts more advanced arguments.'],
     //
     //    // system

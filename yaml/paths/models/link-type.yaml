@@ -18,7 +18,7 @@
       200:
         description: A list of link types.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/LinkTypeArray'
   post:
@@ -31,7 +31,7 @@
       200:
         description: 'New link type stored, result in response.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/LinkTypeSingle'
       422:
@@ -70,7 +70,7 @@
       200:
         description: 'The requested link type'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/LinkTypeSingle'
       404:
@@ -104,7 +104,7 @@
       200:
         description: 'Updated link type stored, result in response'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/LinkTypeSingle'
       422:
