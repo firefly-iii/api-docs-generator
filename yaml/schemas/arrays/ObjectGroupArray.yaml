@@ -1,0 +1,12 @@
+ObjectGroupArray:
+  type: object
+  required:
+    - data
+    - meta
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/ObjectGroupRead'
+    meta:
+      $ref: '#/components/schemas/Meta'

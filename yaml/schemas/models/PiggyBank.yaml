@@ -20,8 +20,8 @@ PiggyBank:
       format: string
       example: "New digital camera"
     account_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       example: 13
       description: The ID of the asset account this piggy bank is connected to.
     account_name:
@@ -31,8 +31,8 @@ PiggyBank:
       description: The name of the asset account this piggy bank is connected to.
       readOnly: true
     currency_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       example: 5
       readOnly: true
     currency_code:
@@ -82,6 +82,7 @@ PiggyBank:
     target_date:
       type: string
       format: date
+      nullable: true
       example: "2020-09-17"
       description: The date you intend to finish saving money.
     order:

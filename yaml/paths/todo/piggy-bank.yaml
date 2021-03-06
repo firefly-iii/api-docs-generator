@@ -17,7 +17,7 @@
       200:
         description: A list of piggy banks
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankArray'
   post:
@@ -40,7 +40,7 @@
       200:
         description: 'New piggy bank stored, result in response.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
       422:
@@ -68,7 +68,7 @@
       200:
         description: 'The requested piggy bank'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
       404:
@@ -101,7 +101,7 @@
       200:
         description: 'Updated piggy bank stored, result in response'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
       422:
@@ -129,63 +129,3 @@
         description: Piggy bank deleted.
       404:
         description: No such piggy bank
-/api/v1/piggy_banks/{id}/events:
-  get:
-    summary: List all events linked to a piggy bank.
-    description: List all events linked to a piggy bank (adding and removing money).
-    operationId: listEventByPiggyBank
-    tags:
-      - piggy_banks
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the piggy bank
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    responses:
-      200:
-        description: A list of piggy bank related events
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PiggyBankEventArray'
-/api/v1/piggy_banks/{id}/attachments:
-  get:
-    summary: Lists all attachments.
-    description: Lists all attachments.
-    operationId: listAttachmentByPiggyBank
-    tags:
-      - piggy_banks
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the piggy bank.
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    responses:
-      200:
-        description: A list of attachments
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such piggy bank.

@@ -29,6 +29,7 @@ Attachment:
       - Budget
       - Bill
       - TransactionJournal
+      - PiggyBank
     attachable_id:
       type: string
       format: string
