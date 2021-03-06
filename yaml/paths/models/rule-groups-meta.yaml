@@ -1,0 +1,121 @@
+/api/v1/rule_groups/{id}/test:
+  get:
+    summary: Test which transactions would be hit by the rule group. No changes will be made.
+    description: Test which transactions would be hit by the rule group. No changes will be made. Limit the result if you want to.
+    operationId: testRuleGroup
+    tags:
+      - rule_groups
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The ID of the rule group.
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50 items.
+        required: false
+        schema:
+          type: integer
+          example: 1
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start date and the end date must be present.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: 2018-09-17
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD, to limit the transactions the test will be applied to. Both the start date and the end date must be present.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: 2018-09-17
+      - in: query
+        name: search_limit
+        description: |
+          Maximum number of transactions Firefly III will try. Don't set this too high, or it will take Firefly III very long to run the test. I suggest a max of 200.
+        required: false
+        schema:
+          type: integer
+      - in: query
+        name: triggered_limit
+        description: |
+          Maximum number of transactions the rule group can actually trigger on, before Firefly III stops. I would suggest setting this to 10 or 15. Don't go above the user's page size, because browsing to page 2 or 3 of a test result would fire the test again, making any navigation efforts very slow.
+        required: false
+        schema:
+          type: integer
+      - in: query
+        name: accounts[]
+        description: |
+          Limit the testing of the rule group to these asset accounts or liabilities. Only asset accounts and liabilities will be accepted. Other types will be silently dropped.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: A list of transactions that would be changed by any of the rules of the rule group. No changes will be made.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TransactionArray'
+/api/v1/rule_groups/{id}/trigger:
+  post:
+    summary: Fire the rule group on your transactions.
+    description: Fire the rule group on your transactions. Changes will be made by the rules in the rule group! Limit the result if you want to.
+    operationId: fireRuleGroup
+    tags:
+      - rule_groups
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The ID of the rule group.
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start date and the end date must be present.
+        required: false
+        schema:
+          type: string
+          example: 2018-09-17
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD, to limit the transactions the actions will be applied to. Both the start date and the end date must be present.
+        required: false
+        schema:
+          type: string
+          example: 2018-09-17
+          format: date
+      - in: query
+        name: accounts[]
+        description: |
+          Limit the triggering of the rule group to these asset accounts or liabilities. Only asset accounts and liabilities will be accepted. Other types will be silently dropped.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      204:
+        description: "The rules in the group are executed. Due to the setup of this function (asynchronous job execution) the result cannot be displayed."
