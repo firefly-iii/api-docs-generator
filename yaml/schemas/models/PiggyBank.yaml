@@ -65,14 +65,14 @@ PiggyBank:
       format: amount
       example: "123.45"
     left_to_save:
-      type: number
-      format: double
-      example: 700
+      type: string
+      format: string
+      example: "700.00"
       readOnly: true
     save_per_month:
-      type: number
-      format: double
-      example: 12.45
+      type: string
+      format: string
+      example: "12.45"
       readOnly: true
     start_date:
       type: string
@@ -96,6 +96,7 @@ PiggyBank:
     notes:
       type: string
       format: string
+      nullable: true
       example: "Some notes"
     object_group_id:
       type: integer
@@ -107,8 +108,10 @@ PiggyBank:
       format: int32
       example: 5
       description: The order of the group. At least 1, for the highest sorting.
+      nullable: true
     object_group_title:
       type: string
       format: string
       example: "Example Group"
       description: The name of the group. NULL if no group.
+      nullable: true

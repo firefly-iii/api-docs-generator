@@ -1,7 +1,7 @@
 openapi: 3.0.0
 servers:
   - description: Firefly III demo site
-    url: http://firefly.sd.home
+    url: {{ server }}
 info:
   title: Firefly III API {{ version }}-beta
   description: |
@@ -38,9 +38,14 @@ components:
       description: Default OAuth2 flow
       flows:
         authorizationCode:
-          authorizationUrl: https://demo.firefly-iii.org/oauth/authorize
-          tokenUrl: https://demo.firefly-iii.org/oauth/token
-          refreshUrl: https://demo.firefly-iii.org/oauth/token
+          authorizationUrl: {{ server }}/oauth/authorize
+          tokenUrl: {{ server }}/oauth/token
+          refreshUrl: {{ server }}/oauth/token
           scopes: {}
+    local_bearer_auth:
+      description: Optional Bearer token flow
+      type: http
+      scheme: bearer
 security:
   - firefly_iii_auth: []
+  - local_bearer_auth: []

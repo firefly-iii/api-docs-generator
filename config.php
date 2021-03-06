@@ -6,9 +6,7 @@ $dotenv->load();
 
 $version     = '1.5.0';
 $destination = getenv('API_DESTINATION');
-
-//$server = 'https://demo.firefly-iii.org/';
-$server = 'http://firefly.sd.local/';
+$server = getenv('API_SERVER');
 
 define('ROOT', getenv('API_ROOT'));
 

@@ -14,7 +14,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of currencies.
         content:
           application/json:
@@ -37,13 +37,13 @@
       description: "JSON array or key=value pairs with the necessary currency information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New currency stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -66,7 +66,7 @@
         example: USD
       description: The currency code.
     responses:
-      '204':
+      204:
         description: Currency was enabled.
         content:
           application/json:
@@ -88,7 +88,7 @@
         example: GBP
       description: The currency code.
     responses:
-      '204':
+      204:
         description: Currency was disabled.
         content:
           application/json:
@@ -113,7 +113,7 @@
         example: USD
       description: The currency code.
     responses:
-      '204':
+      204:
         description: Currency has been made the default currency.
         content:
           application/json:
@@ -136,7 +136,7 @@
     tags:
       - currencies
     responses:
-      '200':
+      200:
         description: 'The requested currency'
         content:
           application/json:
@@ -170,13 +170,13 @@
       description: JSON array with updated currency information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated currency stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -198,7 +198,7 @@
         example: GBP
       description: The currency code.
     responses:
-      '204':
+      204:
         description: Currency deleted.
       '404':
         description: No such currency
@@ -240,7 +240,7 @@
       schema:
         $ref: '#/components/schemas/AccountTypeFilter'
     responses:
-      '200':
+      200:
         description: A list of accounts
         content:
           application/json:
@@ -270,7 +270,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of available budgets
         content:
           application/json:
@@ -300,7 +300,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of bills.
         content:
           application/json:
@@ -346,7 +346,7 @@
         format: date
         example: "2018-01-31"
     responses:
-      '200':
+      200:
         description: A list of budget limits.
         content:
           application/json:
@@ -400,7 +400,7 @@
         type: string
         format: date
     responses:
-      '200':
+      200:
         description: A list of exchange rates
         content:
           application/json:
@@ -430,7 +430,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of recurring transactions
         content:
           application/json:
@@ -460,7 +460,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of rules
         content:
           application/json:
@@ -514,7 +514,7 @@
       schema:
         $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
-      '200':
+      200:
         description: A list of transactions.
         content:
           application/json:
@@ -528,7 +528,7 @@
     tags:
       - currencies
     responses:
-      '200':
+      200:
         description: 'The default currency'
         content:
           application/json:

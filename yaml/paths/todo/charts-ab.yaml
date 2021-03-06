@@ -31,7 +31,7 @@
         type: string
         format: date
     responses:
-      '200':
+      200:
         description: Pie chart oriented chart information. Check out the model for more details. Each entry is a piece of the pie in the chart.
         content:
           application/json:

@@ -5,6 +5,7 @@ use ApiDocBuilder\Builder\Builder;
 
 // default values:
 $version     = '0.1-beta';
+$server      = 'https://demo.firefly-iii.org';
 $destination = '/';
 $tags        = [];
 
@@ -13,6 +14,7 @@ include 'config.php';
 
 $builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
 $builder->setVersion($version);
+$builder->setServer($server);
 echo '<pre>';
 
 // add tags
@@ -71,7 +73,7 @@ $directories = [
 
 ];
 
-foreach($directories as $directory) {
+foreach ($directories as $directory) {
     // list all files in the directory:
     $fullDirectory = sprintf('%s/%s', ROOT, $directory);
     $files         = scandir($fullDirectory, SCANDIR_SORT_ASCENDING);

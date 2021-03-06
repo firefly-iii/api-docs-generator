@@ -7,7 +7,7 @@
     description: |
       Returns general system information and versions of the (supporting) software.
     responses:
-      '200':
+      200:
         description: The available system information
         content:
           application/json:
@@ -22,7 +22,7 @@
     description: |
       Returns the currently authenticated user.
     responses:
-      '200':
+      200:
         description: The user
         content:
           application/json:

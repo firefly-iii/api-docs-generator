@@ -32,7 +32,7 @@
         format: date
         example: 2018-12-31
     responses:
-      '200':
+      200:
         description: A list of bills
         content:
           application/json:
@@ -55,13 +55,13 @@
       description: "JSON array or key=value pairs with the necessary bill information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New bill stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BillSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -101,7 +101,7 @@
     tags:
       - bills
     responses:
-      '200':
+      200:
         description: 'The requested bill'
         content:
           application/json:
@@ -134,13 +134,13 @@
       description: JSON array or key=value pairs with updated bill information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated bill stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BillSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -161,7 +161,7 @@
         example: 1
       description: The ID of the bill.
     responses:
-      '204':
+      204:
         description: Bill deleted.
       '404':
         description: No such bill
@@ -188,7 +188,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of attachments
         content:
           application/json:
@@ -210,7 +210,7 @@
         example: 1
       description: The ID of the bill.
     responses:
-      '200':
+      200:
         description: A list of rules
         content:
           application/json:
@@ -256,7 +256,7 @@
       schema:
         $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
-      '200':
+      200:
         description: A list of transactions
         content:
           application/json:

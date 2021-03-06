@@ -24,7 +24,7 @@
         type: string
         format: date
     responses:
-      '200':
+      200:
         description: Bar chart oriented chart information. Check out the model for more details. Each entry is a set of bars in the chart.
         content:
           application/json:

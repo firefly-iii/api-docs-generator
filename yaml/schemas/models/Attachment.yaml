@@ -28,10 +28,11 @@ Attachment:
       - Bill
       - TransactionJournal
       - ImportJob
+      - Account
     attachable_id:
-      type: integer
-      format: int32
-      example: 134
+      type: string
+      format: string
+      example: "134"
       description: ID of the model this attachment is linked to.
     md5:
       type: string
@@ -54,6 +55,7 @@ Attachment:
       type: string
       format: string
       example: "Some notes"
+      nullable: true
     mime:
       type: string
       format: string

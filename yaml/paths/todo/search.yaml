@@ -24,7 +24,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of transactions.
         content:
           application/json:
@@ -65,7 +65,7 @@
       schema:
         $ref: '#/components/schemas/AccountSearchFieldFilter'
     responses:
-      '200':
+      200:
         description: A list of accounts.
         content:
           application/json:

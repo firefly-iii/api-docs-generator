@@ -14,7 +14,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of users.
         content:
           application/json:
@@ -38,13 +38,13 @@
       description: "JSON array or key=value pairs with the necessary user information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New user stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/UserSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -66,7 +66,7 @@
     tags:
       - users
     responses:
-      '200':
+      200:
         description: 'The requested user.'
         content:
           application/json:
@@ -99,13 +99,13 @@
       description: JSON array with updated user information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated user stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/UserSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -126,7 +126,7 @@
         example: 1
       description: The user ID.
     responses:
-      '204':
+      204:
         description: User deleted.
       '404':
         description: No such user.

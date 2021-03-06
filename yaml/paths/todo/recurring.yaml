@@ -14,7 +14,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of recurring transactions.
         content:
           application/json:
@@ -37,13 +37,13 @@
       description: "JSON array or key=value pairs with the necessary recurring transaction information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New recurring transaction stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/RecurrenceSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -65,7 +65,7 @@
     tags:
       - recurrences
     responses:
-      '200':
+      200:
         description: 'The requested recurring transaction'
         content:
           application/json:
@@ -98,13 +98,13 @@
       description: JSON array with updated recurring transaction information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated recurring transaction stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/RecurrenceSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -125,7 +125,7 @@
         example: 1
       description: The ID of the recurring transaction.
     responses:
-      '204':
+      204:
         description: Recurring transaction deleted.
       '404':
         description: No such recurring transaction
@@ -176,7 +176,7 @@
       schema:
         $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
-      '200':
+      200:
         description: A list of transactions
         content:
           application/json:
@@ -191,7 +191,7 @@
     tags:
       - recurrences
     responses:
-      '204':
+      204:
         description: 'Not triggered (not yet due or unable to).'
-      '200':
+      200:
         description: "Triggered. Due to the way it's fired (an asynchronous job), the result cannot be shown to you."

@@ -14,7 +14,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of categories.
         content:
           application/json:
@@ -37,13 +37,13 @@
       description: "JSON array or key=value pairs with the necessary category information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New category stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -83,7 +83,7 @@
     tags:
       - categories
     responses:
-      '200':
+      200:
         description: 'The requested category'
         content:
           application/json:
@@ -116,13 +116,13 @@
       description: JSON array with updated category information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated category stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -143,7 +143,7 @@
         example: 1
       description: The ID of the category.
     responses:
-      '204':
+      204:
         description: Category deleted.
       '404':
         description: No such category.
@@ -194,7 +194,7 @@
       schema:
         $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
-      '200':
+      200:
         description: A list of transactions.
         content:
           application/json:
@@ -223,7 +223,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of attachments
         content:
           application/json:

@@ -15,10 +15,10 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of attachments.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
   post:
@@ -39,13 +39,13 @@
       description: "JSON array or key=value pairs with the necessary attachment information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New attachment stored, result in response.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -68,13 +68,13 @@
     tags:
       - attachments
     responses:
-      '200':
+      200:
         description: 'The requested attachment'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentSingle'
-      '404':
+      404:
         description: Attachment not found
   put:
     operationId: updateAttachment
@@ -102,13 +102,13 @@
       description: JSON array with updated attachment information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated attachment stored, result in response'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -130,9 +130,9 @@
         example: 1
       description: The ID of the single.
     responses:
-      '204':
+      204:
         description: Attachment deleted.
-      '404':
+      404:
         description: No such attachment
 /api/v1/attachments/{id}/download:
   get:
@@ -151,14 +151,14 @@
     tags:
       - attachments
     responses:
-      '200':
+      200:
         description: 'The requested attachment'
         content:
           application/octet-stream:
             schema:
               type: string
               format: binary
-      '404':
+      404:
         description: File not found
 /api/v1/attachments/{id}/upload:
   post:
@@ -177,11 +177,11 @@
     tags:
       - attachments
     responses:
-      '204':
+      204:
         description: 'Upload was a success'
-      '404':
+      404:
         description: File not found
-      '422':
+      422:
         description: Upload invalid or empty file.
     requestBody:
       content:

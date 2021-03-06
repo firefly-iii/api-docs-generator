@@ -14,7 +14,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of piggy banks
         content:
           application/json:
@@ -37,13 +37,13 @@
       description: "JSON array or key=value pairs with the necessary piggy bank information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New piggy bank stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -65,7 +65,7 @@
     tags:
       - piggy_banks
     responses:
-      '200':
+      200:
         description: 'The requested piggy bank'
         content:
           application/json:
@@ -98,13 +98,13 @@
       description: JSON array with updated piggy bank information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated piggy bank stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -125,7 +125,7 @@
         example: 1
       description: The ID of the piggy bank.
     responses:
-      '204':
+      204:
         description: Piggy bank deleted.
       '404':
         description: No such piggy bank
@@ -152,7 +152,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of piggy bank related events
         content:
           application/json:
@@ -181,7 +181,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of attachments
         content:
           application/json:

@@ -23,7 +23,7 @@
         type: string
         format: date
     responses:
-      '200':
+      200:
         description: A tag cloud
         content:
           application/json:
@@ -44,7 +44,7 @@
         schema:
           type: integer
     responses:
-      '200':
+      200:
         description: A list of tags
         content:
           application/json:
@@ -67,13 +67,13 @@
       description: "JSON array or key=value pairs with the necessary tag information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New tag stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/TagSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -102,7 +102,7 @@
     tags:
       - tags
     responses:
-      '200':
+      200:
         description: 'The requested tag'
         content:
           application/json:
@@ -136,13 +136,13 @@
       description: JSON array with updated tag information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated tag stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/TagSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -164,7 +164,7 @@
         format: string
         example: groceries
     responses:
-      '204':
+      204:
         description: Tag deleted.
       '404':
         description: "No such tag"
@@ -217,7 +217,7 @@
       schema:
         $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
-      '200':
+      200:
         description: A list of transactions.
         content:
           application/json:
@@ -247,7 +247,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of attachments
         content:
           application/json:

@@ -6,7 +6,7 @@
     tags:
       - configuration
     responses:
-      '200':
+      200:
         description: System configuration
         content:
           application/json:
@@ -33,13 +33,13 @@
           - last_update_check
           - single_user_mode
     responses:
-      '200':
+      200:
         description: 'New config stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Configuration'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:

@@ -17,6 +17,7 @@ class Builder
     private array       $tags;
     private Environment $twig;
     private string      $version;
+    private string      $server;
 
     /**
      * Builder constructor.
@@ -29,6 +30,7 @@ class Builder
         $this->tags    = [];
         $this->paths   = [];
         $this->schemas = [];
+        $this->server = '';
 
         $loader     = new FilesystemLoader($templatePath);
         $this->twig = new Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
@@ -97,6 +99,22 @@ class Builder
     }
 
     /**
+     * @return string
+     */
+    public function getServer(): string
+    {
+        return $this->server;
+    }
+
+    /**
+     * @param string $server
+     */
+    public function setServer(string $server): void
+    {
+        $this->server = $server;
+    }
+
+    /**
      *
      * @throws \RuntimeException
      */
@@ -119,9 +137,10 @@ class Builder
         return $template->render(
             [
                 'version' => $this->getVersion(),
-                'tags' => $tags,
-                'paths' => $this->paths,
-                'schemas' => $this->schemas
+                'server' => $this->getServer(),
+                'tags'    => $tags,
+                'paths'   => $this->paths,
+                'schemas' => $this->schemas,
             ]);
     }
 

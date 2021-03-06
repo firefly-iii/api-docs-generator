@@ -14,7 +14,7 @@
         type: integer
         example: 1
     responses:
-      '200':
+      200:
         description: A list of webhooks.
         content:
           application/json:
@@ -38,13 +38,13 @@
       description: "JSON array or key=value pairs with the necessary webhook information. See the model for the exact specifications."
       required: true
     responses:
-      '200':
+      200:
         description: 'New webhook stored, result in response.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/WebhookSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -66,7 +66,7 @@
     tags:
       - webhooks
     responses:
-      '200':
+      200:
         description: 'The requested webhook.'
         content:
           application/json:
@@ -99,13 +99,13 @@
       description: JSON array with updated webhook information. See the model for the exact specifications.
       required: true
     responses:
-      '200':
+      200:
         description: 'Updated webhook stored, result in response'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/WebhookSingle'
-      '422':
+      422:
         description: 'Validation errors (see body)'
         content:
           application/json:
@@ -126,7 +126,7 @@
         example: 1
       description: The webhook ID.
     responses:
-      '204':
+      204:
         description: Webhook deleted.
       '404':
         description: No such webhook.

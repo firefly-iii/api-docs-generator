@@ -16,9 +16,9 @@ AvailableBudget:
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
     currency_id:
-      type: integer
-      format: int32
-      example: 5
+      type: string
+      format: string
+      example: "5"
       description: Use either currency_id or currency_code.
     currency_code:
       type: string
