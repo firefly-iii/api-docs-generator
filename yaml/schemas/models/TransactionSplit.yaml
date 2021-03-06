@@ -35,8 +35,8 @@ TransactionSplit:
         - opening balance
     date:
       type: string
-      format: date
-      example: "2018-09-17T08:00+08:00"
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
       description: "Date of the transaction"
     amount:
       type: string
@@ -136,6 +136,7 @@ TransactionSplit:
       type: string
       format: string
       example: Groceries
+      nullable: true
       description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
     source_id:
       type: integer
@@ -247,12 +248,14 @@ TransactionSplit:
       example: 0
       description: "Total number of transactions expected to be created by this recurrence repetition. Will be 0 if infinite."
       readOnly: true
+      nullable: true
     recurrence_count:
       type: integer
       format: int32
       example: 12
       description: "The # of the current transaction created under this recurrence."
       readOnly: true
+      nullable: true
     bunq_payment_id:
       type: string
       nullable: true
@@ -273,6 +276,7 @@ TransactionSplit:
       type: string
       format: string
       description: SEPA Opposing Account Identifier
+      nullable: true
     sepa_ct_id:
       type: string
       format: string
@@ -305,25 +309,25 @@ TransactionSplit:
       description: SEPA Batch ID
     interest_date:
       type: string
-      format: date
+      format: date-time
       nullable: true
     book_date:
       type: string
-      format: date
+      format: date-time
       nullable: true
     process_date:
       type: string
-      format: date
+      format: date-time
       nullable: true
     due_date:
       type: string
-      format: date
+      format: date-time
       nullable: true
     payment_date:
       type: string
-      format: date
+      format: date-time
       nullable: true
     invoice_date:
       type: string
-      format: date
+      format: date-time
       nullable: true

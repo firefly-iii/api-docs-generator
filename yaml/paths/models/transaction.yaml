@@ -42,7 +42,7 @@
       200:
         description: A list of transactions.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
   post:
@@ -65,7 +65,7 @@
       200:
         description: 'New transaction stored(s), result in response.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
       422:
@@ -93,7 +93,7 @@
       200:
         description: 'The requested transaction.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
       404:
@@ -126,7 +126,7 @@
       200:
         description: 'Updated transaction stored, result in response'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
       422:
@@ -154,120 +154,3 @@
         description: Transaction deleted.
       404:
         description: No such transaction.
-/api/v1/transactions/{id}/attachments:
-  get:
-    summary: Lists all attachments.
-    description: Lists all attachments.
-    operationId: listAttachmentByTransaction
-    tags:
-      - transactions
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the transaction.
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    responses:
-      200:
-        description: A list of attachments
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such transaction.
-/api/v1/transactions/{id}/piggy_bank_events:
-  get:
-    summary: Lists all piggy bank events.
-    description: Lists all piggy bank events.
-    operationId: listEventByTransaction
-    tags:
-      - transactions
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the transaction.
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    responses:
-      200:
-        description: A list of piggy bank events.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PiggyBankEventArray'
-      404:
-        description: No such transaction.
-/api/v1/transactions/{journalId}/links:
-  get:
-    summary: Lists all the transaction links for an individual journal.
-    description: Lists all the transaction links for an individual journal. Don't use the group ID, you need the actual underlying journal.
-    operationId: listLinksByJournal
-    tags:
-      - transactions
-    parameters:
-      - in: path
-        name: journalId
-        required: true
-        schema:
-          type: integer
-          example: 1
-        description: The ID of the transaction journal.
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
-    responses:
-      200:
-        description: A list of transaction links.
-        content:
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/TransacionLinkArray'
-      404:
-        description: No such transaction journal.
-/api/v1/transaction-journals/{id}:
-  get:
-    summary: Get a single transaction, based on one of the underlying transaction journals.
-    description: Get a single transaction by underlying journal.
-    operationId: getTransactionByJournal
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the transaction journal.
-    tags:
-      - transactions
-    responses:
-      200:
-        description: 'The requested transaction.'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TransactionSingle'
-      404:
-        description: Transaction not found.
