@@ -26,9 +26,9 @@ Rule:
       format: string
       example: "First rule description"
     rule_group_id:
-      type: integer
-      format: int32
-      example: 81
+      type: string
+      format: string
+      example: "81"
       description: "ID of the rule group under which the rule must be stored. Either this field or rule_group_title is mandatory."
     rule_group_title:
       type: string

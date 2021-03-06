@@ -25,11 +25,10 @@ Attachment:
       example: "Bill"
       description: The object class to which the attachment must be linked.
       enum:
-      - Bill
-      - TransactionJournal
-      - ImportJob
       - Account
       - Budget
+      - Bill
+      - TransactionJournal
     attachable_id:
       type: string
       format: string

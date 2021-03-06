@@ -20,6 +20,7 @@ Category:
     notes:
       type: string
       format: string
+      nullable: true
       example: "Some example notes"
     spent:
       type: array

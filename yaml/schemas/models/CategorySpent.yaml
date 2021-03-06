@@ -10,9 +10,9 @@ CategorySpent:
       format: date
       example: "2018-04-30"
     currency_id:
-      type: integer
-      format: int32
-      example: 5
+      type: string
+      format: string
+      example: "5"
     currency_code:
       type: string
       format: string

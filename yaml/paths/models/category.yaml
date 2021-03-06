@@ -17,7 +17,7 @@
       200:
         description: A list of categories.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategoryArray'
   post:
@@ -40,7 +40,7 @@
       200:
         description: 'New category stored, result in response.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
       422:
@@ -86,7 +86,7 @@
       200:
         description: 'The requested category'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
       404:
@@ -119,7 +119,7 @@
       200:
         description: 'Updated category stored, result in response'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
       422:
@@ -147,87 +147,4 @@
         description: Category deleted.
       404:
         description: No such category.
-/api/v1/categories/{id}/transactions:
-  get:
-    summary: List all transactions in a category.
-    description: List all transactions in a category, optionally limited to the date ranges specified.
-    operationId: listTransactionByCategory
-    tags:
-      - categories
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the category.
-    - in: query
-      name: page
-      description: Page number. The default pagination is per 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    - in: query
-      name: start
-      description: |
-        A date formatted YYYY-MM-DD, to limit the result list.
-      required: false
-      schema:
-        type: string
-        format: date
-        example: 2018-09-17
-    - in: query
-      name: end
-      description: |
-        A date formatted YYYY-MM-DD, to limit the result list.
-      required: false
-      schema:
-        type: string
-        format: date
-        example: 2018-12-31
-    - in: query
-      name: type
-      description: Optional filter on the transaction type(s) returned
-      required: false
-      schema:
-        $ref: '#/components/schemas/TransactionTypeFilter'
-    responses:
-      200:
-        description: A list of transactions.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TransactionArray'
-/api/v1/categories/{id}/attachments:
-  get:
-    summary: Lists all attachments.
-    description: Lists all attachments.
-    operationId: listAttachmentByCategory
-    tags:
-      - categories
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the category.
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    responses:
-      200:
-        description: A list of attachments
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such category.
+

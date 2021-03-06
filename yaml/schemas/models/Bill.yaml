@@ -18,9 +18,9 @@ Bill:
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
     currency_id:
-      type: integer
-      format: int32
-      example: 5
+      type: string
+      format: string
+      example: "5"
       description: Use either currency_id or currency_code
     currency_code:
       type: string
@@ -78,26 +78,32 @@ Bill:
       type: string
       format: string
       example: "Some example notes"
+      nullable: true
     next_expected_match:
       type: string
       format: date
       example: "2018-09-17"
       description: "When the bill is expected to be due."
+      nullable: true
       readOnly: true
     object_group_id:
-      type: integer
-      format: int32
-      example: 5
+      type: string
+      format: string
+      example: "5"
+      nullable: true
       description: The group ID of the group this object is part of. NULL if no group.
     object_group_order:
       type: integer
       format: int32
       example: 5
+      nullable: true
+      readOnly: true
       description: The order of the group. At least 1, for the highest sorting.
     object_group_title:
       type: string
       format: string
       example: "Example Group"
+      nullable: true
       description: The name of the group. NULL if no group.
     pay_dates:
       type: array
@@ -116,13 +122,15 @@ Bill:
         readOnly: true
         properties:
           transaction_group_id:
-            type: integer
-            format: int32
+            type: string
+            format: string
+            example: "123"
             description: "Transaction group ID of the paid bill."
             readOnly: true
           transaction_journal_id:
-            type: integer
-            format: int32
+            type: string
+            format: string
+            example: "123"
             description: "Transaction journal ID of the paid bill."
             readOnly: true
           date:

@@ -35,7 +35,7 @@
       200:
         description: A list of bills
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillArray'
   post:
@@ -58,7 +58,7 @@
       200:
         description: 'New bill stored, result in response.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillSingle'
       422:
@@ -104,7 +104,7 @@
       200:
         description: 'The requested bill'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillSingle'
       404:
@@ -137,7 +137,7 @@
       200:
         description: 'Updated bill stored, result in response'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillSingle'
       422:
@@ -165,100 +165,3 @@
         description: Bill deleted.
       404:
         description: No such bill
-/api/v1/bills/{id}/attachments:
-  get:
-    summary: List all attachments uploaded to the bill.
-    description: This endpoint will list all attachments linked to the bill.
-    operationId: listAttachmentByBill
-    tags:
-      - bills
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the bill.
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    responses:
-      200:
-        description: A list of attachments
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AttachmentArray'
-/api/v1/bills/{id}/rules:
-  get:
-    summary: List all rules associated with the bill.
-    description: This endpoint will list all rules that have an action to set the bill to this bill.
-    operationId: listRuleByBill
-    tags:
-      - bills
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the bill.
-    responses:
-      200:
-        description: A list of rules
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RuleArray'
-/api/v1/bills/{id}/transactions:
-  get:
-    summary: List all transactions associated with the  bill.
-    description: This endpoint will list all transactions linked to this bill.
-    operationId: listTransactionByBill
-    tags:
-      - bills
-    parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the bill.
-    - in: query
-      name: start
-      description: |
-        A date formatted YYYY-MM-DD.
-      required: false
-      schema:
-        type: string
-        format: date
-        example: 2018-09-17
-    - in: query
-      name: end
-      description: |
-        A date formatted YYYY-MM-DD.
-      required: false
-      schema:
-        type: string
-        format: date
-        example: 2018-12-31
-    - in: query
-      name: type
-      description: Optional filter on the transaction type(s) returned
-      required: false
-      schema:
-        $ref: '#/components/schemas/TransactionTypeFilter'
-    responses:
-      200:
-        description: A list of transactions
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TransactionArray'
