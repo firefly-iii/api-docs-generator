@@ -31,7 +31,7 @@ $tags = [
     'bills'             => ['description' => 'Endpoints to manage a user\'s bills and all related objects.'],
     'budgets'           => ['description' => 'Endpoints to manage a user\'s budgets and get info on the related objects, like limits.'],
     'categories'        => ['description' => 'Endpoints to manage a user\'s categories and get information on transactions and other related objects.'],
-    'object_groups'     => ['description' => 'Endpoints to control and manage all of the user\'s object groups. Can only be created in conjunction with another object (for example: a piggy bank) and will auto-delete when no other items are linked to it.'],
+    'object_groups'     => ['description' => 'Endpoints to control and manage all of the user\'s object groups. Can only be created in conjunction with another object (for example a piggy bank) and will auto-delete when no other items are linked to it.'],
     'piggy_banks'       => ['description' => 'Endpoints to control and manage all of the user\'s piggy banks and related objects and information.'],
     'recurrences'       => ['description' => 'Use these endpoints to manage the user\'s recurring transactions, trigger the creation of transactions and manage the settings.'],
     'rules'             => ['description' => 'These endpoints can be used to manage all of the user\'s rules. Also includes triggers to execute or test rules and individual triggers.'],

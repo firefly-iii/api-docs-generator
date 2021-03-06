@@ -20,8 +20,8 @@ RecurrenceTransaction:
       description: Foreign amount of the transaction.
       nullable: true
     currency_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       example: 3
       description: Submit either a currency_id or a currency_code.
     currency_code:
@@ -41,9 +41,9 @@ RecurrenceTransaction:
       description: Number of decimals in the currency
       readOnly: true
     foreign_currency_id:
-      type: integer
-      format: int32
-      example: 17
+      type: string
+      format: string
+      example: "17"
       nullable: true
       description: Submit either a foreign_currency_id or a foreign_currency_code, or neither.
     foreign_currency_code:
@@ -66,9 +66,9 @@ RecurrenceTransaction:
       nullable: true
       readOnly: true
     budget_id:
-      type: integer
-      format: int32
-      example: 4
+      type: string
+      format: string
+      example: "4"
       description: The budget ID for this transaction.
     budget_name:
       type: string
@@ -78,19 +78,19 @@ RecurrenceTransaction:
       nullable: true
       readOnly: true
     category_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       description: Category ID for this transaction.
-      example: 211
+      example: "211"
     category_name:
       type: string
       format: string
       description: Category name for this transaction.
       example: "Bills"
     source_id:
-      type: integer
-      format: int32
-      example: 913
+      type: string
+      format: string
+      example: "913"
       description: ID of the source account. Submit either this or source_name.
     source_name:
       type: string
@@ -106,9 +106,9 @@ RecurrenceTransaction:
     source_type:
       $ref: '#/components/schemas/AccountTypeProperty'
     destination_id:
-      type: integer
-      format: int32
-      example: 258
+      type: string
+      format: string
+      example: "258"
       description: ID of the destination account. Submit either this or destination_name.
     destination_name:
       type: string
@@ -134,10 +134,13 @@ RecurrenceTransaction:
         description: Tag.
         example: Barbecue preparation
     piggy_bank_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
+      example: "123"
+      nullable: true
       description: Optional. Use either this or the piggy_bank_name
     piggy_bank_name:
       type: string
       format: string
+      nullable: true
       description: Optional. Use either this or the piggy_bank_id

@@ -43,17 +43,21 @@ Recurrence:
       type: string
       format: date
       example: "2018-09-17"
-      description: "First time the recurring transaction will fire. Must be after today."
+      description: "Last time the recurring transaction has fired."
+      nullable: true
+      readOnly: true
     repeat_until:
       type: string
       format: date
       example: "2018-09-17"
       description: "Date until the recurring transaction can fire. Use either this field or repetitions."
+      nullable: true
     nr_of_repetitions:
       type: integer
       format: int32
       example: 5
       description: Max number of created transactions. Use either this field or repeat_until.
+      nullable: true
     apply_rules:
       type: boolean
       format: boolean
@@ -68,6 +72,7 @@ Recurrence:
       type: string
       format: string
       example: "Some notes"
+      nullable: true
     repetitions:
       type: array
       items:
