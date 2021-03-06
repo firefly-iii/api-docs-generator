@@ -99,7 +99,7 @@
 /api/v1/currencies/{code}/default:
   post:
     summary: Make currency default currency.
-    description: Make this currency the default currency. If the currency is not enabled, it will be enabled as well.
+    description: Make this currency the default currency for the user. If the currency is not enabled, it will be enabled as well.
     operationId: defaultCurrency
     tags:
       - currencies

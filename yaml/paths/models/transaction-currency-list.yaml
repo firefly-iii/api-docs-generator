@@ -28,7 +28,7 @@
         required: false
         schema:
           type: string
-          format: string
+          format: date
       - in: query
         name: type
         description: Optional filter on the account type(s) returned
@@ -232,7 +232,7 @@
           type: integer
           example: 1
       - in: query
-        name: start_date
+        name: start
         description: |
           A date formatted YYYY-MM-DD, to limit the list of transactions.
         required: false
@@ -241,7 +241,7 @@
           format: date
           example: 2018-09-17
       - in: query
-        name: end_date
+        name: end
         description: |
           A date formatted YYYY-MM-DD, to limit the list of transactions.
         required: false

@@ -1,0 +1,54 @@
+/api/v1/link_types/{id}/transactions:
+  get:
+    tags:
+      - links
+    summary: List all transactions under this link type.
+    description: |
+      List all transactions under this link type, both the inward and outward transactions.
+    operationId: listTransactionByLinkType
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The ID of the link type.
+      - in: query
+        name: page
+        description: Page number. The default pagination is per 50 items.
+        required: false
+        schema:
+          type: integer
+          example: 1
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD, to limit the results.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: 2018-09-17
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD, to limit the results.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: 2018-09-17
+      - in: query
+        name: type
+        description: Optional filter on the transaction type(s) returned.
+        required: false
+        schema:
+          $ref: '#/components/schemas/TransactionTypeFilter'
+    responses:
+      200:
+        description: A list of transactions
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionArray'
