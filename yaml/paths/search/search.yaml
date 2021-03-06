@@ -1,10 +1,10 @@
-# search
-# limit to specific objects
-# mixed result list?
 /api/v1/search/transactions:
   get:
     summary: Search for transactions
-    description: Search for transactions
+    description: Searches through the users transactions.
+    externalDocs:
+      description: Search Documentation
+      url: https://docs.firefly-iii.org/firefly-iii/pages-and-features/search/
     operationId: searchTransactions
     tags:
       - search
@@ -27,7 +27,7 @@
       200:
         description: A list of transactions.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
 /api/v1/search/accounts:
@@ -68,6 +68,6 @@
       200:
         description: A list of accounts.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AccountArray'
