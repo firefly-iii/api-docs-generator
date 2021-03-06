@@ -71,7 +71,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
-      '404':
+      404:
         description: Piggy bank not found
   put:
     operationId: updatePiggyBank
@@ -127,7 +127,7 @@
     responses:
       204:
         description: Piggy bank deleted.
-      '404':
+      404:
         description: No such piggy bank
 /api/v1/piggy_banks/{id}/events:
   get:
@@ -187,5 +187,5 @@
           application/json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      '404':
+      404:
         description: No such piggy bank.

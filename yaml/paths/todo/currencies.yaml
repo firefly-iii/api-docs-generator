@@ -142,7 +142,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      '404':
+      404:
         description: Currency not found
   put:
     operationId: updateCurrency
@@ -200,7 +200,7 @@
     responses:
       204:
         description: Currency deleted.
-      '404':
+      404:
         description: No such currency
 /api/v1/currencies/{code}/accounts:
   get:

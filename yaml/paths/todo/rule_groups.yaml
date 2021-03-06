@@ -71,7 +71,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/RuleGroupSingle'
-      '404':
+      404:
         description: Rule group not found.
   put:
     operationId: updateRuleGroup
@@ -127,7 +127,7 @@
     responses:
       204:
         description: Rule group deleted.
-      '404':
+      404:
         description: No such rule group
 /api/v1/rule_groups/{id}/test:
   get:

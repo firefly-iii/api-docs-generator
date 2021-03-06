@@ -89,7 +89,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
-      '404':
+      404:
         description: Category not found
   put:
     operationId: updateCategory
@@ -145,7 +145,7 @@
     responses:
       204:
         description: Category deleted.
-      '404':
+      404:
         description: No such category.
 /api/v1/categories/{id}/transactions:
   get:
@@ -229,5 +229,5 @@
           application/json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      '404':
+      404:
         description: No such category.

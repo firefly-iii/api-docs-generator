@@ -29,6 +29,7 @@ Attachment:
       - TransactionJournal
       - ImportJob
       - Account
+      - Budget
     attachable_id:
       type: string
       format: string

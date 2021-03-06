@@ -71,7 +71,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/RecurrenceSingle'
-      '404':
+      404:
         description: Recurring transaction not found
   put:
     operationId: updateRecurrence
@@ -127,7 +127,7 @@
     responses:
       204:
         description: Recurring transaction deleted.
-      '404':
+      404:
         description: No such recurring transaction
 /api/v1/recurrences/{id}/transactions:
   get:

@@ -73,7 +73,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/LinkTypeSingle'
-      '404':
+      404:
         description: Link type not found.
   put:
     summary: Update existing link type.
@@ -133,7 +133,7 @@
     responses:
       204:
         description: Link type deleted
-      '404':
+      404:
         description: No such link type
       '500':
         description: Cannot delete this link type.
@@ -266,7 +266,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/TransactionLinkSingle'
-      '404':
+      404:
         description: No such transaction link.
   delete:
     summary: Permanently delete link between transactions.
@@ -286,7 +286,7 @@
     responses:
       204:
         description: Transaction link deleted
-      '404':
+      404:
         description: No such transaction link
   put:
     summary: Update an existing link between transactions.

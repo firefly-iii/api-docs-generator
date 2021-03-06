@@ -72,7 +72,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/UserSingle'
-      '404':
+      404:
         description: User not found.
   put:
     operationId: updateUser
@@ -128,7 +128,7 @@
     responses:
       204:
         description: User deleted.
-      '404':
+      404:
         description: No such user.
       '500':
         description: Error when deleting, or when it is the currently authenticated user.

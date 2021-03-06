@@ -96,7 +96,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
-      '404':
+      404:
         description: Transaction not found.
   put:
     operationId: updateTransaction
@@ -152,7 +152,7 @@
     responses:
       204:
         description: Transaction deleted.
-      '404':
+      404:
         description: No such transaction.
 /api/v1/transactions/{id}/attachments:
   get:
@@ -183,7 +183,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      '404':
+      404:
         description: No such transaction.
 /api/v1/transactions/{id}/piggy_bank_events:
   get:
@@ -214,7 +214,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/PiggyBankEventArray'
-      '404':
+      404:
         description: No such transaction.
 /api/v1/transactions/{journalId}/links:
   get:
@@ -269,5 +269,5 @@
           application/json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
-      '404':
+      404:
         description: Transaction not found.

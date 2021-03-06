@@ -107,7 +107,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/BillSingle'
-      '404':
+      404:
         description: Bill not found
   put:
     operationId: updateBill
@@ -163,7 +163,7 @@
     responses:
       204:
         description: Bill deleted.
-      '404':
+      404:
         description: No such bill
 /api/v1/bills/{id}/attachments:
   get:

@@ -71,7 +71,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/RuleSingle'
-      '404':
+      404:
         description: Rule not found
   put:
     operationId: updateRule
@@ -127,7 +127,7 @@
     responses:
       204:
         description: Rule deleted.
-      '404':
+      404:
         description: No such rule
 /api/v1/rules/{id}/test:
   get:
