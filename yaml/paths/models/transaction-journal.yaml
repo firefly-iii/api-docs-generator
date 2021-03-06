@@ -48,7 +48,7 @@
       200:
         description: 'The requested transaction.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
       404:
