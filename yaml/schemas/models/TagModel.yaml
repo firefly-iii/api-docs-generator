@@ -29,6 +29,7 @@ TagModel:
       type: string
       format: string
       example: "Tag for expensive stuff"
+      nullable: true
     latitude:
       type: number
       format: double

@@ -30,6 +30,7 @@ Attachment:
       - Bill
       - TransactionJournal
       - PiggyBank
+      - Tag
     attachable_id:
       type: string
       format: string
