@@ -1,0 +1,7 @@
+ConfigValueUpdateFilter:
+  type: string
+  enum:
+    - configuration.is_demo_site
+    - configuration.permission_update_check
+    - configuration.last_update_check
+    - configuration.single_user_mode

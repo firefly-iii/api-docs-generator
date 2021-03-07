@@ -33,4 +33,39 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ConfigurationSingle'
-
+  put:
+    tags:
+      - configuration
+    summary: Update configuration value
+    operationId: setConfiguration
+    description: Set a single configuration value. Not all configuration values can be updated so the list of accepted configuration variables is small.
+    parameters:
+      - in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/ConfigValueUpdateFilter'
+        description: The name of the configuration value you want to update.
+    responses:
+      200:
+        description: 'New configuration value stored, result in response.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigurationSingle'
+      422:
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+    requestBody:
+      description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/ConfigurationUpdate'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfigurationUpdate'
+      required: true

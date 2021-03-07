@@ -1,0 +1,14 @@
+ConfigurationUpdate:
+  type: object
+  required:
+    - value
+  properties:
+    value:
+      type: string
+      oneOf:
+        - type: boolean
+        - type: string
+        - type: object
+        - type: array
+      example: "Some-new-config var"
+      description: Can be a number, a string, boolean or object. This depends on the actual configuration value.
