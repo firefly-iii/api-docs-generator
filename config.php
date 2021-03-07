@@ -46,7 +46,7 @@ $tags = [
 
     // system
     'about'             => ['description' => 'These endpoints deliver general system information, version- and meta information.'],
-    //    'configuration'     => ['description' => 'These endpoints allow you to manage and update the Firefly III configuration'],
+    'configuration'     => ['description' => 'These endpoints allow you to manage and update the Firefly III configuration'],
     //    'users'             => ['description' => 'Use these endpoints to manage the users registered within Firefly III. You need to have the "owner" role to access these endpoints.'],
     //
     //    // user

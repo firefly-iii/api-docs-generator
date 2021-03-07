@@ -1,0 +1,7 @@
+ConfigurationSingle:
+  type: object
+  required:
+    - data
+  properties:
+    data:
+      $ref: '#/components/schemas/Configuration'

@@ -35,6 +35,6 @@
       '200':
         description: An array of sums. It depends on the user what you can expect to get back, so please try this out on the demo site.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BasicSummary'

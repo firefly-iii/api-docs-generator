@@ -1,0 +1,29 @@
+Configuration:
+  type: object
+  required:
+    - data
+  properties:
+    data:
+      type: object
+      required:
+        - title
+        - value
+        - editable
+      properties:
+        title:
+          type: string
+          example: "configuration.is_demo_site"
+          description: "Title of the configuration value."
+          schema:
+            $ref: '#/components/schemas/ConfigValueFilter'
+        value:
+          type: string
+          format: string
+          example: "some-variable"
+          description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
+        editable:
+          type: boolean
+          format: boolean
+          example: true
+          readOnly: false
+          description: "If this config variable can be edited by the user"
