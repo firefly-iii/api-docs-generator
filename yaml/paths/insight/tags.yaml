@@ -3,12 +3,13 @@
     summary: Insight into expenses, grouped by tag.
     description: |
       This endpoint gives a summary of the expenses made by the user, grouped by (any) tag.
-    operationId: insightExpensetag
+    operationId: insightExpenseTag
     tags:
       - insight
     parameters:
       - in: query
         name: start
+        example: "2021-01-01"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -17,6 +18,7 @@
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -60,12 +62,13 @@
     summary: Insight into expenses, without tag.
     description: |
       This endpoint gives a summary of the expenses made by the user, including only expenses with no tag.
-    operationId: insightExpenseNotag
+    operationId: insightExpenseNoTag
     tags:
       - insight
     parameters:
       - in: query
         name: start
+        example: "2021-01-01"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -74,6 +77,7 @@
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -105,12 +109,13 @@
     summary: Insight into income, grouped by tag.
     description: |
       This endpoint gives a summary of the income received by the user, grouped by (any) tag.
-    operationId: insightExpensetag
+    operationId: insightExpenseTag
     tags:
       - insight
     parameters:
       - in: query
         name: start
+        example: "2021-01-01"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -119,6 +124,7 @@
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -162,12 +168,13 @@
     summary: Insight into income, without tag.
     description: |
       This endpoint gives a summary of the income received by the user, including only income with no tag.
-    operationId: insightIncomeNotag
+    operationId: insightIncomeNoTag
     tags:
       - insight
     parameters:
       - in: query
         name: start
+        example: "2021-01-01"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -176,6 +183,7 @@
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -198,6 +206,112 @@
     responses:
       200:
         description: 'A list of income details. One row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightTotal'
+/api/v1/insight/transfer/tag:
+  get:
+    summary: Insight into transfers, grouped by tag.
+    description: |
+      This endpoint gives a summary of the transfers created by the user, grouped by (any) tag.
+    operationId: insightTransferTag
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        example: "2021-01-01"
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        example: "2021-01-31"
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: tags[]
+        description: |
+          The tags to be included in the results.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only transfers between those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: 'A list of tag and transfer details. Each tag has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightGroup'
+/api/v1/insight/transfer/no-tag:
+  get:
+    summary: Insight into expenses, without tag.
+    description: |
+      This endpoint gives a summary of the transfers made by the user, including only transfers with no tag.
+    operationId: insightTransferNoTag
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        example: "2021-01-01"
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        example: "2021-01-31"
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only transfers from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: 'A list of transfer details. One row per currency.'
         content:
           application/json:
             schema:

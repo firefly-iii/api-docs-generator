@@ -12,11 +12,13 @@
         description: |
           A date formatted YYYY-MM-DD.
         required: true
+        example: "2021-01-01"
         schema:
           type: string
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -56,6 +58,7 @@
     parameters:
       - in: query
         name: start
+        example: "2021-01-01"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -64,6 +67,7 @@
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -101,6 +105,7 @@
     parameters:
       - in: query
         name: start
+        example: "2021-01-01"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -109,6 +114,7 @@
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -139,7 +145,7 @@
               $ref: '#/components/schemas/InsightGroup'
 /api/v1/insight/income/asset:
   get:
-    summary: Insight into expenses, grouped by asset account.
+    summary: Insight into income, grouped by asset account.
     description: |
       This endpoint gives a summary of the income received by the user, grouped by asset account.
     operationId: insightIncomeAsset
@@ -148,6 +154,7 @@
     parameters:
       - in: query
         name: start
+        example: "2021-01-01"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -156,6 +163,7 @@
           format: date
       - in: query
         name: end
+        example: "2021-01-31"
         description: |
           A date formatted YYYY-MM-DD.
         required: true
@@ -178,6 +186,53 @@
     responses:
       200:
         description: 'A list of asset accounts and income details. Each asset account has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightGroup'
+/api/v1/insight/transfer/asset:
+  get:
+    summary: Insight into transfers, grouped by account.
+    description: |
+      This endpoint gives a summary of the transfers made by the user, grouped by asset account or lability.
+    operationId: insightTransfers
+    tags:
+      - insight
+    parameters:
+      - in: query
+        name: start
+        example: "2021-01-01"
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        example: "2021-01-31"
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only transfers between those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      200:
+        description: 'A list of asset accounts and transfer details. Each asset account has one row per currency.'
         content:
           application/json:
             schema:

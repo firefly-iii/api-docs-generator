@@ -7,7 +7,7 @@ What it does is simply join all YAML files in `/yaml/` together, preceded by the
 
 1. Rename `.env.example` to `.env` and adjust the variables accordingly, e.g.
 
-    ```ini
+    ```dotenv
     API_VERSION=0.10.0
     API_DESTINATION=./
     API_ROOT=./
