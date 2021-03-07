@@ -1,21 +1,18 @@
-WebhookRead:
+WebhookAttemptRead:
   type: object
   required:
     - type
     - id
     - attributes
-    - links
   properties:
     type:
       type: string
       format: string
-      example: "webhooks"
+      example: "webhook_attempts"
       description: "Immutable value"
     id:
       type: string
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/Webhook'
-    links:
-      $ref: '#/components/schemas/ObjectLink'
+      $ref: '#/components/schemas/WebhookAttempt'

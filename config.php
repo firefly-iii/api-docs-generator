@@ -30,6 +30,13 @@ $tags = [
     'insight'           => ['description' => 'The "insight" endpoints try to deliver sums, balances and insightful information in the broadest sense of the word.'],
     'summary'           => ['description' => 'These endpoints deliver summaries, like sums, lists of numbers and other processed information. Mainly used for the main dashboard and pretty specific for Firefly III itself.'],
 
+    // search
+    'search'            => ['description' => 'Endpoints that allow you to search through the user\'s financial data. Different from the autocomplete endpoints, the search accepts more advanced arguments.'],
+
+    // user
+    'preferences'       => ['description' => 'These endpoints can be used to manage the user\'s preferences, including some hidden ones.'],
+    'webhooks'          => ['description' => 'These endpoints can be used to manage the user\'s webhooks and triggers them if necessary.'],
+
     // models
     'accounts'          => ['description' => 'Endpoints that deliver all of the user\'s asset, expense and other accounts (and the metadata) together with related transactions, piggy banks and other objects. Also delivers endpoints for CRUD operations for accounts.'],
     'attachments'       => ['description' => 'Endpoints to manage the attachments of the authenticated user, including up- and downloading of the files.'],
@@ -46,12 +53,5 @@ $tags = [
     'transactions'      => ['description' => 'The most-used endpoints in Firefly III, these endpoints are used to manage the user\'s transactions.'],
     'currencies'        => ['description' => 'Endpoints to manage the currencies in Firefly III. Depending on the user\'s role you can also disable and enable them, or add new ones.'],
     'links'             => ['description' => 'Endpoints to manage links between transactions, and manage the type of links available.'],
-
-    // search TODO boven de models
-    'search'            => ['description' => 'Endpoints that allow you to search through the user\'s financial data. Different from the autocomplete endpoints, the search accepts more advanced arguments.'],
-
-    // user
-    'preferences'       => ['description' => 'These endpoints can be used to manage the user\'s preferences, including some hidden ones.'],
-    //    'webhooks'          => ['description' => 'These endpoints can be used to manage the user\'s webhooks and triggers them if necessary.'],
 ];
 

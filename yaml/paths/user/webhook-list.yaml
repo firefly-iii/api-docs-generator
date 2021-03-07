@@ -1,0 +1,196 @@
+/api/v1/webhooks/{id}/messages:
+  get:
+    summary: Get all the messages of a single webhook.
+    description: When a webhook is triggered the actual message that will be send is stored in a "message". You can view and analyse these messages.
+    operationId: getWebhookMessages
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook ID.
+    tags:
+      - webhooks
+    responses:
+      200:
+        description: A list of webhook messages.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/WebhookMessageArray'
+      404:
+        description: Webhook not found.
+/api/v1/webhooks/{id}/messages/{messageId}:
+  get:
+    summary: Get a single message from a webhook.
+    description: When a webhook is triggered it will store the actual content of the webhook in a webhook message. You can view and analyse a single one using this endpoint.
+    operationId: getSingleWebhookMessage
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook ID.
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook message ID.
+    tags:
+      - webhooks
+    responses:
+      200:
+        description: 'A single webhook message.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/WebhookMessageSingle'
+      404:
+        description: Webhook message not found.
+  delete:
+    operationId: deleteWebhookMessage
+    description: Delete a webhook message.
+    summary: Delete a webhook message. Any time a webhook is triggered the message is stored before it's sent. You can delete them before or after sending.
+    tags:
+      - webhooks
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook ID.
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook message ID.
+    responses:
+      204:
+        description: Webhook message deleted.
+      404:
+        description: No such webhook or webhook message.
+      '500':
+        description: Error when deleting.
+/api/v1/webhooks/{id}/messages/{messageId}/attempts:
+  get:
+    summary: Get all the failed attempts of a single webhook message.
+    description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhook messages that receive too many attempts (failures) will not be sent again. You must first clear out old attempts before the message can go out again.
+    operationId: getWebhookMessageAttempts
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook ID.
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook message ID.
+      - in: query
+        name: page
+        description: Page number. The default pagination is per 50 items.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          example: 1
+    tags:
+      - webhooks
+    responses:
+      200:
+        description: A list of webhook attempts.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/WebhookAttemptArray'
+      404:
+        description: Webhook or webhook message not found.
+/api/v1/webhooks/{id}/messages/{messageId}/attempts/{attemptId}:
+  get:
+    summary: Get a single failed attempt from a single webhook message.
+    description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhooks messages that receive too many attempts (failures) will not be fired. You must first clear out old attempts and try again. This endpoint shows you the details of a single attempt. The ID of the attempt must match the corresponding webhook and webhook message.
+    operationId: getSingleWebhookMessageAttempt
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook ID.
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook message ID.
+      - in: path
+        name: attemptId
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook attempt ID.
+    tags:
+      - webhooks
+    responses:
+      200:
+        description: 'A single webhook attempt.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/WebhookAttemptSingle'
+      404:
+        description: Webhook message attempt not found.
+  delete:
+    operationId: deleteWebhookMessageAttempt
+    description: Delete a webhook attempt.
+    summary: Delete a webhook message attempt. If you delete all attempts for a webhook message, Firefly III will (once again) assume all is well with the webhook message and will try to send it again.
+    tags:
+      - webhooks
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook ID.
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook message ID.
+      - in: path
+        name: attemptId
+        required: true
+        schema:
+          type: integer
+          example: 1
+        description: The webhook message attempt ID.
+    responses:
+      204:
+        description: Webhook message attempt deleted.
+      404:
+        description: No such webhook, webhook message or webhook attempt.
+      '500':
+        description: Error when deleting.
+

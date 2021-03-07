@@ -1,0 +1,12 @@
+WebhookMessageArray:
+  type: object
+  required:
+    - data
+    - meta
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/WebhookMessageRead'
+    meta:
+      $ref: '#/components/schemas/Meta'

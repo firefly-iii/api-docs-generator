@@ -1,0 +1,12 @@
+WebhookAttemptArray:
+  type: object
+  required:
+    - data
+    - meta
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/WebhookAttemptRead'
+    meta:
+      $ref: '#/components/schemas/Meta'

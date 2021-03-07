@@ -1,0 +1,36 @@
+WebhookAttempt:
+  type: object
+  properties:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    webhook_message_id:
+      type: string
+      format: string
+      example: "5"
+      description: "The ID of the webhook message this attempt belongs to."
+    status_code:
+      type: integer
+      format: int32
+      example: 404
+      nullable: true
+      description: "The HTTP status code of the error, if any."
+    logs:
+      type: string
+      format: string
+      example: "Page not found"
+      nullable: true
+      description: "Internal log for this attempt. May contain sensitive user data."
+    response:
+      type: string
+      format: amount
+      example: "Page not found"
+      nullable: true
+      description: "Webhook receiver response for this attempt, if any. May contain sensitive user data."
