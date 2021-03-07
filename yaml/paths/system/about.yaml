@@ -10,7 +10,7 @@
       200:
         description: The available system information
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/SystemInfo'
 /api/v1/about/user:
@@ -25,6 +25,6 @@
       200:
         description: The user
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserSingle'

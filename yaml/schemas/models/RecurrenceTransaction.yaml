@@ -22,7 +22,7 @@ RecurrenceTransaction:
     currency_id:
       type: string
       format: string
-      example: 3
+      example: "3"
       description: Submit either a currency_id or a currency_code.
     currency_code:
       type: string

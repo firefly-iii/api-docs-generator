@@ -41,11 +41,11 @@ $tags = [
     'currencies'        => ['description' => 'Endpoints to manage the currencies in Firefly III. Depending on the user\'s role you can also disable and enable them, or add new ones.'],
     'links'             => ['description' => 'Endpoints to manage links between transactions, and manage the type of links available.'],
 
-        // search
-    //    'search'            => ['description' => 'Endpoints that allow you to search through the user\'s financial data. Different from the autocomplete endpoints, the search accepts more advanced arguments.'],
-    //
-    //    // system
-    //    'about'             => ['description' => 'These endpoints deliver general system information, version- and meta information.'],
+    // search
+    'search'            => ['description' => 'Endpoints that allow you to search through the user\'s financial data. Different from the autocomplete endpoints, the search accepts more advanced arguments.'],
+
+    // system
+    'about'             => ['description' => 'These endpoints deliver general system information, version- and meta information.'],
     //    'configuration'     => ['description' => 'These endpoints allow you to manage and update the Firefly III configuration'],
     //    'users'             => ['description' => 'Use these endpoints to manage the users registered within Firefly III. You need to have the "owner" role to access these endpoints.'],
     //

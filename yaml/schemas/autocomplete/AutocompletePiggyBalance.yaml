@@ -22,9 +22,9 @@ AutocompletePiggyBalance:
       description: Name of the piggy bank found by an auto-complete search with the current balance formatted nicely.
       readOnly: true
     currency_id:
-      type: integer
-      format: int32
-      example: 12
+      type: string
+      format: string
+      example: "12"
       description: Currency ID for this piggy bank.
       readOnly: true
     currency_code:

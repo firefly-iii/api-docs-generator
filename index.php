@@ -35,6 +35,7 @@ $directories = [
     'yaml/paths/summary',
     'yaml/paths/models',
     'yaml/paths/search',
+    'yaml/paths/system',
 ];
 
 foreach ($directories as $directory) {
