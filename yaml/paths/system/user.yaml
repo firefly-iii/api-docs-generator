@@ -17,7 +17,7 @@
       200:
         description: A list of users.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserArray'
   post:
@@ -41,7 +41,7 @@
       200:
         description: 'New user stored, result in response.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserSingle'
       422:
@@ -69,7 +69,7 @@
       200:
         description: 'The requested user.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserSingle'
       404:
@@ -102,7 +102,7 @@
       200:
         description: 'Updated user stored, result in response'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserSingle'
       422:
@@ -113,7 +113,7 @@
               $ref: '#/components/schemas/ValidationError'
   delete:
     operationId: deleteUser
-    description: Delete a user. You cannot delete the current user.
+    description: Delete a user. You cannot delete the user you're authenticated with. This cannot be undone. Be careful!
     summary: Delete a user.
     tags:
       - users
@@ -131,4 +131,4 @@
       404:
         description: No such user.
       '500':
-        description: Error when deleting, or when it is the currently authenticated user.
+        description: Error when deleting, or when you're trying to delete the currently authenticated user.

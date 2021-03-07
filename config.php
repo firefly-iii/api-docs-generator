@@ -11,6 +11,12 @@ $server      = getenv('API_SERVER');
 define('ROOT', getenv('API_ROOT'));
 
 $tags = [
+
+    // system
+    'about'             => ['description' => 'These endpoints deliver general system information, version- and meta information.'],
+    'configuration'     => ['description' => 'These endpoints allow you to manage and update the Firefly III configuration. You need to have the "owner" role to update configuration.'],
+    'users'             => ['description' => 'Use these endpoints to manage the users registered within Firefly III. You need to have the "owner" role to access these endpoints.'],
+
     // autocomplete
     'autocomplete'      => ['description' => 'Auto-complete endpoints show basic information about Firefly III models, like the name and maybe some amounts. They all support a search query and can be used to autocomplete data in forms. Autocomplete return values always have a "name"-field.',],
 
@@ -18,7 +24,7 @@ $tags = [
     'charts'            => ['description' => 'The "charts" endpoints deliver optimised data for charts and graphs.',],
 
     // data
-    'data'              => ['description' => 'The "data"-endpoints deliver generic Firefly III and user-specific data.',],
+    'data'              => ['description' => 'The "data"-endpoints manage generic Firefly III and user-specific data.',],
 
     // insight
     'insight'           => ['description' => 'The "insight" endpoints try to deliver sums, balances and insightful information in the broadest sense of the word.'],
@@ -41,17 +47,11 @@ $tags = [
     'currencies'        => ['description' => 'Endpoints to manage the currencies in Firefly III. Depending on the user\'s role you can also disable and enable them, or add new ones.'],
     'links'             => ['description' => 'Endpoints to manage links between transactions, and manage the type of links available.'],
 
-    // search
+    // search TODO boven de models
     'search'            => ['description' => 'Endpoints that allow you to search through the user\'s financial data. Different from the autocomplete endpoints, the search accepts more advanced arguments.'],
 
-    // system
-    'about'             => ['description' => 'These endpoints deliver general system information, version- and meta information.'],
-    'configuration'     => ['description' => 'These endpoints allow you to manage and update the Firefly III configuration'],
-    //    'users'             => ['description' => 'Use these endpoints to manage the users registered within Firefly III. You need to have the "owner" role to access these endpoints.'],
-    //
-    //    // user
-    //    'destruction'       => ['description' => 'This endpoint allows you to mass-destroy user data.',],
-    //    'preferences'       => ['description' => 'These endpoints can be used to manage the user\'s preferences, including some hidden ones.'],
+    // user
+    'preferences'       => ['description' => 'These endpoints can be used to manage the user\'s preferences, including some hidden ones.'],
     //    'webhooks'          => ['description' => 'These endpoints can be used to manage the user\'s webhooks and triggers them if necessary.'],
 ];
 

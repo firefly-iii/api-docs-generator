@@ -1,7 +1,7 @@
 /api/v1/preferences:
   get:
     summary: List all users preferences.
-    description: List all preferences of the user.
+    description: List all of the preferences of the user.
     operationId: listPreference
     tags:
       - preferences
@@ -17,13 +17,42 @@
       200:
         description: A list of preferences.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PreferenceArray'
+  post:
+    tags:
+      - preferences
+    summary: Store a new preference for this user.
+    operationId: storePreference
+    description: This endpoint creates a new preference. The name and data are free-format, and entirely up to you. If the preference is not used in Firefly III itself it may not be configurable through the user interface, but you can use this endpoint to persist custom data for your own app.
+    responses:
+      200:
+        description: 'New account stored, result in response.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/PreferenceSingle'
+      422:
+        description: 'Validation errors (see body)'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationError'
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Preference'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Preference'
+      description: JSON array with the necessary preference information or key=value pairs. See the model for the exact specifications.
+      required: true
 /api/v1/preferences/{name}:
   get:
     summary: Return a single preference.
-    description: Return a single preference.
+    description: Return a single preference and the value.
     operationId: getPreference
     parameters:
     - in: path
@@ -40,7 +69,7 @@
       200:
         description: A single preference.
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PreferenceSingle'
   put:
@@ -62,17 +91,17 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Preference'
+            $ref: '#/components/schemas/PreferenceUpdate'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/Preference'
+            $ref: '#/components/schemas/PreferenceUpdate'
       description: "JSON array or key=value pairs with the necessary preference information. See the model for the exact specifications."
       required: true
     responses:
       200:
         description: 'Updated preference.'
         content:
-          application/json:
+          application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PreferenceSingle'
       422:

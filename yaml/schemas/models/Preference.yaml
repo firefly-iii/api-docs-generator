@@ -1,6 +1,7 @@
 Preference:
   type: object
   required:
+    - name
     - data
   properties:
     created_at:
@@ -17,9 +18,11 @@ Preference:
       type: string
       format: string
       example: currencyPreference
-      readOnly: true
     data:
-      type: string
-      format: string
-      example: EUR
-      description: "This field can also be an array"
+      oneOf:
+        - type: boolean
+        - type: string
+        - type: object
+        - type: array
+      example: "EUR"
+      description: "The actual preference content."

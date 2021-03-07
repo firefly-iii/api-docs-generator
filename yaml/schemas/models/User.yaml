@@ -27,17 +27,17 @@ User:
     blocked_code:
       type: string
       format: string
-      nullable: true
       example: "email_changed"
       description: If you say the user must be blocked, this will be the reason code.
       enum:
       - email_changed
+      - null
     role:
       type: string
       format: string
-      nullable: true
       example: "owner"
       description: Role for the new user. Can be empty or omitted.
       enum:
       - owner
       - demo
+      - null

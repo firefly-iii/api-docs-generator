@@ -1,0 +1,13 @@
+PreferenceUpdate:
+  type: object
+  required:
+    - data
+  properties:
+    data:
+      oneOf:
+        - type: boolean
+        - type: string
+        - type: object
+        - type: array
+      example: "EUR"
+      description: "The actual preference content."
