@@ -9,7 +9,7 @@
       200:
         description: System configuration values
         content:
-          application/vnd.api+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ConfigurationArray'
 /api/v1/configuration/{name}:
@@ -30,7 +30,7 @@
       200:
         description: One system configuration value
         content:
-          application/vnd.api+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ConfigurationSingle'
 
