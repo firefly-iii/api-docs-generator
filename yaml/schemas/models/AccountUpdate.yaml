@@ -110,18 +110,6 @@ AccountUpdate:
       - debt
       - mortgage
       - null
-    liability_amount:
-      type: string
-      format: amount
-      example: "123.45"
-      description: "Mandatory when type is liability. Amount of money in the liability. Must be positive."
-      nullable: true
-    liability_start_date:
-      type: string
-      format: date
-      example: "2017-09-17"
-      description: "Mandatory when type is liability. Start date for the liability."
-      nullable: true
     interest:
       type: string
       format: string
