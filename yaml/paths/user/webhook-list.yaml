@@ -55,8 +55,8 @@
         description: Webhook message not found.
   delete:
     operationId: deleteWebhookMessage
-    description: Delete a webhook message.
-    summary: Delete a webhook message. Any time a webhook is triggered the message is stored before it's sent. You can delete them before or after sending.
+    summary: Delete a webhook message.
+    description: Delete a webhook message. Any time a webhook is triggered the message is stored before it's sent. You can delete them before or after sending.
     tags:
       - webhooks
     parameters:
@@ -160,8 +160,8 @@
         description: Webhook message attempt not found.
   delete:
     operationId: deleteWebhookMessageAttempt
-    description: Delete a webhook attempt.
-    summary: Delete a webhook message attempt. If you delete all attempts for a webhook message, Firefly III will (once again) assume all is well with the webhook message and will try to send it again.
+    summary: Delete a webhook attempt.
+    description: Delete a webhook message attempt. If you delete all attempts for a webhook message, Firefly III will (once again) assume all is well with the webhook message and will try to send it again.
     tags:
       - webhooks
     parameters:
