@@ -46,16 +46,6 @@ AccountUpdate:
       type: string
       format: amount
       example: "123.45"
-    current_balance:
-      type: string
-      format: amount
-      example: "123.45"
-      readOnly: true
-    current_balance_date:
-      type: string
-      format: date
-      example: "2018-09-17"
-      readOnly: true
     currency_id:
       type: string
       format: string
@@ -66,16 +56,6 @@ AccountUpdate:
       format: string
       example: "EUR"
       description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-    currency_symbol:
-      type: string
-      format: string
-      example: "$"
-      readOnly: true
-    currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
-      readOnly: true
     active:
       type: boolean
       format: boolean
