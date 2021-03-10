@@ -1,0 +1,18 @@
+TransactionUpdate:
+  type: object
+  properties:
+    apply_rules:
+      type: boolean
+      format: boolean
+      example: false
+      description: "Whether or not to apply rules when submitting transaction."
+    group_title:
+      type: string
+      format: string
+      description: "Title of the transaction if it has been split in more than one piece. Empty otherwise."
+      example: "Split transaction title."
+      nullable: true
+    transactions:
+      type: array
+      items:
+        $ref: '#/components/schemas/TransactionSplitUpdate'
