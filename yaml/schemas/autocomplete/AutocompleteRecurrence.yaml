@@ -8,16 +8,13 @@ AutocompleteRecurrence:
       type: string
       format: string
       example: "2"
-      readOnly: true
     name:
       type: string
       format: string
       example: "Yearly bill"
       description: Name of the recurrence found by an auto-complete search.
-      readOnly: true
     description:
       type: string
       format: string
       example: "Should trigger daily."
       description: Description of the recurrence found by auto-complete.
-      readOnly: true

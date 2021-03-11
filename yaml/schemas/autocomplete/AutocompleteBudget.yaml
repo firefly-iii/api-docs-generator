@@ -8,10 +8,8 @@ AutocompleteBudget:
       type: string
       format: string
       example: "2"
-      readOnly: true
     name:
       type: string
       format: string
       example: "Groceries"
       description: Name of the budget found by an auto-complete search.
-      readOnly: true

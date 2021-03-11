@@ -9,16 +9,14 @@ AutocompleteTransactionID:
       type: string
       format: string
       example: "2"
-      readOnly: true
+category
     name:
       type: string
       format: string
       example: "#12: Transaction"
       description: Transaction description with ID in the name.
-      readOnly: true
     description:
       type: string
       format: string
       example: "#12: Transaction"
       description: Transaction description with ID in the name.
-      readOnly: true

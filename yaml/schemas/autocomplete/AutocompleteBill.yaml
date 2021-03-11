@@ -8,10 +8,8 @@ AutocompleteBill:
       type: string
       format: string
       example: "2"
-      readOnly: true
     name:
       type: string
       format: string
       example: "Yearly bill"
       description: Name of the bill found by an auto-complete search.
-      readOnly: true

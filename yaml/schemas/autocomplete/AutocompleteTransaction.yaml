@@ -9,16 +9,13 @@ AutocompleteTransaction:
       type: string
       format: string
       example: "2"
-      readOnly: true
     name:
       type: string
       format: string
       example: "Transaction"
       description: Transaction description
-      readOnly: true
     description:
       type: string
       format: string
       example: "Transaction"
       description: Transaction description
-      readOnly: true

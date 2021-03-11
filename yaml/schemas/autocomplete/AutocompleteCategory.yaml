@@ -8,10 +8,8 @@ AutocompleteCategory:
       type: string
       format: string
       example: "2"
-      readOnly: true
     name:
       type: string
       format: string
       example: "Category X"
       description: Name of the category found by an auto-complete search.
-      readOnly: true

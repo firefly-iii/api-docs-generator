@@ -14,44 +14,36 @@ AutocompleteAccount:
       type: string
       format: string
       example: "2"
-      readOnly: true
     name:
       type: string
       format: string
       example: "Checking Account"
       description: Name of the account found by an auto-complete search.
-      readOnly: true
     name_with_balance:
       type: string
       format: string
       example: "Checking Account ($123.45)"
       description: Asset accounts and liabilities have a second field with the given date's account balance.
-      readOnly: true
     type:
       type: string
       format: string
       example: "Asset account"
       description: Account type of the account found by the auto-complete search.
-      readOnly: true
     currency_id:
       type: string
       format: string
       example: "12"
       description: Currency ID for this account.
-      readOnly: true
     currency_code:
       type: string
       format: string
       example: "EUR"
       description: Currency code for this account.
-      readOnly: true
     currency_symbol:
       type: string
       format: string
       example: "$"
-      readOnly: true
     currency_decimal_places:
       type: integer
       format: int32
       example: 2
-      readOnly: true
