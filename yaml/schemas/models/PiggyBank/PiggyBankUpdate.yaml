@@ -1,0 +1,67 @@
+PiggyBankUpdate:
+  type: object
+  properties:
+    name:
+      type: string
+      format: string
+      example: "New digital camera"
+    account_id:
+      type: string
+      format: string
+      example: 13
+      description: The ID of the asset account this piggy bank is connected to.
+    currency_id:
+      type: string
+      format: string
+      example: "5"
+      readOnly: true
+    currency_code:
+      type: string
+      format: string
+      example: "USD"
+      readOnly: true
+    target_amount:
+      type: string
+      format: amount
+      example: "123.45"
+    current_amount:
+      type: string
+      format: amount
+      example: "123.45"
+    start_date:
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: The date you started with this piggy bank.
+    target_date:
+      type: string
+      format: date
+      nullable: true
+      example: "2020-09-17"
+      description: The date you intend to finish saving money.
+    order:
+      type: integer
+      format: int32
+      example: 5
+    active:
+      type: boolean
+      format: boolean
+      example: true
+      readOnly: true
+    notes:
+      type: string
+      format: string
+      nullable: true
+      example: "Some notes"
+    object_group_id:
+      type: string
+      format: string
+      example: "5"
+      nullable: true
+      description: The group ID of the group this object is part of. NULL if no group.
+    object_group_title:
+      type: string
+      format: string
+      example: "Example Group"
+      nullable: true
+      description: The name of the group. NULL if no group.

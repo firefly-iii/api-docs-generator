@@ -1,0 +1,61 @@
+RecurrenceUpdate:
+  type: object
+  properties:
+    type:
+      type: string
+      format: string
+      example: "withdrawal"
+      enum:
+      - withdrawal
+      - transfer
+      - deposit
+      description: "Update these then also update the accounts in the recurrence transaction"
+    title:
+      type: string
+      format: string
+      example: "Rent"
+    description:
+      type: string
+      format: string
+      example: "Recurring transaction for the monthly rent"
+      description: Not to be confused with the description of the actual transaction(s) being created.
+    first_date:
+      type: string
+      format: date
+      example: "2017-09-17"
+      description: "First time the recurring transaction will fire."
+    repeat_until:
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: "Date until the recurring transaction can fire. Use either this field or repetitions."
+      nullable: true
+    nr_of_repetitions:
+      type: integer
+      format: int32
+      example: 5
+      description: Max number of created transactions. Use either this field or repeat_until.
+      nullable: true
+    apply_rules:
+      type: boolean
+      format: boolean
+      example: true
+      description: "Whether or not to fire the rules after the creation of a transaction."
+    active:
+      type: boolean
+      format: boolean
+      example: true
+      description: If the recurrence is even active.
+    notes:
+      type: string
+      format: string
+      example: "Some notes"
+      nullable: true
+    repetitions:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecurrenceRepetitionUpdate'
+    transactions:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecurrenceTransactionUpdate'

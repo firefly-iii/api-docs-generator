@@ -23,8 +23,6 @@ Recurrence:
       - withdrawal
       - transfer
       - deposit
-      - "opening-balance"
-      - reconciliation
     title:
       type: string
       format: string
