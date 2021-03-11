@@ -1,0 +1,12 @@
+ObjectGroupUpdate:
+  type: object
+  properties:
+    title:
+      type: string
+      format: string
+      example: "My object group"
+    order:
+      type: integer
+      format: int32
+      example: 1
+      description: "Order of the object group"

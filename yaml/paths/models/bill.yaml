@@ -127,10 +127,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Bill'
+            $ref: '#/components/schemas/BillUpdate'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/Bill'
+            $ref: '#/components/schemas/BillUpdate'
       description: JSON array or key=value pairs with updated bill information. See the model for the exact specifications.
       required: true
     responses:

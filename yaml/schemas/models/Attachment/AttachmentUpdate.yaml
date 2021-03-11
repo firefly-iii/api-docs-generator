@@ -1,0 +1,16 @@
+AttachmentUpdate:
+  type: object
+  properties:
+    filename:
+      type: string
+      format: string
+      example: "file.pdf"
+    title:
+      type: string
+      format: string
+      example: "Some PDF file"
+    notes:
+      type: string
+      format: string
+      example: "Some notes"
+      nullable: true

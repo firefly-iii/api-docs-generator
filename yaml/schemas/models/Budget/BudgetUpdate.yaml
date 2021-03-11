@@ -1,0 +1,57 @@
+BudgetUpdate:
+  type: object
+  properties:
+    name:
+      type: string
+      format: string
+      example: "Bills"
+    active:
+      type: boolean
+      format: boolean
+      example: false
+    order:
+      type: integer
+      format: int32
+      example: 5
+    auto_budget_type:
+      type: string
+      format: string
+      example: reset
+      nullable: true
+      description: "The type of auto-budget that Firefly III must create."
+      enum:
+        - reset
+        - rollover
+        - none
+        - null
+    auto_budget_currency_id:
+      type: string
+      format: string
+      example: "12"
+      nullable: true
+      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+    auto_budget_currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      nullable: true
+      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+    auto_budget_amount:
+      type: string
+      format: amount
+      example: "-1012.12"
+      nullable: true
+    auto_budget_period:
+      type: string
+      format: string
+      example: "monthly"
+      nullable: true
+      description: "Period for the auto budget"
+      enum:
+        - daily
+        - weekly
+        - monthly
+        - quarterly
+        - half_year
+        - yearly
+        - null

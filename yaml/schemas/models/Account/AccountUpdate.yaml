@@ -4,16 +4,6 @@ AccountUpdate:
     - name
     - type
   properties:
-    created_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      readOnly: true
-    updated_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      readOnly: true
     name:
       type: string
       format: string

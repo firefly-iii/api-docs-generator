@@ -73,7 +73,6 @@ $directories = [
     'yaml/schemas/insight',
     'yaml/schemas/summary',
     'yaml/schemas/system',
-    'yaml/schemas/user',
     'yaml/schemas/models', // always need this
 
 ];

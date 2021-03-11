@@ -94,10 +94,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/LinkType'
+            $ref: '#/components/schemas/LinkTypeUpdate'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/LinkType'
+            $ref: '#/components/schemas/LinkTypeUpdate'
       description: JSON array or formdata with updated link type information. See the model for the exact specifications.
       required: true
     responses:

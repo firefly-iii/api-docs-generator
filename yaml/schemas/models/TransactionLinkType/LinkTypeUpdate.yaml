@@ -1,0 +1,15 @@
+LinkTypeUpdate:
+  type: object
+  properties:
+    name:
+      type: string
+      format: string
+      example: "Paid"
+    inward:
+      type: string
+      format: string
+      example: "is (partially) paid for by"
+    outward:
+      type: string
+      format: string
+      example: "(partially) pays for"
