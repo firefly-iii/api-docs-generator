@@ -60,7 +60,7 @@ class Builder
         if (!file_exists($file)) {
             throw new \RuntimeException(sprintf('No such file: %s', $file));
         }
-        $content = file_get_contents($file);
+        $content = trim(file_get_contents($file));
         $lines   = explode("\n", $content);
 
         $newLines = [];

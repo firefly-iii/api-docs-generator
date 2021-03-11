@@ -25,6 +25,7 @@ echo '<pre>';
 foreach ($tags as $name => $info) {
     $builder->addTag($name, $info['description']);
 }
+unset($name);
 
 // scan directories and add all paths:
 $directories = [
@@ -43,13 +44,12 @@ foreach ($directories as $directory) {
 
     // list all files in the directory:
     $fullDirectory = sprintf('%s/%s', ROOT, $directory);
-    $files         = scandir($fullDirectory, SCANDIR_SORT_ASCENDING);
-
-    // loop al files in this directory:
-    foreach ($files as $file) {
-        // must be YAML file.
-        $fullPath = sprintf('%s/%s', $fullDirectory, $file);
-
+    $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
+    /**
+     * @var string      $fullPath
+     * @var SplFileInfo $object
+     */
+    foreach ($objects as $fullPath => $object) {
         // add to thing:
         if ('yaml' === substr($fullPath, -4)) {
             //echo sprintf("Added %s\n", $fullPath);
@@ -81,12 +81,13 @@ $directories = [
 foreach ($directories as $directory) {
     // list all files in the directory:
     $fullDirectory = sprintf('%s/%s', ROOT, $directory);
-    $files         = scandir($fullDirectory, SCANDIR_SORT_ASCENDING);
+    $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
 
-    // loop al files in this directory:
-    foreach ($files as $file) {
-        // must be YAML file.
-        $fullPath = sprintf('%s/%s', $fullDirectory, $file);
+    /**
+     * @var string      $fullPath
+     * @var SplFileInfo $object
+     */
+    foreach ($objects as $fullPath => $object) {
 
         // add to thing:
         if ('yaml' === substr($fullPath, -4)) {
@@ -96,7 +97,6 @@ foreach ($directories as $directory) {
         }
     }
 }
-echo "\n\n";
 $result = $builder->render();
 echo $result;
 // put in file:

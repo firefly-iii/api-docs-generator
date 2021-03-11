@@ -1,0 +1,20 @@
+RuleGroupUpdate:
+  type: object
+  properties:
+    title:
+      type: string
+      format: string
+      example: "Default rule group"
+    description:
+      type: string
+      format: string
+      example: "Description of this rule group"
+      nullable: true
+    order:
+      type: integer
+      format: int32
+      example: 4
+    active:
+      type: boolean
+      format: boolean
+      example: true
