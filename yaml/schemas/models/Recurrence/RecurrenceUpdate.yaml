@@ -1,15 +1,6 @@
 RecurrenceUpdate:
   type: object
   properties:
-    type:
-      type: string
-      format: string
-      example: "withdrawal"
-      enum:
-      - withdrawal
-      - transfer
-      - deposit
-      description: "Update these then also update the accounts in the recurrence transaction"
     title:
       type: string
       format: string
@@ -28,7 +19,7 @@ RecurrenceUpdate:
       type: string
       format: date
       example: "2018-09-17"
-      description: "Date until the recurring transaction can fire. Use either this field or repetitions."
+      description: Date until the recurring transaction can fire. After that date, it's basically inactive. Use either this field or repetitions.
       nullable: true
     nr_of_repetitions:
       type: integer

@@ -59,10 +59,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/BudgetLimit'
+            $ref: '#/components/schemas/BudgetLimitStore'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/BudgetLimit'
+            $ref: '#/components/schemas/BudgetLimitStore'
       description: "JSON array or key=value pairs with the necessary budget information. See the model for the exact specifications."
       required: true
     responses:

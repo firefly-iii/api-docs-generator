@@ -1,0 +1,37 @@
+AttachmentStore:
+  type: object
+  required:
+    - filename
+    - attachable_type
+    - attachable_id
+  properties:
+    filename:
+      type: string
+      format: string
+      example: "file.pdf"
+    attachable_type:
+      type: string
+      format: string
+      example: "Bill"
+      description: The object class to which the attachment must be linked.
+      enum:
+      - Account
+      - Budget
+      - Bill
+      - TransactionJournal
+      - PiggyBank
+      - Tag
+    attachable_id:
+      type: string
+      format: string
+      example: "134"
+      description: ID of the model this attachment is linked to.
+    title:
+      type: string
+      format: string
+      example: "Some PDF file"
+    notes:
+      type: string
+      format: string
+      example: "Some notes"
+      nullable: true

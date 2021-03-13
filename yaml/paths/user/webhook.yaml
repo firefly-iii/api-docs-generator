@@ -31,10 +31,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Webhook'
+            $ref: '#/components/schemas/WebhookStore'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/Webhook'
+            $ref: '#/components/schemas/WebhookStore'
       description: "JSON array or key=value pairs with the necessary webhook information. See the model for the exact specifications."
       required: true
     responses:

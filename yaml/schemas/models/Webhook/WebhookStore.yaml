@@ -1,0 +1,54 @@
+WebhookStore:
+  title: A single webhook
+  type: object
+  required:
+    - title
+    - trigger
+    - response
+    - delivery
+    - url
+  properties:
+    active:
+      type: boolean
+      format: boolean
+      example: false
+      description: Boolean to indicate if the webhook is active
+    title:
+      type: string
+      format: string
+      example: "Update magic mirror on new transaction"
+      description: A title for the webhook for easy recognition.
+    trigger:
+      type: string
+      format: string
+      nullable: false
+      example: "TRIGGER_DESTROY_TRANSACTION"
+      description: The trigger for the webhook.
+      enum:
+      - TRIGGER_STORE_TRANSACTION
+      - TRIGGER_UPDATE_TRANSACTION
+      - TRIGGER_DESTROY_TRANSACTION
+    response:
+      type: string
+      format: string
+      nullable: false
+      example: "RESPONSE_TRANSACTIONS"
+      description: Indicator for what Firefly III will deliver to the webhook URL.
+      enum:
+      - RESPONSE_TRANSACTIONS
+      - RESPONSE_ACCOUNTS
+      - RESPONSE_NONE
+    delivery:
+      type: string
+      format: string
+      nullable: false
+      example: "DELIVERY_JSON"
+      description: Format of the delivered response.
+      enum:
+      - DELIVERY_JSON
+    url:
+      type: string
+      format: string
+      example: "https://example.com"
+      readOnly: false
+      description: The URL of the webhook. Has to start with `https`.

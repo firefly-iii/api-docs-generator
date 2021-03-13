@@ -61,9 +61,9 @@ RuleAction:
       type: boolean
       format: boolean
       example: true
-      description: If the action is active.
+      description: If the action is active. Defaults to true.
     stop_processing:
       type: boolean
       format: boolean
       example: false
-      description: When true, other actions will not be fired after this action has fired.
+      description: When true, other actions will not be fired after this action has fired. Defaults to false.

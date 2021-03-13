@@ -73,9 +73,9 @@ RuleTrigger:
       type: boolean
       format: boolean
       example: true
-      description: If the trigger is active.
+      description: If the trigger is active. Defaults to true.
     stop_processing:
       type: boolean
       format: boolean
       example: false
-      description: When true, other triggers will not be checked if this trigger was triggered.
+      description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.

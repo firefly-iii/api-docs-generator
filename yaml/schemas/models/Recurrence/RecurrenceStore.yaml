@@ -1,16 +1,12 @@
-Recurrence:
+RecurrenceStore:
   type: object
+  required:
+    - type
+    - title
+    - first_date
+    - repetitions
+    - transactions
   properties:
-    created_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      readOnly: true
-    updated_at:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      readOnly: true
     type:
       type: string
       format: string
@@ -33,13 +29,6 @@ Recurrence:
       format: date
       example: "2017-09-17"
       description: "First time the recurring transaction will fire. Must be after today."
-    latest_date:
-      type: string
-      format: date
-      example: "2018-09-17"
-      description: "Last time the recurring transaction has fired."
-      nullable: true
-      readOnly: true
     repeat_until:
       type: string
       format: date
@@ -70,8 +59,8 @@ Recurrence:
     repetitions:
       type: array
       items:
-        $ref: '#/components/schemas/RecurrenceRepetition'
+        $ref: '#/components/schemas/RecurrenceRepetitionStore'
     transactions:
       type: array
       items:
-        $ref: '#/components/schemas/RecurrenceTransaction'
+        $ref: '#/components/schemas/RecurrenceTransactionStore'

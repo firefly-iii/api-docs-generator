@@ -1,5 +1,10 @@
-RecurrenceTransactionUpdate:
+RecurrenceTransactionStore:
   type: object
+  required:
+    - description
+    - amount
+    - source_id
+    - destination_id
   properties:
     description:
       type: string
@@ -32,6 +37,12 @@ RecurrenceTransactionUpdate:
       example: "17"
       nullable: true
       description: Submit either a foreign_currency_id or a foreign_currency_code, or neither.
+    foreign_currency_code:
+      type: string
+      format: string
+      example: "GBP"
+      nullable: true
+      description: Submit either a foreign_currency_id or a foreign_currency_code, or neither.
     budget_id:
       type: string
       format: string
@@ -46,12 +57,12 @@ RecurrenceTransactionUpdate:
       type: string
       format: string
       example: "913"
-      description: ID of the source account. Submit either this or source_name.
+      description: ID of the source account.
     destination_id:
       type: string
       format: string
       example: "258"
-      description: ID of the destination account. Submit either this or destination_name.
+      description: ID of the destination account.
     tags:
       type: array
       nullable: true
@@ -67,3 +78,4 @@ RecurrenceTransactionUpdate:
       format: string
       example: "123"
       nullable: true
+      description: Optional.

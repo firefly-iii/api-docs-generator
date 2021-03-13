@@ -48,10 +48,10 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Budget'
+            $ref: '#/components/schemas/BudgetStore'
         application/x-www-form-urlencoded:
           schema:
-            $ref: '#/components/schemas/Budget'
+            $ref: '#/components/schemas/BudgetStore'
       description: "JSON array or key=value pairs with the necessary budget information. See the model for the exact specifications."
       required: true
     responses:
