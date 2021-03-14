@@ -1,0 +1,14 @@
+CategoryStore:
+  type: object
+  required:
+    - name
+  properties:
+    name:
+      type: string
+      format: string
+      example: "Lunch"
+    notes:
+      type: string
+      format: string
+      nullable: true
+      example: "Some example notes"

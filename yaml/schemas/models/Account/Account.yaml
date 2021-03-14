@@ -102,7 +102,8 @@ Account:
       type: integer
       format: int32
       example: 1
-      description: "Order of the account"
+      nullable: true
+      description: "Order of the account. Is NULL if account is not asset or liability."
     include_net_worth:
       type: boolean
       format: boolean

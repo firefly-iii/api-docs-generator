@@ -1,0 +1,35 @@
+TransactionLinkStore:
+  type: object
+  required:
+    - link_type_id
+    - inward_id
+    - outward_id
+  properties:
+    link_type_id:
+      type: string
+      format: string
+      example: "5"
+      description: The link type ID to use. You can also use the link_type_name field.
+      writeOnly: true
+    link_type_name:
+      type: string
+      format: string
+      example: "Is paid by"
+      description: The link type name to use. You can also use the link_type_id field.
+      writeOnly: true
+    inward_id:
+      type: string
+      format: string
+      example: "131"
+      description: "The inward transaction transaction_journal_id for the link. This becomes the 'is paid by' transaction of the set."
+    outward_id:
+      type: string
+      format: string
+      example: "131"
+      description: "The outward transaction transaction_journal_id for the link. This becomes the 'pays for' transaction of the set."
+    notes:
+      type: string
+      format: string
+      example: "Some example notes"
+      nullable: true
+      description: Optional. Some notes.
