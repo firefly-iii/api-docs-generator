@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace ApiDocBuilder\Builder;
 
 use ApiDocBuilder\TwigExtension\Functions;
+use Carbon\Carbon;
+use Carbon\Factory;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -133,7 +135,7 @@ class Builder
             $array['tags'] = $this->tags;
             $tags          = substr(substr(yaml_emit($array, YAML_UTF8_ENCODING), 4), 0, -4);
         }
-
+        $time = Carbon::now();
         return $template->render(
             [
                 'version' => $this->getVersion(),
@@ -141,6 +143,7 @@ class Builder
                 'tags'    => $tags,
                 'paths'   => $this->paths,
                 'schemas' => $this->schemas,
+                'time' => $time->toW3cString()
             ]);
     }
 
