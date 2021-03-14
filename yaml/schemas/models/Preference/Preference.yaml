@@ -24,5 +24,8 @@ Preference:
         - type: string
         - type: object
         - type: array
+          items:
+            type: string
+            format: string
       example: "EUR"
       description: "The actual preference content."

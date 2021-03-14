@@ -109,7 +109,7 @@
     summary: Insight into income, grouped by tag.
     description: |
       This endpoint gives a summary of the income received by the user, grouped by (any) tag.
-    operationId: insightExpenseTag
+    operationId: insightIncomeTag
     tags:
       - insight
     parameters:

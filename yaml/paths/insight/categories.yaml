@@ -109,7 +109,7 @@
     summary: Insight into income, grouped by category.
     description: |
       This endpoint gives a summary of the income received by the user, grouped by (any) category.
-    operationId: insightExpenseCategory
+    operationId: insightIncomeCategory
     tags:
       - insight
     parameters:

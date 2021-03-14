@@ -15,6 +15,9 @@ Configuration:
         - type: string
         - type: object
         - type: array
+          items:
+            type: string
+            format: string
       example: "some-variable"
       description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
     editable:

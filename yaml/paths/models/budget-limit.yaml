@@ -184,3 +184,37 @@
         description: Budget limit deleted.
       404:
         description: No such budget limit
+/api/v1/budget-limits:
+  get:
+    operationId: listBudgetLimit
+    summary: Get list of budget limits by date
+    description: |
+      Get all budget limits for for this date range.
+    tags:
+      - budgets
+    parameters:
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: 2018-09-17
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: 2018-12-31
+    responses:
+      200:
+        description: A list of budget limits.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/BudgetLimitArray'
