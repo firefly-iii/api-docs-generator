@@ -4,6 +4,7 @@ RecurrenceStore:
     - type
     - title
     - first_date
+    - repeat_until
     - repetitions
     - transactions
   properties:
