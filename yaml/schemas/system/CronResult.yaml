@@ -1,0 +1,9 @@
+CronResult:
+  type: object
+  properties:
+    recurring_transactions:
+      $ref: '#/components/schemas/CronResultRow'
+    auto_budgets:
+      $ref: '#/components/schemas/CronResultRow'
+    telemetry:
+      $ref: '#/components/schemas/CronResultRow'

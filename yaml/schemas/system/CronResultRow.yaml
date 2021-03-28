@@ -1,0 +1,33 @@
+CronResultRow:
+  type: object
+  properties:
+    job_fired:
+      type: boolean
+      format: boolean
+      example: true
+      nullable: true
+      description: |
+        This value tells you if this specific cron job actually fired. It may not fire. Some cron jobs
+        only fire every 24 hours, for example.
+    job_succeeded:
+      type: boolean
+      format: boolean
+      example: true
+      nullable: true
+      description: |
+        This value tells you if this specific cron job actually did something. The job may fire but not
+        change anything.
+    job_errored:
+      type: boolean
+      format: boolean
+      example: false
+      nullable: true
+      description: If the cron job ran into some kind of an error, this value will be true.
+    message:
+      type: string
+      format: string
+      example: "Cron result message"
+      nullable: true
+      description: |
+        If the cron job ran into some kind of an error, this value will be the error message. The success message
+        if the job actually ran OK.
