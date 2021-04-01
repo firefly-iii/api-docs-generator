@@ -1,14 +1,6 @@
 CategoryEarned:
   type: object
   properties:
-    start:
-      type: string
-      format: date
-      example: "2018-04-01"
-    end:
-      type: string
-      format: date
-      example: "2018-04-30"
     currency_id:
       type: string
       format: string
@@ -26,7 +18,7 @@ CategoryEarned:
       format: int32
       example: 2
       description: Number of decimals supported by the currency
-    amount:
+    sum:
       type: string
       format: amount
       example: "123.45"
