@@ -15,19 +15,19 @@ InsightGroupEntry:
       type: string
       format: string
       example: "-123.45"
-      description: "The amount spent between start date and end date, a negative number defined as a string, for this object and all asset accounts."
+      description: "The amount spent or earned between start date and end date, a number defined as a string, for this object and all asset accounts."
     difference_float:
       type: number
       format: double
       example: -123.45
-      description: "The amount spent between start date and end date, a negative number as a float, for this object and all asset accounts. May have rounding errors."
+      description: "The amount spent or earned between start date and end date, a number as a float, for this object and all asset accounts. May have rounding errors."
     currency_id:
       type: string
       format: string
       example: "5"
-      description: "The currency ID of the expenses listed for this expense account."
+      description: "The currency ID of the expenses listed for this account."
     currency_code:
       type: string
       format: string
       example: "EUR"
-      description: "The currency code of the expenses listed for this expense account."
+      description: "The currency code of the expenses listed for this account."

@@ -51,8 +51,8 @@ Bill:
       example: "123.45"
     date:
       type: string
-      format: date
-      example: "2018-09-17"
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
     repeat_freq:
       type: string
       format: string
@@ -81,8 +81,8 @@ Bill:
       nullable: true
     next_expected_match:
       type: string
-      format: date
-      example: "2018-09-17"
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
       description: "When the bill is expected to be due."
       nullable: true
       readOnly: true
@@ -111,7 +111,8 @@ Bill:
       readOnly: true
       items:
         type: string
-        format: date
+        format: date-time
+        example: "2018-09-17T12:46:47+01:00"
         readOnly: true
     paid_dates:
       type: array
@@ -135,6 +136,7 @@ Bill:
             readOnly: true
           date:
             type: string
-            format: date
+            format: date-time
+              example: "2018-09-17T12:46:47+01:00"
             description: "Date the bill was paid."
             readOnly: true

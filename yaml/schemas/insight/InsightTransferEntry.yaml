@@ -1,0 +1,53 @@
+InsightTransferEntry:
+  type: object
+  properties:
+    id:
+      type: string
+      format: string
+      example: "123"
+      description: "This ID is a reference to the original object."
+    name:
+      type: string
+      format: string
+      example: "Land lord"
+      description: "This is the name of the object."
+    difference:
+      type: string
+      format: string
+      example: "-123.45"
+      description: "The total amount transferred between start date and end date, a number defined as a string, for this asset account."
+    difference_float:
+      type: number
+      format: double
+      example: -123.45
+      description: "The total amount transferred between start date and end date, a number as a float, for this asset account. May have rounding errors."
+    in:
+      type: string
+      format: string
+      example: "123.45"
+      description: "The total amount transferred TO this account between start date and end date, a number defined as a string, for this asset account."
+    in_float:
+      type: number
+      format: double
+      example: 123.45
+      description: "The total amount transferred FROM this account between start date and end date, a number as a float, for this asset account. May have rounding errors."
+    out:
+      type: string
+      format: string
+      example: "123.45"
+      description: "The total amount transferred FROM this account between start date and end date, a number defined as a string, for this asset account."
+    out_float:
+      type: number
+      format: double
+      example: 123.45
+      description: "The total amount transferred TO this account between start date and end date, a number as a float, for this asset account. May have rounding errors."
+    currency_id:
+      type: string
+      format: string
+      example: "5"
+      description: "The currency ID of the expenses listed for this account."
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: "The currency code of the expenses listed for this account."
