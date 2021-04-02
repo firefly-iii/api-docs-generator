@@ -30,20 +30,20 @@ Recurrence:
       description: Not to be confused with the description of the actual transaction(s) being created.
     first_date:
       type: string
-      format: date
-      example: "2017-09-17"
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
       description: "First time the recurring transaction will fire. Must be after today."
     latest_date:
       type: string
-      format: date
-      example: "2018-09-17"
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
       description: "Last time the recurring transaction has fired."
       nullable: true
       readOnly: true
     repeat_until:
       type: string
-      format: date
-      example: "2018-09-17"
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
       description: "Date until the recurring transaction can fire. Use either this field or repetitions."
       nullable: true
     nr_of_repetitions:
