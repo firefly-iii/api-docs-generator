@@ -1,0 +1,16 @@
+BulkAccountTransactionObject:
+  type: object
+  required:
+    - original_account
+    - destination_account
+  properties:
+    original_account:
+      type: number
+      format: integer
+      example: 2
+      description: "The original account, where you wish to transactions away from."
+    destination_account:
+      type: number
+      format: integer
+      example: 17
+      description: "The destination account, where the transactions will be moved to."
