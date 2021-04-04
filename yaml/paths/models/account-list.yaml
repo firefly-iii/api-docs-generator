@@ -36,7 +36,7 @@
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: end
         description: |
@@ -45,7 +45,7 @@
         schema:
           type: string
           format: date
-          example: 2018-09-17
+          example: "2018-09-17"
       - in: query
         name: type
         description: Optional filter on the transaction type(s) returned.
