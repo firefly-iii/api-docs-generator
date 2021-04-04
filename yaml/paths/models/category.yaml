@@ -79,7 +79,7 @@
       schema:
         type: string
         format: date
-        example: 2018-12-31
+        example: "2018-12-31"
     tags:
       - categories
     responses:

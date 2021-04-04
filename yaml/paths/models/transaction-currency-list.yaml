@@ -248,7 +248,7 @@
         schema:
           type: string
           format: date
-          example: 2018-12-31
+          example: "2018-12-31"
       - in: query
         name: type
         description: Optional filter on the transaction type(s) returned
