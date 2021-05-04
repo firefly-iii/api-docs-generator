@@ -6,6 +6,12 @@ TransactionUpdate:
       format: boolean
       example: false
       description: "Whether or not to apply rules when submitting transaction."
+    fire_webhooks:
+      type: boolean
+      format: boolean
+      example: true
+      default: true
+      description: "Whether or not to fire the webhooks that are related to this event."
     group_title:
       type: string
       format: string

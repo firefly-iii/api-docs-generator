@@ -148,6 +148,15 @@ Account:
       - debt
       - mortgage
       - null
+    liability_direction:
+      type: string
+      format: string
+      example: credit
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      nullable: false
+      enum:
+        - credit
+        - debit
     interest:
       type: string
       format: string

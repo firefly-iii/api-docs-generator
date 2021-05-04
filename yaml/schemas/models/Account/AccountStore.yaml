@@ -117,16 +117,29 @@ AccountStore:
       - debt
       - mortgage
       - null
+    liability_direction:
+      type: string
+      format: string
+      example: credit
+      description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+      nullable: true
+      default: debit
+      enum:
+        - credit
+        - debit
+        - null
     interest:
       type: string
       format: string
       example: "5.3"
+      default: "0"
       description: "Mandatory when type is liability. Interest percentage."
       nullable: true
     interest_period:
       type: string
       format: string
       example: monthly
+      default: monthly
       description: "Mandatory when type is liability. Period over which the interest is calculated."
       nullable: true
       enum:
