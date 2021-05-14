@@ -41,9 +41,9 @@ TransactionSplitStore:
       nullable: true
       description: "Order of this entry in the list of transactions."
     currency_id:
-      type: integer
-      format: int32
-      example: 12
+      type: string
+      format: string
+      example: "12"
       nullable: true
       description: Currency ID. Default is the source account's currency, or the user's default currency. The value you submit may be overruled by the source or destination account.
     currency_code:
@@ -59,9 +59,9 @@ TransactionSplitStore:
       nullable: true
       description: The amount in a foreign currency.
     foreign_currency_id:
-      type: integer
-      format: int32
-      example: 17
+      type: string
+      format: string
+      example: "17"
       nullable: true
       description: Currency ID of the foreign currency. Default is null. Is required when you submit a foreign amount.
     foreign_currency_code:
@@ -71,10 +71,10 @@ TransactionSplitStore:
       description: Currency code of the foreign currency. Default is NULL. Can be used instead of the foreign_currency_id, but this or the ID is required when submitting a foreign amount.
       nullable: true
     budget_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       nullable: true
-      example: 4
+      example: "4"
       description: The budget ID for this transaction.
     budget_name:
       type: string
@@ -84,10 +84,10 @@ TransactionSplitStore:
       nullable: true
       readOnly: true
     category_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       nullable: true
-      example: 43
+      example: "43"
       description: The category ID for this transaction.
     category_name:
       type: string
@@ -96,9 +96,9 @@ TransactionSplitStore:
       nullable: true
       description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
     source_id:
-      type: integer
-      format: int32
-      example: 2
+      type: string
+      format: string
+      example: "2"
       nullable: true
       description: "ID of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account."
     source_name:
@@ -108,9 +108,9 @@ TransactionSplitStore:
       nullable: true
       description: "Name of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account. Can be used instead of the source_id. If the transaction is a deposit, the source_name can be filled in freely: the account will be created based on the name."
     destination_id:
-      type: integer
-      format: int32
-      example: 2
+      type: string
+      format: string
+      example: "2"
       nullable: true
       description: "ID of the destination account. For a deposit or a transfer, this must always be an asset account. For withdrawals this must be an expense account."
     destination_name:
@@ -135,10 +135,10 @@ TransactionSplitStore:
       description: Optional. Use either this or the piggy_bank_id
       writeOnly: true
     bill_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       nullable: true
-      example: 111
+      example: "112"
       description: Optional. Use either this or the bill_name
     bill_name:
       type: string

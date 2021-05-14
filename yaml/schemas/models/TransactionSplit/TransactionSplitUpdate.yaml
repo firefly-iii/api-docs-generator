@@ -23,9 +23,9 @@ TransactionSplitUpdate:
       nullable: true
       description: "Order of this entry in the list of transactions."
     currency_id:
-      type: integer
-      format: int32
-      example: 12
+      type: string
+      format: string
+      example: "12"
       nullable: true
       description: Currency ID. Default is the source account's currency, or the user's default currency. Can be used instead of currency_code.
     currency_code:
@@ -57,9 +57,9 @@ TransactionSplitUpdate:
       nullable: true
       description: The amount in a foreign currency.
     foreign_currency_id:
-      type: integer
-      format: int32
-      example: 17
+      type: string
+      format: string
+      example: "17"
       nullable: true
       description: Currency ID of the foreign currency. Default is null. Is required when you submit a foreign amount.
     foreign_currency_code:
@@ -82,10 +82,10 @@ TransactionSplitUpdate:
       nullable: true
       readOnly: true
     budget_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       nullable: true
-      example: 4
+      example: "4"
       description: The budget ID for this transaction.
     budget_name:
       type: string
@@ -95,10 +95,10 @@ TransactionSplitUpdate:
       nullable: true
       readOnly: true
     category_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       nullable: true
-      example: 43
+      example: "43"
       description: The category ID for this transaction.
     category_name:
       type: string
@@ -107,9 +107,9 @@ TransactionSplitUpdate:
       nullable: true
       description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
     source_id:
-      type: integer
-      format: int32
-      example: 2
+      type: string
+      format: string
+      example: "2"
       nullable: true
       description: "ID of the source account. For a withdrawal or a transfer, this must always be an asset account. For deposits, this must be a revenue account."
     source_name:
@@ -124,9 +124,9 @@ TransactionSplitUpdate:
       example: "NL02ABNA0123456789"
       nullable: true
     destination_id:
-      type: integer
-      format: int32
-      example: 2
+      type: string
+      format: string
+      example: "2"
       nullable: true
       description: "ID of the destination account. For a deposit or a transfer, this must always be an asset account. For withdrawals this must be an expense account."
     destination_name:
@@ -146,10 +146,10 @@ TransactionSplitUpdate:
       example: false
       description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
     bill_id:
-      type: integer
-      format: int32
+      type: string
+      format: string
       nullable: true
-      example: 111
+      example: "111"
       description: Optional. Use either this or the bill_name
     bill_name:
       type: string
