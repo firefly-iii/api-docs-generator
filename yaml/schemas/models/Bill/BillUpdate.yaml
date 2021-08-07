@@ -25,8 +25,18 @@ BillUpdate:
       example: "123.45"
     date:
       type: string
-      format: date
-      example: "2018-09-17"
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+    end_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      description: "The date after which this bill is no longer valid or applicable"
+    extension_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      description: "The date before which the bill must be renewed (or cancelled)"
     repeat_freq:
       type: string
       format: string
