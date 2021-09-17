@@ -50,10 +50,10 @@
           type: integer
           format: int32
         example: 10
-    summary: Returns all currencies of the user returned in a basic auto-complete array.
+    summary: Returns all currencies of the user returned in a basic auto-complete array. This endpoint is DEPRECATED and I suggest you DO NOT use it.
     responses:
       200:
-        description: A list of currencies with very basic information and the currency code between brackets.
+        description: A list of currencies with very basic information and the currency code between brackets. This endpoint is DEPRECATED and I suggest you DO NOT use it.
         content:
           application/json:
             schema:
