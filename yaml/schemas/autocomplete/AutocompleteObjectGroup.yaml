@@ -19,8 +19,3 @@ AutocompleteObjectGroup:
       format: string
       example: "Object Group one"
       description: Title of the object group found by an auto-complete search.
-    title:
-      type: string
-      format: string
-      example: "Object Group one"
-      description: Title of the object group found by an auto-complete search.
