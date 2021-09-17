@@ -15,7 +15,7 @@ include 'config.php';
 $builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
 $builder->setVersion($version);
 $builder->setServer($server);
-echo '<pre>';
+//echo '<pre>';
 
 // add tags
 /**
@@ -97,7 +97,7 @@ foreach ($directories as $directory) {
     }
 }
 $result = $builder->render();
-echo $result;
+//echo $result;
 // put in file:
 // put result in file:
 $finalDestination = sprintf('%s/firefly-iii-%s.yaml', $destination, $version);
