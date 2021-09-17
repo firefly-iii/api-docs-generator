@@ -6,6 +6,7 @@ AutocompleteAccount:
     - name_with_balance
     - type
     - currency_id
+    - currency_name
     - currency_code
     - currency_symbol
     - currency_decimal_places
@@ -33,17 +34,24 @@ AutocompleteAccount:
       type: string
       format: string
       example: "12"
-      description: Currency ID for this account.
+      description: ID for the currency used by this account.
+    currency_name:
+      type: string
+      format: string
+      example: "Euro"
+      description: Currency name for the currency used by this account.
     currency_code:
       type: string
       format: string
       example: "EUR"
-      description: Currency code for this account.
+      description: Currency code for the currency used by this account.
     currency_symbol:
       type: string
       format: string
       example: "$"
+      description: Currency symbol for the currency used by this account.
     currency_decimal_places:
       type: integer
       format: int32
       example: 2
+      description: Number of decimal places for the currency used by this account.
