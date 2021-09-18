@@ -27,6 +27,11 @@ AutocompletePiggy:
       type: string
       format: string
       example: "$"
+    currency_name:
+      type: string
+      format: string
+      example: "Euro"
+      description: Currency name for the currency used by this account.
     currency_decimal_places:
       type: integer
       format: int32

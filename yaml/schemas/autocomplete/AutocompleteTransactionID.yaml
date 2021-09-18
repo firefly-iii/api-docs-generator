@@ -9,6 +9,12 @@ AutocompleteTransactionID:
       type: string
       format: string
       example: "2"
+      description: The ID of a transaction journal (basically a single split).
+    transaction_group_id:
+      type: string
+      format: string
+      example: "2"
+      description: The ID of the underlying transaction group.
     name:
       type: string
       format: string

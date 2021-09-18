@@ -24,6 +24,14 @@ ChartDataSet:
       format: int32
       example: 2
       description: "Number of decimals for the currency associated to the data in the entries."
+    start_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+    end_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
     type:
       type: string
       format: string
