@@ -18,7 +18,7 @@ ObjectGroup:
       type: string
       format: string
       example: "My object group"
-    example: "2018-12-31"
+    order:
       type: integer
       format: int32
       example: 1
