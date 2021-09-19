@@ -15,7 +15,7 @@
     parameters:
     - in: query
       name: objects
-      description: The type of data that you wish to destroy.
+      description: The type of data that you wish to destroy. You can only use one at a time.
       required: true
       schema:
         $ref: '#/components/schemas/DataDestroyObject'

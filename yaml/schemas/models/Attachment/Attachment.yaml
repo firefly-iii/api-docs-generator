@@ -15,10 +15,6 @@ Attachment:
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
-    filename:
-      type: string
-      format: string
-      example: "file.pdf"
     attachable_type:
       type: string
       format: string
@@ -41,11 +37,15 @@ Attachment:
       format: string
       example: "0c3f95f34370baa88f9fd9a671fea305"
       description: MD5 hash of the file for basic duplicate detection.
-    download_uri:
+    filename:
+      type: string
+      format: string
+      example: "file.pdf"
+    download_url:
       type: string
       format: string
       example: "https://demo.firefly-iii.org/api/v1/attachments/191/download"
-    upload_uri:
+    upload_url:
       type: string
       format: string
       example: "https://demo.firefly-iii.org/api/v1/attachments/191/download"
