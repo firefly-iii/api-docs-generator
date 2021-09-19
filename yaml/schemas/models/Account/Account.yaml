@@ -14,6 +14,17 @@ Account:
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
+    active:
+      type: boolean
+      format: boolean
+      example: false
+      description: "If omitted, defaults to true."
+    order:
+      type: integer
+      format: int32
+      example: 1
+      nullable: true
+      description: "Order of the account. Is NULL if account is not asset or liability."
     name:
       type: string
       format: string
@@ -33,46 +44,19 @@ Account:
         - liabilities
         - "initial-balance"
         - reconciliation
-    iban:
-      type: string
-      format: iban
-      example: "GB98MIDL07009312345678"
-      nullable: true
-    bic:
+    account_role:
       type: string
       format: string
-      example: "BOFAUS3N"
+      example: "defaultAsset"
+      description: "Is only mandatory when the type is asset."
       nullable: true
-    account_number:
-      type: string
-      format: string
-      nullable: true
-      example: "7009312345678"
-    opening_balance:
-      type: string
-      format: amount
-      example: "-1012.12"
-      description: Represents the opening balance, the initial amount this account holds.
-    opening_balance_date:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      nullable: true
-      description: Represents the date of the opening balance.
-    virtual_balance:
-      type: string
-      format: amount
-      example: "123.45"
-    current_balance:
-      type: string
-      format: amount
-      example: "123.45"
-      readOnly: true
-    current_balance_date:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      readOnly: true
+      enum:
+        - defaultAsset
+        - sharedAsset
+        - savingAsset
+        - ccAsset
+        - cashWalletAsset
+        - null
     currency_id:
       type: string
       format: string
@@ -93,35 +77,56 @@ Account:
       format: int32
       example: 2
       readOnly: true
-    active:
-      type: boolean
-      format: boolean
-      example: false
-      description: "If omitted, defaults to true."
-    order:
-      type: integer
-      format: int32
-      example: 1
+    current_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      readOnly: true
+    current_balance_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    iban:
+      type: string
+      format: iban
+      example: "GB98MIDL07009312345678"
       nullable: true
-      description: "Order of the account. Is NULL if account is not asset or liability."
+    bic:
+      type: string
+      format: string
+      example: "BOFAUS3N"
+      nullable: true
+    account_number:
+      type: string
+      format: string
+      nullable: true
+      example: "7009312345678"
+    opening_balance:
+      type: string
+      format: amount
+      example: "-1012.12"
+      description: Represents the opening balance, the initial amount this account holds.
+    current_debt:
+      type: string
+      format: amount
+      example: "1012.12"
+      description: Represents the current debt for liabilities.
+    opening_balance_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      nullable: true
+      description: Represents the date of the opening balance.
+    virtual_balance:
+      type: string
+      format: amount
+      example: "123.45"
     include_net_worth:
       type: boolean
       format: boolean
       example: true
       description: "If omitted, defaults to true."
-    account_role:
-      type: string
-      format: string
-      example: "defaultAsset"
-      description: "Is only mandatory when the type is asset."
-      nullable: true
-      enum:
-      - defaultAsset
-      - sharedAsset
-      - savingAsset
-      - ccAsset
-      - cashWalletAsset
-      - null
     credit_card_type:
       type: string
       format: string
@@ -170,8 +175,10 @@ Account:
       description: "Mandatory when type is liability. Period over which the interest is calculated."
       nullable: true
       enum:
-        - daily
+        - weekly
         - monthly
+        - quarterly
+        - half-year
         - yearly
         - null
     notes:
