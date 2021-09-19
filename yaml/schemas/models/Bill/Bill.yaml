@@ -84,6 +84,11 @@ Bill:
       format: boolean
       example: true
       description: If the bill is active.
+    order:
+      type: integer
+      format: int32
+      example: 1
+      description: "Order of the bill."
     notes:
       type: string
       format: string
@@ -94,6 +99,13 @@ Bill:
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       description: "When the bill is expected to be due."
+      nullable: true
+      readOnly: true
+    next_expected_match_diff:
+      type: string
+      format: string
+      example: "today"
+      description: "Formatted (locally) when the bill is due."
       nullable: true
       readOnly: true
     object_group_id:

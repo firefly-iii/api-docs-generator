@@ -15,9 +15,9 @@ TransactionSplit:
       description: "User ID"
       readOnly: true
     transaction_journal_id:
-      type: integer
-      format: int32
-      example: 10421
+      type: string
+      format: string
+      example: "10421"
       description: |
         ID of the underlying transaction journal. Each transaction consists of a transaction group (see the top ID) and one or more journals
         making up the splits of the transaction.
@@ -38,16 +38,6 @@ TransactionSplit:
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       description: "Date of the transaction"
-    amount:
-      type: string
-      format: amount
-      example: "123.45"
-      description: "Amount of the transaction."
-    description:
-      type: string
-      format: string
-      example: "Vegetables"
-      description: "Description of the transaction."
     order:
       type: integer
       format: int32
@@ -82,12 +72,6 @@ TransactionSplit:
       example: 2
       description: Number of decimals used in this currency.
       readOnly: true
-    foreign_amount:
-      type: string
-      format: amount
-      example: "123.45"
-      nullable: true
-      description: The amount in a foreign currency.
     foreign_currency_id:
       type: string
       format: string
@@ -113,31 +97,22 @@ TransactionSplit:
       description: Number of decimals in the currency
       nullable: true
       readOnly: true
-    budget_id:
+    amount:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "Amount of the transaction."
+    foreign_amount:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      description: The amount in a foreign currency.
+    description:
       type: string
       format: string
-      nullable: true
-      example: "4"
-      description: The budget ID for this transaction.
-    budget_name:
-      type: string
-      format: string
-      example: Groceries
-      description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
-      nullable: true
-      readOnly: true
-    category_id:
-      type: string
-      format: string
-      nullable: true
-      example: "43"
-      description: The category ID for this transaction.
-    category_name:
-      type: string
-      format: string
-      example: Groceries
-      nullable: true
-      description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
+      example: "Vegetables"
+      description: "Description of the transaction."
     source_id:
       type: string
       format: string
@@ -178,21 +153,31 @@ TransactionSplit:
       readOnly: true
     destination_type:
       $ref: '#/components/schemas/AccountTypeProperty'
-    reconciled:
-      type: boolean
-      format: boolean
-      example: false
-      description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
-    piggy_bank_id:
-      type: integer
-      format: int32
-      description: Optional. Use either this or the piggy_bank_name
-      writeOnly: true
-    piggy_bank_name:
+    budget_id:
       type: string
       format: string
-      description: Optional. Use either this or the piggy_bank_id
-      writeOnly: true
+      nullable: true
+      example: "4"
+      description: The budget ID for this transaction.
+    budget_name:
+      type: string
+      format: string
+      example: Groceries
+      description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
+      nullable: true
+      readOnly: true
+    category_id:
+      type: string
+      format: string
+      nullable: true
+      example: "43"
+      description: The category ID for this transaction.
+    category_name:
+      type: string
+      format: string
+      example: Groceries
+      nullable: true
+      description: "The name of the category to be used. If the category is unknown, it will be created. If the ID and the name point to different categories, the ID overrules the name."
     bill_id:
       type: string
       format: string
@@ -205,6 +190,16 @@ TransactionSplit:
       example: "Monthly rent"
       nullable: true
       description: Optional. Use either this or the bill_id
+    reconciled:
+      type: boolean
+      format: boolean
+      example: false
+      description: "If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user."
+    notes:
+      type: string
+      format: string
+      example: "Some example notes"
+      nullable: true
     tags:
       type: array
       nullable: true
@@ -215,11 +210,6 @@ TransactionSplit:
         format: string
         description: Tag.
         example: Barbecue preparation
-    notes:
-      type: string
-      format: string
-      example: "Some example notes"
-      nullable: true
     internal_reference:
       type: string
       format: string
@@ -260,7 +250,7 @@ TransactionSplit:
       type: string
       nullable: true
       format: string
-      description: Internal ID of bunq transaction.
+      description: Internal ID of bunq transaction. DEPRECATED
     import_hash_v2:
       type: string
       nullable: true
@@ -331,3 +321,21 @@ TransactionSplit:
       type: string
       format: date-time
       nullable: true
+    latitude:
+      type: number
+      format: double
+      example: 51.983333
+      nullable: true
+      description: Latitude of the transaction's location, if applicable. Can be used to draw a map.
+    longitude:
+      type: number
+      format: double
+      example: 5.916667
+      nullable: true
+      description: Latitude of the transaction's location, if applicable. Can be used to draw a map.
+    zoom_level:
+      type: integer
+      format: int32
+      example: 6
+      nullable: true
+      description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
