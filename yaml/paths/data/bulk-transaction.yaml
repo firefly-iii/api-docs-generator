@@ -1,21 +1,22 @@
 /api/v1/data/bulk/transactions:
-  summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
-  description: |
-    Allows you to update transactions in bulk.
-  operationId: bulkUpdateTransactions
-  tags:
-    - data
-  parameters:
-    - in: query
-      name: query
-      description: The JSON query .
-      required: true
-      schema:
-        type: json
-        format: json
-        example: "{\"where\": {\"account_id\": 5},\"update\": {\"account_id\": 10}}"
-  responses:
-    204:
-      description: Empty response when the update was successful. A future improvement is to include the changed transactions.
-    '500':
-      description: Internal error.
+  post:
+    summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+    description: |
+      Allows you to update transactions in bulk.
+    operationId: bulkUpdateTransactions
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: query
+        description: The JSON query .
+        required: true
+        schema:
+          type: json
+          format: json
+          example: "{\"where\": {\"account_id\": 5},\"update\": {\"account_id\": 10}}"
+    responses:
+      204:
+        description: Empty response when the update was successful. A future improvement is to include the changed transactions.
+      '500':
+        description: Internal error.

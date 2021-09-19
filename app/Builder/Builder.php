@@ -63,6 +63,9 @@ class Builder
             throw new \RuntimeException(sprintf('No such file: %s', $file));
         }
         $content = trim(file_get_contents($file));
+        if('' === $content) {
+            return;
+        }
         $lines   = explode("\n", $content);
 
         $newLines = [];
