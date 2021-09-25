@@ -9,12 +9,11 @@
     parameters:
       - in: query
         name: query
-        description: The JSON query .
+        description: The JSON query.
         required: true
         schema:
-          type: json
+          type: string
           format: json
-          example: "{\"where\": {\"account_id\": 5},\"update\": {\"account_id\": 10}}"
     responses:
       204:
         description: Empty response when the update was successful. A future improvement is to include the changed transactions.
