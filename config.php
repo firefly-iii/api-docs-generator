@@ -4,7 +4,7 @@ declare(strict_types=1);
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
-$version     = '1.5.3';
+$version     = '1.5.4';
 $destination = getenv('API_DESTINATION');
 $server      = getenv('API_SERVER');
 
