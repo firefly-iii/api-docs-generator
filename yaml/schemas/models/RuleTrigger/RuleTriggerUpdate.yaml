@@ -40,6 +40,9 @@ RuleTriggerUpdate:
       - notes_are
       - no_notes
       - any_notes
+      - source_account_is
+      - destination_account_is
+      - source_account_starts
     value:
       type: string
       format: string
