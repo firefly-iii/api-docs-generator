@@ -31,6 +31,7 @@ RuleActionStore:
       - convert_withdrawal
       - convert_deposit
       - convert_transfer
+      - delete_transaction
     value:
       type: string
       format: string
