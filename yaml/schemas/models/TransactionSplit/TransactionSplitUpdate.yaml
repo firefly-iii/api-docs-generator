@@ -1,7 +1,5 @@
 TransactionSplitUpdate:
   type: object
-  required:
-    -
   properties:
     date:
       type: string
