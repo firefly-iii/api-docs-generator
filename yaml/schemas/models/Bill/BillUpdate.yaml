@@ -38,16 +38,7 @@ BillUpdate:
       example: "2018-09-17T12:46:47+01:00"
       description: "The date before which the bill must be renewed (or cancelled)"
     repeat_freq:
-      type: string
-      format: string
-      example: "monthly"
-      description: How often the bill must be paid.
-      enum:
-      - weekly
-      - monthly
-      - quarterly
-      - "half-year"
-      - yearly
+      $ref: '#/components/schemas/BillRepeatFrequency'
     skip:
       type: integer
       format: int32

@@ -19,13 +19,7 @@ RuleUpdate:
       format: int32
       example: 5
     trigger:
-      type: string
-      format: string
-      example: store-journal
-      description: Which action is necessary for the rule to fire? Use either store-journal or update-journal.
-      enum:
-      - "store-journal"
-      - "update-journal"
+      $ref: '#/components/schemas/RuleTriggerType'
     active:
       type: boolean
       format: boolean

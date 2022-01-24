@@ -1,0 +1,11 @@
+AutoBudgetType:
+  type: string
+  format: string
+  example: reset
+  nullable: true
+  description: "The type of auto-budget that Firefly III must create."
+  enum:
+    - reset
+    - rollover
+    - none
+    - null

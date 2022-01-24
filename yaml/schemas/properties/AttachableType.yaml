@@ -1,0 +1,12 @@
+AttachableType:
+  type: string
+  format: string
+  example: "Bill"
+  description: The object class to which the attachment must be linked.
+  enum:
+    - Account
+    - Budget
+    - Bill
+    - TransactionJournal
+    - PiggyBank
+    - Tag

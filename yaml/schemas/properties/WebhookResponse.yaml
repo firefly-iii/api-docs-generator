@@ -1,0 +1,10 @@
+WebhookResponse:
+  type: string
+  format: string
+  nullable: false
+  example: "RESPONSE_TRANSACTIONS"
+  description: Indicator for what Firefly III will deliver to the webhook URL.
+  enum:
+    - RESPONSE_TRANSACTIONS
+    - RESPONSE_ACCOUNTS
+    - RESPONSE_NONE

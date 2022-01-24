@@ -1,0 +1,11 @@
+BillRepeatFrequency:
+  type: string
+  format: string
+  example: "monthly"
+  description: How often the bill must be paid.
+  enum:
+    - weekly
+    - monthly
+    - quarterly
+    - "half-year"
+    - yearly

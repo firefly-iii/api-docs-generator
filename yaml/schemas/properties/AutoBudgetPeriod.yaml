@@ -1,0 +1,14 @@
+AutoBudgetPeriod:
+  type: string
+  format: string
+  example: "monthly"
+  nullable: true
+  description: "Period for the auto budget"
+  enum:
+    - daily
+    - weekly
+    - monthly
+    - quarterly
+    - "half-year"
+    - yearly
+    - null

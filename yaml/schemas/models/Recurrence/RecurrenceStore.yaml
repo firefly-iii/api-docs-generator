@@ -9,13 +9,7 @@ RecurrenceStore:
     - transactions
   properties:
     type:
-      type: string
-      format: string
-      example: "withdrawal"
-      enum:
-      - withdrawal
-      - transfer
-      - deposit
+      $ref: '#/components/schemas/RecurrenceTransactionType'
     title:
       type: string
       format: string

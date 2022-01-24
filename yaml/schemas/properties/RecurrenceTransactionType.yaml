@@ -1,0 +1,8 @@
+RecurrenceTransactionType:
+  type: string
+  format: string
+  example: "withdrawal"
+  enum:
+    - withdrawal
+    - transfer
+    - deposit

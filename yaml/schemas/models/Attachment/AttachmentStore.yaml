@@ -10,17 +10,7 @@ AttachmentStore:
       format: string
       example: "file.pdf"
     attachable_type:
-      type: string
-      format: string
-      example: "Bill"
-      description: The object class to which the attachment must be linked.
-      enum:
-      - Account
-      - Budget
-      - Bill
-      - TransactionJournal
-      - PiggyBank
-      - Tag
+      $ref: '#/components/schemas/AttachableType'
     attachable_id:
       type: string
       format: string

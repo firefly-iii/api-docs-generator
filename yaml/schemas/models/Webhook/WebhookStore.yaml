@@ -19,33 +19,11 @@ WebhookStore:
       example: "Update magic mirror on new transaction"
       description: A title for the webhook for easy recognition.
     trigger:
-      type: string
-      format: string
-      nullable: false
-      example: "TRIGGER_DESTROY_TRANSACTION"
-      description: The trigger for the webhook.
-      enum:
-      - TRIGGER_STORE_TRANSACTION
-      - TRIGGER_UPDATE_TRANSACTION
-      - TRIGGER_DESTROY_TRANSACTION
+      $ref: '#/components/schemas/WebhookTrigger'
     response:
-      type: string
-      format: string
-      nullable: false
-      example: "RESPONSE_TRANSACTIONS"
-      description: Indicator for what Firefly III will deliver to the webhook URL.
-      enum:
-      - RESPONSE_TRANSACTIONS
-      - RESPONSE_ACCOUNTS
-      - RESPONSE_NONE
+      $ref: '#/components/schemas/WebhookResponse'
     delivery:
-      type: string
-      format: string
-      nullable: false
-      example: "DELIVERY_JSON"
-      description: Format of the delivered response.
-      enum:
-      - DELIVERY_JSON
+      $ref: '#/components/schemas/WebhookDelivery'
     url:
       type: string
       format: string

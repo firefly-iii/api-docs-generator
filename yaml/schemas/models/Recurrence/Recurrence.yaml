@@ -12,13 +12,7 @@ Recurrence:
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
     type:
-      type: string
-      format: string
-      example: "withdrawal"
-      enum:
-      - withdrawal
-      - transfer
-      - deposit
+      $ref: '#/components/schemas/RecurrenceTransactionType'
     title:
       type: string
       format: string
