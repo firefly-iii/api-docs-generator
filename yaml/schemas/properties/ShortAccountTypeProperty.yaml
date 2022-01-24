@@ -1,0 +1,15 @@
+ShortAccountTypeProperty:
+  type: string
+  format: string
+  example: "asset"
+  description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
+  enum:
+    - asset
+    - expense
+    - import
+    - revenue
+    - cash
+    - liability
+    - liabilities
+    - "initial-balance"
+    - reconciliation

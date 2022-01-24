@@ -30,20 +30,7 @@ Account:
       format: string
       example: "My checking account"
     type:
-      type: string
-      format: string
-      example: asset
-      description: "Can only be one one these account types. import, initial-balance and reconciliation cannot be set manually."
-      enum:
-        - asset
-        - expense
-        - import
-        - revenue
-        - cash
-        - liability
-        - liabilities
-        - "initial-balance"
-        - reconciliation
+      $ref: '#/components/schemas/ShortAccountTypeProperty'
     account_role:
       type: string
       format: string
