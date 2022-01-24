@@ -23,16 +23,7 @@ TransactionSplit:
         making up the splits of the transaction.
       readOnly: true
     type:
-      type: string
-      format: string
-      example:  "withdrawal"
-      description: Type of transaction.
-      enum:
-        - withdrawal
-        - deposit
-        - transfer
-        - reconciliation
-        - opening balance
+      $ref: '#/components/schemas/TransactionTypeProperty'
     date:
       type: string
       format: date-time

@@ -1,0 +1,10 @@
+TransactionTypeProperty:
+  type: string
+  format: string
+  example: "withdrawal"
+  enum:
+    - withdrawal
+    - deposit
+    - transfer
+    - reconciliation
+    - opening balance
