@@ -2,8 +2,6 @@ TransactionSplitStore:
   type: object
   required:
     - amount
-    - source_id
-    - destination_id
     - date
     - description
     - type
