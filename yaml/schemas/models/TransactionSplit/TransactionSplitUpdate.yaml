@@ -1,5 +1,7 @@
 TransactionSplitUpdate:
   type: object
+  required:
+    -
   properties:
     date:
       type: string
@@ -182,6 +184,11 @@ TransactionSplitUpdate:
       nullable: true
       format: string
       description: Reference to external ID in other systems.
+    external_url:
+      type: string
+      format: string
+      nullable: true
+      description: External, custom URL for this transaction.
     bunq_payment_id:
       type: string
       nullable: true
