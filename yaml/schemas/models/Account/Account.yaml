@@ -104,14 +104,7 @@ Account:
       example: true
       description: "If omitted, defaults to true."
     credit_card_type:
-      type: string
-      format: string
-      example: monthlyFull
-      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-      nullable: true
-      enum:
-      - monthlyFull
-      - null
+      $ref: '#/components/schemas/CreditCardType'
     monthly_payment_date:
       nullable: true
       type: string
