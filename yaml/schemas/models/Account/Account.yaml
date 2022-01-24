@@ -32,18 +32,7 @@ Account:
     type:
       $ref: '#/components/schemas/ShortAccountTypeProperty'
     account_role:
-      type: string
-      format: string
-      example: "defaultAsset"
-      description: "Is only mandatory when the type is asset."
-      nullable: true
-      enum:
-        - defaultAsset
-        - sharedAsset
-        - savingAsset
-        - ccAsset
-        - cashWalletAsset
-        - null
+      $ref: '#/components/schemas/AccountRoleProperty'
     currency_id:
       type: string
       format: string

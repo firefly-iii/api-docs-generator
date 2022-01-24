@@ -1,0 +1,13 @@
+AccountRoleProperty:
+  type: string
+  format: string
+  example: "defaultAsset"
+  description: "Is only mandatory when the type is asset."
+  nullable: true
+  enum:
+    - defaultAsset
+    - sharedAsset
+    - savingAsset
+    - ccAsset
+    - cashWalletAsset
+    - null
