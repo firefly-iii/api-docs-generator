@@ -62,27 +62,9 @@ AccountUpdate:
       example: true
       description: "If omitted, defaults to true."
     account_role:
-      type: string
-      format: string
-      example: "defaultAsset"
-      description: "Is only mandatory when the type is asset."
-      nullable: true
-      enum:
-      - defaultAsset
-      - sharedAsset
-      - savingAsset
-      - ccAsset
-      - cashWalletAsset
-      - null
+      $ref: '#/components/schemas/AccountRoleProperty'
     credit_card_type:
-      type: string
-      format: string
-      example: monthlyFull
-      description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-      nullable: true
-      enum:
-      - monthlyFull
-      - null
+      $ref: '#/components/schemas/CreditCardType'
     monthly_payment_date:
       nullable: true
       type: string
@@ -90,16 +72,7 @@ AccountUpdate:
       example: "2018-09-17"
       description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
     liability_type:
-      type: string
-      format: string
-      example: loan
-      description: "Mandatory when type is liability. Specifies the exact type."
-      nullable: true
-      enum:
-      - loan
-      - debt
-      - mortgage
-      - null
+      $ref: '#/components/schemas/LiabilityType'
     interest:
       type: string
       format: string
@@ -107,16 +80,7 @@ AccountUpdate:
       description: "Mandatory when type is liability. Interest percentage."
       nullable: true
     interest_period:
-      type: string
-      format: string
-      example: monthly
-      description: "Mandatory when type is liability. Period over which the interest is calculated."
-      nullable: true
-      enum:
-        - daily
-        - monthly
-        - yearly
-        - null
+      $ref: '#/components/schemas/InterestPeriod'
     notes:
       type: string
       format: string

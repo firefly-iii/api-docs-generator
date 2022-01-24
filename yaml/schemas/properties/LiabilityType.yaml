@@ -1,7 +1,7 @@
 LiabilityType:
   type: string
   format: string
-  example: loan
+  example: "loan"
   description: "Mandatory when type is liability. Specifies the exact type."
   nullable: true
   enum:
