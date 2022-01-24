@@ -84,8 +84,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the transaction.
     tags:
       - transactions
@@ -109,8 +109,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the transaction.
     requestBody:
       content:
@@ -146,8 +146,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the transaction.
     responses:
       204:

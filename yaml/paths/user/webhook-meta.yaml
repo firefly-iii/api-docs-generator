@@ -8,8 +8,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
     tags:
       - webhooks

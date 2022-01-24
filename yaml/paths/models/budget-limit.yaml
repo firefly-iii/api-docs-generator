@@ -11,9 +11,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the requested budget.
       - in: query
         name: start
@@ -51,9 +50,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget.
     requestBody:
       content:
@@ -89,9 +87,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget. The budget limit MUST be associated to the budget ID.
       - in: path
         name: limitId
@@ -121,17 +118,15 @@
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget. The budget limit MUST be associated to the budget ID.
       - in: path
         name: limitId
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
     requestBody:
       content:
@@ -167,17 +162,15 @@
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget. The budget limit MUST be associated to the budget ID.
       - in: path
         name: limitId
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
     responses:
       204:

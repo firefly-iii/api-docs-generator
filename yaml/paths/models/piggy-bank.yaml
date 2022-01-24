@@ -59,8 +59,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the piggy bank.
     tags:
       - piggy_banks
@@ -84,8 +84,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the piggy bank
     requestBody:
       content:
@@ -117,13 +117,13 @@
     tags:
       - piggy_banks
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        example: 1
-      description: The ID of the piggy bank.
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the piggy bank.
     responses:
       204:
         description: Piggy bank deleted.

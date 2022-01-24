@@ -10,17 +10,15 @@
         name: id
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget. The budget limit MUST be associated to the budget ID.
       - in: path
         name: limitId
         required: true
         schema:
-          type: integer
-          minimum: 1
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
       - in: query
         name: page

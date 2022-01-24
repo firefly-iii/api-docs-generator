@@ -30,8 +30,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the object group.
     tags:
       - object_groups
@@ -55,8 +55,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the object group
     requestBody:
       content:
@@ -92,8 +92,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the object group.
     responses:
       204:

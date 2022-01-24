@@ -60,8 +60,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The user ID.
     tags:
       - users
@@ -85,8 +85,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The user ID.
     requestBody:
       content:
@@ -122,8 +122,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The user ID.
     responses:
       204:

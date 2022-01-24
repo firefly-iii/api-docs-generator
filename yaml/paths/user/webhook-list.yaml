@@ -8,8 +8,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
     tags:
       - webhooks
@@ -32,8 +32,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       - in: path
         name: messageId
@@ -64,8 +64,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       - in: path
         name: messageId
@@ -91,8 +91,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       - in: path
         name: messageId
@@ -130,8 +130,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       - in: path
         name: messageId
@@ -169,8 +169,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The webhook ID.
       - in: path
         name: messageId

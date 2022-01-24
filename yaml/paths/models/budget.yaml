@@ -77,8 +77,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the requested budget.
     - in: query
       name: start
@@ -120,9 +120,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        minimum: 1
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the budget.
     requestBody:
       content:
@@ -158,9 +157,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        minimum: 1
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the budget.
     responses:
       204:

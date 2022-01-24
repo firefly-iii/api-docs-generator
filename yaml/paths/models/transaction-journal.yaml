@@ -10,8 +10,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the transaction journal / the split.
       - in: query
         name: page
@@ -39,8 +39,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the transaction journal (split).
     tags:
       - transactions
@@ -64,8 +64,8 @@
         name: id
         required: true
         schema:
-          type: integer
-          example: 1
+          type: string
+          example: "123"
         description: The ID of the transaction journal (the split) you wish to delete.
     responses:
       204:

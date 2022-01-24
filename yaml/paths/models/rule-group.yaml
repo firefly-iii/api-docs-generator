@@ -59,8 +59,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the rule group.
     tags:
       - rule_groups
@@ -84,8 +84,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the rule group.
     requestBody:
       content:
@@ -121,8 +121,8 @@
       name: id
       required: true
       schema:
-        type: integer
-        example: 1
+        type: string
+        example: "123"
       description: The ID of the rule group.
     responses:
       204:
