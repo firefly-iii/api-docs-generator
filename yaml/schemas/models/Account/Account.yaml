@@ -122,18 +122,7 @@ Account:
       description: "Mandatory when type is liability. Interest percentage."
       nullable: true
     interest_period:
-      type: string
-      format: string
-      example: monthly
-      description: "Mandatory when type is liability. Period over which the interest is calculated."
-      nullable: true
-      enum:
-        - weekly
-        - monthly
-        - quarterly
-        - half-year
-        - yearly
-        - null
+      $ref: '#/components/schemas/LiabilityDirection'
     notes:
       type: string
       format: string
