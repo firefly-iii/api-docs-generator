@@ -33,11 +33,4 @@ User:
       - email_changed
       - null
     role:
-      type: string
-      format: string
-      example: "owner"
-      description: Role for the new user. Can be empty or omitted.
-      enum:
-      - owner
-      - demo
-      - null
+      $ref: '#/components/schemas/UserRoleProperty'

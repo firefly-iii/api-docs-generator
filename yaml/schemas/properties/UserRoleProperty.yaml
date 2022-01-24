@@ -1,0 +1,9 @@
+UserRoleProperty:
+  type: string
+  format: string
+  example: "owner"
+  description: Role for the user. Can be empty or omitted.
+  enum:
+    - owner
+    - demo
+    - null
