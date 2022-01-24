@@ -1,0 +1,9 @@
+LiabilityDirection:
+  type: string
+  format: string
+  example: credit
+  description: "'credit' indicates somebody owes you the liability. 'debit' Indicates you owe this debt yourself. Works only for liabiltiies."
+  nullable: false
+  enum:
+    - credit
+    - debit
