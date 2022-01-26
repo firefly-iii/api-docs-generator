@@ -4,13 +4,6 @@ ConfigurationUpdate:
     - value
   properties:
     value:
-      oneOf:
-        - type: boolean
-        - type: string
-        - type: object
-        - type: array
-          items:
-            type: string
-            format: string
+      $ref: '#/components/schemas/PolymorphicProperty'
       example: "Some-new-config var"
       description: Can be a number, a string, boolean or object. This depends on the actual configuration value.
