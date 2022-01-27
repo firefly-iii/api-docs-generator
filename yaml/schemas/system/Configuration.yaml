@@ -10,14 +10,7 @@ Configuration:
       description: "Title of the configuration value."
       $ref: '#/components/schemas/ConfigValueFilter'
     value:
-      oneOf:
-        - type: boolean
-        - type: string
-        - type: object
-        - type: array
-          items:
-            type: string
-            format: string
+      $ref: '#/components/schemas/PolymorphicProperty'
       example: "some-variable"
       description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
     editable:

@@ -19,13 +19,6 @@ Preference:
       format: string
       example: currencyPreference
     data:
-      oneOf:
-        - type: boolean
-        - type: string
-        - type: object
-        - type: array
-          items:
-            type: string
-            format: string
+      $ref: '#/components/schemas/PolymorphicProperty'
       example: "EUR"
       description: "The actual preference content."
