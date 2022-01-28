@@ -103,7 +103,7 @@
     tags:
       - transactions
     description: Update an existing transaction.
-    summary: Update existing transaction.
+    summary: Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
     parameters:
     - in: path
       name: id
