@@ -51,6 +51,59 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
+/api/v1/categories/transactions-without-category:
+  get:
+    summary: All transactions without a category.
+    description: Get all transactions without a category, possibly limited by start and end
+    operationId: listTransactionWithoutCategory
+    tags:
+      - categories
+    parameters:
+      - in: query
+        name: limit
+        description: Limits the number of results on one page.
+        required: false
+        schema:
+          type: integer
+          example: 5
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: "2018-09-17"
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: "2018-12-31"
+      - in: query
+        name: type
+        description: Optional filter on the transaction type(s) returned
+        required: false
+        schema:
+          $ref: '#/components/schemas/TransactionTypeFilter'
+    responses:
+      200:
+        description: A list of transactions.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TransactionArray'
 /api/v1/categories/{id}/attachments:
   get:
     summary: Lists all attachments.
