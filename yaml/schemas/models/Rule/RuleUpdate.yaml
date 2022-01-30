@@ -24,6 +24,7 @@ RuleUpdate:
       type: boolean
       format: boolean
       example: true
+      default: true
       description: Whether or not the rule is even active. Default is true.
     strict:
       type: boolean
@@ -34,6 +35,7 @@ RuleUpdate:
       type: boolean
       format: boolean
       example: false
+      default: false
       description: If this value is true and the rule is triggered, other rules  after this one in the group will be skipped. Default value is false.
     triggers:
       type: array

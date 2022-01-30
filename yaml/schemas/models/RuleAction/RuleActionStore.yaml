@@ -21,9 +21,11 @@ RuleActionStore:
       type: boolean
       format: boolean
       example: true
+      default: true
       description: If the action is active. Defaults to true.
     stop_processing:
       type: boolean
       format: boolean
       example: false
+      default: false
       description: When true, other actions will not be fired after this action has fired. Defaults to false.

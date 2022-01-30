@@ -50,6 +50,7 @@ AccountUpdate:
       type: boolean
       format: boolean
       example: false
+      default: true
       description: "If omitted, defaults to true."
     order:
       type: integer
@@ -60,6 +61,7 @@ AccountUpdate:
       type: boolean
       format: boolean
       example: true
+      default: true
       description: "If omitted, defaults to true."
     account_role:
       $ref: '#/components/schemas/AccountRoleProperty'
