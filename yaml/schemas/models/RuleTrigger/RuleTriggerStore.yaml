@@ -20,9 +20,11 @@ RuleTriggerStore:
       type: boolean
       format: boolean
       example: true
+      default: true
       description: If the trigger is active. Defaults to true.
     stop_processing:
       type: boolean
       format: boolean
       example: false
+      default: false
       description: When true, other triggers will not be checked if this trigger was triggered. Defaults to false.

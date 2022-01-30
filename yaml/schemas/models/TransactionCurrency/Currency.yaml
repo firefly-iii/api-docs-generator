@@ -19,6 +19,7 @@ Currency:
       type: boolean
       format: boolean
       example: true
+      default: true
       description: Defaults to true
     default:
       type: boolean

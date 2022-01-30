@@ -35,11 +35,13 @@ RuleStore:
       type: boolean
       format: boolean
       example: true
+      default: true
       description: Whether or not the rule is even active. Default is true.
     strict:
       type: boolean
       format: boolean
       example: true
+      default: true
       description: If the rule is set to be strict, ALL triggers must hit in order for the rule to fire. Otherwise, just one is enough. Default value is true.
     stop_processing:
       type: boolean
