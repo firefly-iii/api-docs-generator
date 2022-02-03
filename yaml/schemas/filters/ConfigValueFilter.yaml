@@ -16,3 +16,6 @@ ConfigValueFilter:
     - firefly.enable_external_map
     - firefly.expected_source_types
     - app.timezone
+    - firefly.bill_periods
+    - firefly.credit_card_types
+    - firefly.languages
