@@ -87,6 +87,7 @@ Account:
     current_debt:
       type: string
       format: amount
+      nullable: true
       example: "1012.12"
       description: Represents the current debt for liabilities.
     opening_balance_date:
