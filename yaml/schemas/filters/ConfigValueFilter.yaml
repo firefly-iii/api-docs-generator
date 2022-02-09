@@ -19,3 +19,4 @@ ConfigValueFilter:
     - firefly.bill_periods
     - firefly.credit_card_types
     - firefly.languages
+    - firefly.valid_view_ranges
