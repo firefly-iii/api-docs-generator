@@ -16,6 +16,11 @@ BudgetStore:
       format: int32
       example: 5
       readOnly: true
+    notes:
+      type: string
+      format: string
+      example: "Some notes"
+      nullable: true
     auto_budget_type:
       $ref: '#/components/schemas/AutoBudgetType'
     auto_budget_currency_id:

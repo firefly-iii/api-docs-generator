@@ -21,6 +21,11 @@ Budget:
       type: boolean
       format: boolean
       example: false
+    notes:
+      type: string
+      format: string
+      example: "Some notes"
+      nullable: true
     order:
       type: integer
       format: int32

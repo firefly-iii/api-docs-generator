@@ -13,6 +13,11 @@ BudgetUpdate:
       type: integer
       format: int32
       example: 5
+    notes:
+      type: string
+      format: string
+      example: "Some notes"
+      nullable: true
     auto_budget_type:
       $ref: '#/components/schemas/AutoBudgetType'
     auto_budget_currency_id:
