@@ -18,6 +18,7 @@ PiggyBankStore:
       type: string
       format: amount
       example: "123.45"
+      nullable: true
     current_amount:
       type: string
       format: amount
