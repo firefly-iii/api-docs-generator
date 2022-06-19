@@ -13,6 +13,6 @@
       200:
         description: An array of sums.
         content:
-          application/vnd.api+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/V2TransactionSum'

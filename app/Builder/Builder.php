@@ -68,7 +68,7 @@ class Builder
             return;
         }
         // parse replacements:
-        $replacements = $this->parseReplacements($file);
+        $replacements  = $this->parseReplacements($file);
         $originalLines = explode("\n", $content);
 
         // insert replacements:
@@ -190,6 +190,9 @@ class Builder
      */
     private function insertReplacements(array $lines, array $replacements): array
     {
+        if(0 === count($replacements)) {
+            return $lines;
+        }
         $offset = 0;
         /**
          * @var int $i
@@ -197,12 +200,13 @@ class Builder
          */
         foreach ($replacements as $i => $replacement) {
             $index = $i + $offset;
+
             // remove original index:
             array_splice($lines, $index, 1);
 
             // insert replacement into array:
             array_splice($lines, $index, 0, $replacement);
-            $offset = count($replacement) - 1;
+            $offset = $offset + count($replacement) - 1;
         }
         return $lines;
     }

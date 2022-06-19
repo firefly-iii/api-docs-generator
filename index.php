@@ -20,7 +20,7 @@ $builder->setServer($server);
 // add tags
 /**
  * @var string $name
- * @var array  $info
+ * @var array $info
  */
 foreach ($tags as $name => $info) {
     $builder->addTag($name, $info['description']);
@@ -30,20 +30,29 @@ unset($name);
 // scan directories and add all paths:
 $directories = [
     [
-        'path' => 'yaml/v1/paths',
-        'identifier' => 'paths',
+        'path'        => 'yaml/v1/paths',
+        'identifier'  => 'paths',
         'indentation' => 1,
     ],
     [
-        'path' => 'yaml/v2/paths',
-        'identifier' => 'paths',
+        'path'        => 'yaml/v2/paths',
+        'identifier'  => 'paths',
         'indentation' => 1,
     ],
+
     [
-        'path' => 'yaml/schemas',
-        'identifier' => 'schemas',
+        'path'        => 'yaml/v1/schemas',
+        'identifier'  => 'schemas',
         'indentation' => 2,
     ],
+
+    [
+        'path'        => 'yaml/v2/schemas',
+        'identifier'  => 'schemas',
+        'indentation' => 2,
+    ],
+
+
 ];
 
 /** @var array $info */
@@ -53,7 +62,7 @@ foreach ($directories as $info) {
     $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
     $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
     /**
-     * @var string      $fullPath
+     * @var string $fullPath
      * @var SplFileInfo $object
      */
     foreach ($objects as $fullPath => $object) {

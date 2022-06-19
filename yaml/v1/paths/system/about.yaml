@@ -3,10 +3,16 @@
     tags:
       - about
     operationId: getAbout
+    parameters:
+      !correlationParameter,3
     summary: System information end point.
     description: |
       Returns general system information and versions of the (supporting) software.
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: The available system information
         content:
