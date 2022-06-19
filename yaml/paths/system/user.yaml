@@ -14,6 +14,12 @@
         type: integer
         example: 1
     responses:
+      401:
+        description: Unauthenticated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Unauthenticated'
       200:
         description: A list of users.
         content:
@@ -38,6 +44,12 @@
       description: "JSON array or key=value pairs with the necessary user information. See the model for the exact specifications."
       required: true
     responses:
+      401:
+        description: Unauthenticated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Unauthenticated'
       200:
         description: 'New user stored, result in response.'
         content:

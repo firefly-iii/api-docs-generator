@@ -8,12 +8,22 @@ ValidationError:
     errors:
       type: object
       properties:
-        field1:
+        email:
           type: array
           items:
             type: string
             format: string
-        field2:
+        blocked:
+          type: array
+          items:
+            type: string
+            format: string
+        role:
+          type: array
+          items:
+            type: string
+            format: string
+        blocked_code:
           type: array
           items:
             type: string

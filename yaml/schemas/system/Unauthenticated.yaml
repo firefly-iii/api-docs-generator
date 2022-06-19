@@ -1,0 +1,11 @@
+Unauthenticated:
+  type: object
+  properties:
+    message:
+      type: string
+      format: string
+      example: "Unauthenticated"
+    exception:
+      type: string
+      format: string
+      example: "AuthenticationException"
