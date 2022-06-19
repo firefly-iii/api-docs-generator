@@ -1,0 +1,18 @@
+/v2/transaction/sum/bills/paid:
+  get:
+    tags:
+      - v2-transaction-sum
+    operationId: getBillsPaidTrSum
+    summary: Returns the sum of the bills already paid in the period indicated.
+    parameters:
+      !queryDateRequest,3
+    description: |
+      This endpoint sums up (by currency) the transactions linked to bills paid in the given period.
+    responses:
+      !unauthenticatedResponse,3
+      200:
+        description: An array of sums.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/V2TransactionSum'

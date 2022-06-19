@@ -29,21 +29,28 @@ unset($name);
 
 // scan directories and add all paths:
 $directories = [
-    'yaml/paths/autocomplete',
-    'yaml/paths/charts',
-    'yaml/paths/data',
-    'yaml/paths/insight',
-    'yaml/paths/summary',
-    'yaml/paths/models',
-    'yaml/paths/search',
-    'yaml/paths/system',
-    'yaml/paths/user',
+    [
+        'path' => 'yaml/v1/paths',
+        'identifier' => 'paths',
+        'indentation' => 1,
+    ],
+    [
+        'path' => 'yaml/v2/paths',
+        'identifier' => 'paths',
+        'indentation' => 1,
+    ],
+    [
+        'path' => 'yaml/schemas',
+        'identifier' => 'schemas',
+        'indentation' => 2,
+    ],
 ];
 
-foreach ($directories as $directory) {
+/** @var array $info */
+foreach ($directories as $info) {
 
     // list all files in the directory:
-    $fullDirectory = sprintf('%s/%s', ROOT, $directory);
+    $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
     $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
     /**
      * @var string      $fullPath
@@ -55,47 +62,11 @@ foreach ($directories as $directory) {
             //echo sprintf("Added %s\n", $fullPath);
 
             //echo sprintf("Adding file %s\n", $fullPath);
-            $builder->addYamlFile('paths', $fullPath, 1);
+            $builder->addYamlFile($info['identifier'], $fullPath, $info['indentation']);
         }
     }
 }
 
-// scan directories and add all models (schemas):
-$directories = [
-    'yaml/schemas/arrays', // always need this
-    'yaml/schemas/filters', // always need this
-    'yaml/schemas/lists', // always need this
-    'yaml/schemas/properties', // always need this
-
-    'yaml/schemas/autocomplete',
-    'yaml/schemas/charts',
-    'yaml/schemas/data',
-    'yaml/schemas/insight',
-    'yaml/schemas/summary',
-    'yaml/schemas/system',
-    'yaml/schemas/models',// always need this
-
-];
-
-foreach ($directories as $directory) {
-    // list all files in the directory:
-    $fullDirectory = sprintf('%s/%s', ROOT, $directory);
-    $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
-
-    /**
-     * @var string      $fullPath
-     * @var SplFileInfo $object
-     */
-    foreach ($objects as $fullPath => $object) {
-
-        // add to thing:
-        if ('yaml' === substr($fullPath, -4)) {
-            //echo sprintf("Added %s\n", $fullPath);
-            //echo sprintf("Adding file %s\n", $fullPath);
-            $builder->addYamlFile('schemas', $fullPath, 2);
-        }
-    }
-}
 $result = $builder->render();
 //echo $result;
 // put in file:

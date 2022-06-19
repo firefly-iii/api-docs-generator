@@ -9,7 +9,7 @@ PiggyBankEventRead:
     type:
       type: string
       format: string
-      example: "piggy_bank_eventss"
+      example: "piggy_bank_events"
       description: "Immutable value"
     id:
       type: string

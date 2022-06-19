@@ -53,5 +53,8 @@ $tags = [
     'transactions'      => ['description' => 'The most-used endpoints in Firefly III, these endpoints are used to manage the user\'s transactions.'],
     'currencies'        => ['description' => 'Endpoints to manage the currencies in Firefly III. Depending on the user\'s role you can also disable and enable them, or add new ones.'],
     'links'             => ['description' => 'Endpoints to manage links between transactions, and manage the type of links available.'],
+
+    // v2 tags
+    'v2-transaction-sum' => ['description' => 'Endpoints to sum transactions based on various properties.'],
 ];
 

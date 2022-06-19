@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace ApiDocBuilder\Builder;
 
-use ApiDocBuilder\TwigExtension\Functions;
 use Carbon\Carbon;
-use Carbon\Factory;
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
 
 /**
@@ -14,12 +15,12 @@ use Twig\Loader\FilesystemLoader;
  */
 class Builder
 {
-    private array       $paths;
-    private array       $schemas;
-    private array       $tags;
+    private array $paths;
+    private array $schemas;
+    private array $tags;
     private Environment $twig;
-    private string      $version;
-    private string      $server;
+    private string $version;
+    private string $server;
 
     /**
      * Builder constructor.
@@ -32,7 +33,7 @@ class Builder
         $this->tags    = [];
         $this->paths   = [];
         $this->schemas = [];
-        $this->server = '';
+        $this->server  = '';
 
         $loader     = new FilesystemLoader($templatePath);
         $this->twig = new Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
@@ -45,7 +46,7 @@ class Builder
     public function addTag(string $name, string $description): void
     {
         $this->tags[] = [
-            'name'        => $name,
+            'name' => $name,
             'description' => $description,
         ];
     }
@@ -53,7 +54,7 @@ class Builder
     /**
      * @param string $identifier
      * @param string $file
-     * @param int    $indentation
+     * @param int $indentation
      *
      * @throws \RuntimeException
      */
@@ -62,29 +63,21 @@ class Builder
         if (!file_exists($file)) {
             throw new \RuntimeException(sprintf('No such file: %s', $file));
         }
-        $content = trim(file_get_contents($file));
-        if('' === $content) {
+        $content = trim((string)file_get_contents($file));
+        if ('' === $content) {
             return;
         }
-        $lines   = explode("\n", $content);
+        // parse replacements:
+        $replacements = $this->parseReplacements($file);
+        $originalLines = explode("\n", $content);
 
-        $newLines = [];
-        $indent   = '';
-        if (0 === $indentation) {
-            $indent = '';
-        }
-        if ($indentation > 0) {
-            $indent = str_repeat('  ', $indentation);
-        }
-        foreach ($lines as $line) {
-            $line       = $indent . rtrim($line);
-            $newLines[] = $line;
-        }
+        // insert replacements:
+        $completeLines = $this->insertReplacements($originalLines, $replacements);
 
-        $newYaml = implode("\n", $newLines);
-        if (isset($this->$identifier)) {
-            $this->$identifier[] = $newYaml;
-        }
+        // add indent
+        $indentedLines = $this->indentLines($completeLines, $indentation);
+
+        $this->saveLines($identifier, $indentedLines);
     }
 
     /**
@@ -127,9 +120,7 @@ class Builder
     {
         try {
             $template = $this->twig->load('start.yaml.twig');
-        } catch (\Twig_Error_Loader $e) {
-        } catch (\Twig_Error_Runtime $e) {
-        } catch (\Twig_Error_Syntax $e) {
+        } catch (SyntaxError|LoaderError|RuntimeError $e) {
             throw new \RuntimeException(sprintf('Error in Twig: %s', $e->getMessage()));
         }
         // add tags
@@ -143,33 +134,88 @@ class Builder
             [
                 'version' => $this->getVersion(),
                 'server' => $this->getServer(),
-                'tags'    => $tags,
-                'paths'   => $this->paths,
+                'tags' => $tags,
+                'paths' => $this->paths,
                 'schemas' => $this->schemas,
-                'time' => $time->toW3cString()
+                'time' => $time->toW3cString(),
             ]);
     }
 
     /**
-     * @param string $identifier
      * @param string $file
-     * @param int    $indentation
-     *
-     * @throws \RuntimeException
+     * @return array
      */
-    public function renderYamlFile(string $identifier, string $file, int $indentation): void
+    private function parseReplacements(string $file): array
     {
-        try {
-            $template = $this->twig->load('paths/' . $file);
-        } catch (\Twig_Error_Loader $e) {
-        } catch (\Twig_Error_Runtime $e) {
-        } catch (\Twig_Error_Syntax $e) {
-            throw new \RuntimeException(sprintf('Error in Twig: %s', $e->getMessage()));
+        $replacements = [];
+        $content      = (string)file_get_contents($file);
+        $lines        = explode("\n", $content);
+        // to make sure we wedge in the template at the right spot:
+
+        // replace lines with (indented) templates.
+        foreach ($lines as $i => $line) {
+            $line = trim($line);
+            if (str_starts_with($line, '!')) {
+                $replacements[$i] = $this->getReplacement($line);
+            }
         }
-        $render = $template->render();
-        $lines  = explode("\n", $render);
-        // add indentation:
-        $indent = '';
+
+
+        return $replacements;
+    }
+
+    /**
+     * @param string $instruction
+     * @return array
+     */
+    private function getReplacement(string $instruction): array
+    {
+        $parts       = explode(',', substr($instruction, 1));
+        $filename    = sprintf('%s/yaml/%s/%s.yaml', ROOT, 'v2/templates', $parts[0]);
+        $template    = file_get_contents($filename);
+        $lines       = explode("\n", $template);
+        $replacement = [];
+        foreach ($lines as $line) {
+            $indent        = str_repeat('  ', (int)($parts[1] ?? 0));
+            $replacement[] = sprintf('%s%s', $indent, $line);
+        }
+        return $replacement;
+
+    }
+
+    /**
+     * @param array $lines
+     * @param array $replacements
+     * @return array
+     */
+    private function insertReplacements(array $lines, array $replacements): array
+    {
+        $offset = 0;
+        /**
+         * @var int $i
+         * @var array $replacement
+         */
+        foreach ($replacements as $i => $replacement) {
+            $index = $i + $offset;
+            // remove original index:
+            array_splice($lines, $index, 1);
+
+            // insert replacement into array:
+            array_splice($lines, $index, 0, $replacement);
+            $offset = count($replacement) - 1;
+        }
+        return $lines;
+    }
+
+    /**
+     * @param array $lines
+     * @param int $indentation
+     * @return array
+     */
+    private function indentLines(array $lines, int $indentation): array
+    {
+        $newLines = [];
+        $indent   = '';
         if (0 === $indentation) {
             $indent = '';
         }
@@ -180,12 +226,21 @@ class Builder
             $line       = $indent . rtrim($line);
             $newLines[] = $line;
         }
-        $newRender = implode("\n", $newLines);
-
-
-        if (isset($this->$identifier)) {
-            $this->$identifier[] = $newRender;
-        }
+        return $newLines;
     }
 
+    /**
+     * @param string $identifier
+     * @param array $lines
+     * @return void
+     */
+    private function saveLines(string $identifier, array $lines): void
+    {
+        $file = implode("\n", $lines);
+        if (isset($this->$identifier)) {
+            $this->$identifier[] = $file;
+            return;
+        }
+        throw new \RuntimeException(sprintf('Invalid identifier %s', $identifier));
+    }
 }
