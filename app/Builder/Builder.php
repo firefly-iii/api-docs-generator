@@ -175,7 +175,7 @@ class Builder
     private function getReplacement(string $instruction): array
     {
         $parts       = explode(',', substr($instruction, 1));
-        $filename    = sprintf('%s/yaml/%s/%s.yaml', ROOT, 'v2/templates', $parts[0]);
+        $filename    = sprintf('%s/yaml/templates/%s.yaml', ROOT, $parts[0]);
         $template    = file_get_contents($filename);
         $lines       = explode("\n", $template);
         $replacement = [];
@@ -224,9 +224,6 @@ class Builder
     {
         $newLines = [];
         $indent   = '';
-        if (0 === $indentation) {
-            $indent = '';
-        }
         if ($indentation > 0) {
             $indent = str_repeat('  ', $indentation);
         }
