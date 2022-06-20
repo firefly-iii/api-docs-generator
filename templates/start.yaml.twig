@@ -1,11 +1,11 @@
 openapi: 3.0.0
 servers:
   - description: Firefly III demo site
-    url: {{ server }}
+    url: {{ server }}/api/{{ pathVersion }}
 info:
-  title: Firefly III API v{{ version }}
+  title: Firefly III API v{{ version }} ({{ pathVersion }})
   description: |
-    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on {{ time }}
+    This is the documentation of the Firefly III API ({{ pathVersion }}). You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on {{ time }}
   version: "{{ version }}"
   contact:
     name: James Cole
