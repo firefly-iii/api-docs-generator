@@ -1,4 +1,4 @@
-/api/v1/accounts:
+/accounts:
   get:
     tags:
       - accounts
@@ -76,7 +76,7 @@
             $ref: '#/components/schemas/AccountStore'
       description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
       required: true
-/api/v1/accounts/{id}:
+/accounts/{id}:
   get:
     tags:
     - accounts
