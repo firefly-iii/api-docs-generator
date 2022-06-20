@@ -6,6 +6,7 @@
     tags:
       - recurrences
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -51,3 +52,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
+              !unauthenticatedResponse,3
+              !notFoundResponse,3
+              !badRequestResponse,3
+              !internalExceptionResponse,3

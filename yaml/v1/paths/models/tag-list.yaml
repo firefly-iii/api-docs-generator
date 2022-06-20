@@ -6,6 +6,7 @@
     tags:
       - tags
     parameters:
+        !correlationParameter,3
       - in: path
         name: tag
         description: Either the tag itself or the tag ID.
@@ -28,8 +29,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such tag.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /tags/{tag}/transactions:
   get:
     summary: "List all transactions with this tag."
@@ -38,6 +41,7 @@
     tags:
       - tags
     parameters:
+        !correlationParameter,3
       - in: path
         name: tag
         description: Either the tag itself or the tag ID.
@@ -84,3 +88,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

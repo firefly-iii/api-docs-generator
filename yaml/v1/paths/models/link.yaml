@@ -7,6 +7,7 @@
       List all the transaction links.
     operationId: listTransactionLink
     parameters:
+        !correlationParameter,3
       - in: query
         name: page
         description: Page number. The default pagination is per 50 items.
@@ -21,12 +22,18 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionLinkArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     tags:
       - links
     summary: Create a new link between transactions
     operationId: storeTransactionLink
     description: Store a new link between two transactions. For this end point you need the journal_id from a transaction.
+    parameters:
+      !correlationParameter,3
     responses:
       200:
         description: 'New transaction link stored, result in response.'
@@ -40,6 +47,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
     requestBody:
       content:
         application/json:
@@ -59,6 +70,7 @@
       Returns a single link by its ID.
     operationId: getTransactionLink
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -73,14 +85,17 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionLinkSingle'
-      404:
-        description: No such transaction link.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     summary: Permanently delete link between transactions.
     description: |
       Will permanently delete link. Transactions remain.
     operationId: deleteTransactionLink
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -93,14 +108,17 @@
     responses:
       204:
         description: Transaction link deleted
-      404:
-        description: No such transaction link
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     summary: Update an existing link between transactions.
     description: |
       Used to update a single existing link.
     operationId: updateTransactionLink
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -133,3 +151,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+              !unauthenticatedResponse,3
+              !notFoundResponse,3
+              !badRequestResponse,3
+            !internalExceptionResponse,3

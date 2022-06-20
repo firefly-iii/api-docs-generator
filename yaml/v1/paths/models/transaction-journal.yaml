@@ -6,6 +6,7 @@
     tags:
       - transactions
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -27,14 +28,17 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionLinkArray'
-      404:
-        description: No such transaction journal (transaction split).
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /transaction-journals/{id}:
   get:
     summary: Get a single transaction, based on one of the underlying transaction journals (transaction splits).
     description: Get a single transaction by underlying journal (split).
     operationId: getTransactionByJournal
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -51,8 +55,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
-      404:
-        description: Transaction not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteTransactionJournal
     description: Delete an individual journal (split) from a transaction.
@@ -60,6 +66,7 @@
     tags:
       - transactions
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -70,5 +77,7 @@
     responses:
       204:
         description: Transaction journal (split) deleted.
-      404:
-        description: No such transaction.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

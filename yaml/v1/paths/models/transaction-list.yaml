@@ -6,6 +6,7 @@
     tags:
       - transactions
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -27,8 +28,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such transaction.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /transactions/{id}/piggy_bank_events:
   get:
     summary: Lists all piggy bank events.
@@ -37,6 +40,7 @@
     tags:
       - transactions
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -58,5 +62,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankEventArray'
-      404:
-        description: No such transaction.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

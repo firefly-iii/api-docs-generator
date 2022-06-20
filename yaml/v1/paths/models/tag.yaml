@@ -6,6 +6,7 @@
     tags:
       - tags
     parameters:
+        !correlationParameter,3
       - in: query
         name: page
         description: Page number
@@ -19,10 +20,16 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TagArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     summary: Store a new tag
     description: Creates a new tag. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeTag
+    parameters:
+      !correlationParameter,3
     tags:
       - tags
     requestBody:
@@ -48,26 +55,31 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /tags/{tag}:
   get:
     summary: Get a single tag.
     description: Get a single tag.
     operationId: getTag
     parameters:
-    - in: path
-      name: tag
-      description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
-      required: true
-      schema:
-        type: string
-        format: string
-        example: groceries
-    - in: query
-      name: page
-      description: Page number
-      required: false
-      schema:
-        type: integer
+        !correlationParameter,3
+      - in: path
+        name: tag
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        required: true
+        schema:
+          type: string
+          format: string
+          example: groceries
+      - in: query
+        name: page
+        description: Page number
+        required: false
+        schema:
+          type: integer
     tags:
       - tags
     responses:
@@ -77,8 +89,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TagSingle'
-      404:
-        description: Tag not found
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     operationId: updateTag
     tags:
@@ -86,14 +100,15 @@
     description: Update existing tag.
     summary: Update existing tag.
     parameters:
-    - in: path
-      name: tag
-      description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
-      required: true
-      schema:
-        type: string
-        format: string
-        example: groceries
+        !correlationParameter,3
+      - in: path
+        name: tag
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        required: true
+        schema:
+          type: string
+          format: string
+          example: groceries
     requestBody:
       content:
         application/json:
@@ -117,6 +132,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteTag
     description: Delete an tag.
@@ -124,16 +143,19 @@
     tags:
       - tags
     parameters:
-    - in: path
-      name: tag
-      description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
-      required: true
-      schema:
-        type: string
-        format: string
-        example: groceries
+        !correlationParameter,3
+      - in: path
+        name: tag
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        required: true
+        schema:
+          type: string
+          format: string
+          example: groceries
     responses:
       204:
         description: Tag deleted.
-      404:
-        description: "No such tag"
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

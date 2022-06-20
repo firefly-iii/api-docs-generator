@@ -4,6 +4,7 @@
     description: This endpoint will submit any open messages for this webhook. This is an asynchronous operation, so you can't see the result. Refresh the webhook message and/or the webhook message attempts to see the results. This may take some time if the webhook receiver is slow.
     operationId: submitWebook
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true

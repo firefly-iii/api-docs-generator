@@ -6,31 +6,32 @@
     tags:
       - users
     parameters:
-    - in: query
-      name: page
-      description: The page number, if necessary. The default pagination is 50, so 50 users per page.
-      required: false
-      schema:
-        type: integer
-        example: 1
+        !correlationParameter,3
+      - in: query
+        name: page
+        description: The page number, if necessary. The default pagination is 50, so 50 users per page.
+        required: false
+        schema:
+          type: integer
+          example: 1
     responses:
-      401:
-        description: Unauthenticated
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Unauthenticated'
       200:
         description: A list of users.
         content:
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     summary: Store a new user
     description: |
         Creates a new user. The data required can be submitted as a JSON body or as a list of parameters. The user will be given a random password, which they can reset using the "forgot password" function.
     operationId: storeUser
+    parameters:
+      !correlationParameter,3
     tags:
       - users
     requestBody:
@@ -44,12 +45,10 @@
       description: "JSON array or key=value pairs with the necessary user information. See the model for the exact specifications."
       required: true
     responses:
-      401:
-        description: Unauthenticated
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Unauthenticated'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'New user stored, result in response.'
         content:
@@ -68,13 +67,14 @@
     description: Gets all info of a single user.
     operationId: getUser
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The user ID.
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The user ID.
     tags:
       - users
     responses:
@@ -84,8 +84,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserSingle'
-      404:
-        description: User not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     operationId: updateUser
     tags:
@@ -93,13 +95,14 @@
     description: Update existing user.
     summary: Update an existing user's information.
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The user ID.
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The user ID.
     requestBody:
       content:
         application/json:
@@ -123,6 +126,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteUser
     description: Delete a user. You cannot delete the user you're authenticated with. This cannot be undone. Be careful!
@@ -130,17 +137,18 @@
     tags:
       - users
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The user ID.
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The user ID.
     responses:
       204:
         description: User deleted.
-      404:
-        description: No such user.
-      '500':
-        description: Error when deleting, or when you're trying to delete the currently authenticated user.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

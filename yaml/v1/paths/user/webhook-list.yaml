@@ -4,6 +4,7 @@
     description: When a webhook is triggered the actual message that will be send is stored in a "message". You can view and analyse these messages.
     operationId: getWebhookMessages
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -20,14 +21,17 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookMessageArray'
-      404:
-        description: Webhook not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /webhooks/{id}/messages/{messageId}:
   get:
     summary: Get a single message from a webhook.
     description: When a webhook is triggered it will store the actual content of the webhook in a webhook message. You can view and analyse a single one using this endpoint.
     operationId: getSingleWebhookMessage
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -51,8 +55,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookMessageSingle'
-      404:
-        description: Webhook message not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteWebhookMessage
     summary: Delete a webhook message.
@@ -60,6 +66,7 @@
     tags:
       - webhooks
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -77,16 +84,17 @@
     responses:
       204:
         description: Webhook message deleted.
-      404:
-        description: No such webhook or webhook message.
-      '500':
-        description: Error when deleting.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /webhooks/{id}/messages/{messageId}/attempts:
   get:
     summary: Get all the failed attempts of a single webhook message.
     description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhook messages that receive too many attempts (failures) will not be sent again. You must first clear out old attempts before the message can go out again.
     operationId: getWebhookMessageAttempts
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -118,14 +126,17 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookAttemptArray'
-      404:
-        description: Webhook or webhook message not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /webhooks/{id}/messages/{messageId}/attempts/{attemptId}:
   get:
     summary: Get a single failed attempt from a single webhook message.
     description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhooks messages that receive too many attempts (failures) will not be fired. You must first clear out old attempts and try again. This endpoint shows you the details of a single attempt. The ID of the attempt must match the corresponding webhook and webhook message.
     operationId: getSingleWebhookMessageAttempt
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -156,8 +167,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookAttemptSingle'
-      404:
-        description: Webhook message attempt not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteWebhookMessageAttempt
     summary: Delete a webhook attempt.
@@ -165,6 +178,7 @@
     tags:
       - webhooks
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -189,8 +203,8 @@
     responses:
       204:
         description: Webhook message attempt deleted.
-      404:
-        description: No such webhook, webhook message or webhook attempt.
-      '500':
-        description: Error when deleting.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 
