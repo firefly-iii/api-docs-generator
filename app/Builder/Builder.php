@@ -21,6 +21,7 @@ class Builder
     private Environment $twig;
     private string $version;
     private string $server;
+    private string $pathVersion;
 
     /**
      * Builder constructor.
@@ -30,10 +31,12 @@ class Builder
      */
     public function __construct(string $templatePath, string $cachePath)
     {
-        $this->tags    = [];
-        $this->paths   = [];
-        $this->schemas = [];
-        $this->server  = '';
+        $this->tags        = [];
+        $this->paths       = [];
+        $this->schemas     = [];
+        $this->server      = '';
+        $this->pathVersion = 'v1';
+        $this->version     = '1.0';
 
         $loader     = new FilesystemLoader($templatePath);
         $this->twig = new Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
@@ -46,7 +49,7 @@ class Builder
     public function addTag(string $name, string $description): void
     {
         $this->tags[] = [
-            'name' => $name,
+            'name'        => $name,
             'description' => $description,
         ];
     }
@@ -133,11 +136,11 @@ class Builder
         return $template->render(
             [
                 'version' => $this->getVersion(),
-                'server' => $this->getServer(),
-                'tags' => $tags,
-                'paths' => $this->paths,
+                'server'  => $this->getServer(),
+                'tags'    => $tags,
+                'paths'   => $this->paths,
                 'schemas' => $this->schemas,
-                'time' => $time->toW3cString(),
+                'time'    => $time->toW3cString(),
             ]);
     }
 
@@ -190,7 +193,7 @@ class Builder
      */
     private function insertReplacements(array $lines, array $replacements): array
     {
-        if(0 === count($replacements)) {
+        if (0 === count($replacements)) {
             return $lines;
         }
         $offset = 0;
@@ -246,5 +249,14 @@ class Builder
             return;
         }
         throw new \RuntimeException(sprintf('Invalid identifier %s', $identifier));
+    }
+
+    /**
+     * @param string $version
+     * @return void
+     */
+    public function setPathVersion(string $version): void
+    {
+        $this->pathVersion = $version;
     }
 }
