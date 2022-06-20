@@ -4,17 +4,11 @@ SystemInfo:
     - data
   properties:
     data:
-      required:
-        - version
-        - api_version
-        - php_version
-        - os
-        - driver
       properties:
         version:
           type: string
           format: semver
-          example: 4.8.0
+          example: '4.8.0'
         api_version:
           type: string
           format: semver
@@ -26,9 +20,9 @@ SystemInfo:
         os:
           type: string
           format: string
-          example: Linux vagrant-ubuntu-trusty-64
+          example: "Linux vagrant-ubuntu-trusty-64"
         driver:
           type: string
           format: string
-          example: mysql
+          example: "mysql"
       type: object
