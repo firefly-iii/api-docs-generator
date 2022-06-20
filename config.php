@@ -7,7 +7,7 @@ $dotenv->load();
 $version     = '2.0.0';
 $destination = getenv('API_DESTINATION');
 $server      = getenv('API_SERVER');
-
+$pathVersion = getenv('API_PATH_VERSION');
 define('ROOT', getenv('API_ROOT'));
 
 $tags = [
