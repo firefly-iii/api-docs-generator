@@ -1,4 +1,4 @@
-/api/v1/webhooks/{id}/submit:
+/webhooks/{id}/submit:
   post:
     summary: Submit messages for a webhook.
     description: This endpoint will submit any open messages for this webhook. This is an asynchronous operation, so you can't see the result. Refresh the webhook message and/or the webhook message attempts to see the results. This may take some time if the webhook receiver is slow.

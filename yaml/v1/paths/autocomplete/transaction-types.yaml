@@ -1,4 +1,4 @@
-/api/v1/autocomplete/transaction-types:
+/autocomplete/transaction-types:
   get:
     tags:
       - autocomplete

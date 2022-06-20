@@ -1,4 +1,4 @@
-/api/v1/webhooks:
+/webhooks:
   get:
     summary: List all webhooks.
     description: List all the user's webhooks.
@@ -50,7 +50,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/webhooks/{id}:
+/webhooks/{id}:
   get:
     summary: Get a single webhook.
     description: Gets all info of a single webhook.

@@ -1,4 +1,4 @@
-/api/v1/autocomplete/tags:
+/autocomplete/tags:
   get:
     tags:
       - autocomplete

@@ -1,4 +1,4 @@
-/api/v1/autocomplete/budgets:
+/autocomplete/budgets:
   get:
     tags:
       - autocomplete

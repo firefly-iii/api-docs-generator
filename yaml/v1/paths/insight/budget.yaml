@@ -1,4 +1,4 @@
-/api/v1/insight/expense/budget:
+/insight/expense/budget:
   get:
     summary: Insight into expenses, grouped by budget.
     description: |
@@ -57,7 +57,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/expense/no-budget:
+/insight/expense/no-budget:
   get:
     summary: Insight into expenses, without budget.
     description: |

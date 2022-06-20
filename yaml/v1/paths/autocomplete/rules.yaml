@@ -1,4 +1,4 @@
-/api/v1/autocomplete/rules:
+/autocomplete/rules:
   get:
     tags:
       - autocomplete

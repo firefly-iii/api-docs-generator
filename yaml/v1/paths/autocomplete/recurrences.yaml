@@ -1,4 +1,4 @@
-/api/v1/autocomplete/recurring:
+/autocomplete/recurring:
   get:
     tags:
       - autocomplete

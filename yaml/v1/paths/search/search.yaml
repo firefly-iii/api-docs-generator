@@ -1,4 +1,4 @@
-/api/v1/search/accounts:
+/search/accounts:
   get:
     summary: Search for accounts
     description: Search for accounts
@@ -39,7 +39,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AccountArray'
-/api/v1/search/transactions:
+/search/transactions:
   get:
     summary: Search for transactions
     description: Searches through the users transactions.

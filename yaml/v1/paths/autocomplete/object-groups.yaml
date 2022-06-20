@@ -1,4 +1,4 @@
-/api/v1/autocomplete/object-groups:
+/autocomplete/object-groups:
   get:
     tags:
       - autocomplete

@@ -1,4 +1,4 @@
-/api/v1/data/export/accounts:
+/data/export/accounts:
   get:
     summary: Export account data from Firefly III
     description: |
@@ -21,7 +21,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/bills:
+/data/export/bills:
   get:
     summary: Export bills from Firefly III
     description: |
@@ -44,7 +44,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/budgets:
+/data/export/budgets:
   get:
     summary: Export budgets and budget amount data from Firefly III
     description: |
@@ -67,7 +67,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/categories:
+/data/export/categories:
   get:
     summary: Export category data from Firefly III
     description: |
@@ -90,7 +90,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/piggy-banks:
+/data/export/piggy-banks:
   get:
     summary: Export piggy banks from Firefly III
     description: |
@@ -113,7 +113,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/recurring:
+/data/export/recurring:
   get:
     summary: Export recurring transaction data from Firefly III
     description: |
@@ -136,7 +136,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/rules:
+/data/export/rules:
   get:
     summary: Export rule groups and rule data from Firefly III
     description: |
@@ -159,7 +159,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/tags:
+/data/export/tags:
   get:
     summary: Export tag data from Firefly III
     description: |
@@ -182,7 +182,7 @@
             schema:
               type: string
               format: binary
-/api/v1/data/export/transactions:
+/data/export/transactions:
   get:
     summary: Export transaction data from Firefly III
     description: |

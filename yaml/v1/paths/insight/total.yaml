@@ -1,4 +1,4 @@
-/api/v1/insight/expense/total:
+/insight/expense/total:
   get:
     summary: Insight into total expenses.
     description: |
@@ -45,7 +45,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightTotal'
-/api/v1/insight/income/total:
+/insight/income/total:
   get:
     summary: Insight into total income.
     description: |
@@ -92,7 +92,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightTotal'
-/api/v1/insight/transfer/total:
+/insight/transfer/total:
   get:
     summary: Insight into total transfers.
     description: |

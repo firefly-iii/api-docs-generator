@@ -1,4 +1,4 @@
-/api/v1/autocomplete/piggy-banks:
+/autocomplete/piggy-banks:
   get:
     tags:
       - autocomplete
@@ -28,7 +28,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/AutocompletePiggyArray'
-/api/v1/autocomplete/piggy-banks-with-balance:
+/autocomplete/piggy-banks-with-balance:
   get:
     tags:
       - autocomplete

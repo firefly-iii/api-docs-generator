@@ -1,4 +1,4 @@
-/api/v1/data/destroy:
+/data/destroy:
   delete:
     tags:
       - data

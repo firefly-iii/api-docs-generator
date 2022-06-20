@@ -1,4 +1,4 @@
-/api/v1/autocomplete/currencies:
+/autocomplete/currencies:
   get:
     tags:
       - autocomplete
@@ -28,7 +28,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/AutocompleteCurrencyArray'
-/api/v1/autocomplete/currencies-with-code:
+/autocomplete/currencies-with-code:
   get:
     tags:
       - autocomplete

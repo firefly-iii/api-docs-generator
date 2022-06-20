@@ -1,4 +1,4 @@
-/api/v1/autocomplete/transactions:
+/autocomplete/transactions:
   get:
     tags:
       - autocomplete
@@ -28,7 +28,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/AutocompleteTransactionArray'
-/api/v1/autocomplete/transactions-with-id:
+/autocomplete/transactions-with-id:
   get:
     tags:
       - autocomplete

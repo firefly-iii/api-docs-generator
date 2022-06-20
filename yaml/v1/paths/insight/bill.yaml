@@ -1,4 +1,4 @@
-/api/v1/insight/expense/bill:
+/insight/expense/bill:
   get:
     summary: Insight into expenses, grouped by bill.
     description: |
@@ -57,7 +57,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/expense/no-bill:
+/insight/expense/no-bill:
   get:
     summary: Insight into expenses, without bill.
     description: |

@@ -1,4 +1,4 @@
-/api/v1/chart/account/overview:
+/chart/account/overview:
   get:
     tags:
       - charts

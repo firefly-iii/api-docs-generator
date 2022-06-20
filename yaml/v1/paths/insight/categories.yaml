@@ -1,4 +1,4 @@
-/api/v1/insight/expense/category:
+/insight/expense/category:
   get:
     summary: Insight into expenses, grouped by category.
     description: |
@@ -57,7 +57,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/expense/no-category:
+/insight/expense/no-category:
   get:
     summary: Insight into expenses, without category.
     description: |
@@ -104,7 +104,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightTotal'
-/api/v1/insight/income/category:
+/insight/income/category:
   get:
     summary: Insight into income, grouped by category.
     description: |
@@ -163,7 +163,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/income/no-category:
+/insight/income/no-category:
   get:
     summary: Insight into income, without category.
     description: |
@@ -210,7 +210,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightTotal'
-/api/v1/insight/transfer/category:
+/insight/transfer/category:
   get:
     summary: Insight into transfers, grouped by category.
     description: |
@@ -269,7 +269,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/transfer/no-category:
+/insight/transfer/no-category:
   get:
     summary: Insight into transfers, without category.
     description: |

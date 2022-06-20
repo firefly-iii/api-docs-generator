@@ -1,4 +1,4 @@
-/api/v1/insight/expense/expense:
+/insight/expense/expense:
   get:
     summary: Insight into expenses, grouped by expense account.
     description: |
@@ -47,7 +47,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/expense/asset:
+/insight/expense/asset:
   get:
     summary: Insight into expenses, grouped by asset account.
     description: |
@@ -94,7 +94,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/income/revenue:
+/insight/income/revenue:
   get:
     summary: Insight into income, grouped by revenue account.
     description: |
@@ -143,7 +143,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/income/asset:
+/insight/income/asset:
   get:
     summary: Insight into income, grouped by asset account.
     description: |
@@ -190,7 +190,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InsightGroup'
-/api/v1/insight/transfer/asset:
+/insight/transfer/asset:
   get:
     summary: Insight into transfers, grouped by account.
     description: |
