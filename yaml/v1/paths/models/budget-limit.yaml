@@ -7,6 +7,7 @@
     tags:
       - budgets
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -39,6 +40,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BudgetLimitArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     operationId: storeBudgetLimit
     description: Store a new budget limit under this budget.
@@ -46,6 +51,7 @@
     tags:
       - budgets
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -76,6 +82,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /budgets/{id}/limits/{limitId}:
   get:
     summary: Get single budget limit.
@@ -83,6 +93,7 @@
     tags:
       - budgets
     parameters:
+      !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -105,8 +116,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BudgetLimitSingle'
-      404:
-        description: Budget limit not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     operationId: updateBudgetLimit
     tags:
@@ -114,6 +127,7 @@
     description: Update existing budget limit.
     summary: Update existing budget limit.
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -151,6 +165,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteBudgetLimit
     description: Delete a budget limit.
@@ -158,6 +176,7 @@
     tags:
       - budgets
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -175,8 +194,10 @@
     responses:
       204:
         description: Budget limit deleted.
-      404:
-        description: No such budget limit
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /budget-limits:
   get:
     operationId: listBudgetLimit
@@ -186,6 +207,7 @@
     tags:
       - budgets
     parameters:
+        !correlationParameter,3
       - in: query
         name: start
         description: |
@@ -211,3 +233,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BudgetLimitArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

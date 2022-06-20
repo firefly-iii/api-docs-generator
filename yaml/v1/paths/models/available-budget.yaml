@@ -7,31 +7,32 @@
     tags:
       - available_budgets
     parameters:
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
-    - in: query
-      name: start
-      description: |
-        A date formatted YYYY-MM-DD.
-      required: false
-      schema:
-        type: string
-        format: date
-        example: "2018-09-17"
-    - in: query
-      name: end
-      description: |
-        A date formatted YYYY-MM-DD.
-      required: false
-      schema:
-        type: string
-        format: date
-        example: "2018-12-31"
+      !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: "2018-09-17"
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: "2018-12-31"
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3
@@ -48,6 +49,8 @@
     description: |
       Creates a new available budget for a specified period. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeAvailableBudget
+    parameters:
+      !correlationParameter,3
     tags:
       - available_budgets
     requestBody:
@@ -83,13 +86,14 @@
     description: Get a single available budget, by ID.
     operationId: getAvailableBudget
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The ID of the available budget.
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the available budget.
     tags:
       - available_budgets
     responses:
@@ -110,13 +114,14 @@
     description: Update existing available budget.
     summary: Update existing available budget, to change for example the date range of the amount or the amount itself.
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The ID of the object.X
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the object.
     requestBody:
       content:
         application/vnd.api+json:
@@ -151,13 +156,14 @@
     tags:
       - available_budgets
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The ID of the available budget.
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the available budget.
     responses:
       204:
         description: Available budget deleted.
