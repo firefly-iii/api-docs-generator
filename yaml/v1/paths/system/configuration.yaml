@@ -1,4 +1,4 @@
-/api/v1/configuration:
+/configuration:
   get:
     summary: Get Firefly III system configuration values.
     description: Returns all editable and not-editable configuration values for this Firefly III installation
@@ -18,7 +18,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ConfigurationArray'
-/api/v1/configuration/{name}:
+/configuration/{name}:
   get:
     summary: Get a single Firefly III system configuration value
     description: Returns one configuration variable for this Firefly III installation

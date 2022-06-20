@@ -1,4 +1,4 @@
-/api/v1/about:
+/about:
   get:
     tags:
       - about
@@ -19,15 +19,21 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/SystemInfo'
-/api/v1/about/user:
+/about/user:
   get:
     tags:
       - about
     summary: Currently authenticated user endpoint.
     operationId: getCurrentUser
+    parameters:
+      !correlationParameter,3
     description: |
       Returns the currently authenticated user.
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: The user
         content:

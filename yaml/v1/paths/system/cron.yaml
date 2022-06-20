@@ -1,4 +1,4 @@
-/api/v1/cron/{cliToken}:
+/cron/{cliToken}:
   get:
     tags:
       - about
