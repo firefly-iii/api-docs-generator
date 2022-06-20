@@ -1,4 +1,4 @@
-/api/v1/link_types/{id}/transactions:
+/link_types/{id}/transactions:
   get:
     tags:
       - links

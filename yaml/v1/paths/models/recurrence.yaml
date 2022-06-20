@@ -1,4 +1,4 @@
-/api/v1/recurrences:
+/recurrences:
   get:
     summary: List all recurring transactions.
     description: List all recurring transactions.
@@ -49,7 +49,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/recurrences/{id}:
+/recurrences/{id}:
   get:
     summary: Get a single recurring transaction.
     description: Get a single recurring transaction.

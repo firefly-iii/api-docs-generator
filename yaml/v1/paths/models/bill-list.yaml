@@ -1,4 +1,4 @@
-/api/v1/bills/{id}/attachments:
+/bills/{id}/attachments:
   get:
     summary: List all attachments uploaded to the bill.
     description: This endpoint will list all attachments linked to the bill.
@@ -27,7 +27,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-/api/v1/bills/{id}/rules:
+/bills/{id}/rules:
   get:
     summary: List all rules associated with the bill.
     description: This endpoint will list all rules that have an action to set the bill to this bill.
@@ -49,7 +49,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RuleArray'
-/api/v1/bills/{id}/transactions:
+/bills/{id}/transactions:
   get:
     summary: List all transactions associated with the  bill.
     description: This endpoint will list all transactions linked to this bill.

@@ -1,4 +1,4 @@
-/api/v1/rule_groups:
+/rule_groups:
   get:
     summary: List all rule groups.
     description: List all rule groups.
@@ -49,7 +49,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/rule_groups/{id}:
+/rule_groups/{id}:
   get:
     summary: Get a single rule group.
     description: Get a single rule group. This does not include the rules. For that, see below.

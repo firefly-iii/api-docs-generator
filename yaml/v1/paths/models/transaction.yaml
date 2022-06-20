@@ -1,4 +1,4 @@
-/api/v1/transactions:
+/transactions:
   get:
     summary: |
       List all the user's transactions.
@@ -74,7 +74,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/transactions/{id}:
+/transactions/{id}:
   get:
     summary: Get a single transaction.
     description: Get a single transaction.

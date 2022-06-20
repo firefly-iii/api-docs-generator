@@ -1,4 +1,4 @@
-/api/v1/piggy_banks/{id}/events:
+/piggy_banks/{id}/events:
   get:
     summary: List all events linked to a piggy bank.
     description: List all events linked to a piggy bank (adding and removing money).
@@ -27,7 +27,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankEventArray'
-/api/v1/piggy_banks/{id}/attachments:
+/piggy_banks/{id}/attachments:
   get:
     summary: Lists all attachments.
     description: Lists all attachments.

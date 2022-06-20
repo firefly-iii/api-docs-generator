@@ -1,4 +1,4 @@
-/api/v1/transaction-journals/{id}/links:
+/transaction-journals/{id}/links:
   get:
     summary: Lists all the transaction links for an individual journal (individual split).
     description: Lists all the transaction links for an individual journal (a split). Don't use the group ID, you need the actual underlying journal (the split).
@@ -29,7 +29,7 @@
               $ref: '#/components/schemas/TransactionLinkArray'
       404:
         description: No such transaction journal (transaction split).
-/api/v1/transaction-journals/{id}:
+/transaction-journals/{id}:
   get:
     summary: Get a single transaction, based on one of the underlying transaction journals (transaction splits).
     description: Get a single transaction by underlying journal (split).

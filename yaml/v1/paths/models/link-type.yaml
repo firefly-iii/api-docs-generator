@@ -1,4 +1,4 @@
-/api/v1/link_types:
+/link_types:
   get:
     tags:
       - links
@@ -50,7 +50,7 @@
             $ref: '#/components/schemas/LinkType'
       description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
       required: true
-/api/v1/link_types/{id}:
+/link_types/{id}:
   get:
     tags:
       - links

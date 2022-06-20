@@ -1,4 +1,4 @@
-/api/v1/rule_groups/{id}/rules:
+/rule_groups/{id}/rules:
   get:
     summary: List rules in this rule group.
     description: List rules in this rule group.

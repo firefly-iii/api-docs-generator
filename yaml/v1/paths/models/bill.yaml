@@ -1,4 +1,4 @@
-/api/v1/bills:
+/bills:
   get:
     summary: List all bills.
     description: This endpoint will list all the user's bills.
@@ -67,7 +67,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/bills/{id}:
+/bills/{id}:
   get:
     summary: Get a single bill.
     description: Get a single bill.

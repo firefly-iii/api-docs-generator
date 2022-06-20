@@ -1,4 +1,4 @@
-/api/v1/transaction_links:
+/transaction_links:
   get:
     tags:
       - links
@@ -50,7 +50,7 @@
             $ref: '#/components/schemas/TransactionLinkStore'
       description: JSON array with the necessary link type information or key=value pairs. See the model for the exact specifications.
       required: true
-/api/v1/transaction_links/{id}:
+/transaction_links/{id}:
   get:
     tags:
       - links

@@ -1,4 +1,4 @@
-/api/v1/attachments:
+/attachments:
   get:
     summary: List all attachments.
     description: |
@@ -51,7 +51,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/attachments/{id}:
+/attachments/{id}:
   get:
     summary: Get a single attachment.
     description: |
@@ -134,7 +134,7 @@
         description: Attachment deleted.
       404:
         description: No such attachment
-/api/v1/attachments/{id}/download:
+/attachments/{id}/download:
   get:
     summary: Download a single attachment.
     description: |
@@ -160,7 +160,7 @@
               format: binary
       404:
         description: File not found
-/api/v1/attachments/{id}/upload:
+/attachments/{id}/upload:
   post:
     summary: Upload an attachment.
     description: |

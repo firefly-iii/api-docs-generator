@@ -1,4 +1,4 @@
-/api/v1/rules:
+/rules:
   get:
     summary: List all rules.
     description: List all rules.
@@ -49,7 +49,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/rules/{id}:
+/rules/{id}:
   get:
     summary: Get a single rule.
     description: Get a single rule.

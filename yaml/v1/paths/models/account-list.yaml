@@ -1,4 +1,4 @@
-/api/v1/accounts/{id}/transactions:
+/accounts/{id}/transactions:
   get:
     tags:
       - accounts
@@ -7,6 +7,7 @@
       This endpoint returns a list of all the transactions connected to the account.
     operationId: listTransactionByAccount
     parameters:
+      !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -53,13 +54,17 @@
         schema:
           $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: A list of transactions
         content:
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
-/api/v1/accounts/{id}/attachments:
+/accounts/{id}/attachments:
   get:
     summary: Lists all attachments.
     description: Lists all attachments.
@@ -67,6 +72,7 @@
     tags:
       - accounts
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -82,15 +88,17 @@
           type: integer
           example: 1
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: A list of attachments
         content:
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such account.
-/api/v1/accounts/{id}/piggy_banks:
+/accounts/{id}/piggy_banks:
   get:
     tags:
       - accounts
@@ -99,6 +107,7 @@
       This endpoint returns a list of all the piggy banks connected to the account.
     operationId: listPiggyBankByAccount
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -113,6 +122,10 @@
         schema:
           type: integer
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: A list of piggy banks
         content:

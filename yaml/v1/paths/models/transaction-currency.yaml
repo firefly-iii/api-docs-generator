@@ -1,4 +1,4 @@
-/api/v1/currencies:
+/currencies:
   get:
     summary: List all currencies.
     description: List all currencies.
@@ -49,7 +49,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/currencies/{code}/enable:
+/currencies/{code}/enable:
   post:
     summary: Enable a single currency.
     description: Enable a single currency.
@@ -72,7 +72,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-/api/v1/currencies/{code}/disable:
+/currencies/{code}/disable:
   post:
     summary: Disable a currency.
     description: Disable a currency.
@@ -96,7 +96,7 @@
               $ref: '#/components/schemas/CurrencySingle'
       409:
         description: Currency cannot be disabled, because it is still in use.
-/api/v1/currencies/{code}/default:
+/currencies/{code}/default:
   post:
     summary: Make currency default currency.
     description: Make this currency the default currency for the user. If the currency is not enabled, it will be enabled as well.
@@ -119,7 +119,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-/api/v1/currencies/{code}:
+/currencies/{code}:
   get:
     summary: Get a single currency.
     description: Get a single currency.
@@ -202,7 +202,7 @@
         description: Currency deleted.
       404:
         description: No such currency
-/api/v1/currencies/default:
+/currencies/default:
   get:
     summary: Get the user's default currency.
     description: Get the user's default currency.

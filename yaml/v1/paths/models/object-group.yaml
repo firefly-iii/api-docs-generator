@@ -1,4 +1,4 @@
-/api/v1/object_groups:
+/object_groups:
   get:
     summary: List all oject groups.
     description: List all oject groups.
@@ -20,7 +20,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/ObjectGroupArray'
-/api/v1/object_groups/{id}:
+/object_groups/{id}:
   get:
     summary: Get a single object group.
     description: Get a single object group.

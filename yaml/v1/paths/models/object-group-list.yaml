@@ -1,4 +1,4 @@
-/api/v1/object_groups/{id}/piggy_banks:
+/object_groups/{id}/piggy_banks:
   get:
     tags:
       - object_groups
@@ -27,7 +27,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankArray'
-/api/v1/object_groups/{id}/bills:
+/object_groups/{id}/bills:
   get:
     summary: List all bills with this object group.
     description: List all bills with this object group.

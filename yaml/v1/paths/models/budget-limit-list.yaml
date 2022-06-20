@@ -1,4 +1,4 @@
-/api/v1/budgets/{id}/limits/{limitId}/transactions:
+/budgets/{id}/limits/{limitId}/transactions:
   get:
     summary: List all transactions by a budget limit ID.
     description: List all the transactions within one budget limit. The start and end date are dictated by the budget limit.

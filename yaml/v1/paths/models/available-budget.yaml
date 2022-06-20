@@ -1,4 +1,4 @@
-/api/v1/available_budgets:
+/available_budgets:
   get:
     summary: List all available budget amounts.
     description: |
@@ -69,7 +69,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/available_budgets/{id}:
+/available_budgets/{id}:
   get:
     summary: Get a single available budget.
     description: Get a single available budget, by ID.

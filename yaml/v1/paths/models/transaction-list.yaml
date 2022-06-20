@@ -1,4 +1,4 @@
-/api/v1/transactions/{id}/attachments:
+/transactions/{id}/attachments:
   get:
     summary: Lists all attachments.
     description: Lists all attachments.
@@ -29,7 +29,7 @@
               $ref: '#/components/schemas/AttachmentArray'
       404:
         description: No such transaction.
-/api/v1/transactions/{id}/piggy_bank_events:
+/transactions/{id}/piggy_bank_events:
   get:
     summary: Lists all piggy bank events.
     description: Lists all piggy bank events.

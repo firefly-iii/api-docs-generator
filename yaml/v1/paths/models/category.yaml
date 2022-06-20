@@ -1,4 +1,4 @@
-/api/v1/categories:
+/categories:
   get:
     summary: List all categories.
     description: List all categories.
@@ -49,7 +49,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/categories/{id}:
+/categories/{id}:
   get:
     summary: Get a single category.
     description: Get a single category.

@@ -1,4 +1,4 @@
-/api/v1/budgets/{id}/limits:
+/budgets/{id}/limits:
   get:
     operationId: listBudgetLimitByBudget
     description: |
@@ -76,7 +76,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/budgets/{id}/limits/{limitId}:
+/budgets/{id}/limits/{limitId}:
   get:
     summary: Get single budget limit.
     operationId: getBudgetLimit
@@ -177,7 +177,7 @@
         description: Budget limit deleted.
       404:
         description: No such budget limit
-/api/v1/budget-limits:
+/budget-limits:
   get:
     operationId: listBudgetLimit
     summary: Get list of budget limits by date

@@ -1,4 +1,4 @@
-/api/v1/rule_groups/{id}/test:
+/rule_groups/{id}/test:
   get:
     summary: Test which transactions would be hit by the rule group. No changes will be made.
     description: Test which transactions would be hit by the rule group. No changes will be made. Limit the result if you want to.
@@ -71,7 +71,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
-/api/v1/rule_groups/{id}/trigger:
+/rule_groups/{id}/trigger:
   post:
     summary: Fire the rule group on your transactions.
     description: Fire the rule group on your transactions. Changes will be made by the rules in the rule group! Limit the result if you want to.

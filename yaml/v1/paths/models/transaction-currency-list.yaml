@@ -1,4 +1,4 @@
-/api/v1/currencies/{code}/accounts:
+/currencies/{code}/accounts:
   get:
     summary: List all accounts with this currency.
     description: List all accounts with this currency.
@@ -42,7 +42,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AccountArray'
-/api/v1/currencies/{code}/available_budgets:
+/currencies/{code}/available_budgets:
   get:
     summary: List all available budgets with this currency.
     description: List all available budgets with this currency.
@@ -72,7 +72,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetArray'
-/api/v1/currencies/{code}/bills:
+/currencies/{code}/bills:
   get:
     summary: List all bills with this currency.
     description: List all bills with this currency.
@@ -102,7 +102,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillArray'
-/api/v1/currencies/{code}/budget_limits:
+/currencies/{code}/budget_limits:
   get:
     summary: List all budget limits with this currency
     description: List all budget limits with this currency
@@ -148,7 +148,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BudgetLimitArray'
-/api/v1/currencies/{code}/recurrences:
+/currencies/{code}/recurrences:
   get:
     summary: List all recurring transactions with this currency.
     description: List all recurring transactions with this currency.
@@ -178,7 +178,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RecurrenceArray'
-/api/v1/currencies/{code}/rules:
+/currencies/{code}/rules:
   get:
     summary: List all rules with this currency.
     description: List all rules with this currency.
@@ -208,7 +208,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RuleArray'
-/api/v1/currencies/{code}/transactions:
+/currencies/{code}/transactions:
   get:
     summary: List all transactions with this currency.
     description: List all transactions with this currency.

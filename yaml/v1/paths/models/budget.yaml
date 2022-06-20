@@ -1,4 +1,4 @@
-/api/v1/budgets:
+/budgets:
   get:
     summary: List all budgets.
     description: List all the budgets the user has made. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.
@@ -67,7 +67,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/budgets/{id}:
+/budgets/{id}:
   get:
     summary: Get a single budget.
     description: Get a single budget. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.

@@ -1,4 +1,4 @@
-/api/v1/tags/{tag}/attachments:
+/tags/{tag}/attachments:
   get:
     summary: Lists all attachments.
     description: Lists all attachments.
@@ -30,7 +30,7 @@
               $ref: '#/components/schemas/AttachmentArray'
       404:
         description: No such tag.
-/api/v1/tags/{tag}/transactions:
+/tags/{tag}/transactions:
   get:
     summary: "List all transactions with this tag."
     description: "List all transactions with this tag."

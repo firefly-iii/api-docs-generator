@@ -1,4 +1,4 @@
-/api/v1/budgets/{id}/transactions:
+/budgets/{id}/transactions:
   get:
     summary: All transactions to a budget.
     description: Get all transactions linked to a budget, possibly limited by start and end
@@ -58,7 +58,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
-/api/v1/budgets/{id}/attachments:
+/budgets/{id}/attachments:
   get:
     summary: Lists all attachments of a budget.
     description: Lists all attachments.

@@ -1,4 +1,4 @@
-/api/v1/tags:
+/tags:
   get:
     summary: List all tags.
     description: List all of the user's tags.
@@ -48,7 +48,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-/api/v1/tags/{tag}:
+/tags/{tag}:
   get:
     summary: Get a single tag.
     description: Get a single tag.

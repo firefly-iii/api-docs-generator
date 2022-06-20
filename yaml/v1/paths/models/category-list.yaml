@@ -1,4 +1,4 @@
-/api/v1/categories/{id}/transactions:
+/categories/{id}/transactions:
   get:
     summary: List all transactions in a category.
     description: List all transactions in a category, optionally limited to the date ranges specified.
@@ -51,7 +51,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
-/api/v1/categories/{id}/attachments:
+/categories/{id}/attachments:
   get:
     summary: Lists all attachments.
     description: Lists all attachments.
