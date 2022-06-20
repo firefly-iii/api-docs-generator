@@ -6,6 +6,7 @@
     tags:
       - budgets
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -58,6 +59,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /budgets/{id}/attachments:
   get:
     summary: Lists all attachments of a budget.
@@ -66,6 +71,7 @@
     tags:
       - budgets
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -87,5 +93,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such budget.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
