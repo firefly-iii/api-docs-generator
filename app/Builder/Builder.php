@@ -135,12 +135,13 @@ class Builder
         $time = Carbon::now();
         return $template->render(
             [
-                'version' => $this->getVersion(),
-                'server'  => $this->getServer(),
-                'tags'    => $tags,
-                'paths'   => $this->paths,
-                'schemas' => $this->schemas,
-                'time'    => $time->toW3cString(),
+                'version'     => $this->getVersion(),
+                'server'      => $this->getServer(),
+                'pathVersion' => $this->getPathVersion(),
+                'tags'        => $tags,
+                'paths'       => $this->paths,
+                'schemas'     => $this->schemas,
+                'time'        => $time->toW3cString(),
             ]);
     }
 
@@ -258,5 +259,12 @@ class Builder
     public function setPathVersion(string $version): void
     {
         $this->pathVersion = $version;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPathVersion(): string {
+        return $this->pathVersion;
     }
 }
