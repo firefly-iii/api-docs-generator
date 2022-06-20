@@ -33,6 +33,10 @@
         format: date
         example: "2018-12-31"
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: A list of available budget amounts.
         content:
@@ -57,6 +61,10 @@
       description: "JSON array or key=value pairs with the necessary available budget information. See the model for the exact specifications."
       required: true
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'New available budget stored, result in response.'
         content:
@@ -85,14 +93,16 @@
     tags:
       - available_budgets
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'The requested available budget'
         content:
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetSingle'
-      404:
-        description: AvailableBudget not found
   put:
     operationId: updateAvailableBudget
     tags:
@@ -118,6 +128,10 @@
       description: JSON array or form value with updated available budget information. See the model for the exact specifications.
       required: true
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'Updated available budget stored, result in response'
         content:
@@ -147,5 +161,7 @@
     responses:
       204:
         description: Available budget deleted.
-      404:
-        description: No such available budget.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

@@ -4,24 +4,14 @@
       - autocomplete
     operationId: getObjectGroupsAC
     parameters:
-      - in: query
-        name: query
-        description: The autocomplete search query.
-        required: false
-        schema:
-          type: string
-          format: string
-        example: "str"
-      - in: query
-        name: limit
-        description: The number of items returned.
-        required: false
-        schema:
-          type: integer
-          format: int32
-        example: 10
+        !correlationParameter,3
+        !autocompleteSearchParameters,3
     summary: Returns all object groups of the user returned in a basic auto-complete array.
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: A list of object groups with very basic information.
         content:

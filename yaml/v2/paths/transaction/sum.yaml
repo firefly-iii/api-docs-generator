@@ -5,7 +5,7 @@
     operationId: getBillsPaidTrSum
     summary: Returns the sum of the bills already paid in the period indicated.
     parameters:
-      !queryDateRequest,3
+      !dateRequestParams,3
     description: |
       This endpoint sums up (by currency) the transactions linked to bills paid in the given period.
     responses:

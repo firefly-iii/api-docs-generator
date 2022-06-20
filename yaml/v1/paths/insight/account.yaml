@@ -7,24 +7,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        example: "2021-01-01"
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+      !correlationParameter,3
+      !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -41,6 +25,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of expense accounts and expense details. Each expense acccount has one row per currency.'
         content:
@@ -56,24 +44,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -88,6 +60,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of asset accounts and expense details. Each asset account has one row per currency.'
         content:
@@ -103,24 +79,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -137,6 +97,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of revenue accounts and income details. Each revenue acccount has one row per currency.'
         content:
@@ -152,24 +116,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -184,6 +132,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of asset accounts and income details. Each asset account has one row per currency.'
         content:
@@ -199,24 +151,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -231,6 +167,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of asset accounts and transfer details. Each asset account has one row per currency.'
         content:

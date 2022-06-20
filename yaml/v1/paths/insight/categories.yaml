@@ -7,24 +7,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: categories[]
         description: |
@@ -51,6 +35,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of category and expense details. Each category has one row per currency.'
         content:
@@ -66,24 +54,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -98,6 +70,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of expense details. One row per currency.'
         content:
@@ -113,24 +89,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: categories[]
         description: |
@@ -157,6 +117,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of category and income details. Each category has one row per currency.'
         content:
@@ -172,24 +136,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -204,6 +152,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of income details. One row per currency.'
         content:
@@ -219,24 +171,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: categories[]
         description: |
@@ -263,6 +199,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of category and transfer details. Each category has one row per currency.'
         content:
@@ -278,24 +218,8 @@
     tags:
       - insight
     parameters:
-      - in: query
-        name: start
-        example: "2021-01-01"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: end
-        example: "2021-01-31"
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: true
-        schema:
-          type: string
-          format: date
+        !correlationParameter,3
+        !dateRequestParams,3
       - in: query
         name: accounts[]
         description: |
@@ -310,6 +234,10 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: 'A list of transfer details. One row per currency.'
         content:
