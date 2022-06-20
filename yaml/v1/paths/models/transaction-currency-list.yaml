@@ -6,6 +6,7 @@
     tags:
       - currencies
     parameters:
+        !correlationParameter,3
       - in: path
         name: code
         required: true
@@ -42,6 +43,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AccountArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/available_budgets:
   get:
     summary: List all available budgets with this currency.
@@ -50,6 +55,7 @@
     tags:
       - currencies
     parameters:
+        !correlationParameter,3
       - in: path
         name: code
         required: true
@@ -72,6 +78,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/bills:
   get:
     summary: List all bills with this currency.
@@ -80,6 +90,7 @@
     tags:
       - currencies
     parameters:
+        !correlationParameter,3
       - in: path
         name: code
         required: true
@@ -102,6 +113,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/budget_limits:
   get:
     summary: List all budget limits with this currency
@@ -110,6 +125,7 @@
     tags:
       - currencies
     parameters:
+        !correlationParameter,3
       - in: path
         name: code
         required: true
@@ -148,6 +164,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BudgetLimitArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/recurrences:
   get:
     summary: List all recurring transactions with this currency.
@@ -156,6 +176,7 @@
     tags:
       - currencies
     parameters:
+        !correlationParameter,3
       - in: path
         name: code
         required: true
@@ -178,6 +199,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RecurrenceArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/rules:
   get:
     summary: List all rules with this currency.
@@ -186,6 +211,7 @@
     tags:
       - currencies
     parameters:
+        !correlationParameter,3
       - in: path
         name: code
         required: true
@@ -208,6 +234,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RuleArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/transactions:
   get:
     summary: List all transactions with this currency.
@@ -216,6 +246,7 @@
     tags:
       - currencies
     parameters:
+        !correlationParameter,3
       - in: path
         name: code
         required: true
@@ -262,3 +293,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

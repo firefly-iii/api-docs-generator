@@ -6,13 +6,14 @@
     tags:
       - piggy_banks
     parameters:
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
+        !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
     responses:
       200:
         description: A list of piggy banks
@@ -20,10 +21,16 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     summary: Store a new piggy bank
     description: Creates a new piggy bank. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storePiggyBank
+    parameters:
+      !correlationParameter,3
     tags:
       - piggy_banks
     requestBody:
@@ -49,19 +56,24 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /piggy_banks/{id}:
   get:
     summary: Get a single piggy bank.
     description: Get a single piggy bank.
     operationId: getPiggyBank
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The ID of the piggy bank.
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the piggy bank.
     tags:
       - piggy_banks
     responses:
@@ -71,8 +83,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
-      404:
-        description: Piggy bank not found
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     operationId: updatePiggyBank
     tags:
@@ -80,13 +94,14 @@
     description: Update existing piggy bank.
     summary: Update existing piggy bank.
     parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        type: string
-        example: "123"
-      description: The ID of the piggy bank
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the piggy bank
     requestBody:
       content:
         application/json:
@@ -110,6 +125,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deletePiggyBank
     description: Delete a piggy bank.
@@ -117,6 +136,7 @@
     tags:
       - piggy_banks
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -127,5 +147,7 @@
     responses:
       204:
         description: Piggy bank deleted.
-      404:
-        description: No such piggy bank
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

@@ -6,13 +6,14 @@
     tags:
       - currencies
     parameters:
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
+        !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
     responses:
       200:
         description: A list of currencies.
@@ -20,10 +21,16 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencyArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     summary: Store a new currency
     description: Creates a new currency. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeCurrency
+    parameters:
+      !correlationParameter,3
     tags:
       - currencies
     requestBody:
@@ -49,6 +56,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/enable:
   post:
     summary: Enable a single currency.
@@ -57,14 +68,15 @@
     tags:
       - currencies
     parameters:
-    - in: path
-      name: code
-      required: true
-      schema:
-        type: string
-        format: string
-        example: USD
-      description: The currency code.
+        !correlationParameter,3
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+          format: string
+          example: USD
+        description: The currency code.
     responses:
       204:
         description: Currency was enabled.
@@ -72,6 +84,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/disable:
   post:
     summary: Disable a currency.
@@ -80,13 +96,14 @@
     tags:
       - currencies
     parameters:
-    - in: path
-      name: code
-      required: true
-      schema:
-        type: integer
-        example: GBP
-      description: The currency code.
+        !correlationParameter,3
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: integer
+          example: GBP
+        description: The currency code.
     responses:
       204:
         description: Currency was disabled.
@@ -96,6 +113,10 @@
               $ref: '#/components/schemas/CurrencySingle'
       409:
         description: Currency cannot be disabled, because it is still in use.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}/default:
   post:
     summary: Make currency default currency.
@@ -104,14 +125,15 @@
     tags:
       - currencies
     parameters:
-    - in: path
-      name: code
-      required: true
-      schema:
-        type: string
-        format: string
-        example: USD
-      description: The currency code.
+        !correlationParameter,3
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+          format: string
+          example: USD
+        description: The currency code.
     responses:
       204:
         description: Currency has been made the default currency.
@@ -119,20 +141,25 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/{code}:
   get:
     summary: Get a single currency.
     description: Get a single currency.
     operationId: getCurrency
     parameters:
-    - in: path
-      name: code
-      required: true
-      schema:
-        type: string
-        format: string
-        example: USD
-      description: The currency code.
+      !correlationParameter,3
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+          format: string
+          example: USD
+        description: The currency code.
     tags:
       - currencies
     responses:
@@ -142,8 +169,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      404:
-        description: Currency not found
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     operationId: updateCurrency
     tags:
@@ -151,14 +180,15 @@
     description: Update existing currency.
     summary: Update existing currency.
     parameters:
-    - in: path
-      name: code
-      required: true
-      schema:
-        type: string
-        format: string
-        example: EUR
-      description: The currency code.
+        !correlationParameter,3
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+          format: string
+          example: EUR
+        description: The currency code.
     requestBody:
       content:
         application/vnd.api+json:
@@ -182,6 +212,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteCurrency
     description: Delete a currency.
@@ -189,24 +223,29 @@
     tags:
       - currencies
     parameters:
-    - in: path
-      name: code
-      required: true
-      schema:
-        type: string
-        format: string
-        example: GBP
-      description: The currency code.
+        !correlationParameter,3
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+          format: string
+          example: GBP
+        description: The currency code.
     responses:
       204:
         description: Currency deleted.
-      404:
-        description: No such currency
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /currencies/default:
   get:
     summary: Get the user's default currency.
     description: Get the user's default currency.
     operationId: getDefaultCurrency
+    parameters:
+      !correlationParameter,3
     tags:
       - currencies
     responses:
@@ -216,3 +255,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

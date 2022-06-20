@@ -6,6 +6,7 @@
     tags:
       - object_groups
     parameters:
+        !correlationParameter,3
       - in: query
         name: page
         description: Page number. The default pagination is 50.
@@ -20,12 +21,17 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/ObjectGroupArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /object_groups/{id}:
   get:
     summary: Get a single object group.
     description: Get a single object group.
     operationId: getObjectGroup
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -42,8 +48,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/ObjectGroupSingle'
-      404:
-        description: Object group not found
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     operationId: updateObjectGroup
     tags:
@@ -51,6 +59,7 @@
     description: Update existing object group.
     summary: Update existing object group.
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -81,6 +90,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     operationId: deleteObjectGroup
     description: Delete a object group.
@@ -88,6 +101,7 @@
     tags:
       - object_groups
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -98,5 +112,7 @@
     responses:
       204:
         description: Object group deleted.
-      404:
-        description: No such object group
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

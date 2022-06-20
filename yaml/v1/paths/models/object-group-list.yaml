@@ -7,6 +7,7 @@
       This endpoint returns a list of all the piggy banks connected to the object group.
     operationId: listPiggyBankByObjectGroup
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -27,6 +28,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /object_groups/{id}/bills:
   get:
     summary: List all bills with this object group.
@@ -35,6 +40,7 @@
     tags:
       - object_groups
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -55,3 +61,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

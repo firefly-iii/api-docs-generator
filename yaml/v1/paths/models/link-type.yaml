@@ -7,6 +7,7 @@
       List all the link types the system has. These include the default ones as well as any new ones.
     operationId: listLinkType
     parameters:
+        !correlationParameter,3
       - in: query
         name: page
         description: Page number. The default pagination is 50 items.
@@ -21,11 +22,17 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/LinkTypeArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     tags:
       - links
     summary: Create a new link type
     operationId: storeLinkType
+    parameters:
+      !correlationParameter,3
     description: Creates a new link type. The data required can be submitted as a JSON body or as a list of parameters (in key=value pairs, like a webform).
     responses:
       200:
@@ -40,6 +47,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
     requestBody:
       content:
         application/json:
@@ -59,6 +70,7 @@
       Returns a single link type by its ID.
     operationId: getLinkType
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -73,14 +85,17 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/LinkTypeSingle'
-      404:
-        description: Link type not found.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     summary: Update existing link type.
     description: |
       Used to update a single link type. All fields that are not submitted will be cleared (set to NULL). The model will tell you which fields are mandatory. You cannot update some of the system provided link types, indicated by the editable=false flag when you list it.
     operationId: updateLinkType
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -113,14 +128,17 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
-      '500':
-        description: Cannot delete this link type.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   delete:
     summary: Permanently delete link type.
     description: |
       Will permanently delete a link type. The links between transactions will be removed. The transactions themselves remain. You cannot delete some of the system provided link types, indicated by the editable=false flag when you list it.
     operationId: deleteLinkType
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -133,7 +151,7 @@
     responses:
       204:
         description: Link type deleted
-      404:
-        description: No such link type
-      '500':
-        description: Cannot delete this link type.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

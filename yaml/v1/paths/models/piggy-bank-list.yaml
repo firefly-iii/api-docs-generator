@@ -6,6 +6,7 @@
     tags:
       - piggy_banks
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -27,6 +28,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankEventArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /piggy_banks/{id}/attachments:
   get:
     summary: Lists all attachments.
@@ -35,6 +40,7 @@
     tags:
       - piggy_banks
     parameters:
+        !correlationParameter,3
       - in: path
         name: id
         required: true
@@ -56,5 +62,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-      404:
-        description: No such piggy bank.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

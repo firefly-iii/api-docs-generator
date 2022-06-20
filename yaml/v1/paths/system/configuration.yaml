@@ -3,15 +3,15 @@
     summary: Get Firefly III system configuration values.
     description: Returns all editable and not-editable configuration values for this Firefly III installation
     operationId: getConfiguration
+    parameters:
+      !correlationParameter,3
     tags:
       - configuration
     responses:
-      401:
-        description: Unauthenticated
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Unauthenticated'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: System configuration values
         content:
@@ -26,6 +26,7 @@
     tags:
       - configuration
     parameters:
+        !correlationParameter,3
       - in: path
         name: name
         required: true
@@ -33,12 +34,10 @@
           $ref: '#/components/schemas/ConfigValueFilter'
         description: The name of the configuration value you want to know.
     responses:
-      401:
-        description: Unauthenticated
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Unauthenticated'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
       200:
         description: One system configuration value
         content:
@@ -52,6 +51,7 @@
     operationId: setConfiguration
     description: Set a single configuration value. Not all configuration values can be updated so the list of accepted configuration variables is small.
     parameters:
+        !correlationParameter,3
       - in: path
         name: name
         required: true
@@ -71,6 +71,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
     requestBody:
       description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
       content:

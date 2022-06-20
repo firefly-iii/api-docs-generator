@@ -6,13 +6,14 @@
     tags:
       - preferences
     parameters:
-    - in: query
-      name: page
-      description: Page number. The default pagination is 50.
-      required: false
-      schema:
-        type: integer
-        example: 1
+        !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
     responses:
       200:
         description: A list of preferences.
@@ -20,12 +21,18 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PreferenceArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   post:
     tags:
       - preferences
     summary: Store a new preference for this user.
     operationId: storePreference
     description: This endpoint creates a new preference. The name and data are free-format, and entirely up to you. If the preference is not used in Firefly III itself it may not be configurable through the user interface, but you can use this endpoint to persist custom data for your own app.
+    parameters:
+      !correlationParameter,3
     responses:
       200:
         description: 'New account stored, result in response.'
@@ -39,6 +46,10 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
     requestBody:
       content:
         application/json:
@@ -55,14 +66,15 @@
     description: Return a single preference and the value.
     operationId: getPreference
     parameters:
-    - in: path
-      name: name
-      required: true
-      schema:
-        type: string
-        format: string
-        example: currencyPreference
-      description: The name of the preference.    
+        !correlationParameter,3
+      - in: path
+        name: name
+        required: true
+        schema:
+          type: string
+          format: string
+          example: currencyPreference
+        description: The name of the preference.
     tags:
       - preferences
     responses:
@@ -72,19 +84,24 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PreferenceSingle'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
   put:
     summary: Update preference
     description: Update a user's preference.
     operationId: updatePreference
     parameters:
-    - in: path
-      name: name
-      required: true
-      schema:
-        type: string
-        format: string
-        example: currencyPreference
-      description: The name of the preference. Will always overwrite. Will be created if it does not exist.
+        !correlationParameter,3
+      - in: path
+        name: name
+        required: true
+        schema:
+          type: string
+          format: string
+          example: currencyPreference
+        description: The name of the preference. Will always overwrite. Will be created if it does not exist.
     tags:
       - preferences
     requestBody:
@@ -110,3 +127,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ValidationError'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

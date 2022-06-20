@@ -3,6 +3,7 @@
     tags:
       - about
     parameters:
+        !correlationParameter,3
       - in: path
         name: cliToken
         required: true
@@ -44,3 +45,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/CronResult'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

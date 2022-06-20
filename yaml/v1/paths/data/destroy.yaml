@@ -15,9 +15,10 @@
       204:
         description: Empty response when data has been destroyed.
     parameters:
-    - in: query
-      name: objects
-      description: The type of data that you wish to destroy. You can only use one at a time.
-      required: true
-      schema:
-        $ref: '#/components/schemas/DataDestroyObject'
+      !correlationParameter,3
+      - in: query
+        name: objects
+        description: The type of data that you wish to destroy. You can only use one at a time.
+        required: true
+        schema:
+          $ref: '#/components/schemas/DataDestroyObject'
