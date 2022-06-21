@@ -74,12 +74,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
+      !validationErrorResponse,3
 /available_budgets/{id}:
   get:
     summary: Get a single available budget.
@@ -143,12 +138,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
+      !validationErrorResponse,3
   delete:
     operationId: deleteAvailableBudget
     description: Delete an available budget. Not much more to say.

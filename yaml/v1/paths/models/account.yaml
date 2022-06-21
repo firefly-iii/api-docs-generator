@@ -54,18 +54,13 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       200:
         description: 'New account stored, result in response.'
         content:
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AccountSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
     requestBody:
       content:
         application/json:
@@ -143,18 +138,13 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       200:
         description: 'Updated account stored, result in response'
         content:
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AccountSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
   delete:
     summary: Permanently delete account.
     description: |

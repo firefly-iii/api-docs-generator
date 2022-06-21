@@ -50,12 +50,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RuleSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
+      !validationErrorResponse,3
       !unauthenticatedResponse,3
       !notFoundResponse,3
       !badRequestResponse,3
@@ -119,12 +114,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RuleSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
+      !validationErrorResponse,3
       !unauthenticatedResponse,3
       !notFoundResponse,3
       !badRequestResponse,3

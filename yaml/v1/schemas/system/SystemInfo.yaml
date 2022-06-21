@@ -7,15 +7,15 @@ SystemInfo:
       properties:
         version:
           type: string
-          format: semver
+          format: string
           example: '4.8.0'
         api_version:
           type: string
-          format: semver
+          format: string
           example: '0.10.0'
         php_version:
           type: string
-          format: semver
+          format: string
           example: "7.2"
         os:
           type: string

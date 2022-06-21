@@ -8,4 +8,4 @@ BadRequest:
     exception:
       type: string
       format: string
-      example: "NobodyReadsThisException"
+      example: "BadRequestHttpException"

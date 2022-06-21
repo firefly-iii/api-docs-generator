@@ -72,12 +72,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
+      !validationErrorResponse,3
 /bills/{id}:
   get:
     summary: Get a single bill.
@@ -159,12 +154,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BillSingle'
-      422:
-        description: 'Validation errors (see body)'
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidationError'
+      !validationErrorResponse,3
   delete:
     operationId: deleteBill
     description: Delete a bill. This will not delete any associated rules. Will not remove associated transactions. WILL remove all associated attachments.
