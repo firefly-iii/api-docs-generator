@@ -26,7 +26,7 @@ $builder->setServer($server);
  * @var string $name
  * @var array $info
  */
-foreach ($tags as $name => $info) {
+foreach ($tags[$pathVersion] as $name => $info) {
     $builder->addTag($name, $info['description']);
 }
 unset($name);
@@ -40,6 +40,11 @@ $directories = [
     ],
     [
         'path'        => sprintf('yaml/%s/schemas', $pathVersion),
+        'identifier'  => 'schemas',
+        'indentation' => 2,
+    ],
+    [
+        'path'        => 'yaml/shared/schemas',
         'identifier'  => 'schemas',
         'indentation' => 2,
     ],
