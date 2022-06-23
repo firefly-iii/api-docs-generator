@@ -1,4 +1,4 @@
-/v2/transaction/sum/bills/paid:
+/bills/sum/paid:
   get:
     tags:
       - transactions-sum
@@ -14,9 +14,10 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       200:
         description: An array of sums.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/V2TransactionSum'
+              $ref: '#/components/schemas/TransactionSumArray'

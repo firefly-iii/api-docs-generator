@@ -1,0 +1,4 @@
+TransactionSumArray:
+  type: array
+  items:
+    $ref: '#/components/schemas/TransactionSum'

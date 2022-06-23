@@ -43,3 +43,13 @@ ValidationError:
           items:
             type: string
             format: string
+        start:
+          type: array
+          items:
+            type: string
+            format: string
+        end:
+          type: array
+          items:
+              type: string
+              format: string
