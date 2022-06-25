@@ -1,0 +1,8 @@
+- in: query
+  name: page
+  description: Page number. The default pagination is per 50 items.
+  required: false
+  schema:
+    type: integer
+    format: int32
+    example: 1

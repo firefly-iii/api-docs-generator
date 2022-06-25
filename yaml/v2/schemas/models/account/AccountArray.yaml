@@ -1,0 +1,12 @@
+AccountArray:
+  type: object
+  required:
+    - data
+    - meta
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountRead'
+    meta:
+      $ref: '#/components/schemas/Meta'

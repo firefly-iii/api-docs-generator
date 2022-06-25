@@ -44,7 +44,22 @@ $directories = [
         'indentation' => 2,
     ],
     [
+        'path'        => 'yaml/shared/models',
+        'identifier'  => 'schemas',
+        'indentation' => 2,
+    ],
+    [
         'path'        => 'yaml/shared/schemas',
+        'identifier'  => 'schemas',
+        'indentation' => 2,
+    ],
+    [
+        'path'        => 'yaml/shared/properties',
+        'identifier'  => 'schemas',
+        'indentation' => 2,
+    ],
+    [
+        'path'        => 'yaml/shared/filters',
         'identifier'  => 'schemas',
         'indentation' => 2,
     ],

@@ -59,6 +59,9 @@ $tags = [
     'links'             => ['description' => 'Endpoints to manage links between transactions, and manage the type of links available.'],
 ],
 'v2' => [
+    // v2 models
+    'accounts'          => ['description' => 'Endpoints that deliver all of the user\'s asset, expense and other accounts (and the metadata) together with related transactions, piggy banks and other objects. Also delivers endpoints for CRUD operations for accounts.'],
+
     // v2 tags
     'transactions-sum' => ['description' => 'Endpoints to sum transactions based on various properties.'],
 ]
