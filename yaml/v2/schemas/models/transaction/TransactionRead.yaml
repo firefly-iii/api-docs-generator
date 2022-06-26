@@ -1,0 +1,21 @@
+TransactionRead:
+  type: object
+  required:
+    - type
+    - id
+    - attributes
+    - links
+  properties:
+    type:
+      type: string
+      format: string
+      example: "transactions"
+      description: "Immutable value"
+    id:
+      type: string
+      format: string
+      example: "2"
+    attributes:
+      $ref: '#/components/schemas/Transaction'
+    links:
+      $ref: '#/components/schemas/ObjectLink'

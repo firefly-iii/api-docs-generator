@@ -1,0 +1,15 @@
+TransactionArray:
+  type: object
+  required:
+    - data
+    - meta
+    - links
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/TransactionRead'
+    meta:
+      $ref: '#/components/schemas/Meta'
+    links:
+      $ref: '#/components/schemas/PageLink'

@@ -16,7 +16,7 @@
       200:
         description: The available system information
         content:
-          application/vnd.api+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/SystemInfo'
 /about/user:

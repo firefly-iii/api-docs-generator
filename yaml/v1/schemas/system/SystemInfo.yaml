@@ -1,28 +1,26 @@
 SystemInfo:
   type: object
-  required:
-    - data
   properties:
     data:
+      type: object
       properties:
         version:
           type: string
           format: string
-          example: '4.8.0'
+          example: "5.8.0-alpha.1"
         api_version:
           type: string
           format: string
-          example: '0.10.0'
+          example: "2.0.0-alpha.1"
         php_version:
           type: string
           format: string
-          example: "7.2"
+          example: "8.1.5"
         os:
           type: string
           format: string
-          example: "Linux vagrant-ubuntu-trusty-64"
+          example: "Linux"
         driver:
           type: string
           format: string
           example: "mysql"
-      type: object
