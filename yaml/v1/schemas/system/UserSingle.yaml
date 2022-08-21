@@ -4,4 +4,4 @@ UserSingle:
     - data
   properties:
     data:
-      $ref: '#/components/schemas/UserRead'
+        $ref: '#/components/schemas/UserRead'

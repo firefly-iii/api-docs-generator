@@ -53,3 +53,8 @@ ValidationError:
           items:
               type: string
               format: string
+        date:
+          type: array
+          items:
+            type: string
+            format: string
