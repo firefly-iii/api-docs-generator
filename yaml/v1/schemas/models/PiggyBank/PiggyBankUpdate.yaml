@@ -22,6 +22,7 @@ PiggyBankUpdate:
       readOnly: true
     target_amount:
       type: string
+      nullable: true
       format: amount
       example: "123.45"
     current_amount:

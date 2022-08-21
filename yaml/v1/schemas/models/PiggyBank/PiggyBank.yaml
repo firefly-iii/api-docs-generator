@@ -54,10 +54,12 @@ PiggyBank:
     target_amount:
       type: string
       format: amount
+      nullable: true
       example: "123.45"
     percentage:
       type: number
       format: float
+      nullable: true
       example: 12.5
       readOnly: true
     current_amount:
@@ -66,11 +68,13 @@ PiggyBank:
       example: "123.45"
     left_to_save:
       type: string
+      nullable: true
       format: string
       example: "700.00"
       readOnly: true
     save_per_month:
       type: string
+      nullable: true
       format: string
       example: "12.45"
       readOnly: true
