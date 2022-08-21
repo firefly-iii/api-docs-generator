@@ -31,7 +31,7 @@ RuleTriggerKeyword:
     - has_any_budget
     - has_no_tag
     - has_any_tag
-    - notes_contain
+    - notes_contains
     - notes_start
     - notes_end
     - notes_are
