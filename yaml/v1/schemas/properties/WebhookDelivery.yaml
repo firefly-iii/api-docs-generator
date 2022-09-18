@@ -2,7 +2,7 @@ WebhookDelivery:
   type: string
   format: string
   nullable: false
-  example: "DELIVERY_JSON"
+  example: "JSON"
   description: Format of the delivered response.
   enum:
-    - DELIVERY_JSON
+    - JSON

@@ -2,9 +2,9 @@ WebhookTrigger:
   type: string
   format: string
   nullable: false
-  example: "TRIGGER_DESTROY_TRANSACTION"
+  example: "DESTROY_TRANSACTION"
   description: The trigger for the webhook.
   enum:
-    - TRIGGER_STORE_TRANSACTION
-    - TRIGGER_UPDATE_TRANSACTION
-    - TRIGGER_DESTROY_TRANSACTION
+    - STORE_TRANSACTION
+    - UPDATE_TRANSACTION
+    - DESTROY_TRANSACTION
