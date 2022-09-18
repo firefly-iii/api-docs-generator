@@ -44,37 +44,6 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetArray'
-  post:
-    summary: Store a new available budget
-    description: |
-      Creates a new available budget for a specified period. The data required can be submitted as a JSON body or as a list of parameters.
-    operationId: storeAvailableBudget
-    parameters:
-      !correlationParameter,3
-    tags:
-      - available_budgets
-    requestBody:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/AvailableBudgetStore'
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '#/components/schemas/AvailableBudgetStore'
-      description: "JSON array or key=value pairs with the necessary available budget information. See the model for the exact specifications."
-      required: true
-    responses:
-      !unauthenticatedResponse,3
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
-      200:
-        description: 'New available budget stored, result in response.'
-        content:
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/AvailableBudgetSingle'
-      !validationErrorResponse,3
 /available_budgets/{id}:
   get:
     summary: Get a single available budget.
@@ -102,62 +71,4 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetSingle'
-  put:
-    operationId: updateAvailableBudget
-    tags:
-      - available_budgets
-    description: Update existing available budget.
-    summary: Update existing available budget, to change for example the date range of the amount or the amount itself.
-    parameters:
-        !correlationParameter,3
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-          example: "123"
-        description: The ID of the object.
-    requestBody:
-      content:
-        application/vnd.api+json:
-          schema:
-            $ref: '#/components/schemas/AvailableBudgetUpdate'
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '#/components/schemas/AvailableBudgetUpdate'
-      description: JSON array or form value with updated available budget information. See the model for the exact specifications.
-      required: true
-    responses:
-      !unauthenticatedResponse,3
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
-      200:
-        description: 'Updated available budget stored, result in response'
-        content:
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/AvailableBudgetSingle'
-      !validationErrorResponse,3
-  delete:
-    operationId: deleteAvailableBudget
-    description: Delete an available budget. Not much more to say.
-    summary: Delete an available budget.
-    tags:
-      - available_budgets
-    parameters:
-        !correlationParameter,3
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-          example: "123"
-        description: The ID of the available budget.
-    responses:
-      204:
-        description: Available budget deleted.
-      !unauthenticatedResponse,3
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+
