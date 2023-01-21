@@ -1,4 +1,4 @@
-ChartDataSet:
+ChartDataSetV2:
   type: object
   properties:
     label:
@@ -71,4 +71,4 @@ ChartDataSet:
       type: object
       description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
       items:
-        $ref: '#/components/schemas/ChartDataPoint'
+        $ref: '#/components/schemas/ChartDataPointV2'

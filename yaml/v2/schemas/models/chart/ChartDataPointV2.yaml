@@ -1,4 +1,4 @@
-ChartDataPoint:
+ChartDataPointV2:
   type: object
   properties:
     key:

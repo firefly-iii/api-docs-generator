@@ -19,4 +19,4 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChartLine'
+              $ref: '#/components/schemas/ChartLineV2'

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ApiDocBuilder\Builder;
 
 use Carbon\Carbon;
+use Monolog\Logger;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -15,13 +16,14 @@ use Twig\Loader\FilesystemLoader;
  */
 class Builder
 {
-    private array $paths;
-    private array $schemas;
-    private array $tags;
+    private array       $paths;
+    private array       $schemas;
+    private array       $tags;
     private Environment $twig;
-    private string $version;
-    private string $server;
-    private string $pathVersion;
+    private string      $version;
+    private string      $server;
+    private string      $pathVersion;
+    private Logger      $logger;
 
     /**
      * Builder constructor.
@@ -57,11 +59,11 @@ class Builder
     /**
      * @param string $identifier
      * @param string $file
-     * @param int $indentation
+     * @param int    $indentation
      *
      * @throws \RuntimeException
      */
-    public function addYamlFile(string $identifier, string $file, int $indentation): void
+    public function addYamlFile(string $identifier, string $file, int $indentation, ?string $pathVersion): void
     {
         if (!file_exists($file)) {
             throw new \RuntimeException(sprintf('No such file: %s', $file));
@@ -80,7 +82,13 @@ class Builder
         // add indent
         $indentedLines = $this->indentLines($completeLines, $indentation);
 
-        $this->saveLines($identifier, $indentedLines);
+        // add v1 or v2, if set.
+        $pathInfoLines = $indentedLines;
+        if (null !== $pathVersion) {
+            $pathInfoLines = $this->addPathVersion($indentedLines, $pathVersion);
+        }
+
+        $this->saveLines($identifier, $pathInfoLines);
     }
 
     /**
@@ -121,6 +129,7 @@ class Builder
      */
     public function render(): string
     {
+        $this->logger->debug('Start of render.');
         try {
             $template = $this->twig->load('start.yaml.twig');
         } catch (SyntaxError|LoaderError|RuntimeError $e) {
@@ -128,11 +137,12 @@ class Builder
         }
         // add tags
         $tags = '';
-        if (\count($this->tags) > 0) {
+        if (count($this->tags) > 0) {
             $array['tags'] = $this->tags;
             $tags          = substr(substr(yaml_emit($array, YAML_UTF8_ENCODING), 4), 0, -4);
         }
         $time = Carbon::now();
+
         return $template->render(
             [
                 'version'     => $this->getVersion(),
@@ -142,11 +152,13 @@ class Builder
                 'paths'       => $this->paths,
                 'schemas'     => $this->schemas,
                 'time'        => $time->toW3cString(),
-            ]);
+            ]
+        );
     }
 
     /**
      * @param string $file
+     *
      * @return array
      */
     private function parseReplacements(string $file): array
@@ -164,12 +176,12 @@ class Builder
             }
         }
 
-
         return $replacements;
     }
 
     /**
      * @param string $instruction
+     *
      * @return array
      */
     private function getReplacement(string $instruction): array
@@ -183,6 +195,7 @@ class Builder
             $indent        = str_repeat('  ', (int)($parts[1] ?? 0));
             $replacement[] = sprintf('%s%s', $indent, $line);
         }
+
         return $replacement;
 
     }
@@ -190,6 +203,7 @@ class Builder
     /**
      * @param array $lines
      * @param array $replacements
+     *
      * @return array
      */
     private function insertReplacements(array $lines, array $replacements): array
@@ -199,7 +213,7 @@ class Builder
         }
         $offset = 0;
         /**
-         * @var int $i
+         * @var int   $i
          * @var array $replacement
          */
         foreach ($replacements as $i => $replacement) {
@@ -212,12 +226,14 @@ class Builder
             array_splice($lines, $index, 0, $replacement);
             $offset = $offset + count($replacement) - 1;
         }
+
         return $lines;
     }
 
     /**
      * @param array $lines
-     * @param int $indentation
+     * @param int   $indentation
+     *
      * @return array
      */
     private function indentLines(array $lines, int $indentation): array
@@ -231,12 +247,14 @@ class Builder
             $line       = $indent . rtrim($line);
             $newLines[] = $line;
         }
+
         return $newLines;
     }
 
     /**
      * @param string $identifier
-     * @param array $lines
+     * @param array  $lines
+     *
      * @return void
      */
     private function saveLines(string $identifier, array $lines): void
@@ -244,6 +262,7 @@ class Builder
         $file = implode("\n", $lines);
         if (isset($this->$identifier)) {
             $this->$identifier[] = $file;
+
             return;
         }
         throw new \RuntimeException(sprintf('Invalid identifier %s', $identifier));
@@ -251,6 +270,7 @@ class Builder
 
     /**
      * @param string $version
+     *
      * @return void
      */
     public function setPathVersion(string $version): void
@@ -261,7 +281,37 @@ class Builder
     /**
      * @return string
      */
-    public function getPathVersion(): string {
+    public function getPathVersion(): string
+    {
         return $this->pathVersion;
     }
+
+    /**
+     * @param Logger $logger
+     */
+    public function setLogger(Logger $logger): void
+    {
+        $this->logger = $logger;
+    }
+
+    /**
+     * @param array  $indentedLines
+     * @param string $pathVersion
+     *
+     * @return array
+     */
+    private function addPathVersion(array $indentedLines, string $pathVersion): array
+    {
+        $newLines = [];
+        foreach ($indentedLines as $line) {
+            if (str_starts_with($line, '  /')) {
+                $line = sprintf('  /%s%s', $pathVersion, trim($line));
+                $this->logger->debug(sprintf('Added path version to line: %s', $line));
+            }
+            $newLines[] = $line;
+        }
+
+        return $newLines;
+    }
+
 }

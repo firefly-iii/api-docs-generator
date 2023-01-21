@@ -11,11 +11,7 @@ $pathVersion = getenv('API_PATH_VERSION');
 
 define('ROOT', getenv('API_ROOT'));
 
-// overrule path version from command line.
-
-
 $tags = [
-    'v1' => [
         // system
         'about'             => ['description' => 'These endpoints deliver general system information, version- and meta information.'],
         'configuration'     => ['description' => 'These endpoints allow you to manage and update the Firefly III configuration. You need to have the "owner" role to update configuration.'],
@@ -57,19 +53,11 @@ $tags = [
         'transactions'      => ['description' => 'The most-used endpoints in Firefly III, these endpoints are used to manage the user\'s transactions.'],
         'currencies'        => ['description' => 'Endpoints to manage the currencies in Firefly III. Depending on the user\'s role you can also disable and enable them, or add new ones.'],
         'links'             => ['description' => 'Endpoints to manage links between transactions, and manage the type of links available.'],
-    ],
-    'v2' => [
-        // v2 charts
-        'charts'            => ['description' => 'The "charts" endpoints deliver optimised data for charts and graphs.',],
 
         // v2 net worth
         'net-worth'        => ['description' => 'Shows you the net worth of the current user.',],
 
-        // v2 models
-        'accounts'         => ['description' => 'Endpoints that deliver all of the user\'s asset, expense and other accounts (and the metadata) together with related transactions, piggy banks and other objects. Also delivers endpoints for CRUD operations for accounts.'],
-
         // v2 tags
         'transactions-sum' => ['description' => 'Endpoints to sum transactions based on various properties.'],
-    ],
 ];
 

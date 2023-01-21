@@ -4,7 +4,8 @@
     "nesbot/carbon": "^2.6",
     "twig/twig": "^2.0",
     "vlucas/phpdotenv": "^2.5",
-    "ext-yaml": "*"
+    "ext-yaml": "*",
+    "monolog/monolog": "^3.2"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
