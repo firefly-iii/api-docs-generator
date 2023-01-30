@@ -15,6 +15,9 @@
       200:
         description: System configuration values
         content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ConfigurationArray'
           application/json:
             schema:
               $ref: '#/components/schemas/ConfigurationArray'
