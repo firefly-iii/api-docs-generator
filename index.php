@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use ApiDocBuilder\Builder\Builder;
@@ -9,10 +10,11 @@ use Monolog\Logger;
 
 // default values:
 $version     = '0.1-beta';
-$pathVersion = 'v1';
 $server      = 'https://demo.firefly-iii.org';
 $destination = './';
 $tags        = [];
+$directories = [];
+$apiVersions = ['v1', 'v2'];
 
 include 'vendor/autoload.php';
 include 'config.php';
@@ -31,7 +33,7 @@ $cacheDir     = sprintf('%s/cache', ROOT);
 $builder = new Builder($templatesDir, $cacheDir);
 $builder->setLogger($log);
 $builder->setVersion($version);
-$builder->setPathVersion($pathVersion);
+$builder->setApiVersions($apiVersions);
 $builder->setServer($server);
 
 $log->debug('Start building API docs');
@@ -39,83 +41,41 @@ $log->debug('Start building API docs');
 // add tags
 /**
  * @var string $name
- * @var array  $info
+ * @var array $info
  */
 foreach ($tags as $name => $info) {
-    $builder->addTag($name, $info['description']);
-    $log->debug(sprintf('Add tag "%s"', $name));
+    $builder->addTag($name, $info);
 }
 unset($name);
 
-// scan directories and add all paths:
-$directories = [
-    [
-        'path'         => 'yaml/v1/paths',
-        'identifier'   => 'paths',
-        'indentation'  => 1,
-        'path_version' => 'v1',
-    ],
-    [
-        'path'         => 'yaml/v1/schemas',
-        'identifier'   => 'schemas',
-        'indentation'  => 2,
-        'path_version' => 'v1',
-    ],
-    [
-        'path'         => 'yaml/v2/paths',
-        'identifier'   => 'paths',
-        'indentation'  => 1,
-        'path_version' => 'v2',
-    ],
-    [
-        'path'         => 'yaml/v2/schemas',
-        'identifier'   => 'schemas',
-        'indentation'  => 2,
-        'path_version' => 'v2',
-    ],
-    [
-        'path'        => 'yaml/shared/models',
-        'identifier'  => 'schemas',
-        'indentation' => 2,
-    ],
-    [
-        'path'        => 'yaml/shared/schemas',
-        'identifier'  => 'schemas',
-        'indentation' => 2,
-    ],
-    [
-        'path'        => 'yaml/shared/properties',
-        'identifier'  => 'schemas',
-        'indentation' => 2,
-    ],
-    [
-        'path'        => 'yaml/shared/filters',
-        'identifier'  => 'schemas',
-        'indentation' => 2,
-    ],
-];
+// two sets of schema's:
+// v1 and v2.
 
+/** @var array $info */
 foreach ($directories as $info) {
-    $log->debug(sprintf('Add directory "%s"', $info['path']));
-
-    // list all files in the directory:
-    $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
-    $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
-    /**
-     * @var string      $fullPath
-     * @var SplFileInfo $object
-     */
-    foreach ($objects as $fullPath => $object) {
-        // add to thing:
-        if (str_ends_with($fullPath, 'yaml')) {
-            $log->debug(sprintf('Add "%s" file "%s"', $info['identifier'], $fullPath));
-            $builder->addYamlFile($info['identifier'], $fullPath, $info['indentation'], $info['path_version'] ?? null);
+    /** @var string $apiVersion */
+    foreach ($info['api_version'] as $apiVersion) {
+        $log->debug(sprintf('Add directory "%s" to version "%s"', $info['path'], $apiVersion));
+        // list all files in the directory:
+        $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
+        $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
+        /**
+         * @var string $fullPath
+         * @var SplFileInfo $object
+         */
+        foreach ($objects as $fullPath => $object) {
+            // add to thing:
+            if (str_ends_with($fullPath, 'yaml')) {
+                $log->debug(sprintf('Add "%s" file "%s"', $info['identifier'], $fullPath));
+                $builder->addYamlFile($apiVersion, $info['identifier'], $fullPath, $info['indentation']);
+            }
         }
     }
 }
+foreach ($apiVersions as $apiVersion) {
+    $result           = $builder->render($apiVersion);
+    $finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $version, $apiVersion);
+    file_put_contents($finalDestination, $result);
+}
 
-$result           = $builder->render();
-$finalDestination = sprintf('%s/firefly-iii-%s.yaml', $destination, $version);
-
-file_put_contents($finalDestination, $result);
 

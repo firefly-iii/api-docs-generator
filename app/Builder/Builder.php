@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ApiDocBuilder\Builder;
 
 use Carbon\Carbon;
 use Monolog\Logger;
+use RuntimeException;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -21,49 +23,52 @@ class Builder
     private array       $tags;
     private Environment $twig;
     private string      $version;
+    private array       $apiVersions;
     private string      $server;
-    private string      $pathVersion;
     private Logger      $logger;
 
     /**
      * Builder constructor.
      *
-     * @param string $templatePath
-     * @param string $cachePath
+     * @param  string  $templatePath
+     * @param  string  $cachePath
      */
     public function __construct(string $templatePath, string $cachePath)
     {
-        $this->tags        = [];
-        $this->paths       = [];
-        $this->schemas     = [];
-        $this->server      = '';
-        $this->pathVersion = 'v1';
-        $this->version     = '1.0';
+        $this->tags    = [];
+        $this->paths   = [];
+        $this->schemas = [];
+        $this->server  = '';
+        $this->version = '1.0';
 
         $loader     = new FilesystemLoader($templatePath);
         $this->twig = new Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
     }
 
     /**
-     * @param string $name
-     * @param string $description
+     * @param  string  $name
+     * @param  array  $info
      */
-    public function addTag(string $name, string $description): void
+    public function addTag(string $name, array $info): void
     {
-        $this->tags[] = [
-            'name'        => $name,
-            'description' => $description,
-        ];
+        foreach ($info['api_version'] as $version) {
+            $this->tags[$version]   = $this->tags[$version] ?? [];
+            $this->tags[$version][] = [
+                'name'        => $name,
+                'description' => $info['description'],
+            ];
+            $this->logger->debug(sprintf('Added tag "%s" to version "%s"', $name, $version));
+        }
     }
 
     /**
-     * @param string $identifier
-     * @param string $file
-     * @param int    $indentation
+     * @param  string  $apiVersion
+     * @param  string  $identifier
+     * @param  string  $file
+     * @param  int  $indentation
      *
-     * @throws \RuntimeException
      */
-    public function addYamlFile(string $identifier, string $file, int $indentation, ?string $pathVersion): void
+    public function addYamlFile(string $apiVersion, string $identifier, string $file, int $indentation): void
     {
         if (!file_exists($file)) {
             throw new \RuntimeException(sprintf('No such file: %s', $file));
@@ -79,16 +84,15 @@ class Builder
         // insert replacements:
         $completeLines = $this->insertReplacements($originalLines, $replacements);
 
+
         // add indent
         $indentedLines = $this->indentLines($completeLines, $indentation);
 
-        // add v1 or v2, if set.
-        $pathInfoLines = $indentedLines;
-        if (null !== $pathVersion) {
-            $pathInfoLines = $this->addPathVersion($indentedLines, $pathVersion);
-        }
 
-        $this->saveLines($identifier, $pathInfoLines);
+        // add v1 or v2, if set.
+        $pathInfoLines = $this->addApiVersion($indentedLines, $apiVersion);
+
+        $this->saveLines($apiVersion, $identifier, $pathInfoLines);
     }
 
     /**
@@ -100,7 +104,7 @@ class Builder
     }
 
     /**
-     * @param string $version
+     * @param  string  $version
      */
     public function setVersion(string $version): void
     {
@@ -116,7 +120,7 @@ class Builder
     }
 
     /**
-     * @param string $server
+     * @param  string  $server
      */
     public function setServer(string $server): void
     {
@@ -127,9 +131,9 @@ class Builder
      *
      * @throws \RuntimeException
      */
-    public function render(): string
+    public function render(string $apiVersion): string
     {
-        $this->logger->debug('Start of render.');
+        $this->logger->debug(sprintf('Rendering version "%s"', $apiVersion));
         try {
             $template = $this->twig->load('start.yaml.twig');
         } catch (SyntaxError|LoaderError|RuntimeError $e) {
@@ -137,8 +141,9 @@ class Builder
         }
         // add tags
         $tags = '';
-        if (count($this->tags) > 0) {
-            $array['tags'] = $this->tags;
+        $set  = $this->tags[$apiVersion] ?? [];
+        if (count($set) > 0) {
+            $array['tags'] = $set;
             $tags          = substr(substr(yaml_emit($array, YAML_UTF8_ENCODING), 4), 0, -4);
         }
         $time = Carbon::now();
@@ -147,17 +152,17 @@ class Builder
             [
                 'version'     => $this->getVersion(),
                 'server'      => $this->getServer(),
-                'pathVersion' => $this->getPathVersion(),
+                'api_version' => $apiVersion,
                 'tags'        => $tags,
-                'paths'       => $this->paths,
-                'schemas'     => $this->schemas,
+                'paths'       => $this->paths[$apiVersion],
+                'schemas'     => $this->schemas[$apiVersion],
                 'time'        => $time->toW3cString(),
             ]
         );
     }
 
     /**
-     * @param string $file
+     * @param  string  $file
      *
      * @return array
      */
@@ -180,7 +185,7 @@ class Builder
     }
 
     /**
-     * @param string $instruction
+     * @param  string  $instruction
      *
      * @return array
      */
@@ -197,12 +202,11 @@ class Builder
         }
 
         return $replacement;
-
     }
 
     /**
-     * @param array $lines
-     * @param array $replacements
+     * @param  array  $lines
+     * @param  array  $replacements
      *
      * @return array
      */
@@ -213,7 +217,7 @@ class Builder
         }
         $offset = 0;
         /**
-         * @var int   $i
+         * @var int $i
          * @var array $replacement
          */
         foreach ($replacements as $i => $replacement) {
@@ -231,8 +235,8 @@ class Builder
     }
 
     /**
-     * @param array $lines
-     * @param int   $indentation
+     * @param  array  $lines
+     * @param  int  $indentation
      *
      * @return array
      */
@@ -244,7 +248,7 @@ class Builder
             $indent = str_repeat('  ', $indentation);
         }
         foreach ($lines as $line) {
-            $line       = $indent . rtrim($line);
+            $line       = $indent.rtrim($line);
             $newLines[] = $line;
         }
 
@@ -252,42 +256,32 @@ class Builder
     }
 
     /**
-     * @param string $identifier
-     * @param array  $lines
+     * @param  string  $identifier
+     * @param  array  $lines
      *
      * @return void
      */
-    private function saveLines(string $identifier, array $lines): void
+    private function saveLines(string $apiVersion, string $identifier, array $lines): void
     {
         $file = implode("\n", $lines);
-        if (isset($this->$identifier)) {
-            $this->$identifier[] = $file;
 
+        if ($identifier === 'paths') {
+            $this->paths[$apiVersion]   = $this->paths[$apiVersion] ?? [];
+            $this->paths[$apiVersion][] = $file;
             return;
         }
-        throw new \RuntimeException(sprintf('Invalid identifier %s', $identifier));
+        if ($identifier === 'schemas') {
+            $this->schemas[$apiVersion]   = $this->schemas[$apiVersion] ?? [];
+            $this->schemas[$apiVersion][] = $file;
+            return;
+        }
+
+        throw new RuntimeException(sprintf('Invalid identifier "%s"', $identifier));
     }
 
-    /**
-     * @param string $version
-     *
-     * @return void
-     */
-    public function setPathVersion(string $version): void
-    {
-        $this->pathVersion = $version;
-    }
 
     /**
-     * @return string
-     */
-    public function getPathVersion(): string
-    {
-        return $this->pathVersion;
-    }
-
-    /**
-     * @param Logger $logger
+     * @param  Logger  $logger
      */
     public function setLogger(Logger $logger): void
     {
@@ -295,23 +289,33 @@ class Builder
     }
 
     /**
-     * @param array  $indentedLines
-     * @param string $pathVersion
+     * @param  array  $indentedLines
+     * @param  string  $apiVersion
      *
      * @return array
      */
-    private function addPathVersion(array $indentedLines, string $pathVersion): array
+    private function addApiVersion(array $indentedLines, string $apiVersion): array
     {
         $newLines = [];
         foreach ($indentedLines as $line) {
             if (str_starts_with($line, '  /')) {
-                $line = sprintf('  /%s%s', $pathVersion, trim($line));
-                $this->logger->debug(sprintf('Added path version to line: %s', $line));
+                $line = sprintf('  /%s%s', $apiVersion, trim($line));
+                $this->logger->debug(sprintf('Added API version to line: %s', $line));
+                $this->logger->info(trim($line));
             }
             $newLines[] = $line;
         }
 
         return $newLines;
+    }
+
+    /**
+     * @param  array  $versions
+     */
+    public function setApiVersions(array $versions): void
+    {
+        $this->logger->debug('API versions is now', $versions);
+        $this->apiVersions = $versions;
     }
 
 }
