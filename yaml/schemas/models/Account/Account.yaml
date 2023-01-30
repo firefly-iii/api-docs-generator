@@ -125,7 +125,7 @@ Account:
       description: "Mandatory when type is liability. Interest percentage."
       nullable: true
     interest_period:
-      $ref: '#/components/schemas/LiabilityDirection'
+      $ref: '#/components/schemas/InterestPeriod'
     notes:
       type: string
       format: string
