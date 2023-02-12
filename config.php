@@ -31,7 +31,7 @@ $tags = [
     ],
 
     // charts
-    'charts'            => ['description' => 'The "charts" endpoints deliver optimised data for charts and graphs.', 'api_version' => ['v1']],
+    'charts'            => ['description' => 'The "charts" endpoints deliver optimised data for charts and graphs.', 'api_version' => ['v1','v2']],
 
     // data
     'data'              => ['description' => 'The "data"-endpoints manage generic Firefly III and user-specific data.', 'api_version' => ['v1']],
@@ -55,7 +55,7 @@ $tags = [
     // user
     'preferences'       => [
         'description' => 'These endpoints can be used to manage the user\'s preferences, including some hidden ones.',
-        'api_version' => ['v1'],
+        'api_version' => ['v1','v2'],
     ],
     'webhooks'          => [
         'description' => 'These endpoints can be used to manage the user\'s webhooks and triggers them if necessary.',
@@ -65,7 +65,7 @@ $tags = [
     // models
     'accounts'          => [
         'description' => 'Endpoints that deliver all of the user\'s asset, expense and other accounts (and the metadata) together with related transactions, piggy banks and other objects. Also delivers endpoints for CRUD operations for accounts.',
-        'api_version' => ['v1'],
+        'api_version' => ['v1','v2'],
     ],
     'attachments'       => [
         'description' => 'Endpoints to manage the attachments of the authenticated user, including up- and downloading of the files.',
@@ -78,7 +78,7 @@ $tags = [
     'bills'             => ['description' => 'Endpoints to manage a user\'s bills and all related objects.', 'api_version' => ['v1']],
     'budgets'           => [
         'description' => 'Endpoints to manage a user\'s budgets and get info on the related objects, like limits.',
-        'api_version' => ['v1'],
+        'api_version' => ['v1','v2'],
     ],
     'categories'        => [
         'description' => 'Endpoints to manage a user\'s categories and get information on transactions and other related objects.',
@@ -121,6 +121,7 @@ $tags = [
     // v2 tags
     'transactions-sum'  => ['description' => 'Endpoints to sum transactions based on various properties.', 'api_version' => ['v2']],
 ];
+ksort($tags);
 
 // scan directories and add all paths:
 $directories = [

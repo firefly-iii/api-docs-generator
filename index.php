@@ -59,16 +59,28 @@ foreach ($directories as $info) {
         // list all files in the directory:
         $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
         $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
+
+        // sort all files in the directory:
+        $list = [];
         /**
          * @var string $fullPath
          * @var SplFileInfo $object
          */
         foreach ($objects as $fullPath => $object) {
-            // add to thing:
             if (str_ends_with($fullPath, 'yaml')) {
-                $log->debug(sprintf('Add "%s" file "%s"', $info['identifier'], $fullPath));
-                $builder->addYamlFile($apiVersion, $info['identifier'], $fullPath, $info['indentation']);
+                $list[$fullPath] = $object;
             }
+        }
+        ksort($list);
+
+        /**
+         * @var string $fullPath
+         * @var SplFileInfo $object
+         */
+        foreach ($list as $fullPath => $object) {
+            // add to thing:
+            $log->debug(sprintf('Add "%s" file "%s"', $info['identifier'], $fullPath));
+            $builder->addYamlFile($apiVersion, $info['identifier'], $fullPath, $info['indentation']);
         }
     }
 }

@@ -1,4 +1,4 @@
-/available_budgets:
+/available-budgets:
   get:
     summary: List all available budget amounts.
     description: |
@@ -44,7 +44,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AvailableBudgetArray'
-/available_budgets/{id}:
+/available-budgets/{id}:
   get:
     summary: Get a single available budget.
     description: Get a single available budget, by ID.

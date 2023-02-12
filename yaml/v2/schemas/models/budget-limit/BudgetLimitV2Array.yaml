@@ -1,0 +1,12 @@
+BudgetLimitV2Array:
+  type: object
+  required:
+    - data
+    - meta
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/BudgetLimitV2Read'
+    meta:
+      $ref: '#/components/schemas/Meta'

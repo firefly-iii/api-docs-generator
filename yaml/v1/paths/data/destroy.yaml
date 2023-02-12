@@ -5,7 +5,7 @@
     operationId: destroyData
     summary: Endpoint to destroy user data
     description: |
-      A call to this endpoint permanently destroys the requested data type. Use it with care and always with user permission.
+      A call to this endpoint deletes the requested data type. Use it with care and always with user permission.
       The demo user is incapable of using this endpoint.
     responses:
       !unauthenticatedResponse,3

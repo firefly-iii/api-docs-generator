@@ -1,4 +1,4 @@
-/rule_groups:
+/rule-groups:
   get:
     summary: List all rule groups.
     description: List all rule groups.
@@ -55,7 +55,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-/rule_groups/{id}:
+/rule-groups/{id}:
   get:
     summary: Get a single rule group.
     description: Get a single rule group. This does not include the rules. For that, see below.

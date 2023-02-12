@@ -18,18 +18,6 @@ AutocompletePiggyBalance:
       format: string
       example: "New couch ($ 12.34)"
       description: Name of the piggy bank found by an auto-complete search with the current balance formatted nicely.
-    object_group_id:
-      type: string
-      format: string
-      example: "5"
-      nullable: true
-      description: The group ID of the group this object is part of. NULL if no group.
-    object_group_title:
-      type: string
-      format: string
-      example: "Example Group"
-      nullable: true
-      description: The name of the group. NULL if no group.
     currency_id:
       type: string
       format: string
@@ -48,3 +36,15 @@ AutocompletePiggyBalance:
       type: integer
       format: int32
       example: 2
+    object_group_id:
+      type: string
+      format: string
+      example: "5"
+      nullable: true
+      description: The group ID of the group this object is part of. NULL if no group.
+    object_group_title:
+      type: string
+      format: string
+      example: "Example Group"
+      nullable: true
+      description: The name of the group. NULL if no group.

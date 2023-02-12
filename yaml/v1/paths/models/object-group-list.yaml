@@ -1,4 +1,4 @@
-/object_groups/{id}/piggy_banks:
+/object-groups/{id}/piggy-banks:
   get:
     tags:
       - object_groups
@@ -32,7 +32,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-/object_groups/{id}/bills:
+/object-groups/{id}/bills:
   get:
     summary: List all bills with this object group.
     description: List all bills with this object group.

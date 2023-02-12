@@ -1,0 +1,17 @@
+/data/purge:
+  delete:
+    tags:
+      - data
+    operationId: purgeData
+    summary: Endpoint to purge user data
+    description: |
+      A call to this endpoint purges all previously deleted data. Use it with care and always with user permission.
+      The demo user is incapable of using this endpoint.
+    responses:
+      !unauthenticatedResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      204:
+        description: Empty response when data has been purged.
+    parameters:
+      !correlationParameter,3

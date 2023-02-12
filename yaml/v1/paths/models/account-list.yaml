@@ -98,7 +98,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/AttachmentArray'
-/accounts/{id}/piggy_banks:
+/accounts/{id}/piggy-banks:
   get:
     tags:
       - accounts

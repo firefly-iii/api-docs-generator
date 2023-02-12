@@ -1,4 +1,4 @@
-/link_types/{id}/transactions:
+/link-types/{id}/transactions:
   get:
     tags:
       - links

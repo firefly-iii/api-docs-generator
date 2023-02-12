@@ -32,7 +32,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-/transactions/{id}/piggy_bank_events:
+/transactions/{id}/piggy-bank-events:
   get:
     summary: Lists all piggy bank events.
     description: Lists all piggy bank events.

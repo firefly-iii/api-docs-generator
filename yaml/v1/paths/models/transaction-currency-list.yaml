@@ -47,7 +47,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-/currencies/{code}/available_budgets:
+/currencies/{code}/available-budgets:
   get:
     summary: List all available budgets with this currency.
     description: List all available budgets with this currency.

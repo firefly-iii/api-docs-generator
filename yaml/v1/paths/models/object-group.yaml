@@ -1,4 +1,4 @@
-/object_groups:
+/object-groups:
   get:
     summary: List all oject groups.
     description: List all oject groups.
@@ -25,7 +25,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-/object_groups/{id}:
+/object-groups/{id}:
   get:
     summary: Get a single object group.
     description: Get a single object group.
