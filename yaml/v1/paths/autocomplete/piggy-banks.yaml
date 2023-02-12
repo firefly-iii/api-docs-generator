@@ -1,0 +1,40 @@
+/autocomplete/piggy-banks:
+  get:
+    tags:
+      - autocomplete
+    operationId: getPiggiesAC
+    parameters:
+        !correlationParameter,3
+        !autocompleteSearchParameters,3
+    summary: Returns all piggy banks of the user returned in a basic auto-complete array.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of piggy banks with very basic information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompletePiggyArray'
+/autocomplete/piggy-banks-with-balance:
+  get:
+    tags:
+      - autocomplete
+    operationId: getPiggiesBalanceAC
+    parameters:
+      !correlationParameter,3
+      !autocompleteSearchParameters,3
+    summary: Returns all piggy banks of the user returned in a basic auto-complete array complemented with balance information.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of piggy banks with very basic balance information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompletePiggyBalanceArray'

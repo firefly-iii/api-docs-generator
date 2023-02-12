@@ -1,0 +1,20 @@
+AutocompleteBill:
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: string
+      format: string
+      example: "2"
+    name:
+      type: string
+      format: string
+      example: "Yearly bill"
+      description: Name of the bill found by an auto-complete search.
+    active:
+      type: boolean
+      format: boolean
+      example: true
+      description: Is the bill active or not?

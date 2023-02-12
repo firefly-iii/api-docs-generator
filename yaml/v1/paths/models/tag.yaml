@@ -1,0 +1,151 @@
+/tags:
+  get:
+    summary: List all tags.
+    description: List all of the user's tags.
+    operationId: listTag
+    tags:
+      - tags
+    parameters:
+        !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number
+        required: false
+        schema:
+          type: integer
+    responses:
+      200:
+        description: A list of tags
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TagArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  post:
+    summary: Store a new tag
+    description: Creates a new tag. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeTag
+    parameters:
+      !correlationParameter,3
+    tags:
+      - tags
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagModelStore'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TagModelStore'
+      description: "JSON array or key=value pairs with the necessary tag information. See the model for the exact specifications."
+      required: true
+    responses:
+      200:
+        description: 'New tag stored, result in response.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TagSingle'
+      !validationErrorResponse,3
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+/tags/{tag}:
+  get:
+    summary: Get a single tag.
+    description: Get a single tag.
+    operationId: getTag
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: tag
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        required: true
+        schema:
+          type: string
+          format: string
+          example: groceries
+      - in: query
+        name: page
+        description: Page number
+        required: false
+        schema:
+          type: integer
+    tags:
+      - tags
+    responses:
+      200:
+        description: 'The requested tag'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TagSingle'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  put:
+    operationId: updateTag
+    tags:
+      - tags
+    description: Update existing tag.
+    summary: Update existing tag.
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: tag
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        required: true
+        schema:
+          type: string
+          format: string
+          example: groceries
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagModelUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TagModelUpdate'
+      description: JSON array with updated tag information. See the model for the exact specifications.
+      required: true
+    responses:
+      200:
+        description: 'Updated tag stored, result in response'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TagSingle'
+      !validationErrorResponse,3
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  delete:
+    operationId: deleteTag
+    description: Delete an tag.
+    summary: Delete an tag.
+    tags:
+      - tags
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: tag
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        required: true
+        schema:
+          type: string
+          format: string
+          example: groceries
+    responses:
+      204:
+        description: Tag deleted.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

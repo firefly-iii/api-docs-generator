@@ -1,0 +1,11 @@
+BadRequest:
+  type: object
+  properties:
+    message:
+      type: string
+      format: string
+      example: "Bad Request"
+    exception:
+      type: string
+      format: string
+      example: "BadRequestHttpException"

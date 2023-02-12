@@ -1,0 +1,11 @@
+InternalException:
+  type: object
+  properties:
+    message:
+      type: string
+      format: string
+      example: "Internal Exception"
+    exception:
+      type: string
+      format: string
+      example: "InternalException"

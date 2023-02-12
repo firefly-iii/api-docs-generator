@@ -1,0 +1,21 @@
+PiggyBankEventRead:
+  type: object
+  required:
+    - type
+    - id
+    - attributes
+    - links
+  properties:
+    type:
+      type: string
+      format: string
+      example: "piggy_bank_events"
+      description: "Immutable value"
+    id:
+      type: string
+      format: string
+      example: "2"
+    attributes:
+      $ref: '#/components/schemas/PiggyBankEvent'
+    links:
+      $ref: '#/components/schemas/ObjectLink'

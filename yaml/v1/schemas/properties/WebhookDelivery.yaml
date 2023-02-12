@@ -1,0 +1,8 @@
+WebhookDelivery:
+  type: string
+  format: string
+  nullable: false
+  example: "JSON"
+  description: Format of the delivered response.
+  enum:
+    - JSON

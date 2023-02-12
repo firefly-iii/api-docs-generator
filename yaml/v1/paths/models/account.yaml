@@ -1,0 +1,170 @@
+/accounts:
+  get:
+    tags:
+      - accounts
+    summary: List all accounts.
+    description: |
+      This endpoint returns a list of all the accounts owned by the authenticated user.
+    operationId: listAccount
+    parameters:
+      !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number. The default pagination is per 50 items.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          example: 1
+      - in: query
+        name: date
+        description: |
+          A date formatted YYYY-MM-DD. When added to the request, Firefly III will show the account's balance on that day.
+        required: false
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: type
+        description: Optional filter on the account type(s) returned
+        required: false
+        schema:
+          $ref: '#/components/schemas/AccountTypeFilter'
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of accounts
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AccountArray'
+  post:
+    tags:
+      - accounts
+    summary: Create new account.
+    operationId: storeAccount
+    parameters:
+      !correlationParameter,3
+    description: Creates a new account. The data required can be submitted as a JSON body or as a list of parameters (in key=value pairs, like a webform).
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      !validationErrorResponse,3
+      200:
+        description: 'New account stored, result in response.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AccountSingle'
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountStore'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/AccountStore'
+      description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
+      required: true
+/accounts/{id}:
+  get:
+    tags:
+    - accounts
+    summary: Get single account.
+    description: |
+      Returns a single account by its ID.
+    operationId: getAccount
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the account.
+      - in: query
+        name: date
+        description: |
+          A date formatted YYYY-MM-DD. When added to the request, Firefly III will show the account's balance on that day.
+        required: false
+        schema:
+          type: string
+          format: date
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: 'The requested account'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AccountSingle'
+  put:
+    summary: Update existing account.
+    description: |
+      Used to update a single account. All fields that are not submitted will be cleared (set to NULL). The model will tell you which fields are mandatory.
+    operationId: updateAccount
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the account.
+    tags:
+      - accounts
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/AccountUpdate'
+      description: JSON array or formdata with updated account information. See the model for the exact specifications.
+      required: true
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      !validationErrorResponse,3
+      200:
+        description: 'Updated account stored, result in response'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AccountSingle'
+  delete:
+    summary: Permanently delete account.
+    description: |
+      Will permanently delete an account. Any associated transactions and piggy banks are ALSO deleted. Cannot be recovered from.
+    operationId: deleteAccount
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the account.
+    tags:
+      - accounts
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      204:
+        description: Account deleted

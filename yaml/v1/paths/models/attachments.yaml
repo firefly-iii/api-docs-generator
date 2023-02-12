@@ -1,0 +1,208 @@
+/attachments:
+  get:
+    summary: List all attachments.
+    description: |
+      This endpoint lists all attachments.
+    operationId: listAttachment
+    tags:
+      - attachments
+    parameters:
+      !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of attachments.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AttachmentArray'
+  post:
+    summary: Store a new attachment.
+    description: |
+      Creates a new attachment. The data required can be submitted as a JSON body or as a list of parameters. You cannot use this endpoint to upload the actual file data (see below). This endpoint only creates the attachment object.
+    operationId: storeAttachment
+    parameters:
+      !correlationParameter,3
+    tags:
+      - attachments
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AttachmentStore'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/AttachmentStore'
+      description: "JSON array or key=value pairs with the necessary attachment information. See the model for the exact specifications."
+      required: true
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: 'New attachment stored, result in response.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AttachmentSingle'
+  !validationErrorResponse,3
+/attachments/{id}:
+  get:
+    summary: Get a single attachment.
+    description: |
+      Get a single attachment. This endpoint only returns the available metadata for the attachment. Actual file data is handled in two other endpoints (see below).
+    operationId: getAttachment
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the attachment.
+    tags:
+      - attachments
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: 'The requested attachment'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AttachmentSingle'
+  put:
+    operationId: updateAttachment
+    tags:
+      - attachments
+    summary: Update existing attachment.
+    description: |
+      Update the meta data for an existing attachment. This endpoint does not allow you to upload or download data. For that, see below.
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the attachment.
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AttachmentUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/AttachmentUpdate'
+      description: JSON array with updated attachment information. See the model for the exact specifications.
+      required: true
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: 'Updated attachment stored, result in response'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AttachmentSingle'
+      !validationErrorResponse,3
+  delete:
+    operationId: deleteAttachment
+    summary: Delete an attachment.
+    description: |
+      With this endpoint you delete an attachment, including any stored file data.
+    tags:
+      - attachments
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the single attachment.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      204:
+        description: Attachment deleted.
+/attachments/{id}/download:
+  get:
+    summary: Download a single attachment.
+    description: |
+      This endpoint allows you to download the binary content of a transaction. It will be sent to you as a download, using the content type "application/octet-stream" and content disposition "attachment; filename=example.pdf".
+    operationId: downloadAttachment
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the attachment.
+    tags:
+      - attachments
+    responses:
+      200:
+        description: 'The requested attachment'
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+/attachments/{id}/upload:
+  post:
+    summary: Upload an attachment.
+    description: |
+      Use this endpoint to upload (and possible overwrite) the file contents of an attachment. Simply put the entire file in the body as binary data.
+    operationId: uploadAttachment
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the attachment.
+    tags:
+      - attachments
+    responses:
+      204:
+        description: 'Upload was a success'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      !validationErrorResponse,3
+    requestBody:
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary

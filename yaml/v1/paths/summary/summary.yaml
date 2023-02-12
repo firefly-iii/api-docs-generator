@@ -1,0 +1,45 @@
+/summary/basic:
+  get:
+    tags:
+      - summary
+    operationId: getBasicSummary
+    summary: Returns basic sums of the users data.
+    parameters:
+        !correlationParameter,3
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD.
+        required: true
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: currency_code
+        description: |
+          A currency code like EUR or USD, to filter the result.
+        required: false
+        schema:
+          type: string
+          format: string
+    description: |
+      Returns basic sums of the users data, like the net worth, spent and earned amounts. It is multi-currency, and is used in Firefly III to populate the dashboard.
+    responses:
+      '200':
+        description: An array of sums. It depends on the user what you can expect to get back, so please try this out on the demo site.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/BasicSummary'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

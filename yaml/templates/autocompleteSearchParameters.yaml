@@ -1,0 +1,16 @@
+- in: query
+  name: query
+  description: The autocomplete search query.
+  required: false
+  schema:
+    type: string
+    format: string
+  example: "string"
+- in: query
+  name: limit
+  description: The number of items returned.
+  required: false
+  schema:
+    type: integer
+    format: int32
+  example: 10

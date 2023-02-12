@@ -1,0 +1,24 @@
+/data/destroy:
+  delete:
+    tags:
+      - data
+    operationId: destroyData
+    summary: Endpoint to destroy user data
+    description: |
+      A call to this endpoint deletes the requested data type. Use it with care and always with user permission.
+      The demo user is incapable of using this endpoint.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      204:
+        description: Empty response when data has been destroyed.
+    parameters:
+      !correlationParameter,3
+      - in: query
+        name: objects
+        description: The type of data that you wish to destroy. You can only use one at a time.
+        required: true
+        schema:
+          $ref: '#/components/schemas/DataDestroyObject'

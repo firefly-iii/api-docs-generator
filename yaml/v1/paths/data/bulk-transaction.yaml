@@ -1,0 +1,23 @@
+/data/bulk/transactions:
+  post:
+    summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+    description: |
+      Allows you to update transactions in bulk.
+    operationId: bulkUpdateTransactions
+    tags:
+      - data
+    parameters:
+      - in: query
+        name: query
+        description: The JSON query.
+        required: true
+        schema:
+          type: string
+          format: json
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      204:
+        description: Empty response when the update was successful. A future improvement is to include the changed transactions.

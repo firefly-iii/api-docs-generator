@@ -1,0 +1,113 @@
+/object-groups:
+  get:
+    summary: List all oject groups.
+    description: List all oject groups.
+    operationId: listObjectGroups
+    tags:
+      - object_groups
+    parameters:
+        !correlationParameter,3
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
+    responses:
+      200:
+        description: A list of object groups
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/ObjectGroupArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+/object-groups/{id}:
+  get:
+    summary: Get a single object group.
+    description: Get a single object group.
+    operationId: getObjectGroup
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the object group.
+    tags:
+      - object_groups
+    responses:
+      200:
+        description: The requested object group
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/ObjectGroupSingle'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  put:
+    operationId: updateObjectGroup
+    tags:
+      - object_groups
+    description: Update existing object group.
+    summary: Update existing object group.
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the object group
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ObjectGroupUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/ObjectGroupUpdate'
+      description: JSON array with updated piggy bank information. See the model for the exact specifications.
+      required: true
+    responses:
+      200:
+        description: 'Updated object group stored, result in response'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/ObjectGroupSingle'
+      !validationErrorResponse,3
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  delete:
+    operationId: deleteObjectGroup
+    description: Delete a object group.
+    summary: Delete a object group.
+    tags:
+      - object_groups
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the object group.
+    responses:
+      204:
+        description: Object group deleted.
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

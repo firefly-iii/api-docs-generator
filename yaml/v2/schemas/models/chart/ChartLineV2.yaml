@@ -1,0 +1,4 @@
+ChartLineV2:
+  type: array
+  items:
+    $ref: '#/components/schemas/ChartDataSetV2'

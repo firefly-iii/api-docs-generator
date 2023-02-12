@@ -1,0 +1,40 @@
+/autocomplete/currencies:
+  get:
+    tags:
+      - autocomplete
+    operationId: getCurrenciesAC
+    parameters:
+        !correlationParameter,3
+        !autocompleteSearchParameters,3
+    summary: Returns all currencies of the user returned in a basic auto-complete array.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of currencies with very basic information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompleteCurrencyArray'
+/autocomplete/currencies-with-code:
+  get:
+    tags:
+      - autocomplete
+    operationId: getCurrenciesCodeAC
+    parameters:
+      !correlationParameter,3
+      !autocompleteSearchParameters,3
+    summary: Returns all currencies of the user returned in a basic auto-complete array. This endpoint is DEPRECATED and I suggest you DO NOT use it.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of currencies with very basic information and the currency code between brackets. This endpoint is DEPRECATED and I suggest you DO NOT use it.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompleteCurrencyCodeArray'

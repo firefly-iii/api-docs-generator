@@ -1,0 +1,82 @@
+/insight/expense/budget:
+  get:
+    summary: Insight into expenses, grouped by budget.
+    description: |
+      This endpoint gives a summary of the expenses made by the user, grouped by (any) budget.
+    operationId: insightExpenseBudget
+    tags:
+      - insight
+    parameters:
+        !correlationParameter,3
+        !dateRequestParams,3
+      - in: query
+        name: budgets[]
+        description: |
+          The budgets to be included in the results.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: 'A list of budget and expense details. Each budget has one row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightGroup'
+/insight/expense/no-budget:
+  get:
+    summary: Insight into expenses, without budget.
+    description: |
+      This endpoint gives a summary of the expenses made by the user, including only expenses with no budget.
+    operationId: insightExpenseNoBudget
+    tags:
+      - insight
+    parameters:
+        !correlationParameter,3
+        !dateRequestParams,3
+      - in: query
+        name: accounts[]
+        description: |
+          The accounts to be included in the results. If you include ID's of asset accounts or liabilities, only withdrawals from those
+          asset accounts / liabilities will be included. Other account ID's will be ignored.
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example: [ 1, 2, 3 ]
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: 'A list of expense details. One row per currency.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightTotal'

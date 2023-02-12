@@ -1,0 +1,58 @@
+/recurrences/{id}/transactions:
+  get:
+    summary: List all transactions created by a recurring transaction.
+    description: List all transactions created by a recurring transaction, optionally limited to the date ranges specified.
+    operationId: listTransactionByRecurrence
+    tags:
+      - recurrences
+    parameters:
+        !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the recurring transaction.
+      - in: query
+        name: page
+        description: Page number. The default pagination is 50.
+        required: false
+        schema:
+          type: integer
+          example: 1
+      - in: query
+        name: start
+        description: |
+          A date formatted YYYY-MM-DD. Both the start and end date must be present.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: "2018-09-17"
+      - in: query
+        name: end
+        description: |
+          A date formatted YYYY-MM-DD. Both the start and end date must be present.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: "2018-09-17"
+      - in: query
+        name: type
+        description: Optional filter on the transaction type(s) returned
+        required: false
+        schema:
+          $ref: '#/components/schemas/TransactionTypeFilter'
+    responses:
+      200:
+        description: A list of transactions
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/TransactionArray'
+              !unauthenticatedResponse,3
+              !notFoundResponse,3
+              !badRequestResponse,3
+              !internalExceptionResponse,3

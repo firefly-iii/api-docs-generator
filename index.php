@@ -1,113 +1,93 @@
 <?php
+
 declare(strict_types=1);
 
 use ApiDocBuilder\Builder\Builder;
+use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\StreamHandler;
+use Monolog\Level;
+use Monolog\Logger;
 
 // default values:
 $version     = '0.1-beta';
 $server      = 'https://demo.firefly-iii.org';
-$destination = '/';
+$destination = './';
 $tags        = [];
+$directories = [];
+$apiVersions = ['v1', 'v2'];
 
 include 'vendor/autoload.php';
 include 'config.php';
 
-$builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
+// create a log channel
+$log       = new Logger('api-docs-generator');
+$formatter = new LineFormatter("[%datetime%] %level_name%: %message% %context% %extra%\n", 'Y-m-d H:i:s', true, true);
+$handler   = new StreamHandler('php://stdout', Level::Debug);
+$handler->setFormatter($formatter);
+$log->pushHandler($handler);
+
+
+$templatesDir = sprintf('%s/templates', ROOT);
+$cacheDir     = sprintf('%s/cache', ROOT);
+
+$builder = new Builder($templatesDir, $cacheDir);
+$builder->setLogger($log);
 $builder->setVersion($version);
+$builder->setApiVersions($apiVersions);
 $builder->setServer($server);
-//echo '<pre>';
+
+$log->debug('Start building API docs');
 
 // add tags
 /**
  * @var string $name
- * @var array  $info
+ * @var array $info
  */
 foreach ($tags as $name => $info) {
-    $builder->addTag($name, $info['description']);
+    $builder->addTag($name, $info);
 }
 unset($name);
 
-// scan directories and add all paths:
-$directories = [
-    'yaml/paths/autocomplete',
-    'yaml/paths/charts',
-    'yaml/paths/data',
-    'yaml/paths/insight',
-    'yaml/paths/summary',
-    'yaml/paths/models',
-    'yaml/paths/search',
-    'yaml/paths/system',
-    'yaml/paths/user',
-];
+// two sets of schema's:
+// v1 and v2.
 
-foreach ($directories as $directory) {
+/** @var array $info */
+foreach ($directories as $info) {
+    /** @var string $apiVersion */
+    foreach ($info['api_version'] as $apiVersion) {
+        $log->debug(sprintf('Add directory "%s" to version "%s"', $info['path'], $apiVersion));
+        // list all files in the directory:
+        $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
+        $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
 
-    // list all files in the directory:
-    $fullDirectory = sprintf('%s/%s', ROOT, $directory);
-    $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
-    /**
-     * @var string      $fullPath
-     * @var SplFileInfo $object
-     */
-    foreach ($objects as $fullPath => $object) {
-        // add to thing:
-        if ('yaml' === substr($fullPath, -4)) {
-            //echo sprintf("Added %s\n", $fullPath);
+        // sort all files in the directory:
+        $list = [];
+        /**
+         * @var string $fullPath
+         * @var SplFileInfo $object
+         */
+        foreach ($objects as $fullPath => $object) {
+            if (str_ends_with($fullPath, 'yaml')) {
+                $list[$fullPath] = $object;
+            }
+        }
+        ksort($list);
 
-            //echo sprintf("Adding file %s\n", $fullPath);
-            $builder->addYamlFile('paths', $fullPath, 1);
+        /**
+         * @var string $fullPath
+         * @var SplFileInfo $object
+         */
+        foreach ($list as $fullPath => $object) {
+            // add to thing:
+            $log->debug(sprintf('Add "%s" file "%s"', $info['identifier'], $fullPath));
+            $builder->addYamlFile($apiVersion, $info['identifier'], $fullPath, $info['indentation']);
         }
     }
 }
-
-// scan directories and add all models (schemas):
-$directories = [
-    'yaml/schemas/arrays', // always need this
-    'yaml/schemas/filters', // always need this
-    'yaml/schemas/lists', // always need this
-    'yaml/schemas/properties', // always need this
-
-    'yaml/schemas/autocomplete',
-    'yaml/schemas/charts',
-    'yaml/schemas/data',
-    'yaml/schemas/insight',
-    'yaml/schemas/summary',
-    'yaml/schemas/system',
-    'yaml/schemas/models',// always need this
-
-];
-
-foreach ($directories as $directory) {
-    // list all files in the directory:
-    $fullDirectory = sprintf('%s/%s', ROOT, $directory);
-    $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
-
-    /**
-     * @var string      $fullPath
-     * @var SplFileInfo $object
-     */
-    foreach ($objects as $fullPath => $object) {
-
-        // add to thing:
-        if ('yaml' === substr($fullPath, -4)) {
-            //echo sprintf("Added %s\n", $fullPath);
-            //echo sprintf("Adding file %s\n", $fullPath);
-            $builder->addYamlFile('schemas', $fullPath, 2);
-        }
-    }
+foreach ($apiVersions as $apiVersion) {
+    $result           = $builder->render($apiVersion);
+    $finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $version, $apiVersion);
+    file_put_contents($finalDestination, $result);
 }
-$result = $builder->render();
-//echo $result;
-// put in file:
-// put result in file:
-$finalDestination = sprintf('%s/firefly-iii-%s.yaml', $destination, $version);
-
-file_put_contents($finalDestination, $result);
-
-exit;
-
-
-
-
 
 

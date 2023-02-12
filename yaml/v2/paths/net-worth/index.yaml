@@ -1,0 +1,23 @@
+/net-worth:
+  get:
+    tags:
+      - net-worth
+    summary: Shows the net worth
+    description: |
+      Shows a multi-currency overview of the user's net worth.
+    operationId: getNetWorth
+    parameters:
+      !correlationParameter,3
+      !mandatorySingleDateRequestParam,3
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      !validationErrorResponse,3
+      200:
+        description: An array of net worths.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionSumArray'

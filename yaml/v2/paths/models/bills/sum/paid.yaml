@@ -1,0 +1,23 @@
+/bills/sum/paid:
+  get:
+    tags:
+      - transactions-sum
+    operationId: getBillsPaidTrSum
+    summary: Returns the sum of the bills already paid in the period indicated.
+    parameters:
+      !correlationParameter,3
+      !dateRequestParams,3
+    description: |
+      This endpoint sums up (by currency) the transactions linked to bills paid in the given period.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      !validationErrorResponse,3
+      200:
+        description: An array of sums.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionSumArray'

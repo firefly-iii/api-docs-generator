@@ -1,0 +1,7 @@
+- name: X-Trace-Id
+  in: header
+  description: Unique identifier associated with this request.
+  required: false
+  schema:
+    type: string
+    format: uuid

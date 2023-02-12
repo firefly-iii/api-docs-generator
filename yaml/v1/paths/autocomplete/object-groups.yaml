@@ -1,0 +1,20 @@
+/autocomplete/object-groups:
+  get:
+    tags:
+      - autocomplete
+    operationId: getObjectGroupsAC
+    parameters:
+        !correlationParameter,3
+        !autocompleteSearchParameters,3
+    summary: Returns all object groups of the user returned in a basic auto-complete array.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of object groups with very basic information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompleteObjectGroupArray'
