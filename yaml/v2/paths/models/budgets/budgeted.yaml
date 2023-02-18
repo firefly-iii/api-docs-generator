@@ -8,6 +8,7 @@
       Returns the budgeted amount for the given budget in the given period.
     parameters:
       !correlationParameter,3
+      !dateRequestParams,3
       !pageParameter,3
       - in: path
         name: id

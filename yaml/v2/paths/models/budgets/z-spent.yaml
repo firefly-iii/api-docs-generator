@@ -2,10 +2,10 @@
   get:
     tags:
       - budgets
-    operationId: getSpentForBudget
-    summary: Returns the spent amount for the given budget in the given period.
+    operationId: getSpentForBudgets
+    summary: Returns the spent amount for all budgets in the given period.
     description: |
-      Returns the spent amount for the given budget in the given period.
+      Returns the spent amount for all budgets in the given period.
     parameters:
       !correlationParameter,3
       !dateRequestParams,3
