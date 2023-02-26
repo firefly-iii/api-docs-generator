@@ -1,6 +1,11 @@
 TransactionSplitUpdate:
   type: object
   properties:
+    transaction_journal_id:
+      type: string
+      format: string
+      example: "123"
+      description: "Transaction journal ID of current transaction (split)."
     date:
       type: string
       format: date-time
