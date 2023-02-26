@@ -6,6 +6,8 @@ TransactionSplitUpdate:
       format: string
       example: "123"
       description: "Transaction journal ID of current transaction (split)."
+    type:
+      $ref: '#/components/schemas/TransactionTypeProperty'
     date:
       type: string
       format: date-time
