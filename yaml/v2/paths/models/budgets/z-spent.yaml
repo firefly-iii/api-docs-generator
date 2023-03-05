@@ -1,4 +1,4 @@
-/budgets/{id}/spent:
+/budgets/sum/spent:
   get:
     tags:
       - budgets
