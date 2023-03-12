@@ -15,11 +15,14 @@
         example: "2020-09-17"
         description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date.
       - in: query
-        name: type
+        name: types
         description: Optional filter on the account type(s) used in the autocomplete.
         required: false
+        explode: false
         schema:
-          $ref: '#/components/schemas/AccountTypeFilter'
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTypeFilter'
     summary: Returns all accounts of the user returned in a basic auto-complete array.
     responses:
       !unauthenticatedResponse,3
