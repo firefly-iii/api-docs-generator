@@ -13,7 +13,7 @@ RecurrenceUpdate:
     first_date:
       type: string
       format: date
-      example: "2017-09-17"
+      example: "2018-09-17"
       description: "First time the recurring transaction will fire."
     repeat_until:
       type: string
