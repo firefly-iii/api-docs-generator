@@ -38,7 +38,7 @@ PiggyBankUpdate:
       type: string
       format: date
       nullable: true
-      example: "2020-09-17"
+      example: "2018-09-17"
       description: The date you intend to finish saving money.
     order:
       type: integer
