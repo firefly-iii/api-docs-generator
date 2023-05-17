@@ -96,7 +96,7 @@
         name: code
         required: true
         schema:
-          type: integer
+          type: string
           example: GBP
         description: The currency code.
     responses:
