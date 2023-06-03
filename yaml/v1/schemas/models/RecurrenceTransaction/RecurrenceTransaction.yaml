@@ -144,3 +144,14 @@ RecurrenceTransaction:
       format: string
       nullable: true
       description: Optional. Use either this or the piggy_bank_id
+    bill_id:
+      type: string
+      format: string
+      example: "123"
+      nullable: true
+      description: Optional. Use either this or the bill_name
+    bill_name:
+      type: string
+      format: string
+      nullable: true
+      description: Optional. Use either this or the bill_id

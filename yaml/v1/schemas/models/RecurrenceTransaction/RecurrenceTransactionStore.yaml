@@ -79,3 +79,9 @@ RecurrenceTransactionStore:
       example: "123"
       nullable: true
       description: Optional.
+    bill_id:
+      type: string
+      format: string
+      example: "123"
+      nullable: true
+      description: Optional.
