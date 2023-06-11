@@ -4,6 +4,10 @@ RecurrenceTransaction:
     - description
     - amount
   properties:
+    id:
+      type: string
+      format: string
+      example: "ID of the recurring transaction. Not to be confused with the ID of the recurrence itself."
     description:
       type: string
       format: string
