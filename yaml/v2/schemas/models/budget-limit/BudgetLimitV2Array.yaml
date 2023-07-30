@@ -7,6 +7,6 @@ BudgetLimitV2Array:
     data:
       type: array
       items:
-        $ref: '#/components/schemas/BudgetLimitV2Read'
+        $ref: '#/components/schemas/BudgetLimitReadV2'
     meta:
       $ref: '#/components/schemas/Meta'

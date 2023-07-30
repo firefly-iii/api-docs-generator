@@ -1,0 +1,18 @@
+PreferenceRead:
+  type: object
+  required:
+    - type
+    - id
+    - attributes
+  properties:
+    type:
+      type: string
+      format: string
+      example: "preferences"
+      description: "Immutable value"
+    id:
+      type: string
+      format: string
+      example: "2"
+    attributes:
+      $ref: '#/components/schemas/Preference'

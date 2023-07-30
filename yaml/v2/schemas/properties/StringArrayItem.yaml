@@ -1,0 +1,3 @@
+StringArrayItem:
+  type: string
+  format: string
