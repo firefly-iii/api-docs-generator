@@ -1,4 +1,5 @@
 LinkTypeUpdate:
+  required: []
   type: object
   properties:
     name:

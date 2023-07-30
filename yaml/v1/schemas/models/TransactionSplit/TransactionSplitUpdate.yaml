@@ -1,5 +1,6 @@
 TransactionSplitUpdate:
   type: object
+  required: []
   properties:
     transaction_journal_id:
       type: string

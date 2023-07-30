@@ -1,5 +1,7 @@
 BillUpdate:
   type: object
+  required:
+    - name
   properties:
     currency_id:
       type: string

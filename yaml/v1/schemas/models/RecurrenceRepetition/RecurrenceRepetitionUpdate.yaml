@@ -1,5 +1,6 @@
 RecurrenceRepetitionUpdate:
   type: object
+  required: []
   properties:
     type:
       $ref: '#/components/schemas/RecurrenceRepetitionType'

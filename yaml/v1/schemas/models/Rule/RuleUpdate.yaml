@@ -1,5 +1,6 @@
 RuleUpdate:
   type: object
+  required: []
   properties:
     title:
       type: string

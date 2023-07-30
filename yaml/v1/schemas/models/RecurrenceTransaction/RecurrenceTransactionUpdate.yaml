@@ -1,5 +1,6 @@
 RecurrenceTransactionUpdate:
   type: object
+  required: []
   properties:
     id:
       type: string

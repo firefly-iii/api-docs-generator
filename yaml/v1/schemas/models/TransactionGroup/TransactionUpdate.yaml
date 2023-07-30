@@ -1,5 +1,6 @@
 TransactionUpdate:
   type: object
+  required: []
   properties:
     apply_rules:
       type: boolean

@@ -1,5 +1,9 @@
 AvailableBudgetUpdate:
   type: object
+  required:
+    - amount
+    - start
+    - end
   properties:
     currency_id:
       type: string
