@@ -1,0 +1,40 @@
+/chart/balance/balance:
+  get:
+    tags:
+      - charts
+    summary: A chart that contains spent/earned amounts
+    description: |
+      The chart contains spent/earned amounts for the given date range, grouped by the given period, and collected for the given accounts.
+    operationId: getBalanceChart
+    parameters:
+      !correlationParameter,3
+      !dateRequestParams,3
+      - in: query
+        name: accounts
+        description: | 
+          An array of accounts that should be included. Example: accounts[]=1&accounts[]=2
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: period
+        description: The period by which the results must be grouped.
+        required: true
+        schema:
+          $ref: '#/components/schemas/PeriodProperty'
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: Chart information. Check out the model for more details. Each main entry is a set of data.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartLineV2'
