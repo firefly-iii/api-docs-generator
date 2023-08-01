@@ -4,7 +4,7 @@
       - charts
     summary: Dashboard chart with asset account balance information.
     description: |
-      This endpoint returns the data required to generate a chart with basic asset account balance information.
+      This endpoint returns the data required to generate a chart with basic asset account balance information. By default it contains the users frontpage accounts OR all the user's asset accounts if this preference is empty.
     operationId: getChartAccountOverview
     parameters:
       !correlationParameter,3
@@ -15,7 +15,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       200:
-        description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+        description: Chart information. Check out the model for more details. Each main entry is a set of data.
         content:
           application/json:
             schema:
