@@ -10,7 +10,7 @@
       !correlationParameter,3
       !dateRequestParams,3
       - in: query
-        name: accounts
+        name: accounts[]
         description: | 
           An array of accounts that should be included. Example: accounts[]=1&accounts[]=2
         required: true
