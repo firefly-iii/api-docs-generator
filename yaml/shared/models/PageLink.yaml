@@ -9,6 +9,14 @@ PageLink:
       type: string
       format: uri
       example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=1"
+    next:
+      type: string
+      format: uri
+      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=3"
+    prev:
+      type: string
+      format: uri
+      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=2"
     last:
       type: string
       format: uri
