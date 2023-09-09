@@ -7,7 +7,7 @@ $dotenv->load();
 
 $destination = getenv('API_DESTINATION');
 $server      = getenv('API_SERVER');
-$version     = '2.0.7';
+$version     = '2.0.8';
 
 define('ROOT', getenv('API_ROOT'));
 
