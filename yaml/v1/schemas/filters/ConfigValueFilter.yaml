@@ -1,5 +1,7 @@
 ConfigValueFilter:
   type: string
+  example: "configuration.is_demo_site"
+  description: "Title of the configuration value."
   enum:
     - configuration.is_demo_site
     - configuration.permission_update_check

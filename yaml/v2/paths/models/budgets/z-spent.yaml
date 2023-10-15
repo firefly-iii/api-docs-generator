@@ -9,13 +9,6 @@
     parameters:
       !correlationParameter,3
       !dateRequestParams,3
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-          example: "123"
-        description: The ID of the budget.
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3

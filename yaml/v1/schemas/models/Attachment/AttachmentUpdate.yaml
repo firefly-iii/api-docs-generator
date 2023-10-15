@@ -1,6 +1,5 @@
 AttachmentUpdate:
   type: object
-  required: []
   properties:
     filename:
       type: string

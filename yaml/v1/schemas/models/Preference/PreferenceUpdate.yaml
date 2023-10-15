@@ -5,5 +5,3 @@ PreferenceUpdate:
   properties:
     data:
       $ref: '#/components/schemas/PolymorphicProperty'
-      example: "EUR"
-      description: "The actual preference content."

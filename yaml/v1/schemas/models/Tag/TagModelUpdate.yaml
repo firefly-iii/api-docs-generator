@@ -1,7 +1,6 @@
 TagModelUpdate:
   title: A single tag
   type: object
-  required: []
   properties:
     tag:
       type: string

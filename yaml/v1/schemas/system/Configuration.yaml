@@ -6,13 +6,9 @@ Configuration:
     - editable
   properties:
     title:
-      example: "configuration.is_demo_site"
-      description: "Title of the configuration value."
       $ref: '#/components/schemas/ConfigValueFilter'
     value:
       $ref: '#/components/schemas/PolymorphicProperty'
-      example: "some-variable"
-      description: "Content of the configuration variable. Is very dynamic and can be anything from booleans to arrays."
     editable:
       type: boolean
       format: boolean

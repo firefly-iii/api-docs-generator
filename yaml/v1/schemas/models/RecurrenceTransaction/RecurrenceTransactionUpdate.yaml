@@ -6,7 +6,6 @@ RecurrenceTransactionUpdate:
     id:
       type: string
       format: string
-      required: true
       example: "ID of the recurring transaction. Not to be confused with the ID of the recurrence itself. Is marked as REQUIRED but can be skipped when there is only ONE transaction."
     description:
       type: string

@@ -1,7 +1,6 @@
 WebhookUpdate:
   title: A single webhook
   type: object
-  required: []
   properties:
     active:
       type: boolean

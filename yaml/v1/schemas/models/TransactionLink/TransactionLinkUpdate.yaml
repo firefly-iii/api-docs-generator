@@ -1,6 +1,5 @@
 TransactionLinkUpdate:
   type: object
-  required: []
   properties:
     link_type_id:
       type: string

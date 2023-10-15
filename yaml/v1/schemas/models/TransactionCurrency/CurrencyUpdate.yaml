@@ -1,6 +1,5 @@
 CurrencyUpdate:
   type: object
-  required: []
   properties:
     enabled:
       type: boolean

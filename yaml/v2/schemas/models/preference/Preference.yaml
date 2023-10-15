@@ -20,5 +20,3 @@ Preference:
       example: currencyPreference
     data:
       $ref: '#/components/schemas/PolymorphicProperty'
-      example: "EUR"
-      description: "The actual preference content."
