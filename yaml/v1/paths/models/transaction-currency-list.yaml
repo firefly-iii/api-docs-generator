@@ -7,6 +7,8 @@
       - currencies
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: code
         required: true
@@ -15,13 +17,6 @@
           format: string
           example: USD
         description: The currency code.
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
       - in: query
         name: date
         description: |
@@ -56,6 +51,8 @@
       - currencies
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: code
         required: true
@@ -64,13 +61,7 @@
           format: string
           example: EUR
         description: The currency code.
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50
-        required: false
-        schema:
-          type: integer
-          example: 1
+
     responses:
       200:
         description: A list of available budgets
@@ -91,6 +82,8 @@
       - currencies
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: code
         required: true
@@ -99,13 +92,7 @@
           format: string
           example: USD
         description: The currency code.
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
+
     responses:
       200:
         description: A list of bills.
@@ -126,6 +113,8 @@
       - currencies
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: code
         required: true
@@ -134,13 +123,6 @@
           format: string
           example: USD
         description: The currency code.
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
       - in: query
         name: start
         description: Start date for the budget limit list.
@@ -177,6 +159,8 @@
       - currencies
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: code
         required: true
@@ -185,13 +169,6 @@
           format: string
           example: EUR
         description: The currency code.
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
     responses:
       200:
         description: A list of recurring transactions
@@ -212,6 +189,8 @@
       - currencies
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: code
         required: true
@@ -220,13 +199,6 @@
           format: string
           example: USD
         description: The currency code.
-      - in: query
-        name: page
-        description: Page number. The default pagination per 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
     responses:
       200:
         description: A list of rules
@@ -247,6 +219,8 @@
       - currencies
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: code
         required: true
@@ -255,13 +229,6 @@
           format: string
           example: USD
         description: The currency code.
-      - in: query
-        name: page
-        description: Page number. The default pagination is per 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
       - in: query
         name: start
         description: |

@@ -7,13 +7,8 @@
       - currencies
     parameters:
         !correlationParameter,3
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
+      !limitParameter,3
+      !pageParameter,3
     responses:
       200:
         description: A list of currencies.

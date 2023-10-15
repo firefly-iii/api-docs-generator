@@ -7,6 +7,8 @@
       - bills
     parameters:
         !correlationParameter,3
+        !limitParameter,3
+        !pageParameter,3
       - in: path
         name: id
         required: true
@@ -14,13 +16,6 @@
           type: string
           example: "123"
         description: The ID of the bill.
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3

@@ -95,6 +95,8 @@
     operationId: getWebhookMessageAttempts
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: id
         required: true
@@ -109,14 +111,7 @@
           type: integer
           example: 1
         description: The webhook message ID.
-      - in: query
-        name: page
-        description: Page number. The default pagination is per 50 items.
-        required: false
-        schema:
-          type: integer
-          format: int32
-          example: 1
+
     tags:
       - webhooks
     responses:

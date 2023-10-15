@@ -9,6 +9,7 @@
     parameters:
       !correlationParameter,3
       !pageParameter,3
+      !limitParameter,3
       - in: path
         name: id
         required: true
@@ -16,13 +17,6 @@
           type: string
           example: "123"
         description: The ID of the account.
-      - in: query
-        name: limit
-        description: Limits the number of results on one page.
-        required: false
-        schema:
-          type: integer
-          example: 5
       - in: query
         name: start
         description: |

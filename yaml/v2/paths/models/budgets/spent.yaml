@@ -9,7 +9,6 @@
     parameters:
       !correlationParameter,3
       !dateRequestParams,3
-      !pageParameter,3
       - in: path
         name: id
         required: true

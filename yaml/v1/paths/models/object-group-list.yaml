@@ -8,6 +8,8 @@
     operationId: listPiggyBankByObjectGroup
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: id
         required: true
@@ -15,12 +17,7 @@
           type: string
           example: "123"
         description: The ID of the account.
-      - in: query
-        name: page
-        description: Page number. The default pagination is per 50 items.
-        required: false
-        schema:
-          type: integer
+
     responses:
       200:
         description: A list of piggy banks
@@ -41,6 +38,8 @@
       - object_groups
     parameters:
         !correlationParameter,3
+          !limitParameter,3
+          !pageParameter,3
       - in: path
         name: id
         required: true
@@ -48,12 +47,6 @@
           type: string
           example: "123"
         description: The ID of the account.
-      - in: query
-        name: page
-        description: Page number. The default pagination is per 50 items.
-        required: false
-        schema:
-          type: integer
     responses:
       200:
         description: A list of bills.

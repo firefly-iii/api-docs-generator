@@ -8,13 +8,8 @@
       - attachments
     parameters:
       !correlationParameter,3
-      - in: query
-        name: page
-        description: Page number. The default pagination is 50.
-        required: false
-        schema:
-          type: integer
-          example: 1
+      !limitParameter,3
+      !pageParameter,3
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3
