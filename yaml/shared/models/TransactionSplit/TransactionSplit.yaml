@@ -223,9 +223,9 @@ TransactionSplit:
       description: System generated identifier for original creator of transaction.
       readOnly: true
     recurrence_id:
-      type: integer
+      type: string
       nullable: true
-      format: int32
+      format: string
       description: Reference to recurrence that made the transaction.
       readOnly: true
     recurrence_total:
