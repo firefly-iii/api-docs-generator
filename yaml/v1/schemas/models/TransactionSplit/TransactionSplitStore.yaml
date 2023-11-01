@@ -118,11 +118,13 @@ TransactionSplitStore:
       format: int32
       description: Optional. Use either this or the piggy_bank_name
       writeOnly: true
+      nullable: true
     piggy_bank_name:
       type: string
       format: string
       description: Optional. Use either this or the piggy_bank_id
       writeOnly: true
+      nullable: true
     bill_id:
       type: string
       format: string
