@@ -43,6 +43,7 @@ Attachment:
       type: string
       format: string
       example: "Some PDF file"
+      nullable: true
     notes:
       type: string
       format: string
