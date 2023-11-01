@@ -34,8 +34,10 @@ PiggyBankEvent:
       format: string
       example: "4291"
       description: The journal associated with the event.
+      nullable: true
     transaction_group_id:
       type: string
       format: string
       example: "4291"
       description: The transaction group associated with the event.
+      nullable: true
