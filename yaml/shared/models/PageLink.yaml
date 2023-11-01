@@ -13,10 +13,12 @@ PageLink:
       type: string
       format: uri
       example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=3"
+      nullable: true
     prev:
       type: string
       format: uri
       example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=2"
+      nullable: true
     last:
       type: string
       format: uri
