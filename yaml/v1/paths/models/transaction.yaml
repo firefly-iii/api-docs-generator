@@ -1,8 +1,8 @@
 /transactions:
   get:
     summary: |
-      List all the user's transactions.
-    description: List all the user's transactions.
+      List all the user's transactions groups.
+    description: List all the user's transactions groups.
     operationId: listTransaction
     tags:
       - transactions
@@ -46,8 +46,8 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
   post:
-    summary: Store a new transaction
-    description: Creates a new transaction. The data required can be submitted as a JSON body or as a list of parameters.
+    summary: Store a new transaction group
+    description: Creates a new transaction group. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeTransaction
     parameters:
       !correlationParameter,3
@@ -107,7 +107,7 @@
     tags:
       - transactions
     description: Update an existing transaction group.
-    summary: Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+    summary: Update existing transaction group. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
     parameters:
         !correlationParameter,3
       - in: path
