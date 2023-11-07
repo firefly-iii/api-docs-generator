@@ -77,8 +77,8 @@
       !internalExceptionResponse,3
 /transactions/{id}:
   get:
-    summary: Get a single transaction.
-    description: Get a single transaction.
+    summary: Get a single transaction group.
+    description: Get a single transaction group.
     operationId: getTransaction
     parameters:
         !correlationParameter,3
@@ -88,7 +88,7 @@
         schema:
           type: string
           example: "123"
-        description: The ID of the transaction.
+        description: The ID of the transaction group.
     tags:
       - transactions
     responses:
@@ -106,7 +106,7 @@
     operationId: updateTransaction
     tags:
       - transactions
-    description: Update an existing transaction.
+    description: Update an existing transaction group.
     summary: Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
     parameters:
         !correlationParameter,3
@@ -116,7 +116,7 @@
         schema:
           type: string
           example: "123"
-        description: The ID of the transaction.
+        description: The ID of the transaction group.
     requestBody:
       content:
         application/json:
@@ -141,8 +141,8 @@
       !internalExceptionResponse,3
   delete:
     operationId: deleteTransaction
-    description: Delete a transaction.
-    summary: Delete a transaction.
+    description: Delete a transaction group.
+    summary: Delete a transaction group.
     tags:
       - transactions
     parameters:
@@ -153,7 +153,7 @@
         schema:
           type: string
           example: "123"
-        description: The ID of the transaction.
+        description: The ID of the transaction group.
     responses:
       204:
         description: Transaction deleted.
