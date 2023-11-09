@@ -1,4 +1,4 @@
 BasicSummary:
   type: object
-  items:
+  additionalProperties:
     $ref: '#/components/schemas/BasicSummaryEntry'
