@@ -45,7 +45,7 @@
     description: Searches through the users transactions.
     externalDocs:
       description: Search Documentation
-      url: https://docs.firefly-iii.org/firefly-iii/pages-and-features/search/
+      url: https://docs.firefly-iii.org/how-to/firefly-iii/features/search/
     operationId: searchTransactions
     tags:
       - search

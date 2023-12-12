@@ -14,8 +14,8 @@ CurrencyStore:
     default:
       type: boolean
       format: boolean
-      example: false
-      description: Make this currency the default currency.
+      example: true
+      description: Make this currency the default currency. You can set this value to FALSE, in which case nothing will change to the default currency. If you set it to TRUE, the current default currency will no longer be the default currency.
     code:
       type: string
       format: string

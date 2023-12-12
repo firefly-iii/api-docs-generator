@@ -1,6 +1,6 @@
 /data/bulk/transactions:
   post:
-    summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+    summary: Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
     description: |
       Allows you to update transactions in bulk.
     operationId: bulkUpdateTransactions

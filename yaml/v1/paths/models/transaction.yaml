@@ -107,7 +107,7 @@
     tags:
       - transactions
     description: Update an existing transaction.
-    summary: Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+    summary: Update existing transaction. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
     parameters:
         !correlationParameter,3
       - in: path
