@@ -31,7 +31,7 @@ WebhookMessage:
       format: string
       example: "7a344c02-5b52-46b1-90e6-a437431dcf07"
       description: "Long UUID string for identification of this webhook message."
-    string:
+    message:
       type: string
       format: string
       example: "{some:message}"
