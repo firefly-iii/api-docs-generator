@@ -23,3 +23,33 @@
         description: Webhook not found.
       500:
         description: Error while sending.
+/webhooks/{id}/trigger-transaction/{transactionId}:
+  post:
+    summary: Trigger webhook for a given transaction.
+    description: This endpoint will execute this webhook for a given transaction ID. This is an asynchronous operation, so you can't see the result. Refresh the webhook message and/or the webhook message attempts to see the results. This may take some time if the webhook receiver is slow.
+    operationId: triggerTransactionWebhook
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The webhook ID.
+      - in: path
+        name: transactionId
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The transaction ID.
+    tags:
+      - webhooks
+    responses:
+      204:
+        description: Webhook triggered successfully.
+      404:
+        description: Webhook or transaction not found.
+      500:
+        description: Error while sending.
