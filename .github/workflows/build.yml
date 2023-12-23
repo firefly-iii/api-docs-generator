@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   build_docs:
-    name: SonarCloud
+    name: BuildDocs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,3 +19,4 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: 'api-docs'
+          repository: 'fireflyiii/api-docs'
