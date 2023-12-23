@@ -32,9 +32,12 @@ jobs:
         run: |
           php index.php
           cd api-docs
-          git status
+          git add firefly-iii-$API_VERSION-v1.yaml
+          git add firefly-iii-$API_VERSION-v2.yaml
+          git commit -m "Update API documentation for Firefly III $API_VERSION"
+          git push
         env:
           API_DESTINATION: ./api-docs
           API_SERVER: https://demo.firefly-iii.org
-          API_VERSION: 0.1
+          API_VERSION: 2.0.12
           API_ROOT: .
