@@ -31,4 +31,8 @@ jobs:
       - name: Build documentation
         run: |
           php index.php
+        env:
+          API_DESTINATION: ./api-docs
+          API_SERVER: https://demo.firefly-iii.org
+          API_VERSION: 0.1
           

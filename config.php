@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+$dotenv->safeLoad();
 
 $destination = getenv('API_DESTINATION');
 $server      = getenv('API_SERVER');
