@@ -1,0 +1,31 @@
+BasicSummaryEntry:
+  type: object
+  properties:
+    key:
+      type: string
+      format: string
+      example: "balance-in-EUR"
+      description: "This is a reference to the type of info shared, not influenced by translations or user preferences. The EUR value is a reference to the currency code. They EUR value may also be 'native' in which case the amount is already converted to the user's native balance."
+    value:
+      type: number
+      format: double
+      example: 123.45
+      description: "The amount."
+    currency_id:
+      type: string
+      format: string
+      example: "5"
+      description: "The currency ID of the associated currency."
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+    currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: "Number of decimals for the associated currency."
