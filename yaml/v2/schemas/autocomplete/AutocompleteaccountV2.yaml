@@ -1,0 +1,57 @@
+AutocompleteAccountV2:
+  type: object
+  required:
+    - id
+    - name
+    - name_with_balance
+    - type
+    - currency_id
+    - currency_name
+    - currency_code
+    - currency_symbol
+    - currency_decimal_places
+  properties:
+    id:
+      type: string
+      format: string
+      example: "2"
+    name:
+      type: string
+      format: string
+      example: "Checking Account"
+      description: Name of the account found by an auto-complete search.
+    name_with_balance:
+      type: string
+      format: string
+      example: "Checking Account ($123.45)"
+      description: Asset accounts and liabilities have a second field with the given date's account balance.
+    type:
+      type: string
+      format: string
+      example: "Asset account"
+      description: Account type of the account found by the auto-complete search.
+    currency_id:
+      type: string
+      format: string
+      example: "12"
+      description: ID for the currency used by this account.
+    currency_name:
+      type: string
+      format: string
+      example: "Euro"
+      description: Currency name for the currency used by this account.
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: Currency code for the currency used by this account.
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      description: Currency symbol for the currency used by this account.
+    currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: Number of decimal places for the currency used by this account.

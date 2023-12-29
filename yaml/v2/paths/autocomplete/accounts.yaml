@@ -1,0 +1,37 @@
+/autocomplete/accounts:
+  get:
+    tags:
+      - autocomplete
+    operationId: getAccountsAC
+    parameters:
+        !correlationParameter,3
+        !autocompleteSearchParameters,3
+      - in: query
+        name: date
+        required: false
+        schema:
+          type: string
+          format: string
+        example: "2020-09-17"
+        description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date.
+      - in: query
+        name: types
+        description: Optional filter on the account type(s) used in the autocomplete.
+        required: false
+        explode: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTypeFilter'
+    summary: Returns all accounts of the user returned in a basic auto-complete array.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of accounts with very basic information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompleteAccountV2Array'
