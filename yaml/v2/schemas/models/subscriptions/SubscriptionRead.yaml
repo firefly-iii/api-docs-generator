@@ -1,4 +1,4 @@
-AccountV2Read:
+SubscriptionRead:
   type: object
   required:
     - type
@@ -8,11 +8,11 @@ AccountV2Read:
     type:
       type: string
       format: string
-      example: "accounts"
+      example: "subscriptions"
       description: "Immutable value"
     id:
       type: string
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/AccountV2'
+      $ref: '#/components/schemas/Subscription'

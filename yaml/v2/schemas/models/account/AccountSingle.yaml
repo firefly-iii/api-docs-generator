@@ -1,7 +1,7 @@
-AccountSingleV2:
+AccountV2Single:
   type: object
   required:
     - data
   properties:
     data:
-      $ref: '#/components/schemas/AccountReadV2'
+      $ref: '#/components/schemas/AccountV2Read'

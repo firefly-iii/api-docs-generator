@@ -149,6 +149,12 @@ $directories = [
         'api_version' => ['v2'],
     ],
     [
+        'path'        => 'yaml/v2/properties',
+        'identifier'  => 'schemas',
+        'indentation' => 2,
+        'api_version' => ['v2'],
+    ],
+    [
         'path'        => 'yaml/shared/models',
         'identifier'  => 'schemas',
         'indentation' => 2,

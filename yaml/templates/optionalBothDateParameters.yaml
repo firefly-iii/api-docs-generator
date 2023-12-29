@@ -1,0 +1,16 @@
+- in: query
+  name: start
+  description: |
+    A date formatted YYYY-MM-DD. Must be before "end". Can not be the same as "end". If this is included, "end" must also be included.
+  required: false
+  schema:
+    type: string
+    format: date
+- in: query
+  name: end
+  description: |
+    A date formatted YYYY-MM-DD. Must be after "start". Can not be the same as "start". If this field is included, "start" must also be included.
+  required: false
+  schema:
+    type: string
+    format: date

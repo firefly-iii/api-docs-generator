@@ -1,0 +1,11 @@
+SubscriptionRepeatProperty:
+  type: string
+  format: string
+  example: "monthly"
+  description: How often the subscription must be paid.
+  enum:
+    - weekly
+    - monthly
+    - quarterly
+    - "half-year"
+    - yearly

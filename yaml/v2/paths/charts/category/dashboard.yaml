@@ -5,7 +5,7 @@
     summary: Dashboard chart with budget information.
     description: |
       This endpoint returns the data required to generate a chart with a budget overview of the current period.
-    operationId: getChartAccountOverview
+    operationId: getChartCategoryOverview
     parameters:
       !correlationParameter,3
       !mandatoryDateRangeParameters,3
