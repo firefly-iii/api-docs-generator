@@ -1,0 +1,45 @@
+CurrencyV2:
+  type: object
+  required:
+    - code
+    - name
+    - symbol
+  properties:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    enabled:
+      type: boolean
+      format: boolean
+      example: true
+      default: true
+      description: Defaults to true
+    default:
+      type: boolean
+      format: boolean
+      example: false
+      description: Make this currency the default currency.
+    code:
+      type: string
+      format: string
+      example: AMS
+    name:
+      type: string
+      format: string
+      example: Ankh-Morpork dollar
+    symbol:
+      type: string
+      format: string
+      example: "AM$"
+    decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: Supports 0-12 decimals.

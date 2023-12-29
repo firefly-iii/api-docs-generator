@@ -1,0 +1,15 @@
+CurrencyV2Array:
+  type: object
+  required:
+    - data
+    - meta
+    - links
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/CurrencyV2Read'
+    meta:
+      $ref: '#/components/schemas/Meta'
+    links:
+      $ref: '#/components/schemas/PageLinkV2'
