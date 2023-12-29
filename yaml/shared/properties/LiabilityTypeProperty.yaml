@@ -1,4 +1,4 @@
-LiabilityType:
+LiabilityTypeProperty:
   type: string
   format: string
   example: "loan"

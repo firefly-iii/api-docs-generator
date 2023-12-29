@@ -1,4 +1,4 @@
-LiabilityDirection:
+LiabilityDirectionProperty:
   type: string
   format: string
   example: credit

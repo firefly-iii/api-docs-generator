@@ -108,7 +108,7 @@ Account:
       default: true
       description: "If omitted, defaults to true."
     credit_card_type:
-      $ref: '#/components/schemas/CreditCardType'
+      $ref: '#/components/schemas/CreditCardTypeProperty'
     monthly_payment_date:
       nullable: true
       type: string
@@ -116,9 +116,9 @@ Account:
       example: "2018-09-17T12:46:47+01:00"
       description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
     liability_type:
-      $ref: '#/components/schemas/LiabilityType'
+      $ref: '#/components/schemas/LiabilityTypeProperty'
     liability_direction:
-      $ref: '#/components/schemas/LiabilityDirection'
+      $ref: '#/components/schemas/LiabilityDirectionProperty'
     interest:
       type: string
       format: string
@@ -126,7 +126,7 @@ Account:
       description: "Mandatory when type is liability. Interest percentage."
       nullable: true
     interest_period:
-      $ref: '#/components/schemas/InterestPeriod'
+      $ref: '#/components/schemas/InterestPeriodProperty'
     notes:
       type: string
       format: string

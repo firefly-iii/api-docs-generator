@@ -1,4 +1,4 @@
-InterestPeriod:
+InterestPeriodProperty:
   type: string
   format: string
   example: monthly
