@@ -4,22 +4,22 @@ PageLinkV2:
     self:
       type: string
       format: uri
-      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=4"
+      example: "https://demo.firefly-iii.org/api/v2/OBJECT?&page=4"
     first:
       type: string
       format: uri
-      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=1"
+      example: "https://demo.firefly-iii.org/api/v2/OBJECT?&page=1"
     next:
       type: string
       format: uri
-      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=3"
+      example: "https://demo.firefly-iii.org/api/v2/OBJECT?&page=3"
       nullable: true
     prev:
       type: string
       format: uri
-      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=2"
+      example: "https://demo.firefly-iii.org/api/v2/OBJECT?&page=2"
       nullable: true
     last:
       type: string
       format: uri
-      example: "https://demo.firefly-iii.org/api/v1/OBJECT?&page=12"
+      example: "https://demo.firefly-iii.org/api/v2/OBJECT?&page=12"

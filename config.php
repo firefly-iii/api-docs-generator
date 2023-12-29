@@ -149,25 +149,7 @@ $directories = [
         'api_version' => ['v2'],
     ],
     [
-        'path'        => 'yaml/shared/arrays',
-        'identifier'  => 'schemas',
-        'indentation' => 2,
-        'api_version' => ['v1', 'v2'],
-    ],
-    [
-        'path'        => 'yaml/shared/lists',
-        'identifier'  => 'schemas',
-        'indentation' => 2,
-        'api_version' => ['v1', 'v2'],
-    ],
-    [
         'path'        => 'yaml/shared/models',
-        'identifier'  => 'schemas',
-        'indentation' => 2,
-        'api_version' => ['v1', 'v2'],
-    ],
-    [
-        'path'        => 'yaml/shared/schemas',
         'identifier'  => 'schemas',
         'indentation' => 2,
         'api_version' => ['v1', 'v2'],

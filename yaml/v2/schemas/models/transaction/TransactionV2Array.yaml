@@ -12,4 +12,4 @@ TransactionV2Array:
     meta:
       $ref: '#/components/schemas/Meta'
     links:
-      $ref: '#/components/schemas/PageLink'
+      $ref: '#/components/schemas/PageLinkV2'

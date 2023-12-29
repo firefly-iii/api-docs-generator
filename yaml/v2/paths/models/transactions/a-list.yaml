@@ -9,10 +9,10 @@
       !correlationParameter,3
       !limitParameter,3
       !pageParameter,3
-      !optionalDateRangeParameter,3
+      !optionalDateRangeParameters,3
     responses:
       200:
-        description: A list of budgets.
+        description: A list of transactions.
         content:
           application/vnd.api+json:
             schema:
