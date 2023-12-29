@@ -1,4 +1,4 @@
-BasicSummaryEntry:
+BasicSummaryV2Entry:
   type: object
   properties:
     key:
