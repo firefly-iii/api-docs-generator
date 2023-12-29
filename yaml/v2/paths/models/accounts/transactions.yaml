@@ -10,6 +10,7 @@
       !correlationParameter,3
       !pageParameter,3
       !limitParameter,3
+      !optionalDateRangeParameters,3
       - in: path
         name: id
         required: true
@@ -17,24 +18,6 @@
           type: string
           example: "123"
         description: The ID of the account.
-      - in: query
-        name: start
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: false
-        schema:
-          type: string
-          format: date
-          example: "2018-09-17"
-      - in: query
-        name: end
-        description: |
-          A date formatted YYYY-MM-DD.
-        required: false
-        schema:
-          type: string
-          format: date
-          example: "2018-09-17"
       - in: query
         name: type
         description: Optional filter on the transaction type(s) returned.
@@ -52,4 +35,4 @@
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/TransactionArray'
+              $ref: '#/components/schemas/TransactionV2Array'
