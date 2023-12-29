@@ -3,4 +3,4 @@
   content:
     application/json:
       schema:
-        $ref: '#/components/schemas/InternalException'
+        $ref: '#/components/schemas/InternalExceptionResponse'

@@ -1,11 +1,11 @@
-NotFound:
+UnauthenticatedResponse:
   type: object
   properties:
     message:
       type: string
       format: string
-      example: "Resource not found"
+      example: "Unauthenticated"
     exception:
       type: string
       format: string
-      example: "NotFoundHttpException"
+      example: "AuthenticationException"

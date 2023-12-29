@@ -1,11 +1,11 @@
-BadRequest:
+NotFoundResponse:
   type: object
   properties:
     message:
       type: string
       format: string
-      example: "Bad Request"
+      example: "Resource not found"
     exception:
       type: string
       format: string
-      example: "BadRequestHttpException"
+      example: "NotFoundHttpException"

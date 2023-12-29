@@ -1,11 +1,11 @@
-Unauthenticated:
+BadRequestResponse:
   type: object
   properties:
     message:
       type: string
       format: string
-      example: "Unauthenticated"
+      example: "Bad Request"
     exception:
       type: string
       format: string
-      example: "AuthenticationException"
+      example: "BadRequestHttpException"
