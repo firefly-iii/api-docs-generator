@@ -8,7 +8,7 @@
       Returns the spent amount for the given budget in the given period.
     parameters:
       !correlationParameter,3
-      !dateRequestParams,3
+      !mandatoryDateRangeParameters,3
       - in: path
         name: id
         required: true

@@ -8,7 +8,7 @@
       - insight
     parameters:
         !correlationParameter,3
-        !dateRequestParams,3
+        !mandatoryDateRangeParameters,3
       - in: query
         name: tags[]
         description: |
@@ -55,7 +55,7 @@
       - insight
     parameters:
         !correlationParameter,3
-        !dateRequestParams,3
+        !mandatoryDateRangeParameters,3
       - in: query
         name: accounts[]
         description: |
@@ -90,7 +90,7 @@
       - insight
     parameters:
         !correlationParameter,3
-        !dateRequestParams,3
+        !mandatoryDateRangeParameters,3
       - in: query
         name: tags[]
         description: |
@@ -137,7 +137,7 @@
       - insight
     parameters:
         !correlationParameter,3
-        !dateRequestParams,3
+        !mandatoryDateRangeParameters,3
       - in: query
         name: accounts[]
         description: |
@@ -172,7 +172,7 @@
       - insight
     parameters:
         !correlationParameter,3
-        !dateRequestParams,3
+        !mandatoryDateRangeParameters,3
       - in: query
         name: tags[]
         description: |
@@ -219,7 +219,7 @@
       - insight
     parameters:
         !correlationParameter,3
-        !dateRequestParams,3
+        !mandatoryDateRangeParameters,3
       - in: query
         name: accounts[]
         description: |
