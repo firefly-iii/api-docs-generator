@@ -1,0 +1,8 @@
+- in: query
+  name: date
+  description: |
+    A date formatted YYYY-MM-DD.
+  required: false
+  schema:
+    type: string
+    format: date

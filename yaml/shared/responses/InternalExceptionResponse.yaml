@@ -1,4 +1,4 @@
-InternalException:
+InternalExceptionResponse:
   type: object
   properties:
     message:

@@ -5,10 +5,29 @@
     summary: Dashboard chart with asset account balance information.
     description: |
       This endpoint returns the data required to generate a chart with basic asset account balance information. By default it contains the users frontpage accounts OR all the user's asset accounts if this preference is empty.
+      You can also submit an array of account ID's to be used to generate the chart. Or, use the "preselected" argument to have Firefly III make a specific selection.
     operationId: getChartAccountOverview
     parameters:
       !correlationParameter,3
       !mandatoryDateRangeParameters,3
+      - in: query
+        name: preselected
+        description: The accounts Firefly III must include in this chart.
+        required: false
+        schema:
+          $ref: '#/components/schemas/PreselectedAccountProperty'
+      - in: query
+        name: accounts[]
+        description: |
+          An array of accounts that should be included. Example: accounts[]=1&accounts[]=2
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3

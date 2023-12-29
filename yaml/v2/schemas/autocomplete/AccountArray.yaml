@@ -1,4 +1,4 @@
-AutocompleteAccountArray:
+AutocompleteAccountV2Array:
   type: array
   items:
     $ref: '#/components/schemas/AutocompleteAccountV2'

@@ -20,4 +20,4 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TransactionSumArray'
+              $ref: '#/components/schemas/NetWorthArray'

@@ -1,4 +1,4 @@
-ValidationError:
+ValidationErrorResponse:
   type: object
   properties:
     message:

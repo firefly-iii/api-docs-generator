@@ -24,22 +24,22 @@ ChartDataSetV2:
       format: int32
       example: 2
       description: "Number of decimals for the currency associated to the data in the entries."
-    native_id:
+    native_currency_id:
       type: string
       format: string
       example: "5"
       description: "The currency ID of the user's native (default) currency."
-    native_code:
+    native_currency_code:
       type: string
       format: string
       example: "EUR"
       description: "The currency code of the user's native (default) currency."
-    native_symbol:
+    native_currency_symbol:
       type: string
       format: string
       example: "$"
       description: "The currency symbol of the user's native (default) currency."
-    native_decimal_places:
+    native_currency_decimal_places:
       type: integer
       format: int32
       example: 2

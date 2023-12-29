@@ -1,0 +1,6 @@
+NetWorthArray:
+  type: object
+  description: "The 'currency_code' refers to either the net worth amount of that currency the user has, OR to 'native' in which it is a (converted) sum of ALL currencies."
+  properties:
+    currency_code:
+      $ref: '#/components/schemas/NetWorthItem'

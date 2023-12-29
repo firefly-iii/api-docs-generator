@@ -1,4 +1,4 @@
-CreditCardType:
+CreditCardTypeProperty:
   type: string
   format: string
   example: monthlyFull

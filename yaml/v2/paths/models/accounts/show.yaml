@@ -1,0 +1,29 @@
+/accounts/{id}:
+  get:
+    tags:
+      - accounts
+    summary: Get single account.
+    description: |
+      Returns a single account by its ID.
+    operationId: getAccount
+    parameters:
+      !correlationParameter,3
+      !optionalSingleDateRequestParam,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the account.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: 'The requested account'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AccountV2Single'

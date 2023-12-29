@@ -1,21 +1,18 @@
-TransactionV2Read:
+AccountReadV2:
   type: object
   required:
     - type
     - id
     - attributes
-    - links
   properties:
     type:
       type: string
       format: string
-      example: "transactions"
+      example: "accounts"
       description: "Immutable value"
     id:
       type: string
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/TransactionV2'
-    links:
-      $ref: '#/components/schemas/ObjectLinkV2'
+      $ref: '#/components/schemas/AccountV2'

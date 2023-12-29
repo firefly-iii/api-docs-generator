@@ -1,0 +1,20 @@
+/autocomplete/transaction-descriptions:
+  get:
+    tags:
+      - autocomplete
+    operationId: getTransactionDescriptionsAC
+    parameters:
+      !correlationParameter,3
+      !autocompleteSearchParameters,3
+    summary: Returns all transactions, complemented with their ID, of the user returned in a basic auto-complete array.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      200:
+        description: A list of transactions with very basic information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutocompleteTDArray'
