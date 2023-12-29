@@ -43,12 +43,12 @@ AccountV2:
       type: string
       format: string
       example: "12"
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+      description: "Account currency ID."
     currency_code:
       type: string
       format: string
       example: "EUR"
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+      description: "Account currency code."
     currency_symbol:
       type: string
       format: string
@@ -59,22 +59,22 @@ AccountV2:
       format: int32
       example: 2
       readOnly: true
-    currency_id:
+    native_currency_id:
       type: string
       format: string
       example: "12"
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-    currency_code:
+      description: "User's native currency id."
+    native_currency_code:
       type: string
       format: string
       example: "EUR"
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
-    currency_symbol:
+      description: "User's native currency code."
+    native_currency_symbol:
       type: string
       format: string
       example: "$"
       readOnly: true
-    currency_decimal_places:
+    native_currency_decimal_places:
       type: integer
       format: int32
       example: 2
@@ -84,89 +84,15 @@ AccountV2:
       format: amount
       example: "123.45"
       readOnly: true
+    native_current_balance:
+      type: string
+      format: amount
+      description: "Balance in native currency"
+      example: "123.45"
+      readOnly: true
     current_balance_date:
       type: string
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
       description: "The timestamp for this date is always 23:59:59, to indicate it's the balance at the very END of that particular day."
-    bic:
-      type: string
-      format: string
-      example: "BOFAUS3N"
-      nullable: true
-    account_number:
-      type: string
-      format: string
-      nullable: true
-      example: "7009312345678"
-    opening_balance:
-      type: string
-      format: amount
-      example: "-1012.12"
-      description: Represents the opening balance, the initial amount this account holds.
-    current_debt:
-      type: string
-      format: amount
-      nullable: true
-      example: "1012.12"
-      description: Represents the current debt for liabilities.
-    opening_balance_date:
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      nullable: true
-      description: Represents the date of the opening balance.
-    virtual_balance:
-      type: string
-      format: amount
-      example: "123.45"
-    include_net_worth:
-      type: boolean
-      format: boolean
-      example: true
-      default: true
-      description: "If omitted, defaults to true."
-    credit_card_type:
-      $ref: '#/components/schemas/CreditCardTypeProperty'
-    monthly_payment_date:
-      nullable: true
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
-    liability_type:
-      $ref: '#/components/schemas/LiabilityTypeProperty'
-    liability_direction:
-      $ref: '#/components/schemas/LiabilityDirectionProperty'
-    interest:
-      type: string
-      format: string
-      example: "5.3"
-      description: "Mandatory when type is liability. Interest percentage."
-      nullable: true
-    interest_period:
-      $ref: '#/components/schemas/InterestPeriodProperty'
-    notes:
-      type: string
-      format: string
-      nullable: true
-      example: "Some example notes"
-    latitude:
-      type: number
-      format: double
-      example: 51.983333
-      nullable: true
-      description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
-    longitude:
-      type: number
-      format: double
-      example: 5.916667
-      nullable: true
-      description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
-    zoom_level:
-      type: integer
-      format: int32
-      example: 6
-      nullable: true
-      description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
