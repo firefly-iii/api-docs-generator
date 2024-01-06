@@ -1,0 +1,29 @@
+/budgets/{id}:
+  get:
+    operationId: getBudget
+    description: |
+      Get a single budget.
+    summary: Get all limits for a budget.
+    tags:
+      - budgets
+    parameters:
+      !correlationParameter,3
+      !mandatoryDateRangeParameters,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the requested budget.
+    responses:
+      200:
+        description: A list of budget limits applicable to this budget.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/BudgetV2Single'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

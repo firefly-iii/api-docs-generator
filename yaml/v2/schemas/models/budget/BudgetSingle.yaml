@@ -1,0 +1,7 @@
+BudgetV2Single:
+  type: object
+  required:
+    - data
+  properties:
+    data:
+      $ref: '#/components/schemas/BudgetV2Read'

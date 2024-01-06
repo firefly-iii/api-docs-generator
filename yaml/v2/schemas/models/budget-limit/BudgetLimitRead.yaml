@@ -1,4 +1,4 @@
-BudgetLimitReadV2:
+BudgetLimitV2Read:
   type: object
   required:
     - type
@@ -8,7 +8,7 @@ BudgetLimitReadV2:
     type:
       type: string
       format: string
-      example: "budget_limits"
+      example: "budget-limits"
       description: "Immutable value"
     id:
       type: string
