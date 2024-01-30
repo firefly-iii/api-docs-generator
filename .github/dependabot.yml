@@ -1,0 +1,24 @@
+version: 2
+updates:
+
+  # Check for updates to GitHub Actions every week
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # composer updates
+  - package-ecosystem: "composer"
+    directory: "/" # Location of package manifests
+    target-branch: develop
+    versioning-strategy: increase
+    schedule:
+      interval: "weekly"
+
+  # yarn / JS updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    target-branch: develop
+    versioning-strategy: increase
+    schedule:
+      interval: "weekly"
