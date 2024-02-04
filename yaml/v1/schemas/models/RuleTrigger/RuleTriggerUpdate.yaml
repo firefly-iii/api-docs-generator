@@ -7,7 +7,7 @@ RuleTriggerUpdate:
       type: string
       format: string
       example: "tag1"
-      description: "The accompanying value the trigger responds to. This value is often mandatory, but this depends on the trigger."
+      description: "The accompanying value the trigger responds to. This value is often mandatory, but this depends on the trigger. If the rule trigger is something like 'has any tag', submit the string 'true'."
     order:
       type: integer
       format: int32
