@@ -42,5 +42,5 @@ jobs:
         env:
           API_DESTINATION: ./api-docs
           API_SERVER: https://demo.firefly-iii.org
-          API_VERSION: 2.0.12
+          API_VERSION: 2.0.14
           API_ROOT: .

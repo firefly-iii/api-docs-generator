@@ -22,6 +22,12 @@ RuleTriggerStore:
       example: true
       default: true
       description: If the trigger is active. Defaults to true.
+    prohibited:
+      type: boolean
+      format: boolean
+      example: false
+      default: false
+      description: If 'prohibited' is true, this rule trigger will be negated. 'Description is' will become 'Description is NOT' etc.
     stop_processing:
       type: boolean
       format: boolean
