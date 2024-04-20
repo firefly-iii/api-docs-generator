@@ -28,6 +28,10 @@ jobs:
         with:
           path: 'api-docs'
           repository: 'firefly-iii/api-docs'
+          #
+          # "API documentation builder" token.
+          #
+          token: ${{ secrets.GIT_REPOS_TOKEN }}
       - name: Build documentation
         run: |
           php index.php
