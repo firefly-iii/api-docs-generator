@@ -1,0 +1,6 @@
+- name: filter
+  in: query
+  description: Filter the autocomplete thing.
+  required: false
+  schema:
+    $ref: '#/components/schemas/AutocompleteFilter'
