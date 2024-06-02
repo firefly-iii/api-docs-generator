@@ -63,6 +63,8 @@
       - bills
     parameters:
         !correlationParameter,3
+        !limitParameter,3
+        !pageParameter,3
       - in: path
         name: id
         required: true
