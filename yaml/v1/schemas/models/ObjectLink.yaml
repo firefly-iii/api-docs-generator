@@ -1,7 +1,7 @@
 ObjectLink:
   type: object
   properties:
-    0:
+    "0":
       type: object
       properties:
         rel:

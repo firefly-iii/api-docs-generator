@@ -1,5 +1,5 @@
 WebhookUpdate:
-  title: A single webhook
+  title: "A single webhook (update)"
   type: object
   properties:
     active:

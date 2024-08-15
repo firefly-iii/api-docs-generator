@@ -1,5 +1,5 @@
 WebhookStore:
-  title: A single webhook
+  title: "A single webhook (store)"
   type: object
   required:
     - title

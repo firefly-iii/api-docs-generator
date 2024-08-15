@@ -1,5 +1,5 @@
 TagModel:
-  title: A single tag
+  title: "A single tag (C)"
   type: object
   required:
     - tag

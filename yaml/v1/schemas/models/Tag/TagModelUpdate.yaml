@@ -1,5 +1,5 @@
 TagModelUpdate:
-  title: A single tag
+  title: "A single tag (B)"
   type: object
   properties:
     tag:

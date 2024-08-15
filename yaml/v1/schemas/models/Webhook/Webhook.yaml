@@ -1,5 +1,5 @@
 Webhook:
-  title: A single webhook
+  title: "A single webhook (read)"
   type: object
   required:
     - title
