@@ -12,7 +12,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: A list of currencies with very basic information.
         content:
           application/json:
@@ -32,7 +32,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: A list of currencies with very basic information and the currency code between brackets. This endpoint is DEPRECATED and I suggest you DO NOT use it.
         content:
           application/json:

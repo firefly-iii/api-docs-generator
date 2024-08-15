@@ -11,7 +11,7 @@
       !unauthenticatedResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      204:
+      "204":
         description: Empty response when data has been purged.
     parameters:
       !correlationParameter,3

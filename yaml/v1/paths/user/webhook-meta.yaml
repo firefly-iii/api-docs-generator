@@ -15,13 +15,13 @@
     tags:
       - webhooks
     responses:
-      200:
+      "200":
         description: OK!
-      204:
+      "204":
         description: No messages to send, so did nothing.
-      404:
+      "404":
         description: Webhook not found.
-      500:
+      "500":
         description: Error while sending.
 /webhooks/{id}/trigger-transaction/{transactionId}:
   post:
@@ -47,9 +47,9 @@
     tags:
       - webhooks
     responses:
-      204:
+      "204":
         description: Webhook triggered successfully.
-      404:
+      "404":
         description: Webhook or transaction not found.
-      500:
+      "500":
         description: Error while sending.

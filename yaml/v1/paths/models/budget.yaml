@@ -28,7 +28,7 @@
           format: date
           example: "2018-12-31"
     responses:
-      200:
+      "200":
         description: A list of budgets.
         content:
           application/vnd.api+json:
@@ -57,7 +57,7 @@
       description: "JSON array or key=value pairs with the necessary budget information. See the model for the exact specifications."
       required: true
     responses:
-      200:
+      "200":
         description: 'New budget stored, result in response.'
         content:
           application/vnd.api+json:
@@ -103,7 +103,7 @@
     tags:
       - budgets
     responses:
-      200:
+      "200":
         description: 'The requested budget'
         content:
           application/vnd.api+json:
@@ -139,7 +139,7 @@
       description: JSON array with updated budget information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated budget stored, result in response'
         content:
           application/vnd.api+json:
@@ -166,7 +166,7 @@
           example: "123"
         description: The ID of the budget.
     responses:
-      204:
+      "204":
         description: Budget deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3

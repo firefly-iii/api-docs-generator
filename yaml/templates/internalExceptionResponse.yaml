@@ -1,4 +1,4 @@
-500:
+"500":
   description: Internal exception
   content:
     application/json:

@@ -18,7 +18,7 @@
         description: The ID of the transaction.
 
     responses:
-      200:
+      "200":
         description: A list of attachments
         content:
           application/vnd.api+json:
@@ -48,7 +48,7 @@
         description: The ID of the transaction.
 
     responses:
-      200:
+      "200":
         description: A list of piggy bank events.
         content:
           application/vnd.api+json:

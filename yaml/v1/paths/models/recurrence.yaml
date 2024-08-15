@@ -10,7 +10,7 @@
       !limitParameter,3
       !pageParameter,3
     responses:
-      200:
+      "200":
         description: A list of recurring transactions.
         content:
           application/vnd.api+json:
@@ -39,7 +39,7 @@
       description: "JSON array or key=value pairs with the necessary recurring transaction information. See the model for the exact specifications."
       required: true
     responses:
-      200:
+      "200":
         description: 'New recurring transaction stored, result in response.'
         content:
           application/vnd.api+json:
@@ -67,7 +67,7 @@
     tags:
       - recurrences
     responses:
-      200:
+      "200":
         description: 'The requested recurring transaction'
         content:
           application/vnd.api+json:
@@ -103,7 +103,7 @@
       description: JSON array with updated recurring transaction information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated recurring transaction stored, result in response'
         content:
           application/vnd.api+json:
@@ -130,7 +130,7 @@
           example: "123"
         description: The ID of the recurring transaction.
     responses:
-      204:
+      "204":
         description: Recurring transaction deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3

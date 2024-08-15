@@ -10,7 +10,7 @@
       !limitParameter,3
       !pageParameter,3
     responses:
-      200:
+      "200":
         description: A list of currencies.
         content:
           application/vnd.api+json:
@@ -39,7 +39,7 @@
       description: "JSON array or key=value pairs with the necessary currency information. See the model for the exact specifications."
       required: true
     responses:
-      200:
+      "200":
         description: 'New currency stored, result in response.'
         content:
           application/vnd.api+json:
@@ -68,7 +68,7 @@
           example: USD
         description: The currency code.
     responses:
-      204:
+      "204":
         description: Currency was enabled.
         content:
           application/vnd.api+json:
@@ -95,13 +95,13 @@
           example: GBP
         description: The currency code.
     responses:
-      204:
+      "204":
         description: Currency was disabled.
         content:
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      409:
+      "409":
         description: Currency cannot be disabled, because it is still in use.
       !unauthenticatedResponse,3
       !notFoundResponse,3
@@ -125,7 +125,7 @@
           example: USD
         description: The currency code.
     responses:
-      204:
+      "204":
         description: Currency has been made the default currency.
         content:
           application/vnd.api+json:
@@ -153,7 +153,7 @@
     tags:
       - currencies
     responses:
-      200:
+      "200":
         description: 'The requested currency'
         content:
           application/vnd.api+json:
@@ -190,7 +190,7 @@
       description: JSON array with updated currency information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated currency stored, result in response'
         content:
           application/json:
@@ -218,7 +218,7 @@
           example: GBP
         description: The currency code.
     responses:
-      204:
+      "204":
         description: Currency deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3
@@ -234,7 +234,7 @@
     tags:
       - currencies
     responses:
-      200:
+      "200":
         description: 'The default currency'
         content:
           application/json:

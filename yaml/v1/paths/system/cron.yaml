@@ -39,7 +39,7 @@
       to run the cron. The cron requires the CLI token to be present. The cron job will fire for all
       users.
     responses:
-      200:
+      "200":
         description: The result of the cron job(s) firing.
         content:
           application/json:

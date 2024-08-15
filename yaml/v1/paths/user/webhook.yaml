@@ -10,7 +10,7 @@
           !limitParameter,3
           !pageParameter,3
     responses:
-      200:
+      "200":
         description: A list of webhooks.
         content:
           application/vnd.api+json:
@@ -40,7 +40,7 @@
       description: "JSON array or key=value pairs with the necessary webhook information. See the model for the exact specifications."
       required: true
     responses:
-      200:
+      "200":
         description: 'New webhook stored, result in response.'
         content:
           application/vnd.api+json:
@@ -68,7 +68,7 @@
     tags:
       - webhooks
     responses:
-      200:
+      "200":
         description: 'The requested webhook.'
         content:
           application/vnd.api+json:
@@ -104,7 +104,7 @@
       description: JSON array with updated webhook information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated webhook stored, result in response'
         content:
           application/vnd.api+json:
@@ -131,7 +131,7 @@
           example: "123"
         description: The webhook ID.
     responses:
-      204:
+      "204":
         description: Webhook deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3

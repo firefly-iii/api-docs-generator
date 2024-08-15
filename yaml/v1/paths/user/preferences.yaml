@@ -10,7 +10,7 @@
       !limitParameter,3
       !pageParameter,3
     responses:
-      200:
+      "200":
         description: A list of preferences.
         content:
           application/vnd.api+json:
@@ -29,7 +29,7 @@
     parameters:
       !correlationParameter,3
     responses:
-      200:
+      "200":
         description: 'New account stored, result in response.'
         content:
           application/vnd.api+json:
@@ -68,7 +68,7 @@
     tags:
       - preferences
     responses:
-      200:
+      "200":
         description: A single preference.
         content:
           application/vnd.api+json:
@@ -105,7 +105,7 @@
       description: "JSON array or key=value pairs with the necessary preference information. See the model for the exact specifications."
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated preference.'
         content:
           application/vnd.api+json:

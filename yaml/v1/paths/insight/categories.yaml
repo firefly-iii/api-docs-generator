@@ -39,7 +39,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'A list of category and expense details. Each category has one row per currency.'
         content:
           application/json:
@@ -74,7 +74,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'A list of expense details. One row per currency.'
         content:
           application/json:
@@ -121,7 +121,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'A list of category and income details. Each category has one row per currency.'
         content:
           application/json:
@@ -156,7 +156,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'A list of income details. One row per currency.'
         content:
           application/json:
@@ -203,7 +203,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'A list of category and transfer details. Each category has one row per currency.'
         content:
           application/json:
@@ -238,7 +238,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'A list of transfer details. One row per currency.'
         content:
           application/json:

@@ -11,7 +11,7 @@
       !limitParameter,3
       !pageParameter,3
     responses:
-      200:
+      "200":
         description: A list of transaction links
         content:
           application/vnd.api+json:
@@ -30,7 +30,7 @@
     parameters:
       !correlationParameter,3
     responses:
-      200:
+      "200":
         description: 'New transaction link stored, result in response.'
         content:
           application/vnd.api+json:
@@ -69,7 +69,7 @@
           example: "123"
         description: The ID of the transaction link.
     responses:
-      200:
+      "200":
         description: 'The requested link'
         content:
           application/vnd.api+json:
@@ -96,7 +96,7 @@
     tags:
       - links
     responses:
-      204:
+      "204":
         description: Transaction link deleted
       !unauthenticatedResponse,3
       !notFoundResponse,3
@@ -129,7 +129,7 @@
       description: JSON array or formdata with updated link type information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated link type stored, result in response'
         content:
           application/vnd.api+json:

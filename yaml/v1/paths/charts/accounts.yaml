@@ -14,7 +14,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
         content:
           application/json:

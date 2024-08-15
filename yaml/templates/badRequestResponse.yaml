@@ -1,4 +1,4 @@
-400:
+"400":
   description: Bad request
   content:
     application/json:

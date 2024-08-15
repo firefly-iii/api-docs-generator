@@ -18,7 +18,7 @@
         description: The ID of the transaction journal / the split.
 
     responses:
-      200:
+      "200":
         description: A list of transaction links.
         content:
           application/vnd.api+json:
@@ -45,7 +45,7 @@
     tags:
       - transactions
     responses:
-      200:
+      "200":
         description: 'The requested transaction.'
         content:
           application/vnd.api+json:
@@ -71,7 +71,7 @@
           example: "123"
         description: The ID of the transaction journal (the split) you wish to delete.
     responses:
-      204:
+      "204":
         description: Transaction journal (split) deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3

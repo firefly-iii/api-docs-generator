@@ -35,7 +35,7 @@
         schema:
           $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
-      200:
+      "200":
         description: A list of transactions.
         content:
           application/vnd.api+json:
@@ -64,7 +64,7 @@
       description: "JSON array or key=value pairs with the necessary transaction information. See the model for the exact specifications."
       required: true
     responses:
-      200:
+      "200":
         description: 'New transaction stored(s), result in response.'
         content:
           application/vnd.api+json:
@@ -92,7 +92,7 @@
     tags:
       - transactions
     responses:
-      200:
+      "200":
         description: 'The requested transaction.'
         content:
           application/vnd.api+json:
@@ -128,7 +128,7 @@
       description: JSON array with updated transaction information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated transaction stored, result in response'
         content:
           application/vnd.api+json:
@@ -155,7 +155,7 @@
           example: "123"
         description: The ID of the transaction.
     responses:
-      204:
+      "204":
         description: Transaction deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3

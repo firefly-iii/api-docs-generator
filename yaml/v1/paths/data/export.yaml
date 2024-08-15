@@ -19,7 +19,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -47,7 +47,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -75,7 +75,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -103,7 +103,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -131,7 +131,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -159,7 +159,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -187,7 +187,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -215,7 +215,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -269,7 +269,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:

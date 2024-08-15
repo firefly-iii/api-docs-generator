@@ -13,7 +13,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: The available system information
         content:
           application/json:
@@ -34,7 +34,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: The user
         content:
           application/vnd.api+json:

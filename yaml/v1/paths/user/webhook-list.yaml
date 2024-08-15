@@ -15,7 +15,7 @@
     tags:
       - webhooks
     responses:
-      200:
+      "200":
         description: A list of webhook messages.
         content:
           application/vnd.api+json:
@@ -49,7 +49,7 @@
     tags:
       - webhooks
     responses:
-      200:
+      "200":
         description: 'A single webhook message.'
         content:
           application/vnd.api+json:
@@ -82,7 +82,7 @@
           example: 1
         description: The webhook message ID.
     responses:
-      204:
+      "204":
         description: Webhook message deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3
@@ -115,7 +115,7 @@
     tags:
       - webhooks
     responses:
-      200:
+      "200":
         description: A list of webhook attempts.
         content:
           application/vnd.api+json:
@@ -156,7 +156,7 @@
     tags:
       - webhooks
     responses:
-      200:
+      "200":
         description: 'A single webhook attempt.'
         content:
           application/vnd.api+json:
@@ -196,7 +196,7 @@
           example: 1
         description: The webhook message attempt ID.
     responses:
-      204:
+      "204":
         description: Webhook message attempt deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3

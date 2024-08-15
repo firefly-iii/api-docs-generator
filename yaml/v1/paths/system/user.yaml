@@ -10,7 +10,7 @@
       !limitParameter,3
       !pageParameter,3
     responses:
-      200:
+      "200":
         description: A list of users.
         content:
           application/vnd.api+json:
@@ -44,7 +44,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-      200:
+      "200":
         description: 'New user stored, result in response.'
         content:
           application/vnd.api+json:
@@ -68,7 +68,7 @@
     tags:
       - users
     responses:
-      200:
+      "200":
         description: 'The requested user.'
         content:
           application/vnd.api+json:
@@ -104,7 +104,7 @@
       description: JSON array with updated user information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated user stored, result in response'
         content:
           application/vnd.api+json:
@@ -131,7 +131,7 @@
           example: "123"
         description: The user ID.
     responses:
-      204:
+      "204":
         description: User deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3

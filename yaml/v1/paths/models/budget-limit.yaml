@@ -34,7 +34,7 @@
           format: date
           example: "2018-12-31"
     responses:
-      200:
+      "200":
         description: A list of budget limits applicable to this budget.
         content:
           application/vnd.api+json:
@@ -70,7 +70,7 @@
       description: "JSON array or key=value pairs with the necessary budget information. See the model for the exact specifications."
       required: true
     responses:
-      200:
+      "200":
         description: 'New budget limit stored, result in response.'
         content:
           application/vnd.api+json:
@@ -105,7 +105,7 @@
           example: 1
         description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
     responses:
-      200:
+      "200":
         description: 'The requested budget limit'
         content:
           application/vnd.api+json:
@@ -148,7 +148,7 @@
       description: JSON array with updated budget limit information. See the model for the exact specifications.
       required: true
     responses:
-      200:
+      "200":
         description: 'Updated budget limit stored, result in response'
         content:
           application/vnd.api+json:
@@ -182,7 +182,7 @@
           example: "123"
         description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
     responses:
-      204:
+      "204":
         description: Budget limit deleted.
       !unauthenticatedResponse,3
       !notFoundResponse,3
@@ -217,7 +217,7 @@
           format: date
           example: "2018-12-31"
     responses:
-      200:
+      "200":
         description: A list of budget limits.
         content:
           application/vnd.api+json:
