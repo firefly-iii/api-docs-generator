@@ -1,4 +1,4 @@
-422:
+"422":
   description: 'Validation error. The body will have the exact details.'
   content:
     application/json:
