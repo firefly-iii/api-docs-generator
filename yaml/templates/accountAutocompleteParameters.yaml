@@ -1,0 +1,6 @@
+- name: filter
+  in: query
+  description: Filter the autocomplete object for accounts.
+  required: false
+  schema:
+    $ref: '#/components/schemas/AccountAutocompleteFilter'

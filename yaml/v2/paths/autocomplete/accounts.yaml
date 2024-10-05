@@ -5,7 +5,7 @@
     operationId: getAccountsAC
     parameters:
         !correlationParameter,3
-        !autocompleteParameters,3
+        !accountAutocompleteParameters,3
     summary: Returns all accounts of the user returned in a basic auto-complete array.
     responses:
       !unauthenticatedResponse,3
