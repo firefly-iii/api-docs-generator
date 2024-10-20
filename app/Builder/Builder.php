@@ -6,6 +6,8 @@ namespace ApiDocBuilder\Builder;
 
 use Carbon\Carbon;
 use Monolog\Logger;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use RuntimeException;
 use Twig\Environment;
 use Twig\Error\LoaderError;
@@ -30,8 +32,8 @@ class Builder
     /**
      * Builder constructor.
      *
-     * @param  string  $templatePath
-     * @param  string  $cachePath
+     * @param string $templatePath
+     * @param string $cachePath
      */
     public function __construct(string $templatePath, string $cachePath)
     {
@@ -46,8 +48,8 @@ class Builder
     }
 
     /**
-     * @param  string  $name
-     * @param  array  $info
+     * @param string $name
+     * @param array  $info
      */
     public function addTag(string $name, array $info): void
     {
@@ -62,10 +64,10 @@ class Builder
     }
 
     /**
-     * @param  string  $apiVersion
-     * @param  string  $identifier
-     * @param  string  $file
-     * @param  int  $indentation
+     * @param string $apiVersion
+     * @param string $identifier
+     * @param string $file
+     * @param int    $indentation
      *
      */
     public function addYamlFile(string $apiVersion, string $identifier, string $file, int $indentation): void
@@ -73,7 +75,7 @@ class Builder
         if (!file_exists($file)) {
             throw new \RuntimeException(sprintf('No such file: %s', $file));
         }
-        $content = trim((string)file_get_contents($file));
+        $content = trim((string) file_get_contents($file));
         if ('' === $content) {
             return;
         }
@@ -104,7 +106,7 @@ class Builder
     }
 
     /**
-     * @param  string  $version
+     * @param string $version
      */
     public function setVersion(string $version): void
     {
@@ -120,7 +122,7 @@ class Builder
     }
 
     /**
-     * @param  string  $server
+     * @param string $server
      */
     public function setServer(string $server): void
     {
@@ -136,7 +138,7 @@ class Builder
         $this->logger->debug(sprintf('Rendering version "%s"', $apiVersion));
         try {
             $template = $this->twig->load('start.yaml.twig');
-        } catch (SyntaxError|LoaderError|RuntimeError $e) {
+        } catch (SyntaxError | LoaderError | RuntimeError $e) {
             throw new \RuntimeException(sprintf('Error in Twig: %s', $e->getMessage()));
         }
         // add tags
@@ -162,14 +164,14 @@ class Builder
     }
 
     /**
-     * @param  string  $file
+     * @param string $file
      *
      * @return array
      */
     private function parseReplacements(string $file): array
     {
         $replacements = [];
-        $content      = (string)file_get_contents($file);
+        $content      = (string) file_get_contents($file);
         $lines        = explode("\n", $content);
         // to make sure we wedge in the template at the right spot:
 
@@ -185,19 +187,20 @@ class Builder
     }
 
     /**
-     * @param  string  $instruction
+     * @param string $instruction
      *
      * @return array
      */
     private function getReplacement(string $instruction): array
     {
-        $parts       = explode(',', substr($instruction, 1));
-        $filename    = sprintf('%s/yaml/templates/%s.yaml', ROOT, $parts[0]);
-        $template    = file_get_contents($filename);
+        $parts     = explode(',', substr($instruction, 1));
+        $template  = $this->getReplacementTemplate($parts[0]);
+//        $filename    = sprintf('%s/yaml/templates/%s.yaml', ROOT, $parts[0]);
+//        $template    = file_get_contents($filename);
         $lines       = explode("\n", $template);
         $replacement = [];
         foreach ($lines as $line) {
-            $indent        = str_repeat('  ', (int)($parts[1] ?? 0));
+            $indent        = str_repeat('  ', (int) ($parts[1] ?? 0));
             $replacement[] = sprintf('%s%s', $indent, $line);
         }
 
@@ -205,8 +208,8 @@ class Builder
     }
 
     /**
-     * @param  array  $lines
-     * @param  array  $replacements
+     * @param array $lines
+     * @param array $replacements
      *
      * @return array
      */
@@ -217,7 +220,7 @@ class Builder
         }
         $offset = 0;
         /**
-         * @var int $i
+         * @var int   $i
          * @var array $replacement
          */
         foreach ($replacements as $i => $replacement) {
@@ -235,8 +238,8 @@ class Builder
     }
 
     /**
-     * @param  array  $lines
-     * @param  int  $indentation
+     * @param array $lines
+     * @param int   $indentation
      *
      * @return array
      */
@@ -248,7 +251,7 @@ class Builder
             $indent = str_repeat('  ', $indentation);
         }
         foreach ($lines as $line) {
-            $line       = $indent.rtrim($line);
+            $line       = $indent . rtrim($line);
             $newLines[] = $line;
         }
 
@@ -256,8 +259,8 @@ class Builder
     }
 
     /**
-     * @param  string  $identifier
-     * @param  array  $lines
+     * @param string $identifier
+     * @param array  $lines
      *
      * @return void
      */
@@ -281,7 +284,7 @@ class Builder
 
 
     /**
-     * @param  Logger  $logger
+     * @param Logger $logger
      */
     public function setLogger(Logger $logger): void
     {
@@ -289,8 +292,8 @@ class Builder
     }
 
     /**
-     * @param  array  $indentedLines
-     * @param  string  $apiVersion
+     * @param array  $indentedLines
+     * @param string $apiVersion
      *
      * @return array
      */
@@ -310,12 +313,26 @@ class Builder
     }
 
     /**
-     * @param  array  $versions
+     * @param array $versions
      */
     public function setApiVersions(array $versions): void
     {
         $this->logger->debug('API versions is now', $versions);
         $this->apiVersions = $versions;
+    }
+
+    private function getReplacementTemplate(string $file): string
+    {
+        $directory = sprintf('%s/yaml/templates', ROOT);
+        $objects   = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory), RecursiveIteratorIterator::SELF_FIRST);
+        $yaml      = sprintf('%s.yaml', $file);
+        /** @var \SplFileInfo $object */
+        foreach ($objects as $object) {
+            if ($object->getFilename() === $yaml) {
+                return file_get_contents($object->getPathname());
+            }
+        }
+        return '';
     }
 
 }

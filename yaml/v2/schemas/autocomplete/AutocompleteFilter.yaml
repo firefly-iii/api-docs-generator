@@ -1,0 +1,17 @@
+AutocompleteFilter:
+  type: object
+  properties:
+    query:
+      type: string
+      items:
+        type: string
+        format: string
+        example: "autocomplete query here"
+        description: The search query to filter the autocomplete on. Multiple words can be submitted, but this is not required. An autocomplete box generally only submits one query.
+    account_types:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountTypeFilter'
+        type: string
+        example: "Asset account"
+        description: Used only in the 'accounts' autocomplete endpoint, this filters the results by account type.

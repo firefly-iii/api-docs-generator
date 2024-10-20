@@ -10,12 +10,12 @@ AutocompleteObject:
       format: string
       example: "2"
       readOnly: true
-      description: The ID of the object as a string
+      description: The ID of the object as a string.
     title:
       type: string
       format: string
       example: "Some object"
-      description: The autocomplete value that your dropdown can use.
+      description: The autocomplete value that your dropdown can use. This could be an account or category name.
       readOnly: true
     value:
       type: string
@@ -39,7 +39,7 @@ AutocompleteObject:
           format: string
           example: "Asset account"
           readOnly: true
-          description: Account type of the account found by the auto-complete search.
+          description: Account type of the account found by the auto-complete search for accounts.
         transaction_group_id:
           type: string
           format: string

@@ -1,0 +1,8 @@
+- in: query
+  name: user_group_id
+  description: Optional value of the financial administration you want to perform this operation on. The user must have access to this particular administration. Which access rights exactly are necessary, is different per endpoint.
+  required: false
+  schema:
+    type: integer
+    format: int32
+    example: 1

@@ -5,7 +5,8 @@
     operationId: getAccountsAC
     parameters:
         !correlationParameter,3
-        !accountAutocompleteParameters,3
+        !userGroupParameter,3
+        !autocompleteV2SearchParameters,3
     summary: Returns all accounts of the user returned in a basic auto-complete array.
     responses:
       !unauthenticatedResponse,3
@@ -17,4 +18,4 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AutocompleteObject'
+              $ref: '#/components/schemas/AutocompleteObjectArray'

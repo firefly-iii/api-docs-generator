@@ -1,0 +1,32 @@
+- in: query
+  name: query
+  description: The autocomplete search query. Will be exploded on spaces, and each word will be searched for in the autocomplete results. Will also accept comma separated values for the same effect.
+  required: false
+  schema:
+    type: string
+    format: string
+  example: "search query"
+- in: query
+  name: date
+  description: Todays date or any other date. If you supply this value, the accounts autocomplete array will include the account balances for the found accounts.
+  required: false
+  schema:
+    type: string
+    format: date
+  example: "2018-09-17"
+- in: query
+  name: size
+  description: The size of the autocomplete result list. This is the number of items returned.
+  required: false
+  schema:
+    type: integer
+    format: int32
+  example: 15
+- in: query
+  name: page
+  description: The page number of the autocomplete result list.
+  required: false
+  schema:
+      type: integer
+      format: int32
+  example: 1
