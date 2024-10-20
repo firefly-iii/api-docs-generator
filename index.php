@@ -14,7 +14,7 @@ $server      = 'https://demo.firefly-iii.org';
 $destination = './';
 $tags        = [];
 $directories = [];
-$apiVersions = ['v2'];
+$apiVersions = ['v1', 'v2'];
 
 include 'vendor/autoload.php';
 include 'config.php';
@@ -40,7 +40,7 @@ $log->debug('Start building API docs');
 // add tags
 /**
  * @var string $name
- * @var array $info
+ * @var array  $info
  */
 foreach ($tags as $name => $info) {
     $builder->addTag($name, $info);
@@ -62,7 +62,7 @@ foreach ($directories as $info) {
         // sort all files in the directory:
         $list = [];
         /**
-         * @var string $fullPath
+         * @var string      $fullPath
          * @var SplFileInfo $object
          */
         foreach ($objects as $fullPath => $object) {
@@ -74,7 +74,7 @@ foreach ($directories as $info) {
         ksort($list);
 
         /**
-         * @var string $fullPath
+         * @var string      $fullPath
          * @var SplFileInfo $object
          */
         foreach ($list as $fullPath => $object) {
