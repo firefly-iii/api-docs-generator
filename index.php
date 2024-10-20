@@ -16,6 +16,23 @@ $tags        = [];
 $directories = [];
 $apiVersions = ['v1', 'v2'];
 
+$ignoreVersions = [];
+
+/**
+ * @var int    $index
+ * @var string $argument
+ */
+foreach ($argv as $index => $argument) {
+    if (0 === $index) {
+        continue;
+    }
+    if (str_starts_with($argument, '--ignore-versions=')) {
+        $ignoreVersions = explode(',', str_replace('--ignore-versions=', '', $argument));
+        $ignoreVersions = array_map('trim', $ignoreVersions);
+    }
+}
+
+
 include 'vendor/autoload.php';
 include 'config.php';
 
@@ -85,6 +102,10 @@ foreach ($directories as $info) {
     }
 }
 foreach ($apiVersions as $apiVersion) {
+    if (in_array($apiVersion, $ignoreVersions, true)) {
+        $log->warning(sprintf('Will ignore version "%s"', $apiVersion));
+        continue;
+    }
     $result           = $builder->render($apiVersion);
     $finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $version, $apiVersion);
     file_put_contents($finalDestination, $result);

@@ -124,6 +124,9 @@ ksort($tags);
 
 // scan directories and add all paths:
 $directories = [
+    /**
+     * V1
+     */
     [
         'path'        => 'yaml/v1/paths',
         'identifier'  => 'paths',
@@ -136,6 +139,10 @@ $directories = [
         'indentation' => 2,
         'api_version' => ['v1'],
     ],
+
+    /**
+     * V2
+     */
     [
         'path'        => 'yaml/v2/paths',
         'identifier'  => 'paths',
@@ -154,14 +161,18 @@ $directories = [
         'indentation' => 2,
         'api_version' => ['v2'],
     ],
+
+    /**
+     * SHARED OBJECTS.
+     */
     [
-        'path'        => 'yaml/shared/models',
+        'path'        => 'yaml/shared/filters',
         'identifier'  => 'schemas',
         'indentation' => 2,
         'api_version' => ['v1', 'v2'],
     ],
     [
-        'path'        => 'yaml/shared/responses',
+        'path'        => 'yaml/shared/models',
         'identifier'  => 'schemas',
         'indentation' => 2,
         'api_version' => ['v1', 'v2'],
@@ -173,9 +184,11 @@ $directories = [
         'api_version' => ['v1', 'v2'],
     ],
     [
-        'path'        => 'yaml/shared/filters',
+        'path'        => 'yaml/shared/responses',
         'identifier'  => 'schemas',
         'indentation' => 2,
         'api_version' => ['v1', 'v2'],
     ],
+
+
 ];
