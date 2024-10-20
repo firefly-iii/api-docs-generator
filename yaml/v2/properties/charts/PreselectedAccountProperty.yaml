@@ -1,0 +1,6 @@
+PreselectedAccountProperty:
+  type: string
+  enum:
+    - all
+    - assets
+    - liabilities

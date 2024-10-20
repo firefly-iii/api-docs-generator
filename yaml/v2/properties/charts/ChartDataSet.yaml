@@ -1,0 +1,68 @@
+ChartDataSet:
+  type: object
+  properties:
+    label:
+      type: string
+      format: string
+      example: "earned-EUR"
+      description: "This is the label of the current data-set. It can refer to an object by name, or a collected set of data."
+    currency_id:
+      type: string
+      format: string
+      example: "5"
+      description: "The currency ID of the currency associated to the data in the entries."
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+    currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: "Number of decimals for the currency associated to the data in the entries."
+    native_currency_id:
+      type: string
+      format: string
+      example: "5"
+      description: "The currency ID of the user's native (default) currency."
+    native_currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: "The currency code of the user's native (default) currency."
+    native_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      description: "The currency symbol of the user's native (default) currency."
+    native_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: "Number of decimals for the native (default) currency of the user."
+    start:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      description: "Holds the date and time of start of the range of data collected. It could be there was no data for this point in time, but this is the start of the requested range."
+    end:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      description: "Holds the date and time of END of the range of data collected. It could be there was no data for this point in time, but this is the end of the requested range."
+    period:
+      $ref: '#/components/schemas/PeriodProperty'
+    entries:
+      type: object
+      description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+      items:
+        $ref: '#/components/schemas/ChartDataPoint'
+    native_entries:
+      type: object
+      description: "The entries for this data set converted to the user's native (default) currency. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+      items:
+        $ref: '#/components/schemas/ChartDataPoint'
