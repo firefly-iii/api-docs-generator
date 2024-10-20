@@ -3,4 +3,6 @@
   description: Filter the autocomplete object for accounts.
   required: false
   schema:
-    $ref: '#/components/schemas/AccountAutocompleteFilter'
+    $ref: '#/components/schemas/AutocompleteFilter'
+  style: deepObject
+  explode: true

@@ -1,0 +1,9 @@
+AutocompleteFilter:
+  title: AutocompleteFilter
+  required:
+    - bar
+  type: object
+  properties:
+    bar:
+      title: Bar
+      type: number

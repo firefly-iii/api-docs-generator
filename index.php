@@ -14,7 +14,7 @@ $server      = 'https://demo.firefly-iii.org';
 $destination = './';
 $tags        = [];
 $directories = [];
-$apiVersions = ['v1', 'v2'];
+$apiVersions = ['v2'];
 
 include 'vendor/autoload.php';
 include 'config.php';
@@ -25,7 +25,6 @@ $formatter = new LineFormatter("[%datetime%] %level_name%: %message% %context% %
 $handler   = new StreamHandler('php://stdout', Level::Debug);
 $handler->setFormatter($formatter);
 $log->pushHandler($handler);
-
 
 $templatesDir = sprintf('%s/templates', ROOT);
 $cacheDir     = sprintf('%s/cache', ROOT);
@@ -67,9 +66,10 @@ foreach ($directories as $info) {
          * @var SplFileInfo $object
          */
         foreach ($objects as $fullPath => $object) {
-            if (str_ends_with($fullPath, 'yaml')) {
+            if (str_ends_with($fullPath, 'yaml') && !str_contains($fullPath, 'ignore')) {
                 $list[$fullPath] = $object;
             }
+
         }
         ksort($list);
 
