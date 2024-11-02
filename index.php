@@ -3,20 +3,21 @@
 declare(strict_types=1);
 
 use ApiDocBuilder\Builder\Builder;
+use ApiDocBuilder\Cache\Cache;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
 
 // default values:
-$version     = '0.1-beta';
-$server      = 'https://demo.firefly-iii.org';
-$destination = './';
-$tags        = [];
-$directories = [];
-$apiVersions = ['v1', 'v2'];
-
-$ignoreVersions = [];
+$version         = '0.1-beta';
+$server          = 'https://demo.firefly-iii.org';
+$destination     = './';
+$tags            = [];
+$directories     = [];
+$apiVersions     = ['v1', 'v2'];
+$softwareVersion = '1.0';
+$ignoreVersions  = [];
 
 /**
  * @var int    $index
@@ -36,6 +37,21 @@ foreach ($argv as $index => $argument) {
 include 'vendor/autoload.php';
 include 'config.php';
 
+
+// get Firefly III version and cache it.
+
+if(Cache::isCached('version.txt')) {
+    $softwareVersion = Cache::getCached('version.txt');
+}
+if(!Cache::isCached('version.txt')) {
+    $softwareVersion = Cache::getLatestVersion();
+    Cache::storeCache('version.txt', $softwareVersion);
+}
+
+if('true' === getenv('IS_DEVELOP_RUN')) {
+    $softwareVersion['last_release_name'] = sprintf('%s-dev', $softwareVersion['last_release_name']);
+}
+
 // create a log channel
 $log       = new Logger('api-docs-generator');
 $formatter = new LineFormatter("[%datetime%] %level_name%: %message% %context% %extra%\n", 'Y-m-d H:i:s', true, true);
@@ -48,7 +64,7 @@ $cacheDir     = sprintf('%s/cache', ROOT);
 
 $builder = new Builder($templatesDir, $cacheDir);
 $builder->setLogger($log);
-$builder->setVersion($version);
+$builder->setVersion($softwareVersion['last_release_name']);
 $builder->setApiVersions($apiVersions);
 $builder->setServer($server);
 
@@ -107,7 +123,7 @@ foreach ($apiVersions as $apiVersion) {
         continue;
     }
     $result           = $builder->render($apiVersion);
-    $finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $version, $apiVersion);
+    $finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], $apiVersion);
     file_put_contents($finalDestination, $result);
 }
 
