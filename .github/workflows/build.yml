@@ -1,6 +1,11 @@
 name: "Build - API documentation"
 on:
   workflow_dispatch:
+    inputs:
+      developrun:
+        description: 'Develop run, true or false?'
+        required: true
+        default: 'true'
   push:
     branches:
       - main
@@ -45,5 +50,5 @@ jobs:
         env:
           API_DESTINATION: ./api-docs
           API_SERVER: https://demo.firefly-iii.org
-          IS_DEVELOP_RUN: true
+          IS_DEVELOP_RUN: $developrun
           API_ROOT: .
