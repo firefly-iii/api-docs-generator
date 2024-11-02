@@ -16,7 +16,7 @@ $destination     = './';
 $tags            = [];
 $directories     = [];
 $apiVersions     = ['v1', 'v2'];
-$softwareVersion = '1.0';
+$softwareVersion = ['last_release_name' => 'develop'];
 $ignoreVersions  = [];
 
 /**
@@ -27,42 +27,53 @@ foreach ($argv as $index => $argument) {
     if (0 === $index) {
         continue;
     }
+    /*
+     * Allows you to ignore v1 or v2 (or both) by using --ignore-versions=v1 or --ignore-versions=v1,v2
+     */
     if (str_starts_with($argument, '--ignore-versions=')) {
         $ignoreVersions = explode(',', str_replace('--ignore-versions=', '', $argument));
         $ignoreVersions = array_map('trim', $ignoreVersions);
     }
 }
 
-
+/*
+ * Include necessary files:
+ */
 include 'vendor/autoload.php';
-include 'config.php';
+include 'configuration.php';
+include 'functions.php';
 
-
-// get Firefly III version and cache it.
-
-if(Cache::isCached('version.txt')) {
-    $softwareVersion = Cache::getCached('version.txt');
-}
-if(!Cache::isCached('version.txt')) {
-    $softwareVersion = Cache::getLatestVersion();
-    Cache::storeCache('version.txt', $softwareVersion);
-}
-
-if('true' === getenv('IS_DEVELOP_RUN')) {
-    $softwareVersion['last_release_name'] = sprintf('%s-dev', $softwareVersion['last_release_name']);
-}
-
-// create a log channel
+/*
+ * Create a log channel.
+ */
 $log       = new Logger('api-docs-generator');
 $formatter = new LineFormatter("[%datetime%] %level_name%: %message% %context% %extra%\n", 'Y-m-d H:i:s', true, true);
 $handler   = new StreamHandler('php://stdout', Level::Debug);
 $handler->setFormatter($formatter);
 $log->pushHandler($handler);
 
-$templatesDir = sprintf('%s/templates', ROOT);
-$cacheDir     = sprintf('%s/cache', ROOT);
+/*
+ * If this is not a develop run, find out what's the latest version of Firefly III.
+ */
+if('false' === getenv('IS_DEVELOP_RUN')) {
+    $isCached = Cache::isCached('version.txt');
+    if ($isCached) {
+        $softwareVersion = Cache::getCached('version.txt');
+    }
+    if (!$isCached) {
+        $softwareVersion = Cache::getLatestVersion();
+        Cache::storeCache('version.txt', $softwareVersion);
+    }
 
-$builder = new Builder($templatesDir, $cacheDir);
+    if ('true' === getenv('IS_DEVELOP_RUN')) {
+        $softwareVersion['last_release_name'] = sprintf('%s-dev', $softwareVersion['last_release_name']);
+    }
+}
+
+/*
+ * Create the builder.
+ */
+$builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
 $builder->setLogger($log);
 $builder->setVersion($softwareVersion['last_release_name']);
 $builder->setApiVersions($apiVersions);
@@ -70,7 +81,9 @@ $builder->setServer($server);
 
 $log->debug('Start building API docs');
 
-// add tags
+/*
+ * Add tags to builder.
+ */
 /**
  * @var string $name
  * @var array  $info
@@ -80,9 +93,10 @@ foreach ($tags as $name => $info) {
 }
 unset($name);
 
-// two sets of schema's:
-// v1 and v2.
 
+/*
+ * Add directories to builder.
+ */
 /** @var array $info */
 foreach ($directories as $info) {
     /** @var string $apiVersion */
@@ -117,6 +131,10 @@ foreach ($directories as $info) {
         }
     }
 }
+
+/*
+ * Render the API docs and store the file.
+ */
 foreach ($apiVersions as $apiVersion) {
     if (in_array($apiVersion, $ignoreVersions, true)) {
         $log->warning(sprintf('Will ignore version "%s"', $apiVersion));

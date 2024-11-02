@@ -14,13 +14,16 @@ class Cache
 {
     public static function isCached(string $file): bool
     {
+        global $log; // lame, I know.
         $cacheDir = sprintf('%s/cache', ROOT);
         $file     = sprintf('%s/%s', $cacheDir, $file);
         if (file_exists($file)) {
             if (time() - filemtime($file) < 86400) { // one day
+                $log->debug(sprintf('Cache file "%s" is still valid.', $file));
                 return true;
             }
         }
+        $log->debug(sprintf('Cache file "%s" is not valid.', $file));
         return false;
     }
 
@@ -31,12 +34,14 @@ class Cache
      */
     public static function getLatestVersion(): array
     {
+        global $log;
         $url = 'https://api.github.com/repos/firefly-iii/firefly-iii/releases';
 
         // information:
         $lastDate    = Carbon::create(2000, 1, 1);
         $lastVersion = '0.0.1';
         $client      = new Client();
+        $log->debug(sprintf('Fetching version data from "%s"', $url));
         try {
             $res = $client->get($url, [
                 'headers' => [
@@ -86,6 +91,7 @@ class Cache
         if ('0.0.1' === $lastVersion) {
             die('Could not find last release.');
         }
+        $log->debug(sprintf('Found version "%s"', $lastVersion));
         return [
             'last_release_date' => $lastDate,
             'last_release_name' => $lastVersion,
