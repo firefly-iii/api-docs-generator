@@ -50,5 +50,5 @@ jobs:
         env:
           API_DESTINATION: ./api-docs
           API_SERVER: https://demo.firefly-iii.org
-          IS_DEVELOP_RUN: $developrun
+          IS_DEVELOP_RUN: ${{ github.event.inputs.developrun }}
           API_ROOT: .
