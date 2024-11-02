@@ -34,16 +34,16 @@ jobs:
           token: ${{ secrets.GIT_REPOS_TOKEN }}
       - name: Build documentation
         run: |
-          php index.php
+          php build-api-docs.php
           cd api-docs
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add firefly-iii-$API_VERSION-v1.yaml
-          git add firefly-iii-$API_VERSION-v2.yaml
-          git commit -m "Update API documentation for Firefly III $API_VERSION"
+          git add firefly-iii-*-v1.yaml
+          git add firefly-iii-*-v2.yaml
+          git commit -m "Update API documentation for Firefly III"
           git push
         env:
           API_DESTINATION: ./api-docs
           API_SERVER: https://demo.firefly-iii.org
-          API_VERSION: 2.1.0
+          IS_DEVELOP_RUN: true
           API_ROOT: .
