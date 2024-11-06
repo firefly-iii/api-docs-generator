@@ -11,7 +11,8 @@ SystemInfo:
         api_version:
           type: string
           format: string
-          example: "2.0.0-alpha.1"
+          description: Same value as the version field.
+          example: "5.8.0-alpha.1"
         php_version:
           type: string
           format: string
