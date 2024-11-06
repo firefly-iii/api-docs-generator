@@ -194,3 +194,4 @@ $json = json_encode($urls, JSON_PRETTY_PRINT);
 
 $templateContent = str_replace('%%URLS%%', $json, $templateContent);
 file_put_contents(sprintf('%s/index.html', $destination), $templateContent);
+$log->info(sprintf('Wrote new html file to "%s"', sprintf('%s/index.html', $destination)));
