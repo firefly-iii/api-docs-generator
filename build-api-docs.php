@@ -55,7 +55,7 @@ $log->pushHandler($handler);
 /*
  * If this is not a develop run, find out what's the latest version of Firefly III.
  */
-if('false' === getenv('IS_DEVELOP_RUN')) {
+if ('false' === getenv('IS_DEVELOP_RUN')) {
     $isCached = Cache::isCached('version.txt');
     if ($isCached) {
         $softwareVersion = Cache::getCached('version.txt');
@@ -145,4 +145,51 @@ foreach ($apiVersions as $apiVersion) {
     file_put_contents($finalDestination, $result);
 }
 
+/*
+ * Render the API docs index.html file again.
+ */
+$templateFile = sprintf('%s/index.html.template', $destination);
+if (!file_exists($templateFile)) {
+    $log->error(sprintf('Could not find template file "%s", will not update.', $templateFile));
+    die();
+}
+$templateContent = file_get_contents($templateFile);
+$urls            = [];
+$developUrls     = [];
+// list all files
+$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($destination), RecursiveIteratorIterator::SELF_FIRST);
+/**
+ * @var string      $fullPath
+ * @var SplFileInfo $object
+ */
+foreach ($objects as $fullPath => $object) {
+    $fileName = $object->getFilename();
+    if (str_ends_with($fileName, 'yaml')) {
 
+        // get exact version (with "-v1" or "-v2")
+        $exactVersion = str_replace(['.yaml', 'firefly-iii-'], '', $fileName);
+
+        // in version, replace -v1 and -v2 with something version_compare can handle.
+        $compare = str_replace('-v1', '.beta', $exactVersion);
+        $compare = str_replace('-v2', '.alpha', $compare);
+
+        // get nice name of version
+        $versionName = str_replace('-v1', ' (v1)', $exactVersion);
+        $versionName = str_replace('-v2', ' (v2)', $versionName);
+        if (str_contains($exactVersion, 'develop')) {
+            $developUrls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
+            continue;
+        }
+
+        $urls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
+    }
+}
+uasort($urls, function ($a, $b) {
+    return version_compare($b['version'], $a['version']);
+});
+
+array_splice($urls, 2, 0, $developUrls);
+$json = json_encode($urls, JSON_PRETTY_PRINT);
+
+$templateContent = str_replace('%%URLS%%', $json, $templateContent);
+file_put_contents(sprintf('%s/index.html', $destination), $templateContent);

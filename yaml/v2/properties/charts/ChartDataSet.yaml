@@ -4,7 +4,7 @@ ChartDataSet:
     label:
       type: string
       format: string
-      example: "earned-EUR"
+      example: "earned"
       description: "This is the label of the current data-set. It can refer to an object by name, or a collected set of data."
     currency_id:
       type: string
