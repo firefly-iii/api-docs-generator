@@ -45,6 +45,7 @@ jobs:
           git config user.email github-actions@github.com
           git add firefly-iii-*-v1.yaml
           git add firefly-iii-*-v2.yaml
+          git add index.html
           git commit -m "Update API documentation for Firefly III"
           git push
         env:
