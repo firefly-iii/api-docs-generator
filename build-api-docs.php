@@ -151,7 +151,7 @@ foreach ($apiVersions as $apiVersion) {
 $templateFile = sprintf('%s/index.html.template', $destination);
 if (!file_exists($templateFile)) {
     $log->error(sprintf('Could not find template file "%s", will not update.', $templateFile));
-    die();
+    exit;
 }
 $templateContent = file_get_contents($templateFile);
 $urls            = [];
@@ -180,6 +180,7 @@ foreach ($objects as $fullPath => $object) {
             $developUrls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
             continue;
         }
+        $log->info(sprintf('Added version %s', $exactVersion));
 
         $urls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
     }
