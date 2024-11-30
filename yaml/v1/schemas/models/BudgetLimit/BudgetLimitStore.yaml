@@ -43,3 +43,9 @@ BudgetLimitStore:
       type: string
       format: amount
       example: "123.45"
+    notes:
+      type: string
+      format: string
+      example: "Some example notes"
+      nullable: true
+      description: Some notes for this specific budget limit.

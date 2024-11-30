@@ -74,3 +74,9 @@ BudgetLimit:
       example: "-1012.12"
       nullable: true
       readOnly: true
+    notes:
+      type: string
+      format: string
+      example: "Some example notes"
+      nullable: true
+      description: Some notes for this specific budget limit.
