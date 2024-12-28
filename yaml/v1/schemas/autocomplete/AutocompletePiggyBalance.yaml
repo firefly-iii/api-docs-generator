@@ -13,11 +13,6 @@ AutocompletePiggyBalance:
       format: string
       example: "New couch"
       description: Name of the piggy bank found by an auto-complete search.
-    name_with_balance:
-      type: string
-      format: string
-      example: "New couch ($ 12.34)"
-      description: Name of the piggy bank found by an auto-complete search with the current balance formatted nicely.
     currency_id:
       type: string
       format: string

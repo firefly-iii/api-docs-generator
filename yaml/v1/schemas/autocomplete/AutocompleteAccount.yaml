@@ -34,7 +34,7 @@ AutocompleteAccount:
       type: string
       format: string
       example: "12"
-      description: ID for the currency used by this account.
+      description: ID for the currency used by this account. If the prefers amounts converted to their native currency, this currency is used.
     currency_name:
       type: string
       format: string

@@ -26,7 +26,7 @@
     parameters:
       !correlationParameter,3
       !autocompleteSearchParameters,3
-    summary: Returns all piggy banks of the user returned in a basic auto-complete array complemented with balance information.
+    summary: Returns all piggy banks of the user returned in a basic auto-complete array.
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3
