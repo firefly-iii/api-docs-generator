@@ -54,11 +54,41 @@ Account:
       format: int32
       example: 2
       readOnly: true
+    native_currency_id:
+      type: string
+      format: string
+      example: "12"
+      readOnly: true
+      description: "Returns the native currency ID of the administration."
+    native_currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: "Returns the native currency code of the administration."
+    native_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      description: "Returns the native currency symbol of the administration."
+    native_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      description: "Returns the native currency decimal places of the administration."
     current_balance:
       type: string
       format: amount
       example: "123.45"
       readOnly: true
+      description: "The current balance of the account in the account's currency OR the native currency if the account has no currency."
+    native_current_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      readOnly: true
+      description: "The current balance of the account in the administration's native currency."
     current_balance_date:
       type: string
       format: date-time
@@ -75,6 +105,16 @@ Account:
       format: string
       example: "BOFAUS3N"
       nullable: true
+    virtual_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "The virtual balance of the account in the account's currency or the administration's native currency if the account has no currency."
+    native_virtual_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "The virtual balance of the account in administration's native currency."
     account_number:
       type: string
       format: string
@@ -84,7 +124,12 @@ Account:
       type: string
       format: amount
       example: "-1012.12"
-      description: Represents the opening balance, the initial amount this account holds.
+      description: "Represents the opening balance, the initial amount this account holds in the currency of the account or the administration's native currency if the account has no currency."
+    native_opening_balance:
+      type: string
+      format: amount
+      example: "-1012.12"
+      description: "Represents the opening balance, in the administration's native currency."
     current_debt:
       type: string
       format: amount
@@ -97,10 +142,6 @@ Account:
       example: "2018-09-17T12:46:47+01:00"
       nullable: true
       description: Represents the date of the opening balance.
-    virtual_balance:
-      type: string
-      format: amount
-      example: "123.45"
     include_net_worth:
       type: boolean
       format: boolean

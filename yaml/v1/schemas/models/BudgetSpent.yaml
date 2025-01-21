@@ -5,7 +5,7 @@ BudgetSpent:
       type: string
       format: amount
       example: "123.45"
-      description: The amount spent.
+      description: "The amount spent. This is in the administration's native currency, if the conversion is turned on."
     currency_id:
       type: string
       format: string

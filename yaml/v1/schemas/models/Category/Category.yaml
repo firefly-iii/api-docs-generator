@@ -22,6 +22,30 @@ Category:
       format: string
       nullable: true
       example: "Some example notes"
+    native_currency_id:
+      type: string
+      format: string
+      example: "5"
+      readOnly: true
+      description: "The administration's native currency ID."
+    native_currency_code:
+      type: string
+      format: string
+      example: EUR
+      readOnly: true
+      description: "The administration's native currency code."
+    native_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      description: "The administration's native currency symbol."
+    native_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      description: "The administration's native currency decimal places."
     spent:
       type: array
       readOnly: true

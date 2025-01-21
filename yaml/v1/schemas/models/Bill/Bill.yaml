@@ -37,6 +37,30 @@ Bill:
       format: int32
       example: 2
       readOnly: true
+    native_currency_id:
+      type: string
+      format: string
+      example: "5"
+      readOnly: true
+      description: "The administration's native currency ID."
+    native_currency_code:
+      type: string
+      format: string
+      example: EUR
+      readOnly: true
+      description: "The administration's native currency code."
+    native_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      description: "The administration's native currency symbol."
+    native_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      description: "The administration's native currency decimal places."
     name:
       type: string
       format: string
@@ -49,6 +73,20 @@ Bill:
       type: string
       format: amount
       example: "123.45"
+    native_amount_min:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      readOnly: true
+      description: "The max amount of this bill in the user's native currency, if the original amount is in a different currency."
+    native_amount_max:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      readOnly: true
+      description: "The min amount of this bill in the user's native currency, if the original amount is in a different currency."
     date:
       type: string
       format: date-time

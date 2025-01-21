@@ -51,6 +51,30 @@ BudgetLimit:
       format: int32
       example: 2
       readOnly: true
+    native_currency_id:
+      type: string
+      format: string
+      example: "5"
+      readOnly: true
+      description: "The administration's native currency ID."
+    native_currency_code:
+      type: string
+      format: string
+      example: EUR
+      readOnly: true
+      description: "The administration's native currency code."
+    native_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      description: "The administration's native currency symbol."
+    native_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      description: "The administration's native currency decimal places."
     budget_id:
       type: string
       format: string
@@ -68,12 +92,20 @@ BudgetLimit:
       type: string
       format: amount
       example: "123.45"
+    native_amount:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      readOnly: true
+      description: "The amount of this budget limit in the user's native currency, if the original amount is in a different currency."
     spent:
       type: string
       format: amount
       example: "-1012.12"
       nullable: true
       readOnly: true
+      description: "Will be in the native currency if this is turned on by the user."
     notes:
       type: string
       format: string
