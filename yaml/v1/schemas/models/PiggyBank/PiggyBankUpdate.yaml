@@ -8,7 +8,7 @@ PiggyBankUpdate:
     account_id:
       type: string
       format: string
-      example: 13
+      example: "13"
       description: The ID of the asset account this piggy bank is connected to.
     currency_id:
       type: string

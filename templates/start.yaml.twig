@@ -3,7 +3,7 @@ servers:
   - description: Firefly III demo site
     url: {{ server }}/api
 info:
-  title: Firefly III API v{{ version }}
+  title: Firefly III API {% if version starts with 'develop' %}{{ version }}{% else %}v{{ version }}{% endif %}
   description: |
     This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the "Authorize" button to try the API below. This file was last generated on {{ time }}
 
@@ -11,7 +11,7 @@ info:
 
     {% if 'v2' == api_version %}The v2 version of the API is not yet complete. My apologies for any laps or inconsistencies. Please report any issues you find.{% endif %}
 
-  version: "{{ version }}"
+  version: "{% if version starts with 'develop' %}{{ version }}{% else %}v{{ version }}{% endif %}"
   contact:
     name: James Cole
     email: james@firefly-iii.org

@@ -60,6 +60,7 @@
       !correlationParameter,3
       - in: path
         name: id
+        example: "123"
         required: true
         schema:
           type: string
@@ -89,6 +90,7 @@
       - in: path
         name: id
         required: true
+        example: "123"
         schema:
           type: string
           example: "123"
@@ -126,6 +128,7 @@
       - in: path
         name: id
         required: true
+        example: "123"
         schema:
           type: string
           example: "123"

@@ -150,7 +150,7 @@ class Builder
         }
         $time = Carbon::now();
 
-        return $template->render(
+        $content = $template->render(
             [
                 'version'     => $this->getVersion(),
                 'server'      => $this->getServer(),
@@ -161,6 +161,8 @@ class Builder
                 'time'        => $time->toW3cString(),
             ]
         );
+        $content = str_replace("\n\n","\n",$content);
+        return str_replace("\n\n","\n",$content);
     }
 
     /**
