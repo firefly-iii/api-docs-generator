@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
 $dotenv->safeLoad();
 
-$destination = $_ENV['API_DESTINATION'];
-$server      = $_ENV['API_SERVER'];
-$version     = $_ENV['API_VERSION'];
+$destination = getenv('API_DESTINATION');
+$server      = getenv('API_SERVER');
+$version     = getenv('API_VERSION');
 
-define('ROOT', $_ENV['API_ROOT']);
+define('ROOT', getenv('API_ROOT'));
 
 $tags = [
     // system
