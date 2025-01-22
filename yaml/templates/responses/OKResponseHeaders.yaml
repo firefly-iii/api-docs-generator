@@ -1,0 +1,67 @@
+headers:
+  Server:
+    required: false
+    schema:
+      type: string
+    description: Server that responds.
+  Transfer-Encoding:
+    required: false
+    schema:
+      type: string
+    description: Transfer encoding of the response.
+  Connection:
+    required: false
+    schema:
+      type: string
+    description: Connection status.
+  Cache-Control:
+    required: false
+    schema:
+      type: string
+    description: Cache control of the response.
+  Date:
+    required: false
+    schema:
+      type: string
+    description: Date of the response.
+  X-Trace-Id:
+    required: false
+    schema:
+      type: string
+      format: uuid
+    description: Unique identifier associated with this request.
+  X-Frame-Options:
+    required: false
+    schema:
+      type: string
+    description: Security header to prevent clickjacking.
+  X-Content-Type-Options:
+    required: false
+    schema:
+      type: string
+    description: Security header to prevent content type sniffing.
+  X-XSS-Protection:
+    required: false
+    schema:
+      type: string
+    description: Security header to prevent cross-site scripting.
+  Referrer-Policy:
+    required: false
+    schema:
+      type: string
+    description: Security header to prevent referrer leakage.
+  X-Permitted-Cross-Domain-Policies:
+    required: false
+    schema:
+      type: string
+    description: Security header to prevent cross-domain policy file.
+  X-Robots-Tag:
+    required: false
+    schema:
+      type: string
+    description: Security header to prevent search engine indexing.
+  Feature-Policy:
+    required: false
+    schema:
+      type: string
+    description: Security header to prevent feature policy.

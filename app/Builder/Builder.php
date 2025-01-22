@@ -162,6 +162,7 @@ class Builder
             ]
         );
         $content = str_replace("\n\n","\n",$content);
+        $content = str_replace("\n  \n","\n",$content);
         return str_replace("\n\n","\n",$content);
     }
 
