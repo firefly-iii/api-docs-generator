@@ -20,6 +20,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -48,6 +49,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -76,6 +78,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -104,6 +107,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -132,6 +136,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -160,6 +165,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -188,6 +194,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -216,6 +223,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:
@@ -270,6 +278,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'The exported transaction in a file.'
         content:
           application/octet-stream:

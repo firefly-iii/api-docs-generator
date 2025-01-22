@@ -19,6 +19,7 @@
 
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of piggy bank related events
         content:
           application/vnd.api+json:
@@ -49,6 +50,7 @@
 
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of attachments
         content:
           application/vnd.api+json:

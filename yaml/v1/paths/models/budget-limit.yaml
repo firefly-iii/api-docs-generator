@@ -35,6 +35,7 @@
           example: "2018-12-31"
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of budget limits applicable to this budget.
         content:
           application/vnd.api+json:
@@ -71,6 +72,7 @@
       required: true
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'New budget limit stored, result in response.'
         content:
           application/vnd.api+json:
@@ -106,6 +108,7 @@
         description: The ID of the budget limit. The budget limit MUST be associated to the budget ID.
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'The requested budget limit'
         content:
           application/vnd.api+json:
@@ -149,6 +152,7 @@
       required: true
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'Updated budget limit stored, result in response'
         content:
           application/vnd.api+json:
@@ -218,6 +222,7 @@
           example: "2018-12-31"
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of budget limits.
         content:
           application/vnd.api+json:

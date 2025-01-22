@@ -12,6 +12,7 @@
       !pageParameter,3
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of link types.
         content:
           application/vnd.api+json:
@@ -31,6 +32,7 @@
     description: Creates a new link type. The data required can be submitted as a JSON body or as a list of parameters (in key=value pairs, like a webform).
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'New link type stored, result in response.'
         content:
           application/vnd.api+json:
@@ -70,6 +72,7 @@
         description: The ID of the link type.
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'The requested link type'
         content:
           application/vnd.api+json:
@@ -107,6 +110,7 @@
       required: true
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'Updated link type stored, result in response'
         content:
           application/vnd.api+json:

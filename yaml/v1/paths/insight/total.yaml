@@ -28,6 +28,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'A list of sums in different currencies.'
         content:
           application/json:
@@ -63,6 +64,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'A list of sums in different currencies.'
         content:
           application/json:
@@ -98,6 +100,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: 'A list of sums in different currencies.'
         content:
           application/json:

@@ -13,6 +13,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: A list of rules with very basic information.
         content:
           application/json:

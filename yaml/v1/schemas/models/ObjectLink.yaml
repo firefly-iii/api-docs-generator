@@ -1,6 +1,10 @@
 ObjectLink:
   type: object
   properties:
+    self:
+      type: string
+      format: uri
+      example: "https://demo.firefly-iii.org/api/v1/OBJECTS/1"
     "0":
       type: object
       properties:
@@ -12,7 +16,3 @@ ObjectLink:
           type: string
           format: string
           example: "/OBJECTS/1"
-    self:
-      type: string
-      format: uri
-      example: "https://demo.firefly-iii.org/api/v1/OBJECTS/1"

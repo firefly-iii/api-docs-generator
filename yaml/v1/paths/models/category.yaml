@@ -11,6 +11,7 @@
       !pageParameter,3
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of categories.
         content:
           application/vnd.api+json:
@@ -40,6 +41,7 @@
       required: true
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'New category stored, result in response.'
         content:
           application/vnd.api+json:
@@ -86,6 +88,7 @@
       - categories
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'The requested category'
         content:
           application/vnd.api+json:
@@ -122,6 +125,7 @@
       required: true
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'Updated category stored, result in response'
         content:
           application/vnd.api+json:

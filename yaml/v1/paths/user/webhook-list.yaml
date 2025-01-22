@@ -16,6 +16,7 @@
       - webhooks
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of webhook messages.
         content:
           application/vnd.api+json:
@@ -50,6 +51,7 @@
       - webhooks
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'A single webhook message.'
         content:
           application/vnd.api+json:
@@ -116,6 +118,7 @@
       - webhooks
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of webhook attempts.
         content:
           application/vnd.api+json:
@@ -157,6 +160,7 @@
       - webhooks
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'A single webhook attempt.'
         content:
           application/vnd.api+json:

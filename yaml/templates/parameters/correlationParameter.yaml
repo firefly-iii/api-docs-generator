@@ -6,3 +6,4 @@
   schema:
     type: string
     format: uuid
+    example: 40c71bbb-c676-4f24-83cf-cc725d7d7a00

@@ -13,6 +13,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: A list of transaction descriptions with very basic information.
         content:
           application/json:
@@ -33,6 +34,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: A list of transactions with very basic information. This endpoint is DEPRECATED and I suggest you DO NOT use it.
         content:
           application/json:

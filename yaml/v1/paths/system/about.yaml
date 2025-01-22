@@ -36,6 +36,7 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
+        !OKResponseHeaders,4
         description: The user
         content:
           application/vnd.api+json:

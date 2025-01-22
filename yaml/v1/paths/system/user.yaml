@@ -11,6 +11,7 @@
       !pageParameter,3
     responses:
       "200":
+        !OKResponseHeaders,4
         description: A list of users.
         content:
           application/vnd.api+json:
@@ -70,6 +71,7 @@
       - users
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'The requested user.'
         content:
           application/vnd.api+json:
@@ -106,6 +108,7 @@
       required: true
     responses:
       "200":
+        !OKResponseHeaders,4
         description: 'Updated user stored, result in response'
         content:
           application/vnd.api+json:
