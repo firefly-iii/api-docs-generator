@@ -59,23 +59,27 @@ Account:
       format: string
       example: "12"
       readOnly: true
+      nullable: true
       description: "Returns the native currency ID of the administration."
     native_currency_code:
       type: string
       format: string
       example: "EUR"
+      nullable: true
       description: "Returns the native currency code of the administration."
     native_currency_symbol:
       type: string
       format: string
       example: "$"
       readOnly: true
+      nullable: true
       description: "Returns the native currency symbol of the administration."
     native_currency_decimal_places:
       type: integer
       format: int32
       example: 2
       readOnly: true
+      nullable: true
       description: "Returns the native currency decimal places of the administration."
     current_balance:
       type: string
@@ -95,6 +99,24 @@ Account:
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
       description: "The timestamp for this date is always 23:59:59, to indicate it's the balance at the very END of that particular day."
+    notes:
+      type: string
+      format: string
+      nullable: true
+      example: "Some example notes"
+    monthly_payment_date:
+      nullable: true
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
+    credit_card_type:
+      $ref: '#/components/schemas/CreditCardTypeProperty'
+    account_number:
+      type: string
+      format: string
+      nullable: true
+      example: "7009312345678"
     iban:
       type: string
       format: iban
@@ -115,11 +137,6 @@ Account:
       format: amount
       example: "123.45"
       description: "The virtual balance of the account in administration's native currency."
-    account_number:
-      type: string
-      format: string
-      nullable: true
-      example: "7009312345678"
     opening_balance:
       type: string
       format: amount
@@ -130,32 +147,12 @@ Account:
       format: amount
       example: "-1012.12"
       description: "Represents the opening balance, in the administration's native currency."
-    current_debt:
-      type: string
-      format: amount
-      nullable: true
-      example: "1012.12"
-      description: Represents the current debt for liabilities.
     opening_balance_date:
       type: string
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       nullable: true
       description: Represents the date of the opening balance.
-    include_net_worth:
-      type: boolean
-      format: boolean
-      example: true
-      default: true
-      description: "If omitted, defaults to true."
-    credit_card_type:
-      $ref: '#/components/schemas/CreditCardTypeProperty'
-    monthly_payment_date:
-      nullable: true
-      type: string
-      format: date-time
-      example: "2018-09-17T12:46:47+01:00"
-      description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
     liability_type:
       $ref: '#/components/schemas/LiabilityTypeProperty'
     liability_direction:
@@ -168,21 +165,28 @@ Account:
       nullable: true
     interest_period:
       $ref: '#/components/schemas/InterestPeriodProperty'
-    notes:
+    current_debt:
       type: string
-      format: string
+      format: amount
       nullable: true
-      example: "Some example notes"
-    latitude:
-      type: number
-      format: double
-      example: 51.983333
-      nullable: true
-      description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
+      example: "1012.12"
+      description: Represents the current debt for liabilities.
+    include_net_worth:
+      type: boolean
+      format: boolean
+      example: true
+      default: true
+      description: "If omitted, defaults to true."
     longitude:
       type: number
       format: double
       example: 5.916667
+      nullable: true
+      description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
+    latitude:
+      type: number
+      format: double
+      example: 51.983333
       nullable: true
       description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
     zoom_level:
