@@ -23,6 +23,11 @@ ValidationErrorResponse:
           items:
             type: string
             format: string
+        field:
+          type: array
+          items:
+            type: string
+            format: string
         role:
           type: array
           items:
