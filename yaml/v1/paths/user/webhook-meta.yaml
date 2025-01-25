@@ -17,7 +17,6 @@
     responses:
       !badRequestResponse,3
       "200":
-        !OKResponseHeaders,4
         description: OK!
       "204":
         description: No messages to send, so did nothing.

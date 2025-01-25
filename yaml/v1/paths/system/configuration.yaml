@@ -13,7 +13,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: System configuration values
         content:
           application/x-www-form-urlencoded:
@@ -43,7 +42,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: One system configuration value
         content:
           application/json:
@@ -65,7 +63,6 @@
         description: The name of the configuration value you want to update.
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'New configuration value stored, result in response.'
         content:
           application/json:

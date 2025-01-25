@@ -30,7 +30,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: A list of accounts
         content:
           application/vnd.api+json:
@@ -51,7 +50,6 @@
       !internalExceptionResponse,3
       !validationErrorResponse,3
       "200":
-        !OKResponseHeaders,4
         description: 'New account stored, result in response.'
         content:
           application/vnd.api+json:
@@ -98,7 +96,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: 'The requested account'
         content:
           application/vnd.api+json:
@@ -137,7 +134,6 @@
       !internalExceptionResponse,3
       !validationErrorResponse,3
       "200":
-        !OKResponseHeaders,4
         description: 'Updated account stored, result in response'
         content:
           application/vnd.api+json:

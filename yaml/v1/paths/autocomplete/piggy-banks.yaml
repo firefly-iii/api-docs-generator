@@ -13,7 +13,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: A list of piggy banks with very basic information.
         content:
           application/json:
@@ -34,7 +33,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: A list of piggy banks with very basic balance information.
         content:
           application/json:

@@ -34,7 +34,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: A list of available budget amounts.
         content:
           application/vnd.api+json:
@@ -62,7 +61,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: 'The requested available budget'
         content:
           application/vnd.api+json:

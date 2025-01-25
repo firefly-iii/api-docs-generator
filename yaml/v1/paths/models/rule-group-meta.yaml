@@ -62,7 +62,6 @@
           example: [ 1, 2, 3 ]
     responses:
       "200":
-        !OKResponseHeaders,4
         description: A list of transactions that would be changed by any of the rules of the rule group. No changes will be made.
         content:
           application/vnd.api+json:

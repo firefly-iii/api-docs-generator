@@ -11,7 +11,6 @@
       !pageParameter,3
     responses:
       "200":
-        !OKResponseHeaders,4
         description: A list of preferences.
         content:
           application/vnd.api+json:
@@ -31,7 +30,6 @@
       !correlationParameter,3
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'New account stored, result in response.'
         content:
           application/vnd.api+json:
@@ -71,7 +69,6 @@
       - preferences
     responses:
       "200":
-        !OKResponseHeaders,4
         description: A single preference.
         content:
           application/vnd.api+json:
@@ -109,7 +106,6 @@
       required: true
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'Updated preference.'
         content:
           application/vnd.api+json:

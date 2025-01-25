@@ -47,7 +47,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: A list of transactions
         content:
           application/vnd.api+json:
@@ -77,7 +76,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: A list of attachments
         content:
           application/vnd.api+json:
@@ -108,7 +106,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: A list of piggy banks
         content:
           application/vnd.api+json:

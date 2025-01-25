@@ -40,7 +40,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: 'A list of budget and expense details. Each budget has one row per currency.'
         content:
           application/json:
@@ -76,7 +75,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: 'A list of expense details. One row per currency.'
         content:
           application/json:

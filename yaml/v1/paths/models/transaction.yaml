@@ -36,7 +36,6 @@
           $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
       "200":
-        !OKResponseHeaders,4
         description: A list of transactions.
         content:
           application/vnd.api+json:
@@ -66,7 +65,6 @@
       required: true
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'New transaction stored(s), result in response.'
         content:
           application/vnd.api+json:
@@ -95,7 +93,6 @@
       - transactions
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'The requested transaction.'
         content:
           application/vnd.api+json:
@@ -132,7 +129,6 @@
       required: true
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'Updated transaction stored, result in response'
         content:
           application/vnd.api+json:

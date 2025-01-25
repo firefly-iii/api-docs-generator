@@ -40,7 +40,6 @@
       users.
     responses:
       "200":
-        !OKResponseHeaders,4
         description: The result of the cron job(s) firing.
         content:
           application/json:

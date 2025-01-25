@@ -14,7 +14,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: The available system information
         content:
           application/json:
@@ -36,7 +35,6 @@
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
-        !OKResponseHeaders,4
         description: The user
         content:
           application/vnd.api+json:

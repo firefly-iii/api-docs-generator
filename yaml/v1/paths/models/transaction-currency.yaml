@@ -11,7 +11,6 @@
       !pageParameter,3
     responses:
       "200":
-        !OKResponseHeaders,4
         description: A list of currencies.
         content:
           application/vnd.api+json:
@@ -41,7 +40,6 @@
       required: true
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'New currency stored, result in response.'
         content:
           application/vnd.api+json:
@@ -160,7 +158,6 @@
       - currencies
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'The requested currency'
         content:
           application/vnd.api+json:
@@ -198,7 +195,6 @@
       required: true
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'Updated currency stored, result in response'
         content:
           application/json:
@@ -243,7 +239,6 @@
       - currencies
     responses:
       "200":
-        !OKResponseHeaders,4
         description: 'The default currency'
         content:
           application/json:
