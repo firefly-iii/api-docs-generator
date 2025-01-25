@@ -15,15 +15,14 @@
     tags:
       - webhooks
     responses:
+      !badRequestResponse,3
       "200":
         !OKResponseHeaders,4
         description: OK!
       "204":
         description: No messages to send, so did nothing.
-      "404":
-        description: Webhook not found.
-      "500":
-        description: Error while sending.
+      !notFoundResponse,3
+      !internalExceptionResponse,3
 /webhooks/{id}/trigger-transaction/{transactionId}:
   post:
     summary: Trigger webhook for a given transaction.
@@ -48,9 +47,8 @@
     tags:
       - webhooks
     responses:
+      !badRequestResponse,3
       "204":
         description: Webhook triggered successfully.
-      "404":
-        description: Webhook or transaction not found.
-      "500":
-        description: Error while sending.
+      !notFoundResponse,3
+      !internalExceptionResponse,3

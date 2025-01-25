@@ -105,6 +105,10 @@
               $ref: '#/components/schemas/CurrencySingle'
       "409":
         description: Currency cannot be disabled, because it is still in use.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InternalExceptionResponse'
       !unauthenticatedResponse,3
       !notFoundResponse,3
       !badRequestResponse,3

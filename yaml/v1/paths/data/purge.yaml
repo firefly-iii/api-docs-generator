@@ -10,6 +10,7 @@
     responses:
       !unauthenticatedResponse,3
       !badRequestResponse,3
+      !notFoundResponse,3
       !internalExceptionResponse,3
       "204":
         description: Empty response when data has been purged.

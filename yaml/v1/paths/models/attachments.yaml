@@ -165,7 +165,7 @@
     responses:
       "200":
         !OKResponseHeaders,4
-        description: 'The requested attachment'
+        description: "The requested attachment"
         content:
           application/octet-stream:
             schema:

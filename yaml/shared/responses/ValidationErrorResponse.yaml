@@ -13,6 +13,11 @@ ValidationErrorResponse:
           items:
             type: string
             format: string
+        force:
+          type: array
+          items:
+            type: string
+            format: string
         blocked:
           type: array
           items:

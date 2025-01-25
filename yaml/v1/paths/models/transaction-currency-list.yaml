@@ -107,7 +107,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-/currencies/{code}/budget_limits:
+/currencies/{code}/budget-limits:
   get:
     summary: List all budget limits with this currency
     description: List all budget limits with this currency

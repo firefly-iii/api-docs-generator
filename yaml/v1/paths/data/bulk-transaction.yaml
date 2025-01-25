@@ -7,6 +7,7 @@
     tags:
       - data
     parameters:
+      !correlationParameter,3
       - in: query
         name: query
         description: The JSON query.
