@@ -39,6 +39,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of tag and expense details. Each tag has one row per currency.'
         content:
@@ -74,6 +75,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of expense details. One row per currency.'
         content:
@@ -121,6 +123,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of tag and income details. Each tag has one row per currency.'
         content:
@@ -156,6 +159,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of income details. One row per currency.'
         content:
@@ -203,6 +207,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of tag and transfer details. Each tag has one row per currency.'
         content:
@@ -238,6 +243,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of transfer details. One row per currency.'
         content:

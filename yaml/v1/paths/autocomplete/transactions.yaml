@@ -10,6 +10,7 @@
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3
+      !validationErrorResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":
@@ -30,6 +31,7 @@
     responses:
       !unauthenticatedResponse,3
       !notFoundResponse,3
+      !validationErrorResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
       "200":

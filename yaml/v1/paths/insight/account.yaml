@@ -29,6 +29,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of expense accounts and expense details. Each expense acccount has one row per currency.'
         content:
@@ -64,6 +65,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of asset accounts and expense details. Each asset account has one row per currency.'
         content:
@@ -101,6 +103,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of revenue accounts and income details. Each revenue acccount has one row per currency.'
         content:
@@ -136,6 +139,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of asset accounts and income details. Each asset account has one row per currency.'
         content:
@@ -171,6 +175,7 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+      !validationErrorResponse,3
       "200":
         description: 'A list of asset accounts and transfer details. Each asset account has one row per currency.'
         content:
