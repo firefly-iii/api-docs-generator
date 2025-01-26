@@ -1,0 +1,185 @@
+/exchange-rates:
+  get:
+    summary: List all exchange rates.
+    description: List exchange rates.
+    operationId: listCurrencyExchangeRates
+    tags:
+      - currency_exchange_rates
+    parameters:
+      !correlationParameter,3
+      !limitParameter,3
+      !pageParameter,3
+    responses:
+      "200":
+        description: A list of all available currency exchange rates.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+/exchange-rates/{id}:
+  get:
+    summary: List a single specific exchange rate.
+    description: List a single specific exchange rate
+    operationId: listSpecificCurrencyExchangeRate
+    tags:
+      - currency_exchange_rates
+    parameters:
+      !correlationParameter,3
+      !limitParameter,3
+      !pageParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the requested currency exchange rate.
+    responses:
+      "200":
+        description: A list of currency exchange rates.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  delete:
+    operationId: deleteSpecificCurrencyExchangeRate
+    description: "Delete a specific currency exchange rate."
+    summary: "Delete a specific currency exchange rate."
+    tags:
+      - currency_exchange_rates
+    parameters:
+        !correlationParameter,3
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "123"
+          description: The ID of the requested currency exchange rate.
+    responses:
+      "204":
+        description: "Currency exchange rate deleted."
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  put:
+    summary: Update existing currency exchange rate.
+    description: |
+      Used to update a single currency exchange rate
+    operationId: updateCurrencyExchangeRate
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the currency exchange rate.
+    tags:
+      - links
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
+      description: JSON array or formdata with updated exchange rate information. See the model for the exact specifications.
+      required: true
+    responses:
+      "200":
+        description: 'Updated exchange rate stored, result in response'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+      !validationErrorResponse,3
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+
+/exchange-rates/rates/{from}/{to}:
+  get:
+    summary: List all exchange rate from/to the mentioned currencies.
+    description: List all exchange rate from/to the mentioned currencies.
+    operationId: listSpecificCurrencyExchangeRates
+    tags:
+      - currency_exchange_rates
+    parameters:
+      !correlationParameter,3
+      !limitParameter,3
+      !pageParameter,3
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "EUR"
+        description: "The currency code of the 'from' currency."
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "USD"
+        description: "The currency code of the 'to' currency."
+    responses:
+      "200":
+        description: A list of currency exchange rates.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+  delete:
+    operationId: deleteSpecificCurrencyExchangeRates
+    description: "Delete all currency exchange rates from 'from' to 'to' on a specific date or today."
+    summary: "Delete all currency exchange rates from 'from' to 'to'."
+    tags:
+      - currency_exchange_rates
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "EUR"
+        description: "The currency code of the 'from' currency."
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "USD"
+        description: "The currency code of the 'to' currency."
+      - in: query
+        name: date
+        description: |
+          A date formatted YYYY-MM-DD. Defaults to today.
+        required: false
+        schema:
+          type: string
+          format: date
+          example: "2018-09-17"
+    responses:
+      "204":
+        description: "Currency exchange rate(s) deleted."
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3

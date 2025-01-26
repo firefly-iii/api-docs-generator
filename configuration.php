@@ -117,6 +117,10 @@ $tags = [
         'description' => 'User groups are the objects around which "financial administrations" are built.',
         'api_version' => ['v1'],
     ],
+    'currency_exchange_rates'             => [
+        'description' => 'All currency exchange rates.',
+        'api_version' => ['v1'],
+    ],
 
     // v2 net worth
     'net-worth'         => ['description' => 'Shows you the net worth of the current user.', 'api_version' => ['v2']],

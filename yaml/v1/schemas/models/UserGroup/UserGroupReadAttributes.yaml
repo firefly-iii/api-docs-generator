@@ -20,7 +20,7 @@ UserGroupReadAttributes:
     can_see_members:
       type: boolean
       format: boolean
-      example: false
+      example: true
       readOnly: true
       description: "Can the current user see the members of this user group?"
     title:

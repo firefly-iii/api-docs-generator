@@ -1,0 +1,18 @@
+CurrencyExchangeRateUpdate:
+  type: object
+  required:
+    - date
+    - rate
+  properties:
+    date:
+      type: string
+      format: date
+      example: "2018-09-17"
+      description: The date to which the exchange rate is applicable.
+      nullable: false
+    rate:
+      type: string
+      format: string
+      nullable: false
+      example: "2.3456"
+      description: "The exchange rate from the base currency to the destination currency."

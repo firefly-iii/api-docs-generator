@@ -1,0 +1,73 @@
+CurrencyExchangeRateReadAttributes:
+  type: object
+  properties:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    from_currency_id:
+      type: string
+      format: string
+      example: "12"
+      readOnly: true
+      description: "Base currency ID for this exchange rate entry."
+    from_currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      readOnly: true
+      description: "Base currency code for this exchange rate entry."
+    from_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      description: "Base currency symbol for this exchange rate entry."
+    from_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      description: "Base currency decimal places for this exchange rate entry."
+    to_currency_id:
+      type: string
+      format: string
+      example: "12"
+      readOnly: true
+      description: "Destination currency ID for this exchange rate entry."
+    to_currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      readOnly: true
+      description: "Destination currency code for this exchange rate entry."
+    to_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      description: "Destination currency symbol for this exchange rate entry."
+    to_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      description: "Destination currency decimal places for this exchange rate entry."
+    rate:
+      type: string
+      format: string
+      example: "1.10340"
+      readOnly: true
+      description: "The actual exchange rate. How many 'to' currency will you get for 1 'from' currency?"
+    date:
+      type: string
+      format: date-time
+      readOnly: true
+      example: "2018-09-17T12:46:47+01:00"
+      description: "Date and time of the exchange rate."
