@@ -113,6 +113,10 @@ $tags = [
         'description' => 'Endpoints to manage links between transactions, and manage the type of links available.',
         'api_version' => ['v1'],
     ],
+    'user_groups'             => [
+        'description' => 'User groups are the objects around which "financial administrations" are built.',
+        'api_version' => ['v1'],
+    ],
 
     // v2 net worth
     'net-worth'         => ['description' => 'Shows you the net worth of the current user.', 'api_version' => ['v2']],

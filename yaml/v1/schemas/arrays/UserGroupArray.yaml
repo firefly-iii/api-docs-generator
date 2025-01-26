@@ -1,0 +1,15 @@
+UserGroupArray:
+  type: object
+  required:
+    - data
+    - meta
+    - links
+  properties:
+    data:
+      type: array
+      items:
+        $ref: '#/components/schemas/UserGroupRead'
+    meta:
+      $ref: '#/components/schemas/Meta'
+    links:
+      $ref: '#/components/schemas/PageLink'

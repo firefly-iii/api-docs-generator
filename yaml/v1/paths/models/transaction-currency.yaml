@@ -228,18 +228,18 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
-/currencies/default:
+/currencies/native:
   get:
-    summary: Get the user's default currency.
-    description: Get the user's default currency.
-    operationId: getDefaultCurrency
+    summary: Get the native currency of the current administration.
+    description: Get the native currency of the current administration. This replaces what was called "the user's default currency" although they are essentially the same.
+    operationId: getNativeCurrency
     parameters:
       !correlationParameter,3
     tags:
       - currencies
     responses:
       "200":
-        description: 'The default currency'
+        description: 'The native currency'
         content:
           application/json:
             schema:

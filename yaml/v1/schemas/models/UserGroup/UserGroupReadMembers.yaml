@@ -1,0 +1,26 @@
+UserGroupReadMembers:
+  type: object
+  properties:
+    user_id:
+      type: string
+      format: string
+      example: "5"
+      readOnly: true
+      description: "The ID of the member."
+    user_email:
+      type: string
+      format: email
+      example: "james@firefly-iii.org"
+      readOnly: true
+      description: "The email address of the member"
+    you:
+      type: boolean
+      format: boolean
+      example: false
+      readOnly: true
+      description: "Is this you? (the current user)"
+    roles:
+      type: array
+      uniqueItems: true
+      items:
+        $ref: '#/components/schemas/UserGroupReadRole'

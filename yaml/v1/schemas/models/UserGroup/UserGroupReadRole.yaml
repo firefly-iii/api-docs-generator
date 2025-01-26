@@ -1,0 +1,27 @@
+UserGroupReadRole:
+  type: string
+  enum:
+    - owner
+    - ro
+    - mng_trx
+    - mng_meta
+    - read_budgets
+    - read_piggies
+    - read_subscriptions
+    - read_rules
+    - read_recurring
+    - read_webhooks
+    - read_currencies
+    - mng_budgets
+    - mng_piggies
+    - mng_subscriptions
+    - mng_rules
+    - mng_recurring
+    - mng_webhooks
+    - mng_currencies
+    - view_reports
+    - view_memberships
+    - full
+    - owner
+  description: >
+      The possible roles of the user in this user group are documented here: https://docs.firefly-iii.org/references/firefly-iii/api/

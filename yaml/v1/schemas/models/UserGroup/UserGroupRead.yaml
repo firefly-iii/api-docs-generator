@@ -1,0 +1,21 @@
+UserGroupRead:
+  type: object
+  required:
+    - type
+    - id
+    - attributes
+    - links
+  properties:
+    type:
+      type: string
+      format: string
+      example: "user_groups"
+      description: "Immutable value"
+    id:
+      type: string
+      format: string
+      example: "2"
+    attributes:
+      $ref: '#/components/schemas/UserGroupReadAttributes'
+    links:
+      $ref: '#/components/schemas/ObjectLink'

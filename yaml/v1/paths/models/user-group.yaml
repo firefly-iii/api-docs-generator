@@ -1,0 +1,89 @@
+/user-groups:
+  get:
+    summary: |
+      List all the user groups available to this user.
+    description: "List all the user groups available to this user. These are essentially the 'financial administrations' that Firefly III supports."
+    operationId: listUserGroups
+    tags:
+      - user_groups
+    parameters:
+      !correlationParameter,3
+      !limitParameter,3
+      !pageParameter,3
+    responses:
+      "200":
+        description: A list of user groups.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/UserGroupArray'
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+/user-groups/{id}:
+  get:
+    tags:
+      - user_groups
+    summary: Get a single user group.
+    description: |
+      Returns a single user group by its ID.
+    operationId: getUserGroup
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the user group.
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      "200":
+        description: 'The requested user group'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/UserGroupSingle'
+  put:
+    summary: Update an existing user group.
+    description: |
+      Used to update a single user group. The available fields are still limited.
+    operationId: updateAccount
+    parameters:
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "1"
+        description: The ID of the account.
+    tags:
+      - user_groups
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserGroupUpdate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/UserGroupUpdate'
+      description: JSON array or formdata with new user group information. See the model for the exact specifications.
+      required: true
+    responses:
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
+      !validationErrorResponse,3
+      "200":
+        description: 'Updated user group is stored, result is in the response'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/UserGroupSingle'
