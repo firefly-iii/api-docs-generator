@@ -5,11 +5,10 @@ PiggyBankUpdate:
       type: string
       format: string
       example: "New digital camera"
-    account_id:
-      type: string
-      format: string
-      example: "13"
-      description: The ID of the asset account this piggy bank is connected to.
+    accounts:
+      type: array
+      items:
+        $ref: '#/components/schemas/PiggyBankAccountUpdate'
     currency_id:
       type: string
       format: string

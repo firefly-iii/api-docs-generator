@@ -1,0 +1,30 @@
+PiggyBankAccountRead:
+  type: object
+  required:
+    - id
+    - name
+    - current_amount
+    - native_current_amount
+  properties:
+    id:
+      type: string
+      format: string
+      example: "3"
+      readOnly: true
+      nullable: false
+      description: "The ID of the account."
+    name:
+      type: string
+      format: string
+      readOnly: true
+      nullable: false
+      example: "Checking account"
+    current_amount:
+      type: string
+      format: amount
+      example: "123.45"
+    native_current_amount:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "If convertToNative is on, this will show the amount in the native currency."
