@@ -128,7 +128,7 @@
           example: "EUR"
         description: "The currency code of the 'from' currency."
       - in: path
-        name: from
+        name: to
         required: true
         schema:
           type: string
@@ -161,7 +161,7 @@
           example: "EUR"
         description: "The currency code of the 'from' currency."
       - in: path
-        name: from
+        name: to
         required: true
         schema:
           type: string
