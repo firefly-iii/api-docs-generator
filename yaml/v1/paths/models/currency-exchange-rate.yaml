@@ -56,14 +56,14 @@
     tags:
       - currency_exchange_rates
     parameters:
-        !correlationParameter,3
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-            example: "123"
-          description: The ID of the requested currency exchange rate.
+      !correlationParameter,3
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: "123"
+        description: The ID of the requested currency exchange rate.
     responses:
       "204":
         description: "Currency exchange rate deleted."
