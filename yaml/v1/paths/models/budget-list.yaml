@@ -81,7 +81,7 @@
       !badRequestResponse,3
       !validationErrorResponse,3
       !internalExceptionResponse,3
-/budgets//transactions-without-budget:
+/budgets/transactions-without-budget:
   get:
     summary: All transactions without a budget.
     description: Get all transactions NOT linked to a budget, possibly limited by start and end
