@@ -20,6 +20,36 @@
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
+  post:
+    summary: Store a new currency exchange rate.
+    description: Stores a new exchange rate. The data required can be submitted as a JSON body or as a list of parameters.
+    operationId: storeCurrencyExchangeRate
+    parameters:
+      !correlationParameter,3
+    tags:
+      - currency_exchange_rates
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateStore'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateStore'
+      description: "JSON array or key=value pairs with the necessary category information. See the model for the exact specifications."
+      required: true
+    responses:
+      "200":
+        description: 'New category stored, result in response.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+      !validationErrorResponse,3
+      !unauthenticatedResponse,3
+      !notFoundResponse,3
+      !badRequestResponse,3
+      !internalExceptionResponse,3
 /exchange-rates/{id}:
   get:
     summary: List a single specific exchange rate.
