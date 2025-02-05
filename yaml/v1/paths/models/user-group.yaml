@@ -53,7 +53,7 @@
     summary: Update an existing user group.
     description: |
       Used to update a single user group. The available fields are still limited.
-    operationId: updateAccount
+    operationId: updateUserGroup
     parameters:
       !correlationParameter,3
       - in: path

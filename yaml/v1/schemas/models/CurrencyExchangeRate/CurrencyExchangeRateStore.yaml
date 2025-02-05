@@ -1,4 +1,4 @@
-CurrencyExchangeRateUpdate:
+CurrencyExchangeRateStore:
   type: object
   required:
     - date
