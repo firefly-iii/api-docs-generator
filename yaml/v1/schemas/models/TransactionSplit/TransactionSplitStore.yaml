@@ -71,7 +71,6 @@ TransactionSplitStore:
       example: Groceries
       description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
       nullable: true
-      readOnly: true
     category_id:
       type: string
       format: string
