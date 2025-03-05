@@ -55,3 +55,28 @@ AutocompleteAccount:
       format: int32
       example: 2
       description: Number of decimal places for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
+    account_currency_id:
+      type: string
+      format: string
+      example: "2"
+      description: ID for the currency used by this account. Even if "convertToNative" is on, the account currency ID is displayed here.
+    account_currency_name:
+      type: string
+      format: string
+      example: "US Dollar"
+      description: Name for the currency used by this account. Even if "convertToNative" is on, the account currency name is displayed here.
+    account_currency_code:
+      type: string
+      format: string
+      example: "USD"
+      description: Code for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
+    account_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      description: Code for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
+    account_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: Number of decimal places for the currency used by this account. Even if "convertToNative" is on, the account currency code is displayed here.
