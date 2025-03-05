@@ -15,3 +15,8 @@ PiggyBankAccountUpdate:
       nullable: true
       example: "Checking account"
       description: "The name of the account."
+    current_amount:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "The amount saved currently."
