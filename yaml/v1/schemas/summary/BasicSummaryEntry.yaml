@@ -34,6 +34,11 @@ BasicSummaryEntry:
       format: int32
       example: 2
       description: "Number of decimals for the associated currency."
+    no_available_budgets:
+      type: boolean
+      format: boolean
+      example: false
+      description: "True if there are no available budgets available."
     value_parsed:
       type: string
       format: string
