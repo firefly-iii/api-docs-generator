@@ -35,45 +35,49 @@ TransactionSplit:
       example: 0
       nullable: true
       description: "Order of this entry in the list of transactions."
+    object_has_currency_setting:
+      type: boolean
+      format: boolean
+      example: true
+      readOnly: true
+      description: "Indicates whether the transaction has a currency setting. For transactions this is always true."
     currency_id:
       type: string
       format: string
       example: "12"
-      nullable: true
-      description: Currency ID. Default is the source account's currency, or the user's default currency. Can be used instead of currency_code.
+      description: Currency ID for the currency of this transaction.
     currency_code:
       type: string
       format: string
       example: EUR
-      nullable: true
-      description: Currency code. Default is the source account's currency, or the user's default currency. Can be used instead of currency_id.
+      description: Currency code for the currency of this transaction.
     currency_symbol:
       type: string
       format: string
       example: "$"
       readOnly: true
+      description: Currency symbol for the currency of this transaction.
     currency_name:
       type: string
       format: string
       example: "Euro"
-      readOnly: true
+      description: Currency name for the currency of this transaction.
     currency_decimal_places:
       type: integer
       format: int32
       example: 2
       description: Number of decimals used in this currency.
-      readOnly: true
     foreign_currency_id:
       type: string
       format: string
       example: "17"
       nullable: true
-      description: Currency ID of the foreign currency. Default is null. Is required when you submit a foreign amount.
+      description: Currency ID of the foreign currency, if this transaction has a foreign amount.
     foreign_currency_code:
       type: string
       format: string
       example: USD
-      description: Currency code of the foreign currency. Default is NULL. Can be used instead of the foreign_currency_id, but this or the ID is required when submitting a foreign amount.
+      description: Currency code of the foreign currency. Default is NULL.
       nullable: true
     foreign_currency_symbol:
       type: string
@@ -85,20 +89,81 @@ TransactionSplit:
       type: integer
       format: int32
       example: 2
-      description: Number of decimals in the currency
+      description: Number of decimals in the foreign currency.
       nullable: true
       readOnly: true
+    primary_currency_id:
+      type: string
+      format: string
+      example: "12"
+      readOnly: true
+      nullable: true
+      description: "Returns the primary currency ID of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
+    primary_currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      nullable: true
+      description: "Returns the primary currency code of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
+    primary_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      nullable: true
+      description: "See the other `primary_*` fields."
+    primary_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      nullable: true
+      description: "See the other `primary_*` fields."
     amount:
       type: string
       format: amount
       example: "123.45"
       description: "Amount of the transaction."
+    pc_amount:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "Amount of the transaction in the primary currency of this administration. The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
     foreign_amount:
       type: string
       format: amount
       example: "123.45"
       nullable: true
-      description: The amount in a foreign currency.
+      description: The amount in the set foreign currency. May be NULL if the transaction does not have a foreign amount.
+    pc_foreign_amount:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "Foreign amount of the transaction in the primary currency of this administration. The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
+    source_balance_after:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      description: "The balance of the source account. This is the balance in the account's currency which may be different from this transaction, and is not provided in this model."
+    pc_source_balance_after:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      description: "The balance of the source account in the primary currency of this administration. The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
+    destination_balance_after:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      description: "The balance of the destination account. This is the balance in the account's currency which may be different from this transaction, and is not provided in this model."
+    pc_destination_balance_after:
+      type: string
+      format: amount
+      example: "123.45"
+      nullable: true
+      description: "The balance of the destination account in the primary currency of this administration. The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
     description:
       type: string
       format: string
@@ -154,7 +219,7 @@ TransactionSplit:
       type: string
       format: string
       example: Groceries
-      description: The name of the budget to be used. If the budget name is unknown, the ID will be used or the value will be ignored.
+      description: The name of the budget used.
       nullable: true
       readOnly: true
     category_id:
@@ -174,13 +239,25 @@ TransactionSplit:
       format: string
       nullable: true
       example: "111"
-      description: Optional. Use either this or the bill_name
+      description: The associated subscription ID for this transaction. `bill` refers to the OLD name for subscriptions and this field will be removed.
     bill_name:
       type: string
       format: string
       example: "Monthly rent"
       nullable: true
-      description: Optional. Use either this or the bill_id
+      description: The associated subscription name for this transaction. `bill` refers to the OLD name for subscriptions and this field will be removed.
+    subscription_id:
+      type: string
+      format: string
+      nullable: true
+      example: "111"
+      description: The associated subscription ID for this transaction.
+    subscription_name:
+      type: string
+      format: string
+      example: "Monthly rent"
+      nullable: true
+      description: The associated subscription name for this transaction.
     reconciled:
       type: boolean
       format: boolean
@@ -242,11 +319,6 @@ TransactionSplit:
       description: "The # of the current transaction created under this recurrence."
       readOnly: true
       nullable: true
-    bunq_payment_id:
-      type: string
-      nullable: true
-      format: string
-      description: Internal ID of bunq transaction. DEPRECATED
     import_hash_v2:
       type: string
       nullable: true

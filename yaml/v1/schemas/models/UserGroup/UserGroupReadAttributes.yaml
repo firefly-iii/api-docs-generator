@@ -29,29 +29,29 @@ UserGroupReadAttributes:
       description: "Title of the user group. By default, it is the same as the user's email address."
       example: "demo@firefly"
       readOnly: false
-    native_currency_id:
+    primary_currency_id:
       type: string
       format: string
       example: "12"
       readOnly: true
-      description: "Returns the native currency ID of the user group."
-    native_currency_code:
+      description: "Returns the primary currency ID of the user group."
+    primary_currency_code:
       type: string
       format: string
       example: "EUR"
-      description: "Returns the native currency code of the user group."
-    native_currency_symbol:
+      description: "Returns the primary currency code of the user group."
+    primary_currency_symbol:
       type: string
       format: string
       example: "$"
       readOnly: true
-      description: "Returns the native currency symbol of the user group."
-    native_currency_decimal_places:
+      description: "Returns the primary currency symbol of the user group."
+    primary_currency_decimal_places:
       type: integer
       format: int32
       example: 2
       readOnly: true
-      description: "Returns the native currency decimal places of the user group."
+      description: "Returns the primary currency decimal places of the user group."
     members:
       type: array
       items:
