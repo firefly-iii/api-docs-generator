@@ -122,11 +122,6 @@ $tags = [
         'api_version' => ['v1'],
     ],
 
-    // v2 net worth
-    'net-worth'         => ['description' => 'Shows you the net worth of the current user.', 'api_version' => ['v2']],
-
-    // v2 tags
-    'transactions-sum'  => ['description' => 'Endpoints to sum transactions based on various properties.', 'api_version' => ['v2']],
 ];
 ksort($tags);
 
