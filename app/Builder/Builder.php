@@ -307,7 +307,7 @@ class Builder
             if (str_starts_with($line, '  /')) {
                 $line = sprintf('  /%s%s', $apiVersion, trim($line));
                 $this->logger->debug(sprintf('Added API version to line: %s', $line));
-                $this->logger->info(trim($line));
+                //$this->logger->info(trim($line));
             }
             $newLines[] = $line;
         }

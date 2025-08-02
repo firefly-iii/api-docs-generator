@@ -70,6 +70,7 @@ if ('false' === getenv('IS_DEVELOP_RUN')) {
     }
 }
 
+
 /*
  * Create the builder.
  */
@@ -99,12 +100,14 @@ unset($name);
  */
 /** @var array $info */
 foreach ($directories as $info) {
+    $log->debug(sprintf('Parse files in directory "%s"', $info['path']));
     /** @var string $apiVersion */
     foreach ($info['api_version'] as $apiVersion) {
         $log->debug(sprintf('Add directory "%s" to version "%s"', $info['path'], $apiVersion));
         // list all files in the directory:
         $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
-        $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory), RecursiveIteratorIterator::SELF_FIRST);
+        $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory, RecursiveDirectoryIterator::SKIP_DOTS),
+                                                       RecursiveIteratorIterator::SELF_FIRST);
 
         // sort all files in the directory:
         $list = [];
@@ -114,17 +117,16 @@ foreach ($directories as $info) {
          */
         foreach ($objects as $fullPath => $object) {
             if (str_ends_with($fullPath, 'yaml') && !str_contains($fullPath, 'ignore')) {
-                $list[$fullPath] = $object;
+                $list[] = $fullPath;
             }
 
         }
-        ksort($list);
-
+        sort($list);
+        $log->debug(sprintf('Found %d file(s) in directory "%s"', count($list), $info['path']));
         /**
          * @var string      $fullPath
-         * @var SplFileInfo $object
          */
-        foreach ($list as $fullPath => $object) {
+        foreach ($list as $fullPath) {
             // add to thing:
             $log->debug(sprintf('Add "%s" file "%s"', $info['identifier'], $fullPath));
             $builder->addYamlFile($apiVersion, $info['identifier'], $fullPath, $info['indentation']);
