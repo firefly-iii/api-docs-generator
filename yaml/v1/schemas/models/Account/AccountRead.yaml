@@ -15,4 +15,4 @@ AccountRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/Account'
+      $ref: '#/components/schemas/AccountProperties'

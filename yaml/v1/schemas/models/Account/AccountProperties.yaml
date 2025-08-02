@@ -1,0 +1,213 @@
+AccountProperties:
+  type: object
+  required:
+    - name
+    - type
+  properties:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    active:
+      type: boolean
+      format: boolean
+      example: false
+      default: true
+      description: "If omitted, defaults to true."
+    order:
+      type: integer
+      format: int32
+      example: 1
+      nullable: true
+      description: "Order of the account. Is NULL if account is not asset or liability."
+    name:
+      type: string
+      format: string
+      example: "My checking account"
+    type:
+      $ref: '#/components/schemas/ShortAccountTypeProperty'
+    account_role:
+      $ref: '#/components/schemas/AccountRoleProperty'
+    object_has_currency_setting:
+        type: boolean
+        format: boolean
+        example: true
+        readOnly: true
+        description: "Indicates whether the account has a currency setting. If false, the account uses the administration's primary currency. Asset accounts and liability accounts always have a currency setting, while expense and revenue accounts do not."
+    currency_id:
+      type: string
+      format: string
+      example: "12"
+      readOnly: true
+      description: "This is the account's currency ID (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency. This field is the currency of all amount/balance fields of this account."
+    currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      description: "This is the account's currency code (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      description: "This is the account's currency symbol (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
+    currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      description: "This is the account's currency number of decimal places (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
+    primary_currency_id:
+      type: string
+      format: string
+      example: "12"
+      readOnly: true
+      nullable: true
+      description: "Returns the primary currency ID of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
+    primary_currency_code:
+      type: string
+      format: string
+      example: "EUR"
+      nullable: true
+      description: "Returns the primary currency code of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
+    primary_currency_symbol:
+      type: string
+      format: string
+      example: "$"
+      readOnly: true
+      nullable: true
+      description: "See the other `primary_*` fields."
+    primary_currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      readOnly: true
+      nullable: true
+      description: "See the other `primary_*` fields."
+    current_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      readOnly: true
+      description: "The current balance of the account in the account's currency. If the account has no currency, this is the balance in the administration's primary currency. Either way, the `currency_*` fields reflect the currency used."
+    pc_current_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      readOnly: true
+      nullable: true
+      description: "The current balance of the account in the administration's primary currency. The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
+    opening_balance:
+      type: string
+      format: amount
+      example: "-1012.12"
+      description: "Represents the opening balance, the initial amount this account holds in the currency of the account or the administration's primary currency if the account has no currency. Either way, the `currency_*` fields reflect the currency used."
+    pc_opening_balance:
+      type: string
+      format: amount
+      example: "-1012.12"
+      description: "The opening balance of the account in the administration's primary currency (pc). The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
+    virtual_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "The virtual balance of the account in the account's currency or the administration's native currency if the account has no currency."
+    pc_virtual_balance:
+      type: string
+      format: amount
+      example: "123.45"
+      description: "The virtual balance of the account in the administration's primary currency (pc). The `primary_currency_*` fields reflect the currency used. This field is NULL if the user does have 'convert to primary' set to true in their settings."
+    debt_amount:
+      type: string
+      format: amount
+      nullable: true
+      example: "1012.12"
+      description: "In liability accounts (loans, debts and mortgages), this is the amount of debt in the account's currency (see the `currency_*` fields). In asset accounts, this is NULL."
+    pc_debt_amount:
+      type: string
+      format: amount
+      nullable: true
+      example: "1012.12"
+      description: "In liability accounts (loans, debts and mortgages), this is the amount of debt in the administration's primary currency (see the `currency_*` fields. In asset accounts, this is NULL."
+    current_balance_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T23:59:59+01:00"
+      readOnly: true
+      description: "The timestamp for this date is always 23:59:59, to indicate it's the balance at the very END of that particular day."
+    notes:
+      type: string
+      format: string
+      nullable: true
+      example: "Some example notes"
+    monthly_payment_date:
+      nullable: true
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
+    credit_card_type:
+      $ref: '#/components/schemas/CreditCardTypeProperty'
+    account_number:
+      type: string
+      format: string
+      nullable: true
+      example: "7009312345678"
+    iban:
+      type: string
+      format: iban
+      example: "GB98MIDL07009312345678"
+      nullable: true
+    bic:
+      type: string
+      format: string
+      example: "BOFAUS3N"
+      nullable: true
+    opening_balance_date:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      nullable: true
+      description: Represents the date of the opening balance.
+    liability_type:
+      $ref: '#/components/schemas/LiabilityTypeProperty'
+    liability_direction:
+      $ref: '#/components/schemas/LiabilityDirectionProperty'
+    interest:
+      type: string
+      format: string
+      example: "5.3"
+      description: "Mandatory when type is liability. Interest percentage."
+      nullable: true
+    interest_period:
+      $ref: '#/components/schemas/InterestPeriodProperty'
+    include_net_worth:
+      type: boolean
+      format: boolean
+      example: true
+      default: true
+      description: "If omitted, defaults to true."
+    longitude:
+      type: number
+      format: double
+      example: 5.916667
+      nullable: true
+      description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
+    latitude:
+      type: number
+      format: double
+      example: 51.983333
+      nullable: true
+      description: Latitude of the accounts's location, if applicable. Can be used to draw a map.
+    zoom_level:
+      type: integer
+      format: int32
+      example: 6
+      nullable: true
+      description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
