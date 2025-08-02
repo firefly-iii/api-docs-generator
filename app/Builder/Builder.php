@@ -158,7 +158,7 @@ class Builder
                 'tags'        => $tags,
                 'paths'       => $this->paths[$apiVersion],
                 'schemas'     => $this->schemas[$apiVersion],
-                'time'        => $time->toW3cString(),
+                'time'        => $time->format('Y-m-d @ H:i:s (e)'),
             ]
         );
         $content = str_replace("\n\n","\n",$content);

@@ -15,7 +15,7 @@ $server          = 'https://demo.firefly-iii.org';
 $destination     = './';
 $tags            = [];
 $directories     = [];
-$apiVersions     = ['v1', 'v2'];
+$apiVersions     = ['v1'];
 $softwareVersion = ['last_release_name' => 'develop'];
 $ignoreVersions  = [];
 
