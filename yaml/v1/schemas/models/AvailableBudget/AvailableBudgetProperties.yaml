@@ -1,4 +1,4 @@
-AvailableBudget:
+AvailableBudgetProperties:
   type: object
   required:
     - amount
@@ -19,12 +19,12 @@ AvailableBudget:
       type: string
       format: string
       example: "5"
-      description: Use either currency_id or currency_code.
+      description: The currency ID of this available budget.
     currency_code:
       type: string
       format: string
       example: EUR
-      description: Use either currency_id or currency_code.
+      description: Currency code of this available budget.
     currency_symbol:
       type: string
       format: string
@@ -35,39 +35,40 @@ AvailableBudget:
       format: int32
       example: 2
       readOnly: true
-    native_currency_id:
+    primary_currency_id:
       type: string
       format: string
       example: "5"
-      description: "The currency ID of the administration's native currency."
+      description: "The currency ID of the administration's primary currency."
       readOnly: true
-    native_currency_code:
+    primary_currency_code:
       type: string
       format: string
       example: EUR
       readOnly: true
-      description: "The currency code of the administration's native currency."
-    native_currency_symbol:
+      description: "The currency code of the administration's primary currency."
+    primary_currency_symbol:
       type: string
       format: string
       example: "$"
       readOnly: true
-      description: "The currency symbol of the administration's native currency."
-    native_currency_decimal_places:
+      description: "The currency symbol of the administration's primary currency."
+    primary_currency_decimal_places:
       type: integer
       format: int32
       example: 2
       readOnly: true
-      description: "The currency decimal places of the administration's native currency."
+      description: "The currency decimal places of the administration's primary currency."
     amount:
       type: string
       format: amount
       example: "123.45"
-    native_amount:
+      description: "The amount of this available budget in the currency of this available budget."
+    pc_amount:
       type: string
       format: amount
       example: "123.45"
-      description: "The amount of this available budget in the native currency of this administration."
+      description: "The amount of this available budget in the primary currency (pc) of this administration."
     start:
       type: string
       format: date-time
@@ -83,8 +84,22 @@ AvailableBudget:
       items:
         $ref: '#/components/schemas/BudgetSpent'
       readOnly: true
-    spent_outside_budget:
+    pc_spent_in_budgets:
       type: array
       items:
         $ref: '#/components/schemas/BudgetSpent'
       readOnly: true
+      description: |
+        The amount spent in budgets in the primary currency (pc) of this administration.
+    spent_outside_budgets:
+      type: array
+      items:
+        $ref: '#/components/schemas/BudgetSpent'
+      readOnly: true
+    pc_spent_outside_budgets:
+      type: array
+      items:
+        $ref: '#/components/schemas/BudgetSpent'
+      readOnly: true
+      description: |
+        The amount spent outside of budgets in the primary currency (pc) of this administration.

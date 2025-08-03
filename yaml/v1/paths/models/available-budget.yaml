@@ -2,8 +2,8 @@
   get:
     summary: List all available budget amounts.
     description: |
-      Firefly III allows users to set the amount that is available to be budgeted in so-called "available budgets". For example, the user could have 1200,- available to be divided during the coming month. This amount is used on the /budgets page. This endpoint returns all of these amounts and the periods for which they are set.
-    operationId: listAvailableBudget
+      Firefly III calculates the total amount of money budgeted in so-called "available budgets". This endpoint returns all of these amounts and the periods for which they are calculated.
+    operationId: listAvailableBudgets
     tags:
       - available_budgets
     parameters:
