@@ -1,0 +1,6 @@
+object_has_currency_setting:
+  type: boolean
+  format: boolean
+  example: true
+  readOnly: true
+  description: "Indicates whether the object has a currency setting. If false, the object uses the administration's primary currency."

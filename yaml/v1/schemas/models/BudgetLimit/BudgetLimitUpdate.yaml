@@ -1,10 +1,5 @@
-BudgetLimit:
+BudgetLimitUpdate:
   type: object
-  required:
-    - amount
-    - start
-    - end
-    - budget_id
   properties:
     created_at:
       type: string
@@ -26,61 +21,15 @@ BudgetLimit:
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       description: End date of the budget limit.
-    currency_id:
-      type: string
-      format: string
-      example: "5"
-      description: Use either currency_id or currency_code. Defaults to the user's default currency.
-    currency_code:
-      type: string
-      format: string
-      example: EUR
-      description: Use either currency_id or currency_code. Defaults to the user's default currency.
-    currency_name:
-      type: string
-      format: string
-      example: "Euro"
-      readOnly: true
-    currency_symbol:
-      type: string
-      format: string
-      example: "$"
-      readOnly: true
-    currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
-      readOnly: true
-    primary_currency_id:
-      type: string
-      format: string
-      example: "5"
-      readOnly: true
-      description: "The administration's primary currency ID."
-    primary_currency_code:
-      type: string
-      format: string
-      example: EUR
-      readOnly: true
-      description: "The administration's primary currency code."
-    primary_currency_symbol:
-      type: string
-      format: string
-      example: "$"
-      readOnly: true
-      description: "The administration's primary currency symbol."
-    primary_currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
-      readOnly: true
-      description: "The administration's primary currency decimal places."
     budget_id:
       type: string
       format: string
       example: "23"
       description: The budget ID of the associated budget.
       readOnly: true
+  !standardHasCurrencyField,2
+  !currencyFields,2
+  !primaryCurrencyFields,2
     period:
       type: string
       format: string

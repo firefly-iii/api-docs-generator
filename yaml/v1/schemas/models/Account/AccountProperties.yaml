@@ -40,56 +40,8 @@ AccountProperties:
         example: true
         readOnly: true
         description: "Indicates whether the account has a currency setting. If false, the account uses the administration's primary currency. Asset accounts and liability accounts always have a currency setting, while expense and revenue accounts do not."
-    currency_id:
-      type: string
-      format: string
-      example: "12"
-      readOnly: true
-      description: "This is the account's currency ID (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency. This field is the currency of all amount/balance fields of this account."
-    currency_code:
-      type: string
-      format: string
-      example: "EUR"
-      description: "This is the account's currency code (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
-    currency_symbol:
-      type: string
-      format: string
-      example: "$"
-      readOnly: true
-      description: "This is the account's currency symbol (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
-    currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
-      readOnly: true
-      description: "This is the account's currency number of decimal places (if set, see `object_has_currency_setting`). If the account's currency is not set, it will be the same as the primary currency."
-    primary_currency_id:
-      type: string
-      format: string
-      example: "12"
-      readOnly: true
-      nullable: true
-      description: "Returns the primary currency ID of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
-    primary_currency_code:
-      type: string
-      format: string
-      example: "EUR"
-      nullable: true
-      description: "Returns the primary currency code of the administration. This currency is used as the currency for all `pc_*` amount and balance fields of this account."
-    primary_currency_symbol:
-      type: string
-      format: string
-      example: "$"
-      readOnly: true
-      nullable: true
-      description: "See the other `primary_*` fields."
-    primary_currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
-      readOnly: true
-      nullable: true
-      description: "See the other `primary_*` fields."
+!currencyFields,2
+!primaryCurrencyFields,2
     current_balance:
       type: string
       format: amount

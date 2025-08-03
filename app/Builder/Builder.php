@@ -28,6 +28,7 @@ class Builder
     private array       $apiVersions;
     private string      $server;
     private Logger      $logger;
+    private array $templates = [];
 
     /**
      * Builder constructor.
@@ -40,6 +41,7 @@ class Builder
         $this->tags    = [];
         $this->paths   = [];
         $this->schemas = [];
+        $this->templates = [];
         $this->server  = '';
         $this->version = '1.0';
 
@@ -326,16 +328,36 @@ class Builder
 
     private function getReplacementTemplate(string $file): string
     {
-        $directory = sprintf('%s/yaml/templates', ROOT);
-        $objects   = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory), RecursiveIteratorIterator::SELF_FIRST);
-        $yaml      = sprintf('%s.yaml', $file);
-        /** @var \SplFileInfo $object */
-        foreach ($objects as $object) {
-            if ($object->getFilename() === $yaml) {
-                return file_get_contents($object->getPathname());
+        if(0 === count($this->templates)) {
+            $directory = sprintf('%s/yaml/templates', ROOT);
+            $objects   = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory), RecursiveIteratorIterator::SELF_FIRST);
+
+            /** @var \SplFileInfo $object */
+            foreach ($objects as $object) {
+                $fileName = $object->getFilename();
+                if ('yaml' === $this->getExtension($fileName)) {
+                    $this->templates[$fileName] = file_get_contents($object->getPathname());
+                }
             }
         }
-        return '';
+        $yaml      = sprintf('%s.yaml', $file);
+        if(isset($this->templates[$yaml])) {
+            return $this->templates[$yaml];
+        }
+
+        echo PHP_EOL;
+        echo 'Could not find replacement template for: ' . $file . PHP_EOL;
+        echo PHP_EOL;
+        exit;
+    }
+
+    private function getExtension(string $fileName)
+    {
+        $parts = explode('.', $fileName);
+        if (count($parts) < 2) {
+            return '';
+        }
+        return array_pop($parts);
     }
 
 }

@@ -15,4 +15,4 @@ BudgetLimitRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/BudgetLimit'
+      $ref: '#/components/schemas/BudgetLimitProperties'
