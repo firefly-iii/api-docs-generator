@@ -230,8 +230,8 @@
       !internalExceptionResponse,3
 /currencies/native:
   get:
-    summary: Get the native currency of the current administration.
-    description: Get the native currency of the current administration. This replaces what was called "the user's default currency" although they are essentially the same.
+    summary: Get the primary currency of the current administration.
+    description: Get the primary currency of the current administration. This replaces what was called "the user's default currency" although they are essentially the same.
     operationId: getNativeCurrency
     parameters:
       !correlationParameter,3
@@ -239,7 +239,7 @@
       - currencies
     responses:
       "200":
-        description: 'The native currency'
+        description: 'The primary currency'
         content:
           application/json:
             schema:

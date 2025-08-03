@@ -15,4 +15,4 @@ BillRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/Bill'
+      $ref: '#/components/schemas/BillProperties'

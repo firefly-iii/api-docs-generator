@@ -25,12 +25,12 @@ Currency:
       type: boolean
       format: boolean
       example: false
-      description: Make this currency the native currency.
+      description: Make this currency the primary currency.
     native:
       type: boolean
       format: boolean
       example: false
-      description: Make this currency the native currency.
+      description: Make this currency the primary currency.
     code:
       type: string
       format: string

@@ -27,4 +27,4 @@ PiggyBankAccountRead:
       type: string
       format: amount
       example: "123.45"
-      description: "If convertToNative is on, this will show the amount in the native currency."
+      description: "If convertToNative is on, this will show the amount in the primary currency."

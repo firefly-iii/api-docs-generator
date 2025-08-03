@@ -24,7 +24,7 @@ AutocompleteAccount:
       type: string
       format: string
       example: "Checking Account ($123.45)"
-      description: Asset accounts and liabilities have a second field with the given date's account balance in the account currency or native currency.
+      description: Asset accounts and liabilities have a second field with the given date's account balance in the account currency or primary currency.
     type:
       type: string
       format: string
@@ -34,27 +34,27 @@ AutocompleteAccount:
       type: string
       format: string
       example: "12"
-      description: ID for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
+      description: ID for the currency used by this account. If the user prefers amounts converted to their primary currency, this primary currency is used instead.
     currency_name:
       type: string
       format: string
       example: "Euro"
-      description: Currency name for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
+      description: Currency name for the currency used by this account. If the user prefers amounts converted to their primary currency, this primary currency is used instead.
     currency_code:
       type: string
       format: string
       example: "EUR"
-      description: Currency code for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
+      description: Currency code for the currency used by this account. If the user prefers amounts converted to their primary currency, this primary currency is used instead.
     currency_symbol:
       type: string
       format: string
       example: "$"
-      description: Currency symbol for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
+      description: Currency symbol for the currency used by this account. If the user prefers amounts converted to their primary currency, this primary currency is used instead.
     currency_decimal_places:
       type: integer
       format: int32
       example: 2
-      description: Number of decimal places for the currency used by this account. If the user prefers amounts converted to their native currency, this native currency is used instead.
+      description: Number of decimal places for the currency used by this account. If the user prefers amounts converted to their primary currency, this primary currency is used instead.
     account_currency_id:
       type: string
       format: string

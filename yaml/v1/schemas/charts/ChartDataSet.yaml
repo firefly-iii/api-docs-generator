@@ -10,7 +10,7 @@ ChartDataSet:
       type: string
       format: string
       example: "5"
-      description: "The currency ID of the currency associated to the data in the entries. This may be the native currency of administration."
+      description: "The currency ID of the currency associated to the data in the entries. This may be the primary currency of administration."
     currency_code:
       type: string
       format: string

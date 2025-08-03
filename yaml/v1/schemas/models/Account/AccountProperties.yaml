@@ -117,7 +117,7 @@ AccountProperties:
       type: string
       format: amount
       example: "123.45"
-      description: "The virtual balance of the account in the account's currency or the administration's native currency if the account has no currency."
+      description: "The virtual balance of the account in the account's currency or the administration's primary currency if the account has no currency."
     pc_virtual_balance:
       type: string
       format: amount
