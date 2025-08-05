@@ -1,4 +1,4 @@
-PiggyBankEvent:
+PiggyBankEventProperties:
   type: object
   properties:
     created_at:
