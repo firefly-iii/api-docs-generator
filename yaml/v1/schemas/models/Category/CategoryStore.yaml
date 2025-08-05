@@ -1,4 +1,4 @@
-CategoryPost:
+CategoryStore:
   type: object
   required:
     - name
