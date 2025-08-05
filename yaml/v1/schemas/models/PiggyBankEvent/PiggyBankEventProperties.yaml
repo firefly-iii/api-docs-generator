@@ -9,26 +9,17 @@ PiggyBankEventProperties:
       type: string
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
-    currency_id:
-      type: string
-      format: string
-      example: "5"
-    currency_code:
-      type: string
-      format: string
-      example: EUR
-    currency_symbol:
-      type: string
-      format: string
-      example: "$"
-    currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
     amount:
       type: string
       format: amount
       example: "123.45"
+    pc_amount:
+      type: string
+      format: amount
+      example: "123.45"
+  !standardHasCurrencyField,2
+  !currencyFields,2
+  !primaryCurrencyFields,2
     transaction_journal_id:
       type: string
       format: string
