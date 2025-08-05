@@ -15,4 +15,4 @@ CategoryRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/Category'
+      $ref: '#/components/schemas/CategoryProperties'

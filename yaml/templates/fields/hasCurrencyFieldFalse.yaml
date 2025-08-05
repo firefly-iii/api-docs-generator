@@ -1,0 +1,6 @@
+object_has_currency_setting:
+  type: boolean
+  format: boolean
+  example: false
+  readOnly: false
+  description: "This object never has its own currency setting, so this value is always false."

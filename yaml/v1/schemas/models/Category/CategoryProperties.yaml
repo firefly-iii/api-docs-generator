@@ -1,0 +1,62 @@
+CategoryProperties:
+  type: object
+  required:
+    - name
+  properties:
+    created_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    updated_at:
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      readOnly: true
+    name:
+      type: string
+      format: string
+      example: "Lunch"
+    notes:
+      type: string
+      format: string
+      nullable: true
+      example: "Some example notes"
+!hasCurrencyFieldFalse,2
+!primaryCurrencyFields,2
+    spent:
+      description: "Amount(s) spent in the currencies in the database for this category. ONLY present when start and date are set."
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategorySpent'
+    pc_spent:
+      description: "Amount(s) spent in the primary currency in the database for this category. ONLY present when start and date are set. "
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategorySpent'
+    earned:
+      description: "Amount(s) earned in the currencies in the database for this category. ONLY present when start and date are set."
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategoryEarned'
+    pc_earned:
+      description: "Amount(s) earned in the primary currency in the database for this category. ONLY present when start and date are set. "
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategoryEarned'
+    transferred:
+      description: "Amount(s) transferred in the currencies in the database for this category. ONLY present when start and date are set. "
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategoryTransferred'
+    pc_transferred:
+      description: "Amount(s) transferred in primary currency in the database for this category. ONLY present when start and date are set. "
+      type: array
+      readOnly: true
+      items:
+        $ref: '#/components/schemas/CategoryTransferred'

@@ -1,0 +1,25 @@
+CategoryTransferred:
+  type: object
+  properties:
+    currency_id:
+      type: string
+      format: string
+      example: "5"
+    currency_code:
+      type: string
+      format: string
+      example: "USD"
+    currency_symbol:
+      type: string
+      format: string
+      example: "$"
+    currency_decimal_places:
+      type: integer
+      format: int32
+      example: 2
+      description: Number of decimals supported by the currency
+    sum:
+      type: string
+      format: amount
+      example: "-12423.45"
+      description: The amount spent.
