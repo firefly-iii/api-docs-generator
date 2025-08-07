@@ -56,10 +56,10 @@ BudgetProperties:
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/BudgetSpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
     pc_spent:
       description: "Information on how much was spent in this budget. Is only filled in when the start and end date are submitted. It is converted to the primary currency of the administration."
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/BudgetSpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'

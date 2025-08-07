@@ -37,24 +37,24 @@ AvailableBudgetProperties:
     spent_in_budgets:
       type: array
       items:
-        $ref: '#/components/schemas/BudgetSpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
       readOnly: true
     pc_spent_in_budgets:
       type: array
       items:
-        $ref: '#/components/schemas/BudgetSpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
       readOnly: true
       description: |
         The amount spent in budgets in the primary currency (pc) of this administration.
     spent_outside_budgets:
       type: array
       items:
-        $ref: '#/components/schemas/BudgetSpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
       readOnly: true
     pc_spent_outside_budgets:
       type: array
       items:
-        $ref: '#/components/schemas/BudgetSpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
       readOnly: true
       description: |
         The amount spent outside of budgets in the primary currency (pc) of this administration.

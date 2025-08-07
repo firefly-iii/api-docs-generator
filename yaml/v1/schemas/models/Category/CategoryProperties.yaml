@@ -29,34 +29,34 @@ CategoryProperties:
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/CategorySpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
     pc_spent:
       description: "Amount(s) spent in the primary currency in the database for this category. ONLY present when start and date are set. "
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/CategorySpent'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
     earned:
       description: "Amount(s) earned in the currencies in the database for this category. ONLY present when start and date are set."
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/CategoryEarned'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
     pc_earned:
       description: "Amount(s) earned in the primary currency in the database for this category. ONLY present when start and date are set. "
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/CategoryEarned'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
     transferred:
       description: "Amount(s) transferred in the currencies in the database for this category. ONLY present when start and date are set. "
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/CategoryTransferred'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
     pc_transferred:
       description: "Amount(s) transferred in primary currency in the database for this category. ONLY present when start and date are set. "
       type: array
       readOnly: true
       items:
-        $ref: '#/components/schemas/CategoryTransferred'
+        $ref: '#/components/schemas/ArrayEntryWithCurrencyAndSum'
