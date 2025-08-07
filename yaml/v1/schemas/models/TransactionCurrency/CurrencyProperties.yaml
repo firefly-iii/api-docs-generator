@@ -1,4 +1,4 @@
-Currency:
+CurrencyProperties:
   type: object
   required:
     - code
@@ -25,12 +25,17 @@ Currency:
       type: boolean
       format: boolean
       example: false
-      description: Make this currency the primary currency.
+      description: Is the primary currency?
     native:
       type: boolean
       format: boolean
       example: false
-      description: Make this currency the primary currency.
+      description: Is the primary currency?
+    primary:
+      type: boolean
+      format: boolean
+      example: false
+      description: Is the primary currency?
     code:
       type: string
       format: string

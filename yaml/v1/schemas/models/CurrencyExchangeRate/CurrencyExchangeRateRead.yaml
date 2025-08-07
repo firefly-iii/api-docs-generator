@@ -16,6 +16,6 @@ CurrencyExchangeRateRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/CurrencyExchangeRateReadAttributes'
+      $ref: '#/components/schemas/CurrencyExchangeProperties'
     links:
       $ref: '#/components/schemas/ObjectLink'

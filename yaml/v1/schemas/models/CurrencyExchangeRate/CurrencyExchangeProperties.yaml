@@ -1,4 +1,4 @@
-CurrencyExchangeRateReadAttributes:
+CurrencyExchangeProperties:
   type: object
   properties:
     created_at:

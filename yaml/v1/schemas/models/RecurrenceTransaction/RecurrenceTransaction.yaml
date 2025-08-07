@@ -12,50 +12,46 @@ RecurrenceTransaction:
       type: string
       format: string
       example: "Rent for the current month"
+!standardHasCurrencyField,2
+!currencyFields,2
+!primaryCurrencyFields,2
     amount:
       type: string
       format: amount
       example: "123.45"
       description: Amount of the transaction.
+    pc_amount:
+      type: string
+      format: amount
+      example: "123.45"
+      description: Amount of the transaction in primary currency.
     foreign_amount:
       type: string
       format: amount
       example: "123.45"
       description: Foreign amount of the transaction.
       nullable: true
-    currency_id:
+    pc_foreign_amount:
       type: string
-      format: string
-      example: "3"
-      description: Submit either a currency_id or a currency_code.
-    currency_code:
-      type: string
-      format: string
-      example: "EUR"
-      description: Submit either a currency_id or a currency_code.
-    currency_symbol:
-      type: string
-      format: string
-      example: "€"
-      readOnly: true
-    currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
-      description: Number of decimals in the currency
-      readOnly: true
+      format: amount
+      example: "123.45"
+      description: Foreign amount of the transaction.
+      nullable: true
     foreign_currency_id:
       type: string
       format: string
       example: "17"
       nullable: true
-      description: Submit either a foreign_currency_id or a foreign_currency_code, or neither.
+    foreign_currency_name:
+      type: string
+      format: string
+      example: "British Pound"
+      nullable: true
     foreign_currency_code:
       type: string
       format: string
       example: "GBP"
       nullable: true
-      description: Submit either a foreign_currency_id or a foreign_currency_code, or neither.
     foreign_currency_symbol:
       type: string
       format: string
@@ -142,20 +138,16 @@ RecurrenceTransaction:
       format: string
       example: "123"
       nullable: true
-      description: Optional. Use either this or the piggy_bank_name
     piggy_bank_name:
       type: string
       format: string
       nullable: true
-      description: Optional. Use either this or the piggy_bank_id
-    bill_id:
+    subscription_id:
       type: string
       format: string
       example: "123"
       nullable: true
-      description: Optional. Use either this or the bill_name
-    bill_name:
+    subscription_name:
       type: string
       format: string
       nullable: true
-      description: Optional. Use either this or the bill_id

@@ -1,4 +1,4 @@
-Recurrence:
+RecurrenceProperties:
   type: object
   properties:
     created_at:
@@ -40,12 +40,6 @@ Recurrence:
       example: "2018-09-17"
       description: "Date until the recurring transaction can fire. Use either this field or repetitions."
       nullable: true
-    nr_of_repetitions:
-      type: integer
-      format: int32
-      example: 5
-      description: Max number of created transactions. Use either this field or repeat_until.
-      nullable: true
     apply_rules:
       type: boolean
       format: boolean
@@ -56,6 +50,12 @@ Recurrence:
       format: boolean
       example: true
       description: If the recurrence is even active.
+    nr_of_repetitions:
+      type: integer
+      format: int32
+      example: 5
+      description: Max number of created transactions. Use either this field or repeat_until.
+      nullable: true
     notes:
       type: string
       format: string

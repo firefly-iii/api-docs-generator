@@ -16,6 +16,6 @@ RecurrenceRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/Recurrence'
+      $ref: '#/components/schemas/RecurrenceProperties'
     links:
       $ref: '#/components/schemas/ObjectLink'
