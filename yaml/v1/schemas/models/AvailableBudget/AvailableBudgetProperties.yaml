@@ -1,9 +1,5 @@
 AvailableBudgetProperties:
   type: object
-  required:
-    - amount
-    - start
-    - end
   properties:
     created_at:
       type: string

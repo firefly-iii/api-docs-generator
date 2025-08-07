@@ -1,12 +1,7 @@
 PiggyBankAccountRead:
   type: object
-  required:
-    - id
-    - name
-    - current_amount
-    - native_current_amount
   properties:
-    id:
+    account_id:
       type: string
       format: string
       example: "3"
@@ -23,8 +18,8 @@ PiggyBankAccountRead:
       type: string
       format: amount
       example: "123.45"
-    native_current_amount:
+    pc_current_amount:
       type: string
       format: amount
       example: "123.45"
-      description: "If convertToNative is on, this will show the amount in the primary currency."
+      description: "If convertToPrimary is on, this will show the amount in the primary currency."

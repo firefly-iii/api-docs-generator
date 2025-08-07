@@ -1,0 +1,19 @@
+object_group_id:
+  type: string
+  format: string
+  example: "5"
+  nullable: true
+  description: The group ID of the group this object is part of. NULL if no group.
+object_group_order:
+  type: integer
+  format: int32
+  example: 5
+  readOnly: true
+  nullable: true
+  description: The order of the group. At least 1, for the highest sorting.
+object_group_title:
+  type: string
+  format: string
+  example: "Example Group"
+  nullable: true
+  description: The name of the group. NULL if no group.

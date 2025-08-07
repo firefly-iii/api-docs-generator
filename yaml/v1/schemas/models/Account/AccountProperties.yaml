@@ -19,7 +19,6 @@ AccountProperties:
       format: boolean
       example: false
       default: true
-      description: "If omitted, defaults to true."
     order:
       type: integer
       format: int32
@@ -34,6 +33,7 @@ AccountProperties:
       $ref: '#/components/schemas/ShortAccountTypeProperty'
     account_role:
       $ref: '#/components/schemas/AccountRoleProperty'
+!standardObjectGroupFields,2
     object_has_currency_setting:
         type: boolean
         format: boolean
@@ -144,7 +144,6 @@ AccountProperties:
       format: boolean
       example: true
       default: true
-      description: "If omitted, defaults to true."
     longitude:
       type: number
       format: double
@@ -163,3 +162,9 @@ AccountProperties:
       example: 6
       nullable: true
       description: "Zoom level for the map, if drawn. This to set the box right. Unfortunately this is a proprietary value because each map provider has different zoom levels."
+    last_activity:
+      nullable: true
+      type: string
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
+      description: "Last activity of the account."

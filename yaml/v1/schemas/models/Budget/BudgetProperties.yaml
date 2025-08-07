@@ -13,36 +13,32 @@ BudgetProperties:
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
-    name:
-      type: string
-      format: string
-      example: "Bills"
     active:
       type: boolean
       format: boolean
       example: false
-    notes:
+    name:
       type: string
       format: string
-      example: "Some notes"
-      nullable: true
+      example: "Bills"
     order:
       type: integer
       format: int32
       example: 5
       readOnly: true
+    notes:
+      type: string
+      format: string
+      example: "Some notes"
+      nullable: true
     auto_budget_type:
       $ref: '#/components/schemas/AutoBudgetType'
     auto_budget_period:
       $ref: '#/components/schemas/AutoBudgetPeriod'
-    object_has_currency_setting:
-      type: boolean
-      format: boolean
-      example: true
-      readOnly: true
-      description: "Indicates whether the budget has a currency setting. If it is false, the budget assumes the administration's currency. If true, it is following the auto budget settings."
-  !currencyFields,2
-  !primaryCurrencyFields,2
+!standardObjectGroupFields,2
+!standardHasCurrencyField,2
+!currencyFields,2
+!primaryCurrencyFields,2
     auto_budget_amount:
       type: string
       format: amount

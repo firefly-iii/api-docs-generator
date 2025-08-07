@@ -41,7 +41,7 @@ BudgetLimitProperties:
       type: string
       format: amount
       example: "123.45"
-    native_amount:
+    pc_amount:
       type: string
       format: amount
       example: "123.45"

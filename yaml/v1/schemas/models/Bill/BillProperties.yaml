@@ -1,11 +1,5 @@
 BillProperties:
   type: object
-  required:
-    - name
-    - amount_min
-    - amount_max
-    - date
-    - repeat_freq
   properties:
     created_at:
       type: string
@@ -93,25 +87,7 @@ BillProperties:
       format: string
       example: "Some example notes"
       nullable: true
-    object_group_id:
-      type: string
-      format: string
-      example: "5"
-      nullable: true
-      description: The group ID of the group this object is part of. NULL if no group.
-    object_group_order:
-      type: integer
-      format: int32
-      example: 5
-      nullable: true
-      readOnly: true
-      description: The order of the group. At least 1, for the highest sorting.
-    object_group_title:
-      type: string
-      format: string
-      example: "Example Group"
-      nullable: true
-      description: The name of the group. NULL if no group.
+!standardObjectGroupFields,2
     paid_dates:
       type: array
       description: "Array of past transactions when the subscription was paid."
@@ -144,49 +120,8 @@ BillProperties:
             example: "123"
             description: "ID of this subscription."
             readOnly: true
-          currency_id:
-            type: string
-            format: string
-            example: "5"
-            description: The ID of the currency used in this transaction.
-          currency_code:
-            type: string
-            format: string
-            example: EUR
-          currency_symbol:
-            type: string
-            format: string
-            example: "$"
-            readOnly: true
-          currency_decimal_places:
-            type: integer
-            format: int32
-            example: 2
-            readOnly: true
-          primary_currency_id:
-            type: string
-            format: string
-            example: "5"
-            readOnly: true
-            description: "The administration's primary currency ID."
-          primary_currency_code:
-            type: string
-            format: string
-            example: EUR
-            readOnly: true
-            description: "The administration's primary currency code."
-          primary_currency_symbol:
-            type: string
-            format: string
-            example: "$"
-            readOnly: true
-            description: "The administration's primary currency symbol."
-          primary_currency_decimal_places:
-            type: integer
-            format: int32
-            example: 2
-            readOnly: true
-            description: "The administration's primary currency decimal places."
+  !currencyFields,5
+  !primaryCurrencyFields,5
           amount:
             type: string
             format: amount

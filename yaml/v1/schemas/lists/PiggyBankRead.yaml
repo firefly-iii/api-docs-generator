@@ -16,6 +16,6 @@ PiggyBankRead:
       format: string
       example: "2"
     attributes:
-      $ref: '#/components/schemas/PiggyBank'
+      $ref: '#/components/schemas/PiggyBankProperties'
     links:
       $ref: '#/components/schemas/ObjectLink'
