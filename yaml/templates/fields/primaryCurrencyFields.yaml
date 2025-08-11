@@ -7,7 +7,7 @@ primary_currency_id:
 primary_currency_name:
   type: string
   format: string
-  example: EUR
+  example: Euro
   readOnly: true
   description: "The currency name of the administration's primary currency."
 primary_currency_code:

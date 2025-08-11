@@ -6,7 +6,7 @@ currency_id:
 currency_name:
   type: string
   format: string
-  example: EUR
+  example: Euro
   description: "The currency name of the currency associated with this object."
 currency_code:
   type: string
