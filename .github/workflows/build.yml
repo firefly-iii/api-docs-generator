@@ -39,6 +39,7 @@ jobs:
           token: ${{ secrets.GIT_REPOS_TOKEN }}
       - name: Build documentation
         run: |
+          sudo timedatectl set-timezone Europe/Amsterdam
           php build-api-docs.php
           cd api-docs
           git config user.name github-actions
