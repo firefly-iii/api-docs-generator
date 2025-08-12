@@ -150,7 +150,7 @@ class Builder
             $array['tags'] = $set;
             $tags          = substr(substr(yaml_emit($array, YAML_UTF8_ENCODING), 4), 0, -4);
         }
-        $time = Carbon::now();
+        $time = Carbon::now('Europe/Amsterdam');
 
         $content = $template->render(
             [
