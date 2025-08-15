@@ -399,9 +399,11 @@ class Builder
         }
         $version = $this->version;
         if ('develop' === $this->version) {
-            $version = 'v6.3.0';
+            $version = '6.3.0';
         }
-        $version = substr($version, 1);
+        if(str_starts_with($version,'v')) {
+            $version = substr($version, 1);
+        }
         $this->logger->info(sprintf('Add version reference, "%s"', $version));
         return str_replace('%version%', $version, $file);
     }
