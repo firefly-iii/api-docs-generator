@@ -28,13 +28,13 @@ BudgetStore:
       format: string
       example: "12"
       nullable: true
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+      description: "Use either currency_id or currency_code. Defaults to the user's financial administration's currency."
     auto_budget_currency_code:
       type: string
       format: string
       example: "EUR"
       nullable: true
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+      description: "Use either currency_id or currency_code. Defaults to the user's financial administration's currency."
     auto_budget_amount:
       type: string
       format: amount

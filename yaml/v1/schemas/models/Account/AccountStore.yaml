@@ -44,12 +44,12 @@ AccountStore:
       type: string
       format: string
       example: "12"
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+      description: "Use either currency_id or currency_code. Defaults to the user's financial administration's currency."
     currency_code:
       type: string
       format: string
       example: "EUR"
-      description: "Use either currency_id or currency_code. Defaults to the user's default currency."
+      description: "Use either currency_id or currency_code. Defaults to the user's financial administration's currency."
     active:
       type: boolean
       format: boolean

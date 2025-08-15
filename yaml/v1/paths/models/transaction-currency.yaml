@@ -111,11 +111,11 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
       _tpl_internalExceptionResponse,3:
-/currencies/{code}/default:
+/currencies/{code}/primary:
   post:
-    summary: Make currency default currency.
-    description: Make this currency the default currency for the user. If the currency is not enabled, it will be enabled as well.
-    operationId: defaultCurrency
+    summary: Make currency primary currency.
+    description: Make this currency the primary currency for the current financial administration. If the currency is not enabled, it will be enabled as well.
+    operationId: primaryCurrency
     tags:
       - currencies
     parameters:
@@ -130,7 +130,7 @@
         description: The currency code.
     responses:
       "204":
-        description: Currency has been made the default currency.
+        description: Currency has been made the primary currency.
         content:
           application/vnd.api+json:
             schema:
@@ -228,11 +228,11 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
       _tpl_internalExceptionResponse,3:
-/currencies/native:
+/currencies/primary:
   get:
     summary: Get the primary currency of the current administration.
     description: Get the primary currency of the current administration. This replaces what was called "the user's default currency" although they are essentially the same.
-    operationId: getNativeCurrency
+    operationId: getPrimaryCurrency
     parameters:
       _tpl_correlationParameter,3:
     tags:

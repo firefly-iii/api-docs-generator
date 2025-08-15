@@ -6,11 +6,11 @@ CurrencyUpdate:
       format: boolean
       example: true
       description: "If the currency is enabled"
-    default:
+    primary:
       type: boolean
       format: boolean
       example: true
-      description: "If the currency must be the default for the user. You can only submit TRUE. Submitting FALSE will not drop this currency as the default currency, because then the system would be without one."
+      description: "If the currency must be the primary for the user. You can only submit TRUE. Submitting FALSE will not drop this currency as the primary currency, because then the system would be without one."
       enum:
         - true
     code:
