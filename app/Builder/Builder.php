@@ -403,7 +403,7 @@ class Builder
         }
         $version = substr($version, 1);
         $this->logger->info(sprintf('Add version reference, "%s"', $version));
-        return trim(str_replace('%version%', $version, $file));
+        return str_replace('%version%', $version, $file);
     }
 
 }
