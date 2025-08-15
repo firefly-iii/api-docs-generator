@@ -35,7 +35,7 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -71,7 +71,7 @@
             format: int64
           example: [ 1, 2, 3 ]
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

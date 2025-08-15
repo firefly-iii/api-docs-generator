@@ -17,7 +17,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserGroupArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -39,7 +39,7 @@
           example: "123"
         description: The ID of the user group.
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -76,7 +76,7 @@
       description: JSON array or formdata with new user group information. See the model for the exact specifications.
       required: true
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

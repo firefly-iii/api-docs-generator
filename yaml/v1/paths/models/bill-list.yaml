@@ -17,7 +17,7 @@
           example: "123"
         description: The ID of the bill.
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -44,7 +44,7 @@
           example: "123"
         description: The ID of the bill.
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -97,7 +97,7 @@
         schema:
           $ref: '#/components/schemas/TransactionTypeFilter'
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

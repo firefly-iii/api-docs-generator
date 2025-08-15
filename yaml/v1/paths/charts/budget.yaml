@@ -2,15 +2,15 @@
   get:
     tags:
       - charts
-    summary: Dashboard chart with asset account balance information.
+    summary: Dashboard chart with budget information.
     description: |
-      This endpoint returns the data required to generate a chart with basic asset account balance information.
+      This endpoint returns the data required to generate a chart with basic budget information.
     operationId: getChartBudgetOverview
     parameters:
       !correlationParameter,3
       !mandatoryDateRangeParameters,3
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !validationErrorResponse,3

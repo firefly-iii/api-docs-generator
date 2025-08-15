@@ -16,7 +16,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencyArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -46,7 +46,7 @@
             schema:
               $ref: '#/components/schemas/CurrencySingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -74,7 +74,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -107,7 +107,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/InternalExceptionResponse'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -135,7 +135,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -163,7 +163,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -201,7 +201,7 @@
             schema:
               $ref: '#/components/schemas/CurrencySingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -224,7 +224,7 @@
     responses:
       "204":
         description: Currency deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -244,7 +244,7 @@
           application/json:
             schema:
               $ref: '#/components/schemas/CurrencySingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

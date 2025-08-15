@@ -16,7 +16,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -40,7 +40,7 @@
       description: "JSON array or key=value pairs with the necessary user information. See the model for the exact specifications."
       required: true
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -74,7 +74,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/UserSingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -111,7 +111,7 @@
             schema:
               $ref: '#/components/schemas/UserSingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -133,7 +133,7 @@
     responses:
       "204":
         description: User deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

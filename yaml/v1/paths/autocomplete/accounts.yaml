@@ -25,7 +25,7 @@
             $ref: '#/components/schemas/AccountTypeFilter'
     summary: Returns all accounts of the user returned in a basic auto-complete array.
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !validationErrorResponse,3
       !badRequestResponse,3

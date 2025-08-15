@@ -21,7 +21,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookMessageArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -55,7 +55,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookMessageSingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -84,7 +84,7 @@
     responses:
       "204":
         description: Webhook message deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -121,7 +121,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookAttemptArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -162,7 +162,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/WebhookAttemptSingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -198,7 +198,7 @@
     responses:
       "204":
         description: Webhook message attempt deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

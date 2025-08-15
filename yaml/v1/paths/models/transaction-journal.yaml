@@ -24,7 +24,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionLinkArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -51,7 +51,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -73,7 +73,7 @@
     responses:
       "204":
         description: Transaction journal (split) deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

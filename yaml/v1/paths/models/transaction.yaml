@@ -41,7 +41,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -71,7 +71,7 @@
             schema:
               $ref: '#/components/schemas/TransactionSingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -98,7 +98,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TransactionSingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -135,7 +135,7 @@
             schema:
               $ref: '#/components/schemas/TransactionSingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -157,7 +157,7 @@
     responses:
       "204":
         description: Transaction deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

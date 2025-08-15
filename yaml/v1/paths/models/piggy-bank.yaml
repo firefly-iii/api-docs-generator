@@ -17,7 +17,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -47,7 +47,7 @@
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -74,7 +74,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -111,7 +111,7 @@
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -133,7 +133,7 @@
     responses:
       "204":
         description: Piggy bank deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

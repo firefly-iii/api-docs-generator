@@ -8,7 +8,7 @@
       A call to this endpoint deletes the requested data type. Use it with care and always with user permission.
       The demo user is incapable of using this endpoint.
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

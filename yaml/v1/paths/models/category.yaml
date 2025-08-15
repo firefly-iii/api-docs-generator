@@ -16,7 +16,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategoryArray'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -46,7 +46,7 @@
             schema:
               $ref: '#/components/schemas/CategorySingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -91,7 +91,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -128,7 +128,7 @@
             schema:
               $ref: '#/components/schemas/CategorySingle'
       !validationErrorResponse,3
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -150,7 +150,7 @@
     responses:
       "204":
         description: Category deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

@@ -8,7 +8,7 @@
         !autocompleteSearchParameters,3
     summary: Returns all rules of the user returned in a basic auto-complete array.
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

@@ -28,7 +28,7 @@
           format: date
           example: "2018-12-31"
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -57,7 +57,7 @@
       description: "JSON array or key=value pairs with the necessary bill information. See the model for the exact specifications."
       required: true
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -103,7 +103,7 @@
     tags:
       - bills
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -139,7 +139,7 @@
       description: JSON array or key=value pairs with updated bill information. See the model for the exact specifications.
       required: true
     responses:
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
@@ -168,7 +168,7 @@
     responses:
       "204":
         description: Bill deleted.
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3

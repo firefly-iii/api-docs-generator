@@ -39,7 +39,7 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BasicSummary'
-      !unauthenticatedResponse,3
+      _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
       !badRequestResponse,3
       !internalExceptionResponse,3
