@@ -29,7 +29,7 @@ class Builder
     private array       $apiVersions;
     private string      $server;
     private Logger      $logger;
-    private array $templates = [];
+    private array       $templates = [];
 
     /**
      * Builder constructor.
@@ -39,12 +39,12 @@ class Builder
      */
     public function __construct(string $templatePath, string $cachePath)
     {
-        $this->tags    = [];
-        $this->paths   = [];
-        $this->schemas = [];
+        $this->tags      = [];
+        $this->paths     = [];
+        $this->schemas   = [];
         $this->templates = [];
-        $this->server  = '';
-        $this->version = '1.0';
+        $this->server    = '';
+        $this->version   = '1.0';
 
         $loader     = new FilesystemLoader($templatePath);
         $this->twig = new Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
@@ -52,7 +52,7 @@ class Builder
 
     /**
      * @param string $name
-     * @param array  $info
+     * @param array $info
      */
     public function addTag(string $name, array $info): void
     {
@@ -70,7 +70,7 @@ class Builder
      * @param string $apiVersion
      * @param string $identifier
      * @param string $file
-     * @param int    $indentation
+     * @param int $indentation
      *
      */
     public function addYamlFile(string $apiVersion, string $identifier, string $file, int $indentation): void
@@ -78,7 +78,7 @@ class Builder
         if (!file_exists($file)) {
             throw new RuntimeException(sprintf('No such file: %s', $file));
         }
-        $content = trim((string) file_get_contents($file));
+        $content = trim((string)file_get_contents($file));
         if ('' === $content) {
             return;
         }
@@ -93,9 +93,10 @@ class Builder
         // add indent
         $indentedLines = $this->indentLines($completeLines, $indentation);
 
-
         // add v1 or v2, if set.
         $pathInfoLines = $this->addApiVersion($indentedLines, $apiVersion);
+
+        // replace version if necessary.
 
         $this->saveLines($apiVersion, $identifier, $pathInfoLines);
     }
@@ -141,7 +142,7 @@ class Builder
         $this->logger->debug(sprintf('Rendering version "%s"', $apiVersion));
         try {
             $template = $this->twig->load('start.yaml.twig');
-        } catch (SyntaxError | LoaderError | RuntimeError $e) {
+        } catch (SyntaxError|LoaderError|RuntimeError $e) {
             throw new RuntimeException(sprintf('Error in Twig: %s', $e->getMessage()));
         }
         // add tags
@@ -164,9 +165,9 @@ class Builder
                 'time'        => $time->format('Y-m-d @ H:i:s (e)'),
             ]
         );
-        $content = str_replace("\n\n","\n",$content);
-        $content = str_replace("\n  \n","\n",$content);
-        return str_replace("\n\n","\n",$content);
+        $content = str_replace("\n\n", "\n", $content);
+        $content = str_replace("\n  \n", "\n", $content);
+        return str_replace("\n\n", "\n", $content);
     }
 
     /**
@@ -177,7 +178,7 @@ class Builder
     private function parseReplacements(string $file): array
     {
         $replacements = [];
-        $content      = (string) file_get_contents($file);
+        $content      = (string)file_get_contents($file);
         $lines        = explode("\n", $content);
         // to make sure we wedge in the template at the right spot:
 
@@ -194,6 +195,7 @@ class Builder
 
         return $replacements;
     }
+
     /**
      * @param string $instruction
      *
@@ -203,14 +205,14 @@ class Builder
     {
         // _tpl_currencyFields,2:
         $instruction = substr($instruction, 5, -1);
-        $parts     = explode(',', $instruction);
-        $template  = $this->getReplacementTemplate($parts[0]);
+        $parts       = explode(',', $instruction);
+        $template    = $this->getReplacementTemplate($parts[0]);
 //        $filename    = sprintf('%s/yaml/templates/%s.yaml', ROOT, $parts[0]);
 //        $template    = file_get_contents($filename);
         $lines       = explode("\n", $template);
         $replacement = [];
         foreach ($lines as $line) {
-            $indent        = str_repeat('  ', (int) ($parts[1] ?? 0));
+            $indent        = str_repeat('  ', (int)($parts[1] ?? 0));
             $replacement[] = sprintf('%s%s', $indent, $line);
         }
 
@@ -225,14 +227,14 @@ class Builder
      */
     private function getReplacementForExclamation(string $instruction): array
     {
-        $parts     = explode(',', substr($instruction, 1));
-        $template  = $this->getReplacementTemplate($parts[0]);
+        $parts    = explode(',', substr($instruction, 1));
+        $template = $this->getReplacementTemplate($parts[0]);
 //        $filename    = sprintf('%s/yaml/templates/%s.yaml', ROOT, $parts[0]);
 //        $template    = file_get_contents($filename);
         $lines       = explode("\n", $template);
         $replacement = [];
         foreach ($lines as $line) {
-            $indent        = str_repeat('  ', (int) ($parts[1] ?? 0));
+            $indent        = str_repeat('  ', (int)($parts[1] ?? 0));
             $replacement[] = sprintf('%s%s', $indent, $line);
         }
 
@@ -252,7 +254,7 @@ class Builder
         }
         $offset = 0;
         /**
-         * @var int   $i
+         * @var int $i
          * @var array $replacement
          */
         foreach ($replacements as $i => $replacement) {
@@ -271,7 +273,7 @@ class Builder
 
     /**
      * @param array $lines
-     * @param int   $indentation
+     * @param int $indentation
      *
      * @return array
      */
@@ -292,13 +294,17 @@ class Builder
 
     /**
      * @param string $identifier
-     * @param array  $lines
+     * @param array $lines
      *
      * @return void
      */
     private function saveLines(string $apiVersion, string $identifier, array $lines): void
     {
         $file = implode("\n", $lines);
+
+        // replace version in final result:
+
+        $file = $this->replaceVersionReference($file);
 
         if ($identifier === 'paths') {
             $this->paths[$apiVersion]   = $this->paths[$apiVersion] ?? [];
@@ -324,7 +330,7 @@ class Builder
     }
 
     /**
-     * @param array  $indentedLines
+     * @param array $indentedLines
      * @param string $apiVersion
      *
      * @return array
@@ -355,7 +361,7 @@ class Builder
 
     private function getReplacementTemplate(string $file): string
     {
-        if(0 === count($this->templates)) {
+        if (0 === count($this->templates)) {
             $directory = sprintf('%s/yaml/templates', ROOT);
             $objects   = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory), RecursiveIteratorIterator::SELF_FIRST);
 
@@ -367,8 +373,8 @@ class Builder
                 }
             }
         }
-        $yaml      = sprintf('%s.yaml', $file);
-        if(isset($this->templates[$yaml])) {
+        $yaml = sprintf('%s.yaml', $file);
+        if (isset($this->templates[$yaml])) {
             return $this->templates[$yaml];
         }
 
@@ -385,6 +391,16 @@ class Builder
             return '';
         }
         return array_pop($parts);
+    }
+
+    private function replaceVersionReference(string $file): string
+    {
+        $version = $this->version;
+        if ('develop' === $this->version) {
+            $version = 'v6.3.0';
+        }
+        $version = substr($version, 1);
+        return trim(str_replace('%version%', $version, $file));
     }
 
 }

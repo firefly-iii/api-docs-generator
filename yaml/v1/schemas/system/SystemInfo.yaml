@@ -7,12 +7,12 @@ SystemInfo:
         version:
           type: string
           format: string
-          example: "5.8.0-alpha.1"
+          example: "%version%"
         api_version:
           type: string
           format: string
           description: Same value as the version field.
-          example: "5.8.0-alpha.1"
+          example: "%version%"
         php_version:
           type: string
           format: string
