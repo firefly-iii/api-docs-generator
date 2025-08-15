@@ -6,7 +6,7 @@
     tags:
       - recurrences
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -27,7 +27,7 @@
     tags:
       - recurrences
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     requestBody:
       content:
         application/json:
@@ -56,7 +56,7 @@
     description: Get a single recurring transaction.
     operationId: getRecurrence
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -84,7 +84,7 @@
     description: Update existing recurring transaction.
     summary: Update existing recurring transaction.
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -121,7 +121,7 @@
     tags:
       - recurrences
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

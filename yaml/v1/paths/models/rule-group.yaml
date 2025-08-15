@@ -6,7 +6,7 @@
     tags:
       - rule_groups
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -25,7 +25,7 @@
     description: Creates a new rule group. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeRuleGroup
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - rule_groups
     requestBody:
@@ -56,7 +56,7 @@
     description: Get a single rule group. This does not include the rules. For that, see below.
     operationId: getRuleGroup
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -84,7 +84,7 @@
     description: Update existing rule group.
     summary: Update existing rule group.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -121,7 +121,7 @@
     tags:
       - rule_groups
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

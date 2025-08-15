@@ -4,7 +4,7 @@
       - about
     operationId: getAbout
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     summary: System information end point.
     description: |
       Returns general system information and versions of the (supporting) software.
@@ -26,7 +26,7 @@
     summary: Currently authenticated user endpoint.
     operationId: getCurrentUser
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     description: |
       Returns the currently authenticated user.
     responses:

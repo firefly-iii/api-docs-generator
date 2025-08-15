@@ -4,7 +4,7 @@
     description: When a webhook is triggered the actual message that will be send is stored in a "message". You can view and analyse these messages.
     operationId: getWebhookMessages
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -31,7 +31,7 @@
     description: When a webhook is triggered it will store the actual content of the webhook in a webhook message. You can view and analyse a single one using this endpoint.
     operationId: getSingleWebhookMessage
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -66,7 +66,7 @@
     tags:
       - webhooks
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -94,7 +94,7 @@
     description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhook messages that receive too many attempts (failures) will not be sent again. You must first clear out old attempts before the message can go out again.
     operationId: getWebhookMessageAttempts
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3
       - in: path
@@ -131,7 +131,7 @@
     description: When a webhook message fails to send it will store the failure in an "attempt". You can view and analyse these. Webhooks messages that receive too many attempts (failures) will not be fired. You must first clear out old attempts and try again. This endpoint shows you the details of a single attempt. The ID of the attempt must match the corresponding webhook and webhook message.
     operationId: getSingleWebhookMessageAttempt
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -173,7 +173,7 @@
     tags:
       - webhooks
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

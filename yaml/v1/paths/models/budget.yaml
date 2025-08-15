@@ -6,7 +6,7 @@
     tags:
       - budgets
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
         !limitParameter,3
         !pageParameter,3
       - in: query
@@ -43,7 +43,7 @@
     description: Creates a new budget. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeBudget
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - budgets
     requestBody:
@@ -74,7 +74,7 @@
     description: Get a single budget. If the start date and end date are submitted as well, the "spent" array will be updated accordingly.
     operationId: getBudget
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -120,7 +120,7 @@
     description: Update existing budget. This endpoint cannot be used to set budget amount limits.
     summary: Update existing budget.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -157,7 +157,7 @@
     tags:
       - budgets
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

@@ -7,7 +7,7 @@
       List all the transaction links.
     operationId: listTransactionLink
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -28,7 +28,7 @@
     operationId: storeTransactionLink
     description: Store a new link between two transactions. For this end point you need the journal_id from a transaction.
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     responses:
       "200":
         description: 'New transaction link stored, result in response.'
@@ -60,7 +60,7 @@
       Returns a single link by its ID.
     operationId: getTransactionLink
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -85,7 +85,7 @@
       Will permanently delete link. Transactions remain.
     operationId: deleteTransactionLink
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -108,7 +108,7 @@
       Used to update a single existing link.
     operationId: updateTransactionLink
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

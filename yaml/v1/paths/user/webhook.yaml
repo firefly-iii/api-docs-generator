@@ -6,7 +6,7 @@
     tags:
       - webhooks
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3
     responses:
@@ -26,7 +26,7 @@
         Creates a new webhook. The data required can be submitted as a JSON body or as a list of parameters. The webhook will be given a random secret.
     operationId: storeWebhook
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - webhooks
     requestBody:
@@ -57,7 +57,7 @@
     description: Gets all info of a single webhook.
     operationId: getWebhook
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         example: "123"
@@ -86,7 +86,7 @@
     summary: Update existing webhook.
     description: Update an existing webhook's information. If you wish to reset the secret, submit any value as the "secret". Firefly III will take this as a hint and reset the secret of the webhook.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -124,7 +124,7 @@
     tags:
       - webhooks
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

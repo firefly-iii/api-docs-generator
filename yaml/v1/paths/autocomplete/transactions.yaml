@@ -4,7 +4,7 @@
       - autocomplete
     operationId: getTransactionsAC
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
         !autocompleteSearchParameters,3
     summary: Returns all transaction descriptions of the user returned in a basic auto-complete array.
     responses:
@@ -25,7 +25,7 @@
       - autocomplete
     operationId: getTransactionsIDAC
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !autocompleteSearchParameters,3
     summary: Returns all transactions, complemented with their ID, of the user returned in a basic auto-complete array. This endpoint is DEPRECATED and I suggest you DO NOT use it.
     responses:

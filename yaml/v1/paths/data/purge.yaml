@@ -15,4 +15,4 @@
       "204":
         description: Empty response when data has been purged.
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:

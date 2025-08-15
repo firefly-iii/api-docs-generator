@@ -6,7 +6,7 @@
     tags:
       - transactions
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3 
       - in: path
@@ -34,7 +34,7 @@
     description: Get a single transaction by underlying journal (split).
     operationId: getTransactionByJournal
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -62,7 +62,7 @@
     tags:
       - transactions
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

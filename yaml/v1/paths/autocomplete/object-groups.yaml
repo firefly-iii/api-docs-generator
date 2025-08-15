@@ -4,7 +4,7 @@
       - autocomplete
     operationId: getObjectGroupsAC
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
         !autocompleteSearchParameters,3
     summary: Returns all object groups of the user returned in a basic auto-complete array.
     responses:

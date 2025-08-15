@@ -6,7 +6,7 @@
     tags:
       - categories
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3
       - in: path
@@ -59,7 +59,7 @@
     tags:
       - categories
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3
       - in: path

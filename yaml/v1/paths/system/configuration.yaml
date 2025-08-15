@@ -4,7 +4,7 @@
     description: Returns all editable and not-editable configuration values for this Firefly III installation
     operationId: getConfiguration
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - configuration
     responses:
@@ -29,7 +29,7 @@
     tags:
       - configuration
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: name
         required: true
@@ -54,7 +54,7 @@
     operationId: setConfiguration
     description: Set a single configuration value. Not all configuration values can be updated so the list of accepted configuration variables is small.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: name
         required: true

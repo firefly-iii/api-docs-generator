@@ -6,7 +6,7 @@
     tags:
       - users
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -26,7 +26,7 @@
         Creates a new user. The data required can be submitted as a JSON body or as a list of parameters. The user will be given a random password, which they can reset using the "forgot password" function.
     operationId: storeUser
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - users
     requestBody:
@@ -57,7 +57,7 @@
     description: Gets all info of a single user.
     operationId: getUser
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -85,7 +85,7 @@
     description: Update existing user.
     summary: Update an existing user's information.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -122,7 +122,7 @@
     tags:
       - users
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

@@ -7,7 +7,7 @@
     tags:
       - available_budgets
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
       - in: query
@@ -45,7 +45,7 @@
     description: Get a single available budget, by ID.
     operationId: getAvailableBudget
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

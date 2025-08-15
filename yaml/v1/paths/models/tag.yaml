@@ -6,7 +6,7 @@
     tags:
       - tags
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3
 
@@ -26,7 +26,7 @@
     description: Creates a new tag. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeTag
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - tags
     requestBody:
@@ -57,7 +57,7 @@
     description: Get a single tag.
     operationId: getTag
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3
       - in: path
@@ -88,7 +88,7 @@
     description: Update existing tag.
     summary: Update existing tag.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: tag
         description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
@@ -126,7 +126,7 @@
     tags:
       - tags
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: tag
         description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.

@@ -15,7 +15,7 @@
       "204":
         description: Empty response when data has been destroyed.
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: query
         name: objects
         description: The type of data that you wish to destroy. You can only use one at a time.

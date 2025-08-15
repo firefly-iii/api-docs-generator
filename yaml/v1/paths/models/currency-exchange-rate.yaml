@@ -6,7 +6,7 @@
     tags:
       - currency_exchange_rates
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -25,7 +25,7 @@
     description: Stores a new exchange rate. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeCurrencyExchangeRate
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - currency_exchange_rates
     requestBody:
@@ -58,7 +58,7 @@
     tags:
       - currency_exchange_rates
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
       - in: path
@@ -86,7 +86,7 @@
     tags:
       - currency_exchange_rates
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -107,7 +107,7 @@
       Used to update a single currency exchange rate
     operationId: updateCurrencyExchangeRate
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -147,7 +147,7 @@
     tags:
       - currency_exchange_rates
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
       - in: path
@@ -182,7 +182,7 @@
     tags:
       - currency_exchange_rates
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: from
         required: true

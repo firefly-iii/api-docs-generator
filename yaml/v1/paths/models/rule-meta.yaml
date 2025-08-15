@@ -6,7 +6,7 @@
     tags:
       - rules
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -63,7 +63,7 @@
     tags:
       - rules
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

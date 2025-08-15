@@ -7,8 +7,8 @@
       This endpoint returns the data required to generate a chart with basic budget information.
     operationId: getChartBudgetOverview
     parameters:
-      !correlationParameter,3
-      !mandatoryDateRangeParameters,3
+      _tpl_correlationParameter,3:
+      _tpl_mandatoryDateRangeParameters,3:
     responses:
       _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3
@@ -16,7 +16,7 @@
       !validationErrorResponse,3
       !internalExceptionResponse,3
       "200":
-        description: Line chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
+        description: Bar chart oriented chart information. Check out the model for more details. Each entry is a line (or bar) in the chart.
         content:
           application/json:
             schema:

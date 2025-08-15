@@ -7,7 +7,7 @@
     tags:
       - attachments
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -27,7 +27,7 @@
       Creates a new attachment. The data required can be submitted as a JSON body or as a list of parameters. You cannot use this endpoint to upload the actual file data (see below). This endpoint only creates the attachment object.
     operationId: storeAttachment
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - attachments
     requestBody:
@@ -59,7 +59,7 @@
       Get a single attachment. This endpoint only returns the available metadata for the attachment. Actual file data is handled in two other endpoints (see below).
     operationId: getAttachment
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -88,7 +88,7 @@
     description: |
       Update the meta data for an existing attachment. This endpoint does not allow you to upload or download data. For that, see below.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -126,7 +126,7 @@
     tags:
       - attachments
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -148,7 +148,7 @@
       This endpoint allows you to download the binary content of a transaction. It will be sent to you as a download, using the content type "application/octet-stream" and content disposition "attachment; filename=example.pdf".
     operationId: downloadAttachment
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -177,7 +177,7 @@
       Use this endpoint to upload (and possible overwrite) the file contents of an attachment. Simply put the entire file in the body as binary data.
     operationId: uploadAttachment
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

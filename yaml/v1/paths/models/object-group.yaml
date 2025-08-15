@@ -6,7 +6,7 @@
     tags:
       - object_groups
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
     !limitParameter,3
     !pageParameter,3
     responses:
@@ -26,7 +26,7 @@
     description: Get a single object group.
     operationId: getObjectGroup
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -54,7 +54,7 @@
     description: Update existing object group.
     summary: Update existing object group.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -91,7 +91,7 @@
     tags:
       - object_groups
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

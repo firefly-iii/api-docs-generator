@@ -6,7 +6,7 @@
     tags:
       - bills
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
         !limitParameter,3
         !pageParameter,3
       - in: query
@@ -43,7 +43,7 @@
     description: Creates a new bill. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeBill
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - bills
     requestBody:
@@ -74,7 +74,7 @@
     description: Get a single bill.
     operationId: getBill
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -120,7 +120,7 @@
     description: Update existing bill.
     summary: Update existing bill.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -157,7 +157,7 @@
     tags:
       - bills
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

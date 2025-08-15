@@ -4,7 +4,7 @@
       - autocomplete
     operationId: getTransactionTypesAC
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
         !autocompleteSearchParameters,3
     summary: Returns all transaction types returned in a basic auto-complete array. English only.
     responses:

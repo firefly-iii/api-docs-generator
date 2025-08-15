@@ -7,7 +7,7 @@
     tags:
       - user_groups
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -30,7 +30,7 @@
       Returns a single user group by its ID.
     operationId: getUserGroup
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -55,7 +55,7 @@
       Used to update a single user group. The available fields are still limited.
     operationId: updateUserGroup
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

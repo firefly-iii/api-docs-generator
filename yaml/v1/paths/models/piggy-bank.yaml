@@ -6,7 +6,7 @@
     tags:
       - piggy_banks
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
           !limitParameter,3
           !pageParameter,3
 
@@ -26,7 +26,7 @@
     description: Creates a new piggy bank. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storePiggyBank
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - piggy_banks
     requestBody:
@@ -57,7 +57,7 @@
     description: Get a single piggy bank.
     operationId: getPiggyBank
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -85,7 +85,7 @@
     description: Update existing piggy bank.
     summary: Update existing piggy bank.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -122,7 +122,7 @@
     tags:
       - piggy_banks
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

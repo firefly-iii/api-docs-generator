@@ -6,7 +6,7 @@
     tags:
       - preferences
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -27,7 +27,7 @@
     operationId: storePreference
     description: This endpoint creates a new preference. The name and data are free-format, and entirely up to you. If the preference is not used in Firefly III itself it may not be configurable through the user interface, but you can use this endpoint to persist custom data for your own app.
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     responses:
       "200":
         description: 'New account stored, result in response.'
@@ -56,7 +56,7 @@
     description: Return a single preference and the value.
     operationId: getPreference
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: name
         required: true
@@ -83,7 +83,7 @@
     description: Update a user's preference.
     operationId: updatePreference
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: name
         required: true

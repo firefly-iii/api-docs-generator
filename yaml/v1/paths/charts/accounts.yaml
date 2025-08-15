@@ -7,8 +7,8 @@
       This endpoint returns the data required to generate a chart with basic asset account balance information. This is used on the dashboard.
     operationId: getChartAccountOverview
     parameters:
-      !correlationParameter,3
-      !mandatoryDateRangeParameters,3
+      _tpl_correlationParameter,3:
+      _tpl_mandatoryDateRangeParameters,3:
     responses:
       _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3

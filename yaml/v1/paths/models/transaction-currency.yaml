@@ -6,7 +6,7 @@
     tags:
       - currencies
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
     responses:
@@ -25,7 +25,7 @@
     description: Creates a new currency. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeCurrency
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - currencies
     requestBody:
@@ -58,7 +58,7 @@
     tags:
       - currencies
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -86,7 +86,7 @@
     tags:
       - currencies
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -119,7 +119,7 @@
     tags:
       - currencies
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -145,7 +145,7 @@
     description: Get a single currency.
     operationId: getCurrency
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -174,7 +174,7 @@
     description: Update existing currency.
     summary: Update existing currency.
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -212,7 +212,7 @@
     tags:
       - currencies
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -234,7 +234,7 @@
     description: Get the primary currency of the current administration. This replaces what was called "the user's default currency" although they are essentially the same.
     operationId: getNativeCurrency
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - currencies
     responses:

@@ -7,7 +7,7 @@
     tags:
       - transactions
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
         !limitParameter,3
         !pageParameter,3
       - in: query
@@ -50,7 +50,7 @@
     description: Creates a new transaction. The data required can be submitted as a JSON body or as a list of parameters.
     operationId: storeTransaction
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     tags:
       - transactions
     requestBody:
@@ -81,7 +81,7 @@
     description: Get a single transaction.
     operationId: getTransaction
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -109,7 +109,7 @@
     description: Update an existing transaction.
     summary: Update existing transaction. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -146,7 +146,7 @@
     tags:
       - transactions
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

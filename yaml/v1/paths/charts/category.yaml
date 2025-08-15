@@ -2,13 +2,13 @@
   get:
     tags:
       - charts
-    summary: Dashboard chart with asset account balance information.
+    summary: Dashboard chart with category information.
     description: |
-      This endpoint returns the data required to generate a chart with basic asset account balance information.
+      This endpoint returns the data required to generate a chart with basic category information.
     operationId: getChartCategoryOverview
     parameters:
-      !correlationParameter,3
-      !mandatoryDateRangeParameters,3
+      _tpl_correlationParameter,3:
+      _tpl_mandatoryDateRangeParameters,3:
     responses:
       _tpl_unauthenticatedResponse,3:
       !notFoundResponse,3

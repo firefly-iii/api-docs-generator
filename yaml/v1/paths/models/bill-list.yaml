@@ -6,7 +6,7 @@
     tags:
       - bills
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
         !limitParameter,3
         !pageParameter,3
       - in: path
@@ -35,7 +35,7 @@
     tags:
       - bills
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -62,7 +62,7 @@
     tags:
       - bills
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
         !limitParameter,3
         !pageParameter,3
       - in: path

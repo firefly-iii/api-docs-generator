@@ -7,7 +7,7 @@
       This endpoint returns a list of all the accounts owned by the authenticated user.
     operationId: listAccount
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       !limitParameter,3
       !pageParameter,3
       - in: query
@@ -41,7 +41,7 @@
     summary: Create new account.
     operationId: storeAccount
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
     description: Creates a new account. The data required can be submitted as a JSON body or as a list of parameters (in key=value pairs, like a webform).
     responses:
       _tpl_unauthenticatedResponse,3:
@@ -74,7 +74,7 @@
       Returns a single account by its ID.
     operationId: getAccount
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -107,7 +107,7 @@
       Used to update a single account. All fields that are not submitted will be cleared (set to NULL). The model will tell you which fields are mandatory.
     operationId: updateAccount
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -145,7 +145,7 @@
       Will permanently delete an account. Any associated transactions and piggy banks are ALSO deleted. Cannot be recovered from.
     operationId: deleteAccount
     parameters:
-      !correlationParameter,3
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

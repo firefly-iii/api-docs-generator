@@ -4,7 +4,7 @@
       - autocomplete
     operationId: getBillsAC
     parameters:
-        !correlationParameter,3
+        _tpl_correlationParameter,3:
         !autocompleteSearchParameters,3
     summary: Returns all bills of the user returned in a basic auto-complete array.
     responses:
