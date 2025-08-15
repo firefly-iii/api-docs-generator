@@ -403,7 +403,7 @@ class Builder
             $version = 'v6.3.0';
         }
         $version = substr($version, 1);
-        $this->logger->debug(sprintf('Replace version with "%s"', $version));
+        $this->logger->info(sprintf('Replace version with "%s"', $version));
         return trim(str_replace('%version%', $version, $file));
     }
 
