@@ -6,24 +6,12 @@ ChartDataSet:
       format: string
       example: "Checking account"
       description: "This is the title of the current set. It can refer to an account, a budget or another object (by name)."
-    currency_id:
+_tpl_currencyFields,2:
+_tpl_primaryCurrencyFields,2:
+    date:
       type: string
-      format: string
-      example: "5"
-      description: "The currency ID of the currency associated to the data in the entries. This may be the primary currency of administration."
-    currency_code:
-      type: string
-      format: string
-      example: "EUR"
-    currency_symbol:
-      type: string
-      format: string
-      example: "$"
-    currency_decimal_places:
-      type: integer
-      format: int32
-      example: 2
-      description: "Number of decimals for the currency associated to the data in the entries."
+      format: date-time
+      example: "2018-09-17T12:46:47+01:00"
     start_date:
       type: string
       format: date-time
@@ -37,6 +25,8 @@ ChartDataSet:
       format: string
       example: "line"
       description: "Indicated the type of chart that is expected to be rendered. You can safely ignore this if you want."
+    period:
+      $ref: '#/components/schemas/ChartDatasetPeriodProperty'
     yAxisID:
       type: integer
       format: int32
@@ -47,3 +37,9 @@ ChartDataSet:
       description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
       items:
         $ref: '#/components/schemas/ChartDataPoint'
+    pc_entries:
+      type: object
+      description: "The actual entries for this data set. They 'key' value is the label for the data point. The value is the actual (numerical) value."
+      items:
+        $ref: '#/components/schemas/ChartDataPoint'
+

@@ -184,19 +184,45 @@ class Builder
         foreach ($lines as $i => $line) {
             $line = trim($line);
             if (str_starts_with($line, '!')) {
-                $replacements[$i] = $this->getReplacement($line);
+                $replacements[$i] = $this->getReplacementForExclamation($line);
+            }
+            if (str_starts_with($line, '_tpl_')) {
+                $replacements[$i] = $this->getReplacementForTpl($line);
             }
         }
 
         return $replacements;
     }
+    /**
+     * @param string $instruction
+     *
+     * @return array
+     */
+    private function getReplacementForTpl(string $instruction): array
+    {
+        // _tpl_currencyFields,2:
+        $instruction = substr($instruction, 5, -1);
+        $parts     = explode(',', $instruction);
+        $template  = $this->getReplacementTemplate($parts[0]);
+//        $filename    = sprintf('%s/yaml/templates/%s.yaml', ROOT, $parts[0]);
+//        $template    = file_get_contents($filename);
+        $lines       = explode("\n", $template);
+        $replacement = [];
+        foreach ($lines as $line) {
+            $indent        = str_repeat('  ', (int) ($parts[1] ?? 0));
+            $replacement[] = sprintf('%s%s', $indent, $line);
+        }
+
+        return $replacement;
+    }
+
 
     /**
      * @param string $instruction
      *
      * @return array
      */
-    private function getReplacement(string $instruction): array
+    private function getReplacementForExclamation(string $instruction): array
     {
         $parts     = explode(',', substr($instruction, 1));
         $template  = $this->getReplacementTemplate($parts[0]);

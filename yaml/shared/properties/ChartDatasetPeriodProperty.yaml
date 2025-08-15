@@ -1,0 +1,12 @@
+ChartDatasetPeriodProperty:
+  type: string
+  format: string
+  example: "1M"
+  description: "Period of the chart."
+  enum:
+    - 1D
+    - 1W
+    - 1M
+    - 3M
+    - 1Y
+    - custom

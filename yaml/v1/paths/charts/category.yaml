@@ -1,11 +1,11 @@
-/chart/account/overview:
+/chart/category/overview:
   get:
     tags:
       - charts
     summary: Dashboard chart with asset account balance information.
     description: |
-      This endpoint returns the data required to generate a chart with basic asset account balance information. This is used on the dashboard.
-    operationId: getChartAccountOverview
+      This endpoint returns the data required to generate a chart with basic asset account balance information.
+    operationId: getChartCategoryOverview
     parameters:
       !correlationParameter,3
       !mandatoryDateRangeParameters,3
