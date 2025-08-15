@@ -1,18 +1,15 @@
 CurrencyExchangeRateRead:
   type: object
-  required:
-    - type
-    - id
-    - attributes
-    - links
   properties:
     type:
       type: string
       format: string
+      readOnly: true
       example: "currency_exchange_rates"
       description: "Immutable value"
     id:
       type: string
+      readOnly: true
       format: string
       example: "2"
     attributes:

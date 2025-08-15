@@ -1,0 +1,11 @@
+CurrencyExchangeRateUpdateNoDate:
+  type: object
+  required:
+    - rate
+  properties:
+    rate:
+      type: string
+      format: string
+      nullable: false
+      example: "2.3456"
+      description: "The exchange rate from the base currency to the destination currency."

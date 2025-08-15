@@ -17,6 +17,12 @@ CurrencyExchangeProperties:
       example: "12"
       readOnly: true
       description: "Base currency ID for this exchange rate entry."
+    from_currency_name:
+      type: string
+      format: string
+      example: "Euro"
+      readOnly: true
+      description: "Base currency name for this exchange rate entry."
     from_currency_code:
       type: string
       format: string
@@ -41,6 +47,12 @@ CurrencyExchangeProperties:
       example: "12"
       readOnly: true
       description: "Destination currency ID for this exchange rate entry."
+    to_currency_name:
+      type: string
+      format: string
+      example: "EUR"
+      readOnly: true
+      description: "Destination currency name for this exchange rate entry."
     to_currency_code:
       type: string
       format: string

@@ -1,0 +1,8 @@
+CurrencyExchangeRateStoreByPair:
+  type: object
+  description: "The actual entries for this data set. They 'key' value is the date in YYYY-MM-DD. The value is the exchange rate."
+  additionalProperties:
+    type: string
+  example:
+    2025-08-01: '1.2345'
+    2025-08-02: '6.3456'

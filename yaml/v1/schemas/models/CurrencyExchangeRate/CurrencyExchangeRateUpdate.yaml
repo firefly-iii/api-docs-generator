@@ -16,3 +16,15 @@ CurrencyExchangeRateUpdate:
       nullable: false
       example: "2.3456"
       description: "The exchange rate from the base currency to the destination currency."
+    from:
+      type: string
+      format: string
+      example: "USD"
+      description: "The base currency code."
+      nullable: true
+    to:
+      type: string
+      format: string
+      example: "EUR"
+      description: "The destination currency code."
+      nullable: true

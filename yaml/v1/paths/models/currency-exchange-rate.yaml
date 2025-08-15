@@ -1,7 +1,7 @@
 /exchange-rates:
   get:
-    summary: List all exchange rates.
-    description: List exchange rates.
+    summary: List all exchange rates that Firefly III knows.
+    description: List exchange rates that Firefly III knows.
     operationId: listCurrencyExchangeRates
     tags:
       - currency_exchange_rates
@@ -36,11 +36,11 @@
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/CurrencyExchangeRateStore'
-      description: "JSON array or key=value pairs with the necessary category information. See the model for the exact specifications."
+      description: "JSON array or key=value pairs with the necessary exchange rate information. See the model for the exact specifications."
       required: true
     responses:
       "200":
-        description: 'New category stored, result in response.'
+        description: 'New exchange stored, result in response. If a rate already exists for this currency pair and date, it will be updated.'
         content:
           application/vnd.api+json:
             schema:
@@ -53,7 +53,7 @@
 /exchange-rates/{id}:
   get:
     summary: List a single specific exchange rate.
-    description: List a single specific exchange rate
+    description: List a single specific exchange rate by its ID.
     operationId: listSpecificCurrencyExchangeRate
     tags:
       - currency_exchange_rates
@@ -70,7 +70,7 @@
         description: The ID of the requested currency exchange rate.
     responses:
       "200":
-        description: A list of currency exchange rates.
+        description: The exchange rate requested.
         content:
           application/vnd.api+json:
             schema:
@@ -81,7 +81,7 @@
       _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteSpecificCurrencyExchangeRate
-    description: "Delete a specific currency exchange rate."
+    description: "Delete a specific currency exchange rate by its internal ID."
     summary: "Delete a specific currency exchange rate."
     tags:
       - currency_exchange_rates
@@ -104,7 +104,7 @@
   put:
     summary: Update existing currency exchange rate.
     description: |
-      Used to update a single currency exchange rate
+      Used to update a single currency exchange rate by its ID. Including the from/to currency is optional.
     operationId: updateCurrencyExchangeRate
     parameters:
       _tpl_correlationParameter,3:
@@ -116,7 +116,7 @@
           example: "123"
         description: The ID of the currency exchange rate.
     tags:
-      - links
+      - currency_exchange_rates
     requestBody:
       content:
         application/json:
@@ -139,10 +139,10 @@
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:
 
-/exchange-rates/rates/{from}/{to}:
+/exchange-rates/{from}/{to}:
   get:
-    summary: List all exchange rate from/to the mentioned currencies.
-    description: List all exchange rate from/to the mentioned currencies.
+    summary: List all exchange rates from/to the mentioned currencies.
+    description: List all exchange rates from/to the mentioned currencies.
     operationId: listSpecificCurrencyExchangeRates
     tags:
       - currency_exchange_rates
@@ -177,8 +177,8 @@
       _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteSpecificCurrencyExchangeRates
-    description: "Delete all currency exchange rates from 'from' to 'to' on a specific date or today."
-    summary: "Delete all currency exchange rates from 'from' to 'to'."
+    summary: "Deletes ALL currency exchange rates from 'from' to 'to'."
+    description: "Deletes ALL currency exchange rates from 'from' to 'to'. It's important to know that the reverse exchange rates (from 'to' to 'from') will not be deleted and Firefly III will still be able to infer the correct exchange rate from the reverse one."
     tags:
       - currency_exchange_rates
     parameters:
@@ -197,18 +197,216 @@
           type: string
           example: "USD"
         description: "The currency code of the 'to' currency."
-      - in: query
-        name: date
-        description: |
-          A date formatted YYYY-MM-DD. Defaults to today.
-        required: false
-        schema:
-          type: string
-          format: date
-          example: "2018-09-17"
     responses:
       "204":
         description: "Currency exchange rate(s) deleted."
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+/exchange-rates/{from}/{to}/{date}:
+  get:
+    summary: List the exchange rate for the from and to-currency on the requested date.
+    description: List the exchange rate for the from and to-currency on the requested date.
+    operationId: listSpecificCurrencyExchangeRateOnDate
+    tags:
+      - currency_exchange_rates
+    parameters:
+      _tpl_correlationParameter,3:
+      _tpl_limitParameter,3:
+      _tpl_pageParameter,3:
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "EUR"
+        description: "The currency code of the 'from' currency."
+      - in: path
+        name: to
+        required: true
+        schema:
+          type: string
+          example: "USD"
+        description: "The currency code of the 'to' currency."
+      - in: path
+        name: date
+        required: true
+        schema:
+          type: string
+          format: string
+        example: "2020-09-17"
+    responses:
+      "200":
+        description: A list of currency exchange rates.
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateArray'
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+  delete:
+    operationId: deleteSpecificCurrencyExchangeRateOnDate
+    description: "Delete the currency exchange rate from 'from' to 'to' on the specified date.  It's important to know that the reverse exchange rate (from 'to' to 'from') will not be deleted and Firefly III will still be able to infer the correct exchange rate from the reverse one."
+    summary: "Delete the currency exchange rate from 'from' to 'to' on the specified date."
+    tags:
+      - currency_exchange_rates
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "EUR"
+        description: "The currency code of the 'from' currency."
+      - in: path
+        name: to
+        required: true
+        schema:
+          type: string
+          example: "USD"
+        description: "The currency code of the 'to' currency."
+      - in: path
+        name: date
+        required: true
+        schema:
+          type: string
+          format: string
+        example: "2020-09-17"
+    responses:
+      "204":
+        description: "Currency exchange rate(s) deleted."
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+  put:
+    summary: Update existing currency exchange rate.
+    description: |
+      Used to update a single currency exchange rate by its currency codes and date
+    operationId: updateCurrencyExchangeRateByDate
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "EUR"
+        description: "The currency code of the 'from' currency."
+      - in: path
+        name: to
+        required: true
+        schema:
+          type: string
+          example: "USD"
+        description: "The currency code of the 'to' currency."
+      - in: path
+        name: date
+        required: true
+        schema:
+          type: string
+          format: string
+        example: "2020-09-17"
+    tags:
+      - currency_exchange_rates
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateUpdateNoDate'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
+      description: JSON array or form-data with updated exchange rate information. See the model for the exact specifications.
+      required: true
+    responses:
+      "200":
+        description: 'Updated exchange rate stored, result in response'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateSingle'
+      _tpl_validationErrorResponse,3:
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+/exchange-rates/by-date/{date}:
+  post:
+    summary: Store new currency exchange rates under this date
+    description: Stores a new set of exchange rates. The date is fixed (in the URL parameter) and the data required can be submitted as a JSON body.
+    operationId: storeCurrencyExchangeRatesByDate
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: path
+        name: date
+        required: true
+        schema:
+          type: string
+          format: string
+        example: "2020-09-17"
+    tags:
+      - currency_exchange_rates
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateStoreByDate'
+      description: "JSON array with the necessary currency exchange rate information. See the model for the exact specifications."
+      required: true
+    responses:
+      "200":
+        description: 'New exchange rates stored, result in response. If a rate already existed for any submitted entry, it will be updated.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateArray'
+      _tpl_validationErrorResponse,3:
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+/exchange-rates/by-currencies/{from}/{to}:
+  post:
+    summary: Store new currency exchange rates under this from/to pair.
+    description: Stores a new set of exchange rates for this pair. The date is variable, and the data required can be submitted as a JSON body.
+    operationId: storeCurrencyExchangeRatesByPair
+    parameters:
+      _tpl_correlationParameter,3:
+      - in: path
+        name: from
+        required: true
+        schema:
+          type: string
+          example: "EUR"
+        description: "The currency code of the 'from' currency."
+      - in: path
+        name: to
+        required: true
+        schema:
+          type: string
+          example: "USD"
+        description: "The currency code of the 'to' currency."
+    tags:
+      - currency_exchange_rates
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyExchangeRateStoreByPair'
+      description: "JSON array with the necessary currency exchange rate information. See the model for the exact specifications."
+      required: true
+    responses:
+      "200":
+        description: 'New exchange rates stored, result in response. If a rate already existed for any submitted entry, it will be updated.'
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchangeRateArray'
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
       _tpl_notFoundResponse,3:
       _tpl_badRequestResponse,3:

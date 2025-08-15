@@ -1,0 +1,20 @@
+CurrencyExchangeRateStoreByDate:
+  type: object
+  required:
+    - from
+    - date
+    - rates
+  properties:
+    from:
+      type: string
+      format: string
+      example: "EUR"
+      description: "The 'from'-currency"
+    rates:
+      type: object
+      description: "The actual entries for this data set. They 'key' value is 'to' currency. The value is the exchange rate."
+      additionalProperties:
+        type: string
+      example:
+        USD: '1.2345'
+        GBP: '6.3456'
