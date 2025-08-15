@@ -9,6 +9,7 @@ use Monolog\Logger;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
+use SplFileInfo;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -75,7 +76,7 @@ class Builder
     public function addYamlFile(string $apiVersion, string $identifier, string $file, int $indentation): void
     {
         if (!file_exists($file)) {
-            throw new \RuntimeException(sprintf('No such file: %s', $file));
+            throw new RuntimeException(sprintf('No such file: %s', $file));
         }
         $content = trim((string) file_get_contents($file));
         if ('' === $content) {
@@ -133,7 +134,7 @@ class Builder
 
     /**
      *
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
     public function render(string $apiVersion): string
     {
@@ -141,7 +142,7 @@ class Builder
         try {
             $template = $this->twig->load('start.yaml.twig');
         } catch (SyntaxError | LoaderError | RuntimeError $e) {
-            throw new \RuntimeException(sprintf('Error in Twig: %s', $e->getMessage()));
+            throw new RuntimeException(sprintf('Error in Twig: %s', $e->getMessage()));
         }
         // add tags
         $tags = '';
@@ -358,7 +359,7 @@ class Builder
             $directory = sprintf('%s/yaml/templates', ROOT);
             $objects   = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory), RecursiveIteratorIterator::SELF_FIRST);
 
-            /** @var \SplFileInfo $object */
+            /** @var SplFileInfo $object */
             foreach ($objects as $object) {
                 $fileName = $object->getFilename();
                 if ('yaml' === $this->getExtension($fileName)) {
