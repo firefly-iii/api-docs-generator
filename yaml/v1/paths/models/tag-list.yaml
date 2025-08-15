@@ -7,8 +7,8 @@
       - tags
     parameters:
         _tpl_correlationParameter,3:
-          !limitParameter,3
-          !pageParameter,3
+          _tpl_limitParameter,3:
+          _tpl_pageParameter,3:
       - in: path
         name: tag
         description: Either the tag itself or the tag ID.
@@ -38,8 +38,8 @@
       - tags
     parameters:
         _tpl_correlationParameter,3:
-          !limitParameter,3
-          !pageParameter,3
+          _tpl_limitParameter,3:
+          _tpl_pageParameter,3:
       - in: path
         name: tag
         description: Either the tag itself or the tag ID.
