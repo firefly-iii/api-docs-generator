@@ -35,10 +35,10 @@ BudgetProperties:
       $ref: '#/components/schemas/AutoBudgetType'
     auto_budget_period:
       $ref: '#/components/schemas/AutoBudgetPeriod'
-!standardObjectGroupFields,2
-!standardHasCurrencyField,2
-!currencyFields,2
-!primaryCurrencyFields,2
+_tpl_standardObjectGroupFields,2:
+_tpl_standardHasCurrencyField,2:
+_tpl_currencyFields,2:
+_tpl_primaryCurrencyFields,2:
     auto_budget_amount:
       type: string
       format: amount

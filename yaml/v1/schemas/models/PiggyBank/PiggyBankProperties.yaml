@@ -51,14 +51,14 @@ PiggyBankProperties:
       format: string
       nullable: true
       example: "Some notes"
-!standardObjectGroupFields,2
+_tpl_standardObjectGroupFields,2:
     accounts:
       type: array
       items:
         $ref: '#/components/schemas/PiggyBankAccountRead'
-!standardHasCurrencyField,2
-!currencyFields,2
-!primaryCurrencyFields,2
+_tpl_standardHasCurrencyField,2:
+_tpl_currencyFields,2:
+_tpl_primaryCurrencyFields,2:
     target_amount:
       type: string
       format: amount

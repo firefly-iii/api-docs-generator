@@ -16,9 +16,9 @@ BillProperties:
       format: string
       example: "Rent"
       description: "The name of the subscription."
-  !standardHasCurrencyField,2
-  !currencyFields,2
-  !primaryCurrencyFields,2
+  _tpl_standardHasCurrencyField,2:
+  _tpl_currencyFields,2:
+  _tpl_primaryCurrencyFields,2:
     amount_min:
       type: string
       format: amount
@@ -87,7 +87,7 @@ BillProperties:
       format: string
       example: "Some example notes"
       nullable: true
-!standardObjectGroupFields,2
+_tpl_standardObjectGroupFields,2:
     paid_dates:
       type: array
       description: "Array of past transactions when the subscription was paid."

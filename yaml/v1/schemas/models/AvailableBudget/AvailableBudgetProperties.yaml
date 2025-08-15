@@ -11,9 +11,9 @@ AvailableBudgetProperties:
       format: date-time
       example: "2018-09-17T12:46:47+01:00"
       readOnly: true
-!standardHasCurrencyField,2
-!currencyFields,2
-!primaryCurrencyFields,2
+_tpl_standardHasCurrencyField,2:
+_tpl_currencyFields,2:
+_tpl_primaryCurrencyFields,2:
     amount:
       type: string
       format: amount

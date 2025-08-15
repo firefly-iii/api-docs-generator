@@ -17,7 +17,7 @@
     responses:
       _tpl_badRequestResponse,3:
       "200":
-        description: OK!
+        description: OK.
       "204":
         description: No messages to send, so did nothing.
       _tpl_notFoundResponse,3:

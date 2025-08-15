@@ -117,7 +117,7 @@
       _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteUser
-    description: Delete a user. You cannot delete the user you're authenticated with. This cannot be undone. Be careful!
+    description: Delete a user. You cannot delete the user you're authenticated with. This cannot be undone. Be careful.
     summary: Delete a user.
     tags:
       - users

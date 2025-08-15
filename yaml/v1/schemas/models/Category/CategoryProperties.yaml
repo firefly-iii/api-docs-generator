@@ -23,7 +23,7 @@ CategoryProperties:
       nullable: true
       example: "Some example notes"
 !hasCurrencyFieldFalse,2
-!primaryCurrencyFields,2
+_tpl_primaryCurrencyFields,2:
     spent:
       description: "Amount(s) spent in the currencies in the database for this category. ONLY present when start and date are set."
       type: array

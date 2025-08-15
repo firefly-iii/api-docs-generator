@@ -33,15 +33,15 @@ AccountProperties:
       $ref: '#/components/schemas/ShortAccountTypeProperty'
     account_role:
       $ref: '#/components/schemas/AccountRoleProperty'
-!standardObjectGroupFields,2
+_tpl_standardObjectGroupFields,2:
     object_has_currency_setting:
         type: boolean
         format: boolean
         example: true
         readOnly: true
         description: "Indicates whether the account has a currency setting. If false, the account uses the administration's primary currency. Asset accounts and liability accounts always have a currency setting, while expense and revenue accounts do not."
-!currencyFields,2
-!primaryCurrencyFields,2
+_tpl_currencyFields,2:
+_tpl_primaryCurrencyFields,2:
     current_balance:
       type: string
       format: amount

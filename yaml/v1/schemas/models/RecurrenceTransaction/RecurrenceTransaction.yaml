@@ -12,9 +12,9 @@ RecurrenceTransaction:
       type: string
       format: string
       example: "Rent for the current month"
-!standardHasCurrencyField,2
-!currencyFields,2
-!primaryCurrencyFields,2
+_tpl_standardHasCurrencyField,2:
+_tpl_currencyFields,2:
+_tpl_primaryCurrencyFields,2:
     amount:
       type: string
       format: amount

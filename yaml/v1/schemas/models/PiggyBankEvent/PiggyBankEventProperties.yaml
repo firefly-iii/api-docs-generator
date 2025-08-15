@@ -17,9 +17,9 @@ PiggyBankEventProperties:
       type: string
       format: amount
       example: "123.45"
-  !standardHasCurrencyField,2
-  !currencyFields,2
-  !primaryCurrencyFields,2
+  _tpl_standardHasCurrencyField,2:
+  _tpl_currencyFields,2:
+  _tpl_primaryCurrencyFields,2:
     transaction_journal_id:
       type: string
       format: string
