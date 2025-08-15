@@ -120,8 +120,8 @@ _tpl_standardObjectGroupFields,2:
             example: "123"
             description: "ID of this subscription."
             readOnly: true
-  !currencyFields,5
-  !primaryCurrencyFields,5
+          _tpl_currencyFields,5:
+          _tpl_primaryCurrencyFields,5:
           amount:
             type: string
             format: amount
