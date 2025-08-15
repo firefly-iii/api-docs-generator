@@ -15,13 +15,13 @@
     tags:
       - webhooks
     responses:
-      !badRequestResponse,3
+      _tpl_badRequestResponse,3:
       "200":
         description: OK!
       "204":
         description: No messages to send, so did nothing.
-      !notFoundResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_internalExceptionResponse,3:
 /webhooks/{id}/trigger-transaction/{transactionId}:
   post:
     summary: Trigger webhook for a given transaction.
@@ -46,8 +46,8 @@
     tags:
       - webhooks
     responses:
-      !badRequestResponse,3
+      _tpl_badRequestResponse,3:
       "204":
         description: Webhook triggered successfully.
-      !notFoundResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_internalExceptionResponse,3:

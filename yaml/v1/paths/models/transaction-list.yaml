@@ -25,9 +25,9 @@
             schema:
               $ref: '#/components/schemas/AttachmentArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /transactions/{id}/piggy-bank-events:
   get:
     summary: Lists all piggy bank events.
@@ -55,6 +55,6 @@
             schema:
               $ref: '#/components/schemas/PiggyBankEventArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

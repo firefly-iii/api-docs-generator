@@ -9,9 +9,9 @@
       - configuration
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
       "200":
         description: System configuration values
         content:
@@ -38,9 +38,9 @@
         description: The name of the configuration value you want to know.
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
       "200":
         description: One system configuration value
         content:
@@ -68,11 +68,11 @@
           application/json:
             schema:
               $ref: '#/components/schemas/ConfigurationSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
     requestBody:
       description: JSON array with the necessary account information or key=value pairs. See the model for the exact specifications.
       content:

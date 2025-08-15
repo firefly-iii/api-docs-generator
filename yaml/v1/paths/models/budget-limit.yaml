@@ -41,9 +41,9 @@
             schema:
               $ref: '#/components/schemas/BudgetLimitArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   post:
     operationId: storeBudgetLimit
     description: Store a new budget limit under this budget.
@@ -76,11 +76,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BudgetLimitSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /budgets/{id}/limits/{limitId}:
   get:
     summary: Get single budget limit.
@@ -112,9 +112,9 @@
             schema:
               $ref: '#/components/schemas/BudgetLimitSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   put:
     operationId: updateBudgetLimit
     tags:
@@ -154,11 +154,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/BudgetLimitSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteBudgetLimit
     description: Delete a budget limit.
@@ -185,9 +185,9 @@
       "204":
         description: Budget limit deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /budget-limits:
   get:
     operationId: listBudgetLimit
@@ -224,6 +224,6 @@
             schema:
               $ref: '#/components/schemas/BudgetLimitArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

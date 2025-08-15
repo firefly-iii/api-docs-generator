@@ -26,9 +26,9 @@
             schema:
               $ref: '#/components/schemas/AttachmentArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /tags/{tag}/transactions:
   get:
     summary: "List all transactions with this tag."
@@ -80,6 +80,6 @@
             schema:
               $ref: '#/components/schemas/TransactionArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

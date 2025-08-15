@@ -26,10 +26,10 @@
           example: [ 1, 2, 3 ]
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
-      !validationErrorResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+      _tpl_validationErrorResponse,3:
       "200":
         description: 'A list of expense accounts and expense details. Each expense acccount has one row per currency.'
         content:
@@ -62,10 +62,10 @@
           example: [ 1, 2, 3 ]
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
-      !validationErrorResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+      _tpl_validationErrorResponse,3:
       "200":
         description: 'A list of asset accounts and expense details. Each asset account has one row per currency.'
         content:
@@ -100,10 +100,10 @@
           example: [ 1, 2, 3 ]
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
-      !validationErrorResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+      _tpl_validationErrorResponse,3:
       "200":
         description: 'A list of revenue accounts and income details. Each revenue acccount has one row per currency.'
         content:
@@ -136,10 +136,10 @@
           example: [ 1, 2, 3 ]
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
-      !validationErrorResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+      _tpl_validationErrorResponse,3:
       "200":
         description: 'A list of asset accounts and income details. Each asset account has one row per currency.'
         content:
@@ -172,10 +172,10 @@
           example: [ 1, 2, 3 ]
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
-      !validationErrorResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
+      _tpl_validationErrorResponse,3:
       "200":
         description: 'A list of asset accounts and transfer details. Each asset account has one row per currency.'
         content:

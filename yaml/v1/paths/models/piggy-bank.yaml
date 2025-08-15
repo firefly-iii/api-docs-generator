@@ -18,9 +18,9 @@
             schema:
               $ref: '#/components/schemas/PiggyBankArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   post:
     summary: Store a new piggy bank
     description: Creates a new piggy bank. The data required can be submitted as a JSON body or as a list of parameters.
@@ -46,11 +46,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /piggy-banks/{id}:
   get:
     summary: Get a single piggy bank.
@@ -75,9 +75,9 @@
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   put:
     operationId: updatePiggyBank
     tags:
@@ -110,11 +110,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/PiggyBankSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deletePiggyBank
     description: Delete a piggy bank.
@@ -134,6 +134,6 @@
       "204":
         description: Piggy bank deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

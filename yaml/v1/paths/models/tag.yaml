@@ -18,9 +18,9 @@
             schema:
               $ref: '#/components/schemas/TagArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   post:
     summary: Store a new tag
     description: Creates a new tag. The data required can be submitted as a JSON body or as a list of parameters.
@@ -46,11 +46,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TagSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /tags/{tag}:
   get:
     summary: Get a single tag.
@@ -78,9 +78,9 @@
             schema:
               $ref: '#/components/schemas/TagSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   put:
     operationId: updateTag
     tags:
@@ -114,11 +114,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/TagSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteTag
     description: Delete an tag.
@@ -139,6 +139,6 @@
       "204":
         description: Tag deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

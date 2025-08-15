@@ -17,9 +17,9 @@
             schema:
               $ref: '#/components/schemas/RuleGroupArray'
               _tpl_unauthenticatedResponse,3:
-              !notFoundResponse,3
-              !badRequestResponse,3
-              !internalExceptionResponse,3
+              _tpl_notFoundResponse,3:
+              _tpl_badRequestResponse,3:
+              _tpl_internalExceptionResponse,3:
   post:
     summary: Store a new rule group.
     description: Creates a new rule group. The data required can be submitted as a JSON body or as a list of parameters.
@@ -45,11 +45,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RuleGroupSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /rule-groups/{id}:
   get:
     summary: Get a single rule group.
@@ -74,9 +74,9 @@
             schema:
               $ref: '#/components/schemas/RuleGroupSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   put:
     operationId: updateRuleGroup
     tags:
@@ -109,11 +109,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RuleGroupSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteRuleGroup
     description: Delete a rule group.
@@ -133,6 +133,6 @@
       "204":
         description: Rule group deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

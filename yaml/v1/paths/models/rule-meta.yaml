@@ -52,9 +52,9 @@
             schema:
               $ref: '#/components/schemas/TransactionArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /rules/{id}/trigger:
   post:
     summary: Fire the rule on your transactions.
@@ -105,6 +105,6 @@
       "204":
         description: "The rules in the group are executed. Due to the setup of this function (asynchronous job execution) the result cannot be displayed."
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

@@ -9,10 +9,10 @@
     summary: Returns all bills of the user returned in a basic auto-complete array.
     responses:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !validationErrorResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_validationErrorResponse,3:
+      _tpl_internalExceptionResponse,3:
       "200":
         description: A list of bills with very basic information.
         content:

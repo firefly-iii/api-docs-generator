@@ -17,9 +17,9 @@
             schema:
               $ref: '#/components/schemas/RecurrenceArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   post:
     summary: Store a new recurring transaction
     description: Creates a new recurring transaction. The data required can be submitted as a JSON body or as a list of parameters.
@@ -45,11 +45,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RecurrenceSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /recurrences/{id}:
   get:
     summary: Get a single recurring transaction.
@@ -74,9 +74,9 @@
             schema:
               $ref: '#/components/schemas/RecurrenceSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   put:
     operationId: updateRecurrence
     tags:
@@ -109,11 +109,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/RecurrenceSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteRecurrence
     description: Delete a recurring transaction. Transactions created by the recurring transaction will not be deleted.
@@ -133,6 +133,6 @@
       "204":
         description: Recurring transaction deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

@@ -17,9 +17,9 @@
             schema:
               $ref: '#/components/schemas/CategoryArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   post:
     summary: Store a new category
     description: Creates a new category. The data required can be submitted as a JSON body or as a list of parameters.
@@ -45,11 +45,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /categories/{id}:
   get:
     summary: Get a single category.
@@ -92,9 +92,9 @@
             schema:
               $ref: '#/components/schemas/CategorySingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   put:
     operationId: updateCategory
     tags:
@@ -127,11 +127,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CategorySingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteCategory
     description: Delete a category. Transactions will not be removed.
@@ -151,7 +151,7 @@
       "204":
         description: Category deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 

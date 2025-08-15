@@ -48,9 +48,9 @@
             schema:
               $ref: '#/components/schemas/TransactionArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /budgets/{id}/attachments:
   get:
     summary: Lists all attachments of a budget.
@@ -77,10 +77,10 @@
             schema:
               $ref: '#/components/schemas/AttachmentArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !validationErrorResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_validationErrorResponse,3:
+      _tpl_internalExceptionResponse,3:
 /budgets/transactions-without-budget:
   get:
     summary: All transactions without a budget.
@@ -118,7 +118,7 @@
             schema:
               $ref: '#/components/schemas/TransactionArray'
       _tpl_unauthenticatedResponse,3:
-      !validationErrorResponse,3
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_validationErrorResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

@@ -25,9 +25,9 @@
             schema:
               $ref: '#/components/schemas/TransactionLinkArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /transaction-journals/{id}:
   get:
     summary: Get a single transaction, based on one of the underlying transaction journals (transaction splits).
@@ -52,9 +52,9 @@
             schema:
               $ref: '#/components/schemas/TransactionSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteTransactionJournal
     description: Delete an individual journal (split) from a transaction.
@@ -74,6 +74,6 @@
       "204":
         description: Transaction journal (split) deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

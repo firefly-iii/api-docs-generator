@@ -17,9 +17,9 @@
             schema:
               $ref: '#/components/schemas/CurrencyExchangeRateArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   post:
     summary: Store a new currency exchange rate.
     description: Stores a new exchange rate. The data required can be submitted as a JSON body or as a list of parameters.
@@ -45,11 +45,11 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencyExchangeRateSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /exchange-rates/{id}:
   get:
     summary: List a single specific exchange rate.
@@ -76,9 +76,9 @@
             schema:
               $ref: '#/components/schemas/CurrencyExchangeRateSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteSpecificCurrencyExchangeRate
     description: "Delete a specific currency exchange rate."
@@ -98,9 +98,9 @@
       "204":
         description: "Currency exchange rate deleted."
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   put:
     summary: Update existing currency exchange rate.
     description: |
@@ -134,10 +134,10 @@
           application/vnd.api+json:
             schema:
               $ref: '#/components/schemas/CurrencyExchangeRateSingle'
-      !validationErrorResponse,3
+      _tpl_validationErrorResponse,3:
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
 
 /exchange-rates/rates/{from}/{to}:
   get:
@@ -172,9 +172,9 @@
             schema:
               $ref: '#/components/schemas/CurrencyExchangeRateArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteSpecificCurrencyExchangeRates
     description: "Delete all currency exchange rates from 'from' to 'to' on a specific date or today."
@@ -210,6 +210,6 @@
       "204":
         description: "Currency exchange rate(s) deleted."
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

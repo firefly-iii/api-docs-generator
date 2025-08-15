@@ -39,9 +39,9 @@
             schema:
               $ref: '#/components/schemas/AccountArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /currencies/{code}/available-budgets:
   get:
     summary: List all available budgets with this currency.
@@ -70,9 +70,9 @@
             schema:
               $ref: '#/components/schemas/AvailableBudgetArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /currencies/{code}/bills:
   get:
     summary: List all bills with this currency.
@@ -101,9 +101,9 @@
             schema:
               $ref: '#/components/schemas/BillArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /currencies/{code}/budget-limits:
   get:
     summary: List all budget limits with this currency
@@ -147,9 +147,9 @@
             schema:
               $ref: '#/components/schemas/BudgetLimitArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /currencies/{code}/recurrences:
   get:
     summary: List all recurring transactions with this currency.
@@ -177,9 +177,9 @@
             schema:
               $ref: '#/components/schemas/RecurrenceArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /currencies/{code}/rules:
   get:
     summary: List all rules with this currency.
@@ -207,9 +207,9 @@
             schema:
               $ref: '#/components/schemas/RuleArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /currencies/{code}/transactions:
   get:
     summary: List all transactions with this currency.
@@ -261,6 +261,6 @@
             schema:
               $ref: '#/components/schemas/TransactionArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

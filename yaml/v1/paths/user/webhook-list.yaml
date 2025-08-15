@@ -22,9 +22,9 @@
             schema:
               $ref: '#/components/schemas/WebhookMessageArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /webhooks/{id}/messages/{messageId}:
   get:
     summary: Get a single message from a webhook.
@@ -56,9 +56,9 @@
             schema:
               $ref: '#/components/schemas/WebhookMessageSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteWebhookMessage
     summary: Delete a webhook message.
@@ -85,9 +85,9 @@
       "204":
         description: Webhook message deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /webhooks/{id}/messages/{messageId}/attempts:
   get:
     summary: Get all the failed attempts of a single webhook message.
@@ -122,9 +122,9 @@
             schema:
               $ref: '#/components/schemas/WebhookAttemptArray'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 /webhooks/{id}/messages/{messageId}/attempts/{attemptId}:
   get:
     summary: Get a single failed attempt from a single webhook message.
@@ -163,9 +163,9 @@
             schema:
               $ref: '#/components/schemas/WebhookAttemptSingle'
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
   delete:
     operationId: deleteWebhookMessageAttempt
     summary: Delete a webhook attempt.
@@ -199,7 +199,7 @@
       "204":
         description: Webhook message attempt deleted.
       _tpl_unauthenticatedResponse,3:
-      !notFoundResponse,3
-      !badRequestResponse,3
-      !internalExceptionResponse,3
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:
 
