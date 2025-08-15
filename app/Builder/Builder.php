@@ -303,7 +303,6 @@ class Builder
         $file = implode("\n", $lines);
 
         // replace version in final result:
-
         $file = $this->replaceVersionReference($file);
 
         if ($identifier === 'paths') {
@@ -395,7 +394,7 @@ class Builder
 
     private function replaceVersionReference(string $file): string
     {
-        if(!str_contains('%version%', $file)) {
+        if (!str_contains($file, '%version%')) {
             return $file;
         }
         $version = $this->version;
@@ -403,7 +402,7 @@ class Builder
             $version = 'v6.3.0';
         }
         $version = substr($version, 1);
-        $this->logger->info(sprintf('Replace version with "%s"', $version));
+        $this->logger->info(sprintf('Add version reference, "%s"', $version));
         return trim(str_replace('%version%', $version, $file));
     }
 
