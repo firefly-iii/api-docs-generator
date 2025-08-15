@@ -7,8 +7,8 @@
     tags:
       - insight
     parameters:
-        _tpl_correlationParameter,3:
-        _tpl_mandatoryDateRangeParameters,3:
+      _tpl_correlationParameter,3:
+      _tpl_mandatoryDateRangeParameters,3:
       - in: query
         name: bills[]
         description: |
@@ -55,8 +55,8 @@
     tags:
       - insight
     parameters:
-        _tpl_correlationParameter,3:
-        _tpl_mandatoryDateRangeParameters,3:
+      _tpl_correlationParameter,3:
+      _tpl_mandatoryDateRangeParameters,3:
       - in: query
         name: accounts[]
         description: |

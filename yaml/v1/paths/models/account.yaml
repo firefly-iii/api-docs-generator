@@ -125,7 +125,7 @@
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/AccountUpdate'
-      description: JSON array or formdata with updated account information. See the model for the exact specifications.
+      description: JSON array or form-data with updated account information. See the model for the exact specifications.
       required: true
     responses:
       _tpl_unauthenticatedResponse,3:

@@ -88,7 +88,7 @@
     description: |
       Update the meta data for an existing attachment. This endpoint does not allow you to upload or download data. For that, see below.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -177,7 +177,7 @@
       Use this endpoint to upload (and possible overwrite) the file contents of an attachment. Simply put the entire file in the body as binary data.
     operationId: uploadAttachment
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

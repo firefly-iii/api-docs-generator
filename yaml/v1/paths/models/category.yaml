@@ -56,7 +56,7 @@
     description: Get a single category.
     operationId: getCategory
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -102,7 +102,7 @@
     description: Update existing category.
     summary: Update existing category.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -139,7 +139,7 @@
     tags:
       - categories
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

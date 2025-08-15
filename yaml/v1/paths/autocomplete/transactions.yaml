@@ -4,7 +4,7 @@
       - autocomplete
     operationId: getTransactionsAC
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
         _tpl_autocompleteSearchParameters,3:
     summary: Returns all transaction descriptions of the user returned in a basic auto-complete array.
     responses:

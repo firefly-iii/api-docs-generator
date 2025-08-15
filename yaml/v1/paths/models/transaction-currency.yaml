@@ -6,7 +6,7 @@
     tags:
       - currencies
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
     responses:
@@ -58,7 +58,7 @@
     tags:
       - currencies
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -86,7 +86,7 @@
     tags:
       - currencies
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -119,7 +119,7 @@
     tags:
       - currencies
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -174,7 +174,7 @@
     description: Update existing currency.
     summary: Update existing currency.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true
@@ -212,7 +212,7 @@
     tags:
       - currencies
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: code
         required: true

@@ -7,7 +7,7 @@
       List all the transaction links.
     operationId: listTransactionLink
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
     responses:
@@ -60,7 +60,7 @@
       Returns a single link by its ID.
     operationId: getTransactionLink
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -85,7 +85,7 @@
       Will permanently delete link. Transactions remain.
     operationId: deleteTransactionLink
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -108,7 +108,7 @@
       Used to update a single existing link.
     operationId: updateTransactionLink
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -126,7 +126,7 @@
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/TransactionLinkUpdate'
-      description: JSON array or formdata with updated link type information. See the model for the exact specifications.
+      description: JSON array or form-data with updated link type information. See the model for the exact specifications.
       required: true
     responses:
       "200":
@@ -136,7 +136,7 @@
             schema:
               $ref: '#/components/schemas/TransactionLinkSingle'
       _tpl_validationErrorResponse,3:
-              _tpl_unauthenticatedResponse,3:
-              _tpl_notFoundResponse,3:
-              _tpl_badRequestResponse,3:
-            _tpl_internalExceptionResponse,3:
+      _tpl_unauthenticatedResponse,3:
+      _tpl_notFoundResponse,3:
+      _tpl_badRequestResponse,3:
+      _tpl_internalExceptionResponse,3:

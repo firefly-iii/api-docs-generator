@@ -6,9 +6,9 @@
     tags:
       - tags
     parameters:
-        _tpl_correlationParameter,3:
-          _tpl_limitParameter,3:
-          _tpl_pageParameter,3:
+      _tpl_correlationParameter,3:
+      _tpl_limitParameter,3:
+      _tpl_pageParameter,3:
 
     responses:
       "200":
@@ -57,12 +57,12 @@
     description: Get a single tag.
     operationId: getTag
     parameters:
-        _tpl_correlationParameter,3:
-          _tpl_limitParameter,3:
-          _tpl_pageParameter,3:
+      _tpl_correlationParameter,3:
+      _tpl_limitParameter,3:
+      _tpl_pageParameter,3:
       - in: path
         name: tag
-        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your mileage may vary.
         required: true
         schema:
           type: string
@@ -88,10 +88,10 @@
     description: Update existing tag.
     summary: Update existing tag.
     parameters:
-        _tpl_correlationParameter,3:
+    _tpl_correlationParameter,3:
       - in: path
         name: tag
-        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your mileage may vary.
         required: true
         schema:
           type: string
@@ -126,10 +126,10 @@
     tags:
       - tags
     parameters:
-        _tpl_correlationParameter,3:
+    _tpl_correlationParameter,3:
       - in: path
         name: tag
-        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your milage may vary.
+        description: Either the tag itself or the tag ID. If you use the tag itself, and it contains international (non-ASCII) characters, your mileage may vary.
         required: true
         schema:
           type: string

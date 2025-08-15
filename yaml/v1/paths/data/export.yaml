@@ -7,7 +7,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -36,7 +36,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -64,7 +64,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -92,7 +92,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -120,7 +120,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -148,7 +148,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -176,7 +176,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -204,7 +204,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: type
         description: The file type the export file (CSV is currently the only option).
@@ -232,7 +232,7 @@
     tags:
       - data
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: start
         description: |

@@ -166,11 +166,6 @@ TransactionSplitStore:
       format: string
       nullable: true
       description: External, custom URL for this transaction.
-    bunq_payment_id:
-      type: string
-      nullable: true
-      format: string
-      description: Internal ID of bunq transaction. Field is no longer used but still works.
     sepa_cc:
       type: string
       format: string

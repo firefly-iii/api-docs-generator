@@ -6,7 +6,7 @@
     tags:
       - users
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
     responses:
@@ -57,7 +57,7 @@
     description: Gets all info of a single user.
     operationId: getUser
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -85,7 +85,7 @@
     description: Update existing user.
     summary: Update an existing user's information.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -122,7 +122,7 @@
     tags:
       - users
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

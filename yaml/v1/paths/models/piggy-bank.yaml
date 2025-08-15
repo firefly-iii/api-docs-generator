@@ -6,9 +6,9 @@
     tags:
       - piggy_banks
     parameters:
-        _tpl_correlationParameter,3:
-          _tpl_limitParameter,3:
-          _tpl_pageParameter,3:
+      _tpl_correlationParameter,3:
+      _tpl_limitParameter,3:
+      _tpl_pageParameter,3:
 
     responses:
       "200":
@@ -57,7 +57,7 @@
     description: Get a single piggy bank.
     operationId: getPiggyBank
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -85,7 +85,7 @@
     description: Update existing piggy bank.
     summary: Update existing piggy bank.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -122,7 +122,7 @@
     tags:
       - piggy_banks
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

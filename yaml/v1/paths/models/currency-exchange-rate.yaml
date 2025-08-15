@@ -125,7 +125,7 @@
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/CurrencyExchangeRateUpdate'
-      description: JSON array or formdata with updated exchange rate information. See the model for the exact specifications.
+      description: JSON array or form-data with updated exchange rate information. See the model for the exact specifications.
       required: true
     responses:
       "200":

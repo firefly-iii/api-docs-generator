@@ -5,7 +5,7 @@
     operationId: getBasicSummary
     summary: Returns basic sums of the users data.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: query
         name: start
         description: |

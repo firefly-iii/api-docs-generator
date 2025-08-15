@@ -6,9 +6,9 @@
     tags:
       - bills
     parameters:
-        _tpl_correlationParameter,3:
-        _tpl_limitParameter,3:
-        _tpl_pageParameter,3:
+      _tpl_correlationParameter,3:
+      _tpl_limitParameter,3:
+      _tpl_pageParameter,3:
       - in: query
         name: start
         description: |
@@ -74,7 +74,7 @@
     description: Get a single bill.
     operationId: getBill
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -120,7 +120,7 @@
     description: Update existing bill.
     summary: Update existing bill.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -157,7 +157,7 @@
     tags:
       - bills
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

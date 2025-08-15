@@ -29,7 +29,7 @@
     tags:
       - configuration
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: name
         required: true
@@ -54,7 +54,7 @@
     operationId: setConfiguration
     description: Set a single configuration value. Not all configuration values can be updated so the list of accepted configuration variables is small.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: name
         required: true

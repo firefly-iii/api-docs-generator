@@ -8,7 +8,7 @@
   example: "search query"
 - in: query
   name: date
-  description: Todays date or any other date. If you supply this value, the accounts autocomplete array will include the account balances for the found accounts.
+  description: "Today's date or any other date. If you supply this value, the accounts autocomplete array will include the account balances for the found accounts."
   required: false
   schema:
     type: string

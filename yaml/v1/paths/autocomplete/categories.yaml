@@ -4,7 +4,7 @@
       - autocomplete
     operationId: getCategoriesAC
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
         _tpl_autocompleteSearchParameters,3:
     summary: Returns all categories of the user returned in a basic auto-complete array.
     responses:

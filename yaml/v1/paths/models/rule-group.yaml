@@ -6,7 +6,7 @@
     tags:
       - rule_groups
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
     responses:
@@ -56,7 +56,7 @@
     description: Get a single rule group. This does not include the rules. For that, see below.
     operationId: getRuleGroup
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -84,7 +84,7 @@
     description: Update existing rule group.
     summary: Update existing rule group.
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -121,7 +121,7 @@
     tags:
       - rule_groups
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

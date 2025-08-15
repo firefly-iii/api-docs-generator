@@ -6,7 +6,7 @@
     tags:
       - recurrences
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
     responses:
@@ -56,7 +56,7 @@
     description: Get a single recurring transaction.
     operationId: getRecurrence
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true

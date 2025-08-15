@@ -7,7 +7,7 @@
       List all the link types the system has. These include the default ones as well as any new ones.
     operationId: listLinkType
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       _tpl_limitParameter,3:
       _tpl_pageParameter,3:
     responses:
@@ -60,7 +60,7 @@
       Returns a single link type by its ID.
     operationId: getLinkType
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -85,7 +85,7 @@
       Used to update a single link type. All fields that are not submitted will be cleared (set to NULL). The model will tell you which fields are mandatory. You cannot update some of the system provided link types, indicated by the editable=false flag when you list it.
     operationId: updateLinkType
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
@@ -103,7 +103,7 @@
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/LinkTypeUpdate'
-      description: JSON array or formdata with updated link type information. See the model for the exact specifications.
+      description: JSON array or form-data with updated link type information. See the model for the exact specifications.
       required: true
     responses:
       "200":
@@ -123,7 +123,7 @@
       Will permanently delete a link type. The links between transactions will be removed. The transactions themselves remain. You cannot delete some of the system provided link types, indicated by the editable=false flag when you list it.
     operationId: deleteLinkType
     parameters:
-        _tpl_correlationParameter,3:
+      _tpl_correlationParameter,3:
       - in: path
         name: id
         required: true
