@@ -395,11 +395,15 @@ class Builder
 
     private function replaceVersionReference(string $file): string
     {
+        if(!str_contains('%version%', $file)) {
+            return $file;
+        }
         $version = $this->version;
         if ('develop' === $this->version) {
             $version = 'v6.3.0';
         }
         $version = substr($version, 1);
+        $this->logger->debug(sprintf('Replace version with "%s"', $version));
         return trim(str_replace('%version%', $version, $file));
     }
 
