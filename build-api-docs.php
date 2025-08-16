@@ -192,6 +192,13 @@ uasort($urls, function ($a, $b) {
 });
 
 array_splice($urls, 2, 0, $developUrls);
+
+// remove 'version' key from each array element
+foreach ($urls as &$url) {
+    unset($url['version']);
+}
+
+
 $json = json_encode($urls, JSON_PRETTY_PRINT);
 
 $templateContent = str_replace('%%URLS%%', $json, $templateContent);
