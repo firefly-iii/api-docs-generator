@@ -20,7 +20,7 @@ $softwareVersion = ['last_release_name' => 'develop'];
 $ignoreVersions  = [];
 
 /**
- * @var int    $index
+ * @var int $index
  * @var string $argument
  */
 foreach ($argv as $index => $argument) {
@@ -87,7 +87,7 @@ $log->debug('Start building API docs');
  */
 /**
  * @var string $name
- * @var array  $info
+ * @var array $info
  */
 foreach ($tags as $name => $info) {
     $builder->addTag($name, $info);
@@ -112,7 +112,7 @@ foreach ($directories as $info) {
         // sort all files in the directory:
         $list = [];
         /**
-         * @var string      $fullPath
+         * @var string $fullPath
          * @var SplFileInfo $object
          */
         foreach ($objects as $fullPath => $object) {
@@ -124,7 +124,7 @@ foreach ($directories as $info) {
         sort($list);
         $log->debug(sprintf('Found %d file(s) in directory "%s"', count($list), $info['path']));
         /**
-         * @var string      $fullPath
+         * @var string $fullPath
          */
         foreach ($list as $fullPath) {
             // add to thing:
@@ -161,7 +161,7 @@ $developUrls     = [];
 // list all files
 $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($destination), RecursiveIteratorIterator::SELF_FIRST);
 /**
- * @var string      $fullPath
+ * @var string $fullPath
  * @var SplFileInfo $object
  */
 foreach ($objects as $fullPath => $object) {
@@ -170,10 +170,16 @@ foreach ($objects as $fullPath => $object) {
 
         // get exact version (with "-v1" or "-v2")
         $exactVersion = str_replace(['.yaml', 'firefly-iii-'], '', $fileName);
-
+        $compare      = $exactVersion;
         // in version, replace -v1 and -v2 with something version_compare can handle.
-        $compare = str_replace('-v1', '.beta', $exactVersion);
-        $compare = str_replace('-v2', '.alpha', $compare);
+        if (str_contains($exactVersion, 'beta')) {
+            $compare = str_replace('-v1', '', $exactVersion);
+            $compare = str_replace('-v2', '', $compare);
+        }
+        if (!str_contains($exactVersion, 'beta')) {
+            $compare = str_replace('-v1', '-beta.10', $exactVersion);
+            $compare = str_replace('-v2', '-alpha.10', $compare);
+        }
 
         // get nice name of version
         $versionName = str_replace('-v1', ' (v1)', $exactVersion);
@@ -182,7 +188,7 @@ foreach ($objects as $fullPath => $object) {
             $developUrls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
             continue;
         }
-        $log->info(sprintf('Added version %s', $exactVersion));
+        $log->info(sprintf('Added compare version %s', $compare));
 
         $urls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
     }
@@ -195,6 +201,7 @@ array_splice($urls, 2, 0, $developUrls);
 
 // remove 'version' key from each array element
 foreach ($urls as &$url) {
+    echo $url['version'] . PHP_EOL;
     unset($url['version']);
 }
 
