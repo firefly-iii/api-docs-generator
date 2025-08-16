@@ -25,7 +25,7 @@ BudgetLimitStore:
     start:
       type: string
       format: date
-      example: "2017-09-17"
+      example: "%start_date%"
       description: Start date of the budget limit.
     period:
       type: string
@@ -37,7 +37,7 @@ BudgetLimitStore:
     end:
       type: string
       format: date
-      example: "2017-09-17"
+      example: "%end_date%"
       description: End date of the budget limit.
     amount:
       type: string

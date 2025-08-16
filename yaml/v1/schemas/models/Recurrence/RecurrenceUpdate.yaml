@@ -13,13 +13,13 @@ RecurrenceUpdate:
     first_date:
       type: string
       format: date
-      example: "2018-09-17"
+      example: "%end_date%"
       description: "First time the recurring transaction will fire."
     repeat_until:
       type: string
       format: date
-      example: "2018-09-17"
-      description: Date until the recurring transaction can fire. After that date, it's basically inactive. Use either this field or repetitions.
+      example: "%end_date%"
+      description: Date until when the recurring transaction can fire. After that date, it's basically inactive. Use either this field or repetitions.
       nullable: true
     nr_of_repetitions:
       type: integer

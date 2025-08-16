@@ -13,7 +13,7 @@
   schema:
     type: string
     format: date
-  example: "2018-09-17"
+  example: "%start_date%"
 - in: query
   name: size
   description: The size of the autocomplete result list. This is the number of items returned.

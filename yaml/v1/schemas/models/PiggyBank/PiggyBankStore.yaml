@@ -25,13 +25,13 @@ PiggyBankStore:
     start_date:
       type: string
       format: date
-      example: "2018-09-17"
+      example: "%start_date%"
       description: The date you started with this piggy bank.
     target_date:
       type: string
       format: date
       nullable: true
-      example: "2018-09-17"
+      example: "%end_date%"
       description: The date you intend to finish saving money.
     order:
       type: integer

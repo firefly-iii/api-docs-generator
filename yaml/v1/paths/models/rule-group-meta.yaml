@@ -24,7 +24,7 @@
         schema:
           type: string
           format: date
-          example: "2018-09-17"
+          example: "%start_date%"
       - in: query
         name: end
         description: |
@@ -33,7 +33,7 @@
         schema:
           type: string
           format: date
-          example: "2018-09-17"
+          example: "%end_date%"
       - in: query
         name: search_limit
         description: |
@@ -94,7 +94,7 @@
         required: false
         schema:
           type: string
-          example: "2018-09-17"
+          example: "%start_date%"
           format: date
       - in: query
         name: end
@@ -103,7 +103,7 @@
         required: false
         schema:
           type: string
-          example: "2018-09-17"
+          example: "%end_date%"
           format: date
       - in: query
         name: accounts[]

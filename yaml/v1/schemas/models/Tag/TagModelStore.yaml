@@ -12,7 +12,7 @@ TagModelStore:
     date:
       type: string
       format: date
-      example: "2018-09-17"
+      example: "%start_date%"
       description: The date to which the tag is applicable.
       nullable: true
     description:

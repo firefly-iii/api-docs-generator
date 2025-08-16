@@ -235,7 +235,7 @@
         schema:
           type: string
           format: string
-        example: "2020-09-17"
+        example: "%start_date%"
     responses:
       "200":
         description: A list of currency exchange rates.
@@ -275,7 +275,7 @@
         schema:
           type: string
           format: string
-        example: "2020-09-17"
+        example: "%start_date%"
     responses:
       "204":
         description: "Currency exchange rate(s) deleted."
@@ -310,7 +310,7 @@
         schema:
           type: string
           format: string
-        example: "2020-09-17"
+        example: "%start_date%"
     tags:
       - currency_exchange_rates
     requestBody:
@@ -347,7 +347,7 @@
         schema:
           type: string
           format: string
-        example: "2020-09-17"
+        example: "%start_date%"
     tags:
       - currency_exchange_rates
     requestBody:

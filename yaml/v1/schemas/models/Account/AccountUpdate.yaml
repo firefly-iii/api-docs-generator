@@ -30,7 +30,7 @@ AccountUpdate:
     opening_balance_date:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       nullable: true
     virtual_balance:
       type: string
@@ -71,7 +71,7 @@ AccountUpdate:
       nullable: true
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       description: "Mandatory when the account_role is ccAsset. Moment at which CC payment installments are asked for by the bank."
     liability_type:
       $ref: '#/components/schemas/LiabilityTypeProperty'

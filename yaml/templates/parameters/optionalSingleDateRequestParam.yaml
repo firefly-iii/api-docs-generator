@@ -3,6 +3,7 @@
   description: |
     A date formatted YYYY-MM-DD.
   required: false
+  example: "%start_date%"
   schema:
     type: string
     format: date

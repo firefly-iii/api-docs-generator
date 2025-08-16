@@ -12,7 +12,7 @@
         schema:
           type: string
           format: string
-        example: "2020-09-17"
+        example: "%start_date%"
         description: If the account is an asset account or a liability, the autocomplete will also return the balance of the account on this date.
       - in: query
         name: types

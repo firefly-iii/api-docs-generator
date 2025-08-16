@@ -23,7 +23,7 @@
         schema:
           type: string
           format: date
-          example: "2018-09-17"
+          example: "%start_date%"
       - in: query
         name: end
         description: |
@@ -32,7 +32,7 @@
         schema:
           type: string
           format: date
-          example: "2018-12-31"
+          example: "%end_date%"
     responses:
       "200":
         description: A list of budget limits applicable to this budget.
@@ -206,7 +206,7 @@
         schema:
           type: string
           format: date
-          example: "2018-09-17"
+          example: "%start_date%"
       - in: query
         name: end
         description: |
@@ -215,7 +215,7 @@
         schema:
           type: string
           format: date
-          example: "2018-12-31"
+          example: "%end_date%"
     responses:
       "200":
         description: A list of budget limits.

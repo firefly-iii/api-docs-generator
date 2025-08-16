@@ -4,12 +4,12 @@ BillProperties:
     created_at:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       readOnly: true
     updated_at:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       readOnly: true
     name:
       type: string
@@ -52,17 +52,17 @@ BillProperties:
     date:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
     end_date:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%end_date_and_time%"
       description: "The date after which this subscription is no longer valid or applicable"
       nullable: true
     extension_date:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%end_date_and_time%"
       description: "The date before which the subscription must be renewed (or cancelled)"
       nullable: true
     repeat_freq:
@@ -111,7 +111,7 @@ _tpl_standardObjectGroupFields,2:
           date:
             type: string
             format: date-time
-            example: "2018-09-17T12:46:47+01:00"
+            example: "%start_date_and_time%"
             description: "Date the bill was paid."
             readOnly: true
           subscription_id:
@@ -149,13 +149,13 @@ _tpl_standardObjectGroupFields,2:
       items:
         type: string
         format: date-time
-        example: "2018-09-17T12:46:47+01:00"
+        example: "%start_date_and_time%"
         readOnly: true
 
     next_expected_match:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       description: "When the subscription is expected to be due."
       nullable: true
       readOnly: true

@@ -21,7 +21,7 @@
         schema:
           type: string
           format: date
-          example: "2018-09-17"
+          example: "%start_date%"
       - in: query
         name: force
         description: |

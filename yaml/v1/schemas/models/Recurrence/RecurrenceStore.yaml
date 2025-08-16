@@ -22,12 +22,12 @@ RecurrenceStore:
     first_date:
       type: string
       format: date
-      example: "2018-09-17"
+      example: "%end_date%"
       description: "First time the recurring transaction will fire. Must be after today."
     repeat_until:
       type: string
       format: date
-      example: "2018-09-17"
+      example: "%end_date%"
       description: "Date until the recurring transaction can fire. Use either this field or repetitions."
       nullable: true
     nr_of_repetitions:

@@ -32,16 +32,16 @@ BillStore:
     date:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
     end_date:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%end_date_and_time%"
       description: "The date after which this bill is no longer valid or applicable"
     extension_date:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%end_date_and_time%"
       description: "The date before which the bill must be renewed (or cancelled)"
     repeat_freq:
       $ref: '#/components/schemas/BillRepeatFrequency'

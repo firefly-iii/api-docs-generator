@@ -4,12 +4,12 @@ AvailableBudgetProperties:
     created_at:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       readOnly: true
     updated_at:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       readOnly: true
 _tpl_standardHasCurrencyField,2:
 _tpl_currencyFields,2:
@@ -27,12 +27,12 @@ _tpl_primaryCurrencyFields,2:
     start:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%start_date_and_time%"
       description: Start date of the available budget.
     end:
       type: string
       format: date-time
-      example: "2018-09-17T12:46:47+01:00"
+      example: "%end_date_and_time%"
       description: End date of the available budget.
     spent_in_budgets:
       type: array

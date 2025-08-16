@@ -303,7 +303,7 @@ class Builder
         $file = implode("\n", $lines);
 
         // replace version in final result:
-        $file = $this->replaceVersionReference($file);
+        $file = $this->replacePlaceholderReference($file);
 
         if ($identifier === 'paths') {
             $this->paths[$apiVersion]   = $this->paths[$apiVersion] ?? [];
@@ -392,20 +392,46 @@ class Builder
         return array_pop($parts);
     }
 
-    private function replaceVersionReference(string $file): string
+    private function replacePlaceholderReference(string $content): string
     {
-        if (!str_contains($file, '%version%')) {
-            return $file;
+        $placeholders    = ['%version%', '%start_date%', '%end_date%', '%start_date_and_time%','%end_date_and_time%'];
+        $hasPlaceholders = false;
+        foreach ($placeholders as $placeholder) {
+            if (str_contains($content, $placeholder)) {
+                $hasPlaceholders = true;
+            }
         }
+
+        if (!$hasPlaceholders) {
+            return $content;
+        }
+        // replace version:
         $version = $this->version;
         if ('develop' === $this->version) {
             $version = '6.3.0';
         }
-        if(str_starts_with($version,'v')) {
+        if (str_starts_with($version, 'v')) {
             $version = substr($version, 1);
         }
         $this->logger->info(sprintf('Add version reference, "%s"', $version));
-        return str_replace('%version%', $version, $file);
+        $content = str_replace('%version%', $version, $content);
+
+        // replace month start and end dates:
+        $som = Carbon::now()->startOfMonth()->format('Y-m-d');
+        $eom = Carbon::now()->endOfMonth()->format('Y-m-d');
+        $content = str_replace('%start_date%', $som, $content);
+        $content = str_replace('%end_date%', $eom, $content);
+        unset($som, $eom);
+
+        // replace month start and end date and time:
+        $som = Carbon::now()->startOfMonth()->toAtomString();
+        $eom = Carbon::now()->endOfMonth()->toAtomString();
+        $content = str_replace('%start_date_and_time%', $som, $content);
+        $content = str_replace('%end_date_and_time%', $eom, $content);
+        unset($som, $eom);
+
+
+        return $content;
     }
 
 }
