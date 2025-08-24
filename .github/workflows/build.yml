@@ -21,10 +21,9 @@ jobs:
         with:
           php-version: '8.4'
           extensions: >-
-            bcmath
-            curl
             fileinfo
             json
+            yaml
             mbstring
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --no-scripts
@@ -45,13 +44,10 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add dist/firefly-iii-*-v1.yaml
-          git add dist/firefly-iii-*-v2.yaml
           git add dist/index.html
           git commit -m "🤖 Update API documentation for Firefly III"
           git push
         env:
           API_DESTINATION: ./api-docs/dist
           API_SERVER: https://demo.firefly-iii.org
-          IS_DEVELOP_RUN: ${{ inputs.developrun || 'true' }}
-          API_ROOT: .
           API_SOURCE_ROOT: ./api-docs/src
