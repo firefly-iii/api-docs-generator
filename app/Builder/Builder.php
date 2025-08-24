@@ -56,6 +56,7 @@ class Builder
      */
     public function addTag(string $name, array $info): void
     {
+        // TODO fix this, used to be part of a loop.
         $version                = 'v1';
         $this->tags[$version]   = $this->tags[$version] ?? [];
         $this->tags[$version][] = [

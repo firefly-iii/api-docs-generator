@@ -51,7 +51,7 @@ jobs:
           git add dist/firefly-iii-*-v1.yaml
           git add dist/firefly-iii-*-v2.yaml
           git add dist/index.html
-          git commit -m "Update API documentation for Firefly III"
+          git commit -m "🤖 Update API documentation for Firefly III"
           git push
         env:
           API_DESTINATION: ./api-docs
