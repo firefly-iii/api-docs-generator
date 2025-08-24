@@ -38,32 +38,35 @@ jobs:
           token: ${{ secrets.GIT_REPOS_TOKEN }}
       - name: Build documentation
         run: |
+          #
+          # Set some git things.
+          #
           sudo timedatectl set-timezone Europe/Amsterdam
           git config user.name github-actions
           git config user.email github-actions@github.com
           
+          #
+          # Get the version to build.
+          #
           export BUILD_VERSION=$(php get-version.php)
           echo "Will pull ${BUILD_VERSION} branch."
-          echo 'pwd 1'
-          pwd
           
+          #
+          # Go to API docs and pull the necessary branch.
+          #
           cd api-docs
-          echo 'pwd 2'
-          pwd
-          
           git pull origin $BUILD_VERSION
           cd ..
-          echo 'pwd 3'
-          pwd
           
-          echo "Running..."
-          echo 'pwd 4'
-          pwd
+          #
+          # Run the actual build script.
+          #
           php build-api-docs.php $BUILD_VERSION
           
-          echo 'pwd 5'
+          #
+          # Back to the repository and push the changes.
+          # 
           cd api-docs
-          pwd
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add dist/firefly-iii-*-v1.yaml
