@@ -15,26 +15,7 @@ $server          = 'https://demo.firefly-iii.org';
 $destination     = './';
 $tags            = [];
 $directories     = [];
-$apiVersions     = ['v1'];
 $softwareVersion = ['last_release_name' => 'develop'];
-$ignoreVersions  = [];
-
-/**
- * @var int $index
- * @var string $argument
- */
-foreach ($argv as $index => $argument) {
-    if (0 === $index) {
-        continue;
-    }
-    /*
-     * Allows you to ignore v1 or v2 (or both) by using --ignore-versions=v1 or --ignore-versions=v1,v2
-     */
-    if (str_starts_with($argument, '--ignore-versions=')) {
-        $ignoreVersions = explode(',', str_replace('--ignore-versions=', '', $argument));
-        $ignoreVersions = array_map('trim', $ignoreVersions);
-    }
-}
 
 /*
  * Include necessary files:
@@ -63,10 +44,10 @@ if ('false' === getenv('IS_DEVELOP_RUN')) {
         $softwareVersion = Cache::getLatestVersion();
         Cache::storeCache('version.txt', $softwareVersion);
     }
+}
 
-    if ('true' === getenv('IS_DEVELOP_RUN')) {
-        $softwareVersion['last_release_name'] = sprintf('%s-dev', $softwareVersion['last_release_name']);
-    }
+if ('true' === getenv('IS_DEVELOP_RUN')) {
+    $softwareVersion['last_release_name'] = sprintf('%s-dev', $softwareVersion['last_release_name']);
 }
 
 
@@ -76,10 +57,9 @@ if ('false' === getenv('IS_DEVELOP_RUN')) {
 $builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
 $builder->setLogger($log);
 $builder->setVersion($softwareVersion['last_release_name']);
-//$builder->setApiVersions($apiVersions);
 $builder->setServer($server);
 
-$log->debug('Start building API docs');
+$log->debug(sprintf('Start building API docs for version %s', $softwareVersion['last_release_name']));
 
 /*
  * Add tags to builder.
@@ -91,45 +71,39 @@ $log->debug('Start building API docs');
 foreach ($tags as $name => $info) {
     $builder->addTag($name, $info);
 }
-unset($name);
-
+unset($name, $info);
 
 /*
  * Add directories to builder.
  */
-/** @var array $info */
-foreach ($directories as $info) {
-    $log->debug(sprintf('Parse files in directory "%s"', $info['path']));
-
-    // TODO fix this, used to be part of a loop.
-    $apiVersion = 'v1';
-    $log->debug(sprintf('Add directory "%s" to version "%s"', $info['path'], $apiVersion));
-    // list all files in the directory:
-    $fullDirectory = sprintf('%s/%s', ROOT, $info['path']);
-    $objects       = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullDirectory, RecursiveDirectoryIterator::SKIP_DOTS),
-                                                   RecursiveIteratorIterator::SELF_FIRST);
-
-    // sort all files in the directory:
-    $list = [];
-    /**
-     * @var string $fullPath
-     * @var SplFileInfo $object
-     */
-    foreach ($objects as $fullPath => $object) {
-        if (str_ends_with($fullPath, 'yaml') && !str_contains($fullPath, 'ignore')) {
-            $list[] = $fullPath;
-        }
-
+/** @var array $directory */
+foreach ($directories as $directory) {
+    $fullDirectory = realpath(sprintf('%s/%s', ROOT, $directory['path']));
+    if (false === $fullDirectory) {
+        $log->error(sprintf('Could not find directory "%s", exit.', sprintf('%s/%s', ROOT, $directory['path'])));
+        exit(1);
     }
+    $log->debug(sprintf('Add directory "%s".', $fullDirectory));
+
+    // check each file in the directory and see if it needs action.
+    // collect recursively:
+    $list      = [];
+    $it        = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($fullDirectory, \RecursiveDirectoryIterator::SKIP_DOTS));
+    $Regex     = new \RegexIterator($it, '/^.+\.yaml$/i', \RecursiveRegexIterator::GET_MATCH);
+    $fullPaths = [];
+    foreach ($Regex as $item) {
+        $list[] = $item[0];
+    }
+
     sort($list);
-    $log->debug(sprintf('Found %d file(s) in directory "%s"', count($list), $info['path']));
+    $log->debug(sprintf('Found %d file(s) in directory "%s"', count($list), $fullDirectory));
     /**
      * @var string $fullPath
      */
     foreach ($list as $fullPath) {
         // add to thing:
-        $log->debug(sprintf('Add "%s" file "%s"', $info['identifier'], $fullPath));
-        $builder->addYamlFile($apiVersion, $info['identifier'], $fullPath, $info['indentation']);
+        $log->debug(sprintf('Add "%s" file "%s"', $directory['identifier'], $fullPath));
+        $builder->addYamlFile($directory['identifier'], $fullPath, $directory['indentation']);
     }
 }
 
@@ -137,14 +111,14 @@ foreach ($directories as $info) {
  * Render the API docs and store the file.
  */
 // TODO hard coded references to v1, remove these.
-$result           = $builder->render('v1');
-$finalDestination = sprintf('%s/dist/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], 'v1');
+$result           = $builder->render();
+$finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], 'v1');
 file_put_contents($finalDestination, $result);
 
 /*
  * Render the API docs index.html file again.
  */
-$templateFile = sprintf('%s/src/index.html.template', $destination);
+$templateFile = sprintf('%s/index.html.template', ROOT);
 if (!file_exists($templateFile)) {
     $log->error(sprintf('Could not find template file "%s", will not update.', $templateFile));
     exit;
@@ -152,40 +126,43 @@ if (!file_exists($templateFile)) {
 $templateContent = file_get_contents($templateFile);
 $urls            = [];
 $developUrls     = [];
-// list all files
-$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($destination), RecursiveIteratorIterator::SELF_FIRST);
-/**
- * @var string $fullPath
- * @var SplFileInfo $object
- */
-foreach ($objects as $fullPath => $object) {
-    $fileName = $object->getFilename();
-    if (str_ends_with($fileName, 'yaml')) {
 
-        // get exact version (with "-v1" or "-v2")
-        $exactVersion = str_replace(['.yaml', 'firefly-iii-'], '', $fileName);
-        $compare      = $exactVersion;
-        // in version, replace -v1 and -v2 with something version_compare can handle.
-        if (str_contains($exactVersion, 'beta')) {
-            $compare = str_replace('-v1', '', $exactVersion);
-            $compare = str_replace('-v2', '', $compare);
-        }
-        if (!str_contains($exactVersion, 'beta')) {
-            $compare = str_replace('-v1', '-beta.100', $exactVersion);
-            $compare = str_replace('-v2', '-alpha.100', $compare);
-        }
 
-        // get nice name of version
-        $versionName = str_replace('-v1', ' (v1)', $exactVersion);
-        $versionName = str_replace('-v2', ' (v2)', $versionName);
-        if (str_contains($exactVersion, 'develop')) {
-            $developUrls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
-            continue;
-        }
-        $log->info(sprintf('Added compare version %s', $compare));
+// list all YAML files in the destination directory (dist).
+// check each file in the directory and see if it needs action.
+// collect recursively:
+$it        = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($destination, \RecursiveDirectoryIterator::SKIP_DOTS));
+$Regex     = new \RegexIterator($it, '/^.+\.yaml$/i', \RecursiveRegexIterator::GET_MATCH);
+$fullPaths = [];
+foreach ($Regex as $item) {
+    $path                       = $item[0];
+    $fullPaths[basename($path)] = $path;
+}
 
-        $urls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
+foreach ($fullPaths as $fileName => $fullName) {
+    // get exact version (with "-v1" or "-v2")
+    $exactVersion = str_replace(['.yaml', 'firefly-iii-'], '', $fileName);
+    $compare      = $exactVersion;
+    // in version, replace -v1 and -v2 with something version_compare can handle.
+    if (str_contains($exactVersion, 'beta')) {
+        $compare = str_replace('-v1', '', $exactVersion);
+        $compare = str_replace('-v2', '', $compare);
     }
+    if (!str_contains($exactVersion, 'beta')) {
+        $compare = str_replace('-v1', '-beta.100', $exactVersion);
+        $compare = str_replace('-v2', '-alpha.100', $compare);
+    }
+
+    // get nice name of version
+    $versionName = str_replace('-v1', ' (v1)', $exactVersion);
+    $versionName = str_replace('-v2', ' (v2)', $versionName);
+    if (str_contains($exactVersion, 'develop')) {
+        $developUrls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
+        continue;
+    }
+    $log->info(sprintf('Added compare version %s', $compare));
+
+    $urls[] = ['url' => sprintf('./%s', $fileName), 'name' => $versionName, 'version' => $compare];
 }
 uasort($urls, function ($a, $b) {
     return version_compare($b['version'], $a['version']);
@@ -195,13 +172,11 @@ array_splice($urls, 2, 0, $developUrls);
 
 // remove 'version' key from each array element
 foreach ($urls as &$url) {
-    echo $url['version'] . PHP_EOL;
     unset($url['version']);
 }
 
-
 $json = json_encode($urls, JSON_PRETTY_PRINT);
-
 $templateContent = str_replace('%%URLS%%', $json, $templateContent);
-file_put_contents(sprintf('%s/dist/index.html', $destination), $templateContent);
+file_put_contents(sprintf('%s/index.html', $destination), $templateContent);
 $log->info(sprintf('Wrote new html file to "%s"', sprintf('%s/index.html', $destination)));
+$log->info('Done!');

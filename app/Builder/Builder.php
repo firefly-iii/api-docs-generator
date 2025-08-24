@@ -6,10 +6,7 @@ namespace ApiDocBuilder\Builder;
 
 use Carbon\Carbon;
 use Monolog\Logger;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use RuntimeException;
-use SplFileInfo;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -21,12 +18,12 @@ use Twig\Loader\FilesystemLoader;
  */
 class Builder
 {
-    private array       $paths;
-    private array       $schemas;
-    private array       $tags;
+    private array       $paths     = [];
+    private array       $schemas   = [];
+    private array       $tags      = [];
     private Environment $twig;
-    private string      $version;
-    private string      $server;
+    private string      $version   = '1.0';
+    private string      $server    = '';
     private Logger      $logger;
     private array       $templates = [];
 
@@ -38,13 +35,6 @@ class Builder
      */
     public function __construct(string $templatePath, string $cachePath)
     {
-        $this->tags      = [];
-        $this->paths     = [];
-        $this->schemas   = [];
-        $this->templates = [];
-        $this->server    = '';
-        $this->version   = '1.0';
-
         $loader     = new FilesystemLoader($templatePath);
         $this->twig = new Environment($loader, ['cache' => $cachePath, 'charset' => 'utf-8', 'auto_reload' => true]);
     }
@@ -55,14 +45,11 @@ class Builder
      */
     public function addTag(string $name, array $info): void
     {
-        // TODO fix this, used to be part of a loop.
-        $version                = 'v1';
-        $this->tags[$version]   = $this->tags[$version] ?? [];
-        $this->tags[$version][] = [
+        $this->tags[] = [
             'name'        => $name,
             'description' => $info['description'],
         ];
-        $this->logger->debug(sprintf('Added tag "%s" to version "%s"', $name, $version));
+        $this->logger->debug(sprintf('Added tag "%s".', $name));
     }
 
     /**
@@ -72,7 +59,7 @@ class Builder
      * @param int $indentation
      *
      */
-    public function addYamlFile(string $apiVersion, string $identifier, string $file, int $indentation): void
+    public function addYamlFile(string $identifier, string $file, int $indentation): void
     {
         if (!file_exists($file)) {
             throw new RuntimeException(sprintf('No such file: %s', $file));
@@ -93,11 +80,11 @@ class Builder
         $indentedLines = $this->indentLines($completeLines, $indentation);
 
         // add v1 or v2, if set.
-        $pathInfoLines = $this->addApiVersion($indentedLines, $apiVersion);
+        $pathInfoLines = $this->addApiVersion($indentedLines);
 
         // replace version if necessary.
 
-        $this->saveLines($apiVersion, $identifier, $pathInfoLines);
+        $this->saveLines($identifier, $pathInfoLines);
     }
 
     /**
@@ -136,9 +123,9 @@ class Builder
      *
      * @throws RuntimeException
      */
-    public function render(string $apiVersion): string
+    public function render(): string
     {
-        $this->logger->debug(sprintf('Rendering version "%s"', $apiVersion));
+        $this->logger->debug('Rendering API documentation');
         try {
             $template = $this->twig->load('start.yaml.twig');
         } catch (SyntaxError|LoaderError|RuntimeError $e) {
@@ -146,22 +133,20 @@ class Builder
         }
         // add tags
         $tags = '';
-        $set  = $this->tags[$apiVersion] ?? [];
-        if (count($set) > 0) {
-            $array['tags'] = $set;
+        if (count($this->tags) > 0) {
+            $array['tags'] = $this->tags;
             $tags          = substr(substr(yaml_emit($array, YAML_UTF8_ENCODING), 4), 0, -4);
         }
         $time = Carbon::now('Europe/Amsterdam');
 
         $content = $template->render(
             [
-                'version'     => $this->getVersion(),
-                'server'      => $this->getServer(),
-                'api_version' => $apiVersion,
-                'tags'        => $tags,
-                'paths'       => $this->paths[$apiVersion],
-                'schemas'     => $this->schemas[$apiVersion],
-                'time'        => $time->format('Y-m-d @ H:i:s (e)'),
+                'version' => $this->getVersion(),
+                'server'  => $this->getServer(),
+                'tags'    => $tags,
+                'paths'   => $this->paths,
+                'schemas' => $this->schemas,
+                'time'    => $time->format('Y-m-d @ H:i:s (e)'),
             ]
         );
         $content = str_replace("\n\n", "\n", $content);
@@ -178,7 +163,11 @@ class Builder
     {
         $replacements = [];
         $content      = (string)file_get_contents($file);
-        $lines        = explode("\n", $content);
+        if ('' === $content) {
+            $this->logger->error(sprintf('Unable to read file "%s".', $file));
+            exit(1);
+        }
+        $lines = explode("\n", $content);
         // to make sure we wedge in the template at the right spot:
 
         // replace lines with (indented) templates.
@@ -202,12 +191,9 @@ class Builder
      */
     private function getReplacementForTpl(string $instruction): array
     {
-        // _tpl_currencyFields,2:
         $instruction = substr($instruction, 5, -1);
         $parts       = explode(',', $instruction);
         $template    = $this->getReplacementTemplate($parts[0]);
-//        $filename    = sprintf('%s/yaml/templates/%s.yaml', ROOT, $parts[0]);
-//        $template    = file_get_contents($filename);
         $lines       = explode("\n", $template);
         $replacement = [];
         foreach ($lines as $line) {
@@ -297,7 +283,7 @@ class Builder
      *
      * @return void
      */
-    private function saveLines(string $apiVersion, string $identifier, array $lines): void
+    private function saveLines(string $identifier, array $lines): void
     {
         $file = implode("\n", $lines);
 
@@ -305,13 +291,11 @@ class Builder
         $file = $this->replacePlaceholderReference($file);
 
         if ($identifier === 'paths') {
-            $this->paths[$apiVersion]   = $this->paths[$apiVersion] ?? [];
-            $this->paths[$apiVersion][] = $file;
+            $this->paths[] = $file;
             return;
         }
         if ($identifier === 'schemas') {
-            $this->schemas[$apiVersion]   = $this->schemas[$apiVersion] ?? [];
-            $this->schemas[$apiVersion][] = $file;
+            $this->schemas[] = $file;
             return;
         }
 
@@ -333,14 +317,13 @@ class Builder
      *
      * @return array
      */
-    private function addApiVersion(array $indentedLines, string $apiVersion): array
+    private function addApiVersion(array $indentedLines): array
     {
         $newLines = [];
         foreach ($indentedLines as $line) {
             if (str_starts_with($line, '  /')) {
-                $line = sprintf('  /%s%s', $apiVersion, trim($line));
+                $line = sprintf('  /v1%s', trim($line));
                 $this->logger->debug(sprintf('Added API version to line: %s', $line));
-                //$this->logger->info(trim($line));
             }
             $newLines[] = $line;
         }
@@ -349,19 +332,18 @@ class Builder
     }
 
 
-
     private function getReplacementTemplate(string $file): string
     {
         if (0 === count($this->templates)) {
-            $directory = sprintf('%s/yaml/templates', ROOT);
-            $objects   = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory), RecursiveIteratorIterator::SELF_FIRST);
+            $directory = sprintf('%s/templates', ROOT);
 
-            /** @var SplFileInfo $object */
-            foreach ($objects as $object) {
-                $fileName = $object->getFilename();
-                if ('yaml' === $this->getExtension($fileName)) {
-                    $this->templates[$fileName] = file_get_contents($object->getPathname());
-                }
+            // check each file in the directory and see if it needs action.
+            // collect recursively:
+            $it    = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory, \RecursiveDirectoryIterator::SKIP_DOTS));
+            $Regex = new \RegexIterator($it, '/^.+\.yaml$/i', \RecursiveRegexIterator::GET_MATCH);
+            foreach ($Regex as $item) {
+                $path                   = $item[0];
+                $this->templates[basename($path)] = file_get_contents($path);
             }
         }
         $yaml = sprintf('%s.yaml', $file);

@@ -5,11 +5,11 @@ declare(strict_types=1);
 $dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
 $dotenv->safeLoad();
 
-$destination = getenv('API_DESTINATION');
+$destination = realpath(getenv('API_DESTINATION'));
 $server      = getenv('API_SERVER');
 $version     = getenv('API_VERSION');
 
-define('ROOT', getenv('API_ROOT'));
+define('ROOT', getenv('API_SOURCE_ROOT'));
 
 $tags = [
     // system
@@ -48,12 +48,12 @@ ksort($tags);
 // scan directories and add all paths:
 $directories = [
     [
-        'path'        => 'yaml/v1/paths',
+        'path'        => 'v1/paths',
         'identifier'  => 'paths',
         'indentation' => 1,
     ],
     [
-        'path'        => 'yaml/v1/schemas',
+        'path'        => 'v1/schemas',
         'identifier'  => 'schemas',
         'indentation' => 2,
 
@@ -62,25 +62,25 @@ $directories = [
      * SHARED OBJECTS.
      */
     [
-        'path'        => 'yaml/shared/filters',
+        'path'        => 'shared/filters',
         'identifier'  => 'schemas',
         'indentation' => 2,
 
     ],
     [
-        'path'        => 'yaml/shared/models',
+        'path'        => 'shared/models',
         'identifier'  => 'schemas',
         'indentation' => 2,
 
     ],
     [
-        'path'        => 'yaml/shared/properties',
+        'path'        => 'shared/properties',
         'identifier'  => 'schemas',
         'indentation' => 2,
 
     ],
     [
-        'path'        => 'yaml/shared/responses',
+        'path'        => 'shared/responses',
         'identifier'  => 'schemas',
         'indentation' => 2,
 
