@@ -15,7 +15,7 @@ $server          = 'https://demo.firefly-iii.org';
 $destination     = './';
 $tags            = [];
 $directories     = [];
-$softwareVersion = ['last_release_name' => 'develop'];
+$softwareVersion = $argv[1] ?? 'develop';
 
 /*
  * Include necessary files:
@@ -37,10 +37,10 @@ $log->pushHandler($handler);
  */
 $builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
 $builder->setLogger($log);
-$builder->setVersion($softwareVersion['last_release_name']);
+$builder->setVersion($softwareVersion);
 $builder->setServer($server);
 
-$log->debug(sprintf('Start building API docs for version %s', $softwareVersion['last_release_name']));
+$log->debug(sprintf('Start building API docs for version %s', $softwareVersion));
 
 /*
  * Add tags to builder.
@@ -93,7 +93,7 @@ foreach ($directories as $directory) {
  */
 // TODO hard coded references to v1, remove these.
 $result           = $builder->render();
-$finalDestination = sprintf('%s/firefly-iii-%s-v1.yaml', $destination, $softwareVersion['last_release_name']);
+$finalDestination = sprintf('%s/firefly-iii-%s-v1.yaml', $destination, $softwareVersion);
 $log->debug(sprintf('Write YAML file to %s', $finalDestination));
 file_put_contents($finalDestination, $result);
 
