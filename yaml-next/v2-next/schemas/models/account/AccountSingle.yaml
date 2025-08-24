@@ -1,7 +1,0 @@
-AccountV2Single:
-  type: object
-  required:
-    - data
-  properties:
-    data:
-      $ref: '#/components/schemas/AccountV2Read'

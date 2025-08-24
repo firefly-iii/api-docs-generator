@@ -1,4 +1,0 @@
-BasicSummaryV2:
-  type: object
-  additionalProperties:
-    $ref: '#/components/schemas/BasicSummaryV2Entry'

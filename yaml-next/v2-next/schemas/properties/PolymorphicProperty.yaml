@@ -1,8 +1,0 @@
-PolymorphicProperty:
-  oneOf:
-    - type: boolean
-    - type: string
-    - type: object
-    - type: array
-      items:
-        $ref: '#/components/schemas/StringArrayItem'
