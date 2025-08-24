@@ -16,6 +16,9 @@ $destination     = './';
 $tags            = [];
 $directories     = [];
 $softwareVersion = $argv[1] ?? 'develop';
+if('main' === $softwareVersion) {
+    $softwareVersion = 'develop';
+}
 
 /*
  * Include necessary files:
