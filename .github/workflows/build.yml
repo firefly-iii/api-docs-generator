@@ -40,10 +40,6 @@ jobs:
       - name: Build documentation
         run: |
           sudo timedatectl set-timezone Europe/Amsterdam
-          
-          
-          
-          
           php build-api-docs.php
           cd api-docs
           git config user.name github-actions
@@ -58,3 +54,4 @@ jobs:
           API_SERVER: https://demo.firefly-iii.org
           IS_DEVELOP_RUN: ${{ inputs.developrun || 'true' }}
           API_ROOT: .
+          API_SOURCE_ROOT: ./api-docs/src
