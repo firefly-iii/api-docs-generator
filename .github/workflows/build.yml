@@ -27,7 +27,7 @@ jobs:
             mbstring
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --no-scripts
-      - name: Checkout websie
+      - name: Checkout website
         uses: actions/checkout@v5
         with:
           path: 'api-docs'
