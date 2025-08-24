@@ -1,7 +1,0 @@
-ConfigurationUpdate:
-  type: object
-  required:
-    - value
-  properties:
-    value:
-      $ref: '#/components/schemas/PolymorphicProperty'

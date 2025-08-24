@@ -1,4 +1,0 @@
-InsightTotal:
-  type: array
-  items:
-    $ref: '#/components/schemas/InsightTotalEntry'

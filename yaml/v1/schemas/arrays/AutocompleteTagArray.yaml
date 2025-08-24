@@ -1,4 +1,0 @@
-AutocompleteTagArray:
-  type: array
-  items:
-    $ref: '#/components/schemas/AutocompleteTag'

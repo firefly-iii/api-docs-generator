@@ -1,5 +1,0 @@
-StringArrayItem:
-  type: string
-  format: string
-  example: "EUR"
-  description: "The actual preference content."

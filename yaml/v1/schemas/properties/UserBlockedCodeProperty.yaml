@@ -1,9 +1,0 @@
-UserBlockedCodeProperty:
-  type: string
-  format: string
-  nullable: true
-  example: "email_changed"
-  description: If you say the user must be blocked, this will be the reason code.
-  enum:
-    - email_changed
-    - null

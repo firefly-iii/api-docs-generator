@@ -1,6 +1,0 @@
-"401":
-  description: Unauthenticated
-  content:
-    application/json:
-      schema:
-        $ref: '#/components/schemas/UnauthenticatedResponse'

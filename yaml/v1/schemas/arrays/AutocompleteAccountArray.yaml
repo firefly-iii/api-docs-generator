@@ -1,4 +1,0 @@
-AutocompleteAccountArray:
-  type: array
-  items:
-    $ref: '#/components/schemas/AutocompleteAccount'

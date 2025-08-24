@@ -1,4 +1,0 @@
-ChartLine:
-  type: array
-  items:
-    $ref: '#/components/schemas/ChartDataSet'

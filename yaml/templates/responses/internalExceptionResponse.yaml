@@ -1,6 +1,0 @@
-"500":
-  description: Internal exception
-  content:
-    application/json:
-      schema:
-        $ref: '#/components/schemas/InternalExceptionResponse'

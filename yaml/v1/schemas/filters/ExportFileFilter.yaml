@@ -1,4 +1,0 @@
-ExportFileFilter:
-  type: string
-  enum:
-    - csv

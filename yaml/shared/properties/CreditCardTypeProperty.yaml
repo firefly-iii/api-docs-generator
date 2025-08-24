@@ -1,9 +1,0 @@
-CreditCardTypeProperty:
-  type: string
-  format: string
-  example: monthlyFull
-  description: "Mandatory when the account_role is ccAsset. Can only be monthlyFull or null."
-  nullable: true
-  enum:
-    - monthlyFull
-    - null

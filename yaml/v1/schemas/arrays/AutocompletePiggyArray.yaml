@@ -1,4 +1,0 @@
-AutocompletePiggyArray:
-  type: array
-  items:
-    $ref: '#/components/schemas/AutocompletePiggy'

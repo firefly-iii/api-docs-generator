@@ -1,4 +1,0 @@
-AutocompleteCurrencyArray:
-  type: array
-  items:
-    $ref: '#/components/schemas/AutocompleteCurrency'

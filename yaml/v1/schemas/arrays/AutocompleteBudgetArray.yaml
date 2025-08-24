@@ -1,4 +1,0 @@
-AutocompleteBudgetArray:
-  type: array
-  items:
-    $ref: '#/components/schemas/AutocompleteBudget'

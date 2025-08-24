@@ -1,4 +1,0 @@
-InsightTransfer:
-  type: array
-  items:
-    $ref: '#/components/schemas/InsightTransferEntry'

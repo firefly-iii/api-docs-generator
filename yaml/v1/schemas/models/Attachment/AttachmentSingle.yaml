@@ -1,7 +1,0 @@
-AttachmentSingle:
-  type: object
-  required:
-    - data
-  properties:
-    data:
-      $ref: '#/components/schemas/AttachmentRead'
