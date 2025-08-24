@@ -93,7 +93,8 @@ foreach ($directories as $directory) {
  */
 // TODO hard coded references to v1, remove these.
 $result           = $builder->render();
-$finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], 'v1');
+$finalDestination = sprintf('%s/firefly-iii-%s-v1.yaml', $destination, $softwareVersion['last_release_name']);
+$log->debug(sprintf('Write YAML file to %s', $finalDestination));
 file_put_contents($finalDestination, $result);
 
 /*
