@@ -35,16 +35,16 @@ $log->pushHandler($handler);
 /*
  * If this is not a develop run, find out what's the latest version of Firefly III.
  */
-if ('false' === getenv('IS_DEVELOP_RUN')) {
-    $isCached = Cache::isCached('version.txt');
-    if ($isCached) {
-        $softwareVersion = Cache::getCached('version.txt');
-    }
-    if (!$isCached) {
-        $softwareVersion = Cache::getLatestVersion();
-        Cache::storeCache('version.txt', $softwareVersion);
-    }
-}
+//if ('false' === getenv('IS_DEVELOP_RUN')) {
+//    $isCached = Cache::isCached('version.txt');
+//    if ($isCached) {
+//        $softwareVersion = Cache::getCached('version.txt');
+//    }
+//    if (!$isCached) {
+//        $softwareVersion = Cache::getLatestVersion();
+//        Cache::storeCache('version.txt', $softwareVersion);
+//    }
+//}
 
 /*
  * Create the builder.
