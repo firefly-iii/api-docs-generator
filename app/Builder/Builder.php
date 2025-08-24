@@ -26,7 +26,6 @@ class Builder
     private array       $tags;
     private Environment $twig;
     private string      $version;
-    private array       $apiVersions;
     private string      $server;
     private Logger      $logger;
     private array       $templates = [];
@@ -349,14 +348,7 @@ class Builder
         return $newLines;
     }
 
-    /**
-     * @param array $versions
-     */
-    public function setApiVersions(array $versions): void
-    {
-        $this->logger->debug('API versions is now', $versions);
-        $this->apiVersions = $versions;
-    }
+
 
     private function getReplacementTemplate(string $file): string
     {

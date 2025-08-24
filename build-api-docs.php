@@ -76,7 +76,7 @@ if ('false' === getenv('IS_DEVELOP_RUN')) {
 $builder = new Builder(sprintf('%s/templates', ROOT), sprintf('%s/cache', ROOT));
 $builder->setLogger($log);
 $builder->setVersion($softwareVersion['last_release_name']);
-$builder->setApiVersions($apiVersions);
+//$builder->setApiVersions($apiVersions);
 $builder->setServer($server);
 
 $log->debug('Start building API docs');
@@ -136,15 +136,10 @@ foreach ($directories as $info) {
 /*
  * Render the API docs and store the file.
  */
-foreach ($apiVersions as $apiVersion) {
-    if (in_array($apiVersion, $ignoreVersions, true)) {
-        $log->warning(sprintf('Will ignore version "%s"', $apiVersion));
-        continue;
-    }
-    $result           = $builder->render($apiVersion);
-    $finalDestination = sprintf('%s/dist/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], $apiVersion);
-    file_put_contents($finalDestination, $result);
-}
+// TODO hard coded references to v1, remove these.
+$result           = $builder->render('v1');
+$finalDestination = sprintf('%s/dist/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], 'v1');
+file_put_contents($finalDestination, $result);
 
 /*
  * Render the API docs index.html file again.
