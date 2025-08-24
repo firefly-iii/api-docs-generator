@@ -46,7 +46,7 @@ jobs:
           echo "Will pull ${BUILD_VERSION} branch."
           
           cd api-docs
-          git pull origin BUILD_VERSION
+          git pull origin $BUILD_VERSION
           cd ..
           
           echo "Running..."

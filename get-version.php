@@ -29,13 +29,6 @@ $handler   = new StreamHandler('php://stdout', Level::Warning);
 $handler->setFormatter($formatter);
 $log->pushHandler($handler);
 
-$isCached        = Cache::isCached('version.txt');
-$softwareVersion = 'main';
-if ($isCached) {
-    $softwareVersion = Cache::getCached('version.txt');
-}
-if (!$isCached) {
-    $softwareVersion = Cache::getLatestVersion();
-    Cache::storeCache('version.txt', $softwareVersion);
-}
+$softwareVersion = Cache::getLatestVersion();
+
 echo $softwareVersion['last_release_name'];
