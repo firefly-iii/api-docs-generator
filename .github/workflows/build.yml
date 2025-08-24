@@ -79,4 +79,4 @@ jobs:
           API_DESTINATION: ./api-docs/dist
           API_SERVER: https://demo.firefly-iii.org
           API_SOURCE_ROOT: ./api-docs/src
-          DEV_RUN: {{ inputs.developrun || 'true' }}
+          DEV_RUN: ${{ inputs.developrun || 'true' }}
