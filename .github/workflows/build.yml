@@ -44,18 +44,25 @@ jobs:
           
           export BUILD_VERSION=$(php get-version.php)
           echo "Will pull ${BUILD_VERSION} branch."
+          echo 'pwd 1'
           pwd
           
           cd api-docs
+          echo 'pwd 2'
           pwd
           
           git pull origin $BUILD_VERSION
           cd ..
+          echo 'pwd 3'
           pwd
           
           echo "Running..."
+          echo 'pwd 4'
+          pwd
           php build-api-docs.php $BUILD_VERSION
           
+          echo 'pwd 5'
+          pwd
           git add dist/firefly-iii-*-v1.yaml
           git add dist/index.html
           git commit -m "🤖 Update API documentation for Firefly III"
