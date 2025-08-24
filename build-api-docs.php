@@ -46,11 +46,6 @@ if ('false' === getenv('IS_DEVELOP_RUN')) {
     }
 }
 
-if ('true' === getenv('IS_DEVELOP_RUN')) {
-    $softwareVersion['last_release_name'] = sprintf('%s-dev', $softwareVersion['last_release_name']);
-}
-
-
 /*
  * Create the builder.
  */

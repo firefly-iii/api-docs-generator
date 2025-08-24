@@ -50,7 +50,7 @@ jobs:
           git commit -m "🤖 Update API documentation for Firefly III"
           git push
         env:
-          API_DESTINATION: ./api-docs
+          API_DESTINATION: ./api-docs/dist
           API_SERVER: https://demo.firefly-iii.org
           IS_DEVELOP_RUN: ${{ inputs.developrun || 'true' }}
           API_ROOT: .
