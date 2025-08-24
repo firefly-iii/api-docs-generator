@@ -41,7 +41,6 @@ foreach ($argv as $index => $argument) {
  */
 include 'vendor/autoload.php';
 include 'configuration.php';
-include 'functions.php';
 
 /*
  * Create a log channel.
@@ -143,14 +142,14 @@ foreach ($apiVersions as $apiVersion) {
         continue;
     }
     $result           = $builder->render($apiVersion);
-    $finalDestination = sprintf('%s/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], $apiVersion);
+    $finalDestination = sprintf('%s/dist/firefly-iii-%s-%s.yaml', $destination, $softwareVersion['last_release_name'], $apiVersion);
     file_put_contents($finalDestination, $result);
 }
 
 /*
  * Render the API docs index.html file again.
  */
-$templateFile = sprintf('%s/index.html.template', $destination);
+$templateFile = sprintf('%s/src/index.html.template', $destination);
 if (!file_exists($templateFile)) {
     $log->error(sprintf('Could not find template file "%s", will not update.', $templateFile));
     exit;
@@ -177,8 +176,8 @@ foreach ($objects as $fullPath => $object) {
             $compare = str_replace('-v2', '', $compare);
         }
         if (!str_contains($exactVersion, 'beta')) {
-            $compare = str_replace('-v1', '-beta.10', $exactVersion);
-            $compare = str_replace('-v2', '-alpha.10', $compare);
+            $compare = str_replace('-v1', '-beta.100', $exactVersion);
+            $compare = str_replace('-v2', '-alpha.100', $compare);
         }
 
         // get nice name of version
@@ -209,5 +208,5 @@ foreach ($urls as &$url) {
 $json = json_encode($urls, JSON_PRETTY_PRINT);
 
 $templateContent = str_replace('%%URLS%%', $json, $templateContent);
-file_put_contents(sprintf('%s/index.html', $destination), $templateContent);
+file_put_contents(sprintf('%s/dist/index.html', $destination), $templateContent);
 $log->info(sprintf('Wrote new html file to "%s"', sprintf('%s/index.html', $destination)));
