@@ -62,6 +62,7 @@ jobs:
           php build-api-docs.php $BUILD_VERSION
           
           echo 'pwd 5'
+          cd api-docs
           pwd
           git add dist/firefly-iii-*-v1.yaml
           git add dist/index.html
