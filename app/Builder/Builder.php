@@ -56,14 +56,13 @@ class Builder
      */
     public function addTag(string $name, array $info): void
     {
-        foreach ($info['api_version'] as $version) {
-            $this->tags[$version]   = $this->tags[$version] ?? [];
-            $this->tags[$version][] = [
-                'name'        => $name,
-                'description' => $info['description'],
-            ];
-            $this->logger->debug(sprintf('Added tag "%s" to version "%s"', $name, $version));
-        }
+        $version                = 'v1';
+        $this->tags[$version]   = $this->tags[$version] ?? [];
+        $this->tags[$version][] = [
+            'name'        => $name,
+            'description' => $info['description'],
+        ];
+        $this->logger->debug(sprintf('Added tag "%s" to version "%s"', $name, $version));
     }
 
     /**
@@ -394,7 +393,7 @@ class Builder
 
     private function replacePlaceholderReference(string $content): string
     {
-        $placeholders    = ['%version%', '%start_date%', '%end_date%', '%start_date_and_time%','%end_date_and_time%'];
+        $placeholders    = ['%version%', '%start_date%', '%end_date%', '%start_date_and_time%', '%end_date_and_time%'];
         $hasPlaceholders = false;
         foreach ($placeholders as $placeholder) {
             if (str_contains($content, $placeholder)) {
@@ -417,15 +416,15 @@ class Builder
         $content = str_replace('%version%', $version, $content);
 
         // replace month start and end dates:
-        $som = Carbon::now()->startOfMonth()->format('Y-m-d');
-        $eom = Carbon::now()->endOfMonth()->format('Y-m-d');
+        $som     = Carbon::now()->startOfMonth()->format('Y-m-d');
+        $eom     = Carbon::now()->endOfMonth()->format('Y-m-d');
         $content = str_replace('%start_date%', $som, $content);
         $content = str_replace('%end_date%', $eom, $content);
         unset($som, $eom);
 
         // replace month start and end date and time:
-        $som = Carbon::now()->startOfMonth()->toAtomString();
-        $eom = Carbon::now()->endOfMonth()->toAtomString();
+        $som     = Carbon::now()->startOfMonth()->toAtomString();
+        $eom     = Carbon::now()->endOfMonth()->toAtomString();
         $content = str_replace('%start_date_and_time%', $som, $content);
         $content = str_replace('%end_date_and_time%', $eom, $content);
         unset($som, $eom);
