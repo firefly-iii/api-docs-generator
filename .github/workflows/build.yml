@@ -64,6 +64,8 @@ jobs:
           echo 'pwd 5'
           cd api-docs
           pwd
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add dist/firefly-iii-*-v1.yaml
           git add dist/index.html
           git commit -m "🤖 Update API documentation for Firefly III"
