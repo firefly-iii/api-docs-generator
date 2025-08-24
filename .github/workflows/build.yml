@@ -39,10 +39,19 @@ jobs:
       - name: Build documentation
         run: |
           sudo timedatectl set-timezone Europe/Amsterdam
-          php build-api-docs.php
-          cd api-docs
           git config user.name github-actions
           git config user.email github-actions@github.com
+          
+          export BUILD_VERSION=$(php get-version.php)
+          echo "Will pull ${BUILD_VERSION} branch."
+          
+          cd api-docs
+          git pull origin BUILD_VERSION
+          cd ..
+          
+          echo "Running..."
+          php build-api-docs.php
+          
           git add dist/firefly-iii-*-v1.yaml
           git add dist/index.html
           git commit -m "🤖 Update API documentation for Firefly III"

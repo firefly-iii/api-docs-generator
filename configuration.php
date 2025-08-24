@@ -7,7 +7,7 @@ $dotenv->safeLoad();
 
 $destination = realpath(getenv('API_DESTINATION'));
 $server      = getenv('API_SERVER');
-$version     = getenv('API_VERSION');
+$isDevRun     = 'true' === getenv('DEV_RUN');
 
 define('ROOT', getenv('API_SOURCE_ROOT'));
 
