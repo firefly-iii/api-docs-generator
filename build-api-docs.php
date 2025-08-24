@@ -94,7 +94,6 @@ foreach ($directories as $directory) {
 /*
  * Render the API docs and store the file.
  */
-// TODO hard coded references to v1, remove these.
 $result           = $builder->render();
 $finalDestination = sprintf('%s/firefly-iii-%s-v1.yaml', $destination, $softwareVersion);
 $log->debug(sprintf('Write YAML file to %s', $finalDestination));
@@ -153,7 +152,7 @@ uasort($urls, function ($a, $b) {
     return version_compare($b['version'], $a['version']);
 });
 
-array_splice($urls, 2, 0, $developUrls);
+array_splice($urls, 1, 0, $developUrls);
 
 // remove 'version' key from each array element
 foreach ($urls as &$url) {
