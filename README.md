@@ -28,9 +28,9 @@ Generate `firefly-iii-develop-v1.yaml` files:
 
 `php build-and-deploy.php`
 
-The resulting `firefly-iii-develop-v1.yaml` file can be imported into your favorite API development environment to play around with, e.g. [Postman](https://www.getpostman.com/).
+The resulting `firefly-iii-develop-v1.yaml` file can be imported into your favorite API development environment to play around with, e.g. [Insomnia](https://insomnia.rest/).
 
-![Firefly III API collection in Postman](postman-firefly-iii-collection.png "Firefly III API collection in Postman")
+![Firefly III API collection in Insomnia](.github/insomnia-collection.png "Firefly III API collection in Insomnia")
 
 ## See the result
 You can see the result [on this page](https://api-docs.firefly-iii.org/).
