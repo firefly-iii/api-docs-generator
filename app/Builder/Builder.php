@@ -168,9 +168,10 @@ class Builder
                 'time'    => $time->format('Y-m-d @ H:i:s (e)'),
             ]
         );
-        $content = str_replace("\n\n", "\n", $content);
-        $content = str_replace("\n  \n", "\n", $content);
-        return str_replace("\n\n", "\n", $content);
+        //$content = str_replace("\n\n", "\n", $content);
+        //$content = str_replace("\n  \n", "\n", $content);
+        //return str_replace("\n\n", "\n", $content);
+        return $content;
     }
 
     /**
