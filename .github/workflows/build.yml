@@ -56,6 +56,11 @@ jobs:
           # Go to API docs and pull the necessary branch.
           #
           cd api-docs
+          
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git config pull.rebase false
+          
           git pull origin $BUILD_VERSION
           cd ..
           
