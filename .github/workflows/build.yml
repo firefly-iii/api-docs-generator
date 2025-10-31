@@ -44,6 +44,7 @@ jobs:
           sudo timedatectl set-timezone Europe/Amsterdam
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git config pull.rebase false
           
           #
           # Get the version to build.
