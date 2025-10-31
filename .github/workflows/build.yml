@@ -72,6 +72,7 @@ jobs:
           git pull origin main
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git config pull.rebase false
           git add dist/firefly-iii-*-v1.yaml
           git add dist/index.html
           git commit -m "🤖 Update API documentation for Firefly III"
