@@ -24,6 +24,7 @@ jobs:
           path: 'api-docs'
           repository: 'firefly-iii/api-docs'
           token: ${{ secrets.GIT_REPOS_TOKEN }}
+          fetch-depth: 0
       - id: ff3version
         uses: pozetroninc/github-action-get-latest-release@master
         with:
