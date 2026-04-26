@@ -39,8 +39,11 @@ jobs:
             echo "Git branch '${{ steps.ff3version.outputs.release }}' does not exist in the remote repository"
             git checkout -b ${{ steps.ff3version.outputs.release }}
             git push -u origin ${{ steps.ff3version.outputs.release }}
+          else
+            echo "Git branch '${{ steps.ff3version.outputs.release }}' already exists"
+            git checkout --track origin/${{ steps.ff3version.outputs.release }}
           fi
-          exit 1
+          cd ..
       - name: Setup PHP with Xdebug
         uses: shivammathur/setup-php@v2
         with:
@@ -61,13 +64,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git config pull.rebase false
-          
-          #
-          # Get the version to build.
-          #
-          export BUILD_VERSION=$(php get-version.php)
-          echo "Will pull ${BUILD_VERSION} branch."
-          
+                    
           #
           # Go to API docs and pull the necessary branch.
           #
@@ -77,13 +74,13 @@ jobs:
           git config user.email github-actions@github.com
           git config pull.rebase false
           
-          git pull origin $BUILD_VERSION
+          git pull origin ${{ steps.ff3version.outputs.release }}
           cd ..
           
           #
           # Run the actual build script.
           #
-          php build-api-docs.php $BUILD_VERSION
+          php build-api-docs.php ${{ steps.ff3version.outputs.release }}
           
           #
           # Back to the repository and push the changes.
