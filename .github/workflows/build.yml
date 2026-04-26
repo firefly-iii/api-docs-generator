@@ -46,11 +46,8 @@ jobs:
           excludes: prerelease, draft
       - name: Create or find branch
         run: |
-          git ls-remote --exit-code --heads origin ${{ steps.ff3version.outputs.release }} >/dev/null 2>&1
-          EXIT_CODE=$?
-          if [[ $EXIT_CODE == '0' ]]; then
-            echo "Git branch '$BRANCH' exists in the remote repository"
-          elif [[ $EXIT_CODE == '2' ]]; then
+          RES=$(git ls-remote --heads origin ${{ steps.ff3version.outputs.release }})
+          if [[ $RES == '' ]]; then
             echo "Git branch '$BRANCH' does not exist in the remote repository"
           fi
           exit 1
