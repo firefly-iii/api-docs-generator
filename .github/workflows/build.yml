@@ -41,7 +41,7 @@ jobs:
             git push -u origin ${{ steps.ff3version.outputs.release }}
           else
             echo "Git branch '${{ steps.ff3version.outputs.release }}' already exists"
-            git checkout --track origin/${{ steps.ff3version.outputs.release }}
+            git checkout -b ${{ steps.ff3version.outputs.release }} origin/${{ steps.ff3version.outputs.release }}
           fi
           cd ..
       - name: Setup PHP with Xdebug
