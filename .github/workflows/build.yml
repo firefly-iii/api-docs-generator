@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Setup PHP with Xdebug
         uses: shivammathur/setup-php@v2
         with:
@@ -36,6 +38,23 @@ jobs:
           # "API documentation builder" token.
           #
           token: ${{ secrets.GIT_REPOS_TOKEN }}
+      - id: ff3version
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: firefly-iii
+          repo: firefly-iii
+          excludes: prerelease, draft
+      - name: Create or find branch
+        run: |
+          git ls-remote --exit-code --heads origin ${{ steps.ff3version.outputs.release }} >/dev/null 2>&1
+          EXIT_CODE=$?
+          if [[ $EXIT_CODE == '0' ]]; then
+            echo "Git branch '$BRANCH' exists in the remote repository"
+          elif [[ $EXIT_CODE == '2' ]]; then
+            echo "Git branch '$BRANCH' does not exist in the remote repository"
+          fi
+          exit 1
+          
       - name: Build documentation
         run: |
           #
