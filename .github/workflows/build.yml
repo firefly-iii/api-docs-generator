@@ -23,9 +23,6 @@ jobs:
         with:
           path: 'api-docs'
           repository: 'firefly-iii/api-docs'
-          #
-          # "API documentation builder" token.
-          #
           token: ${{ secrets.GIT_REPOS_TOKEN }}
       - id: ff3version
         uses: pozetroninc/github-action-get-latest-release@master
@@ -33,6 +30,7 @@ jobs:
           owner: firefly-iii
           repo: firefly-iii
           excludes: prerelease, draft
+          token: ${{ secrets.GIT_REPOS_TOKEN }}
       - name: Create or find branch
         run: |
           cd api-docs
