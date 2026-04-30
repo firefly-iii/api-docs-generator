@@ -45,10 +45,10 @@ jobs:
             git checkout -b ${{ steps.ff3version.outputs.release }} origin/${{ steps.ff3version.outputs.release }}
           fi
           cd ..
-      - name: Setup PHP with Xdebug
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.5'
           extensions: >-
             fileinfo
             json
@@ -75,13 +75,32 @@ jobs:
           git config user.email github-actions@github.com
           git config pull.rebase false
           
-          git pull origin ${{ steps.ff3version.outputs.release }}
+          # if developrun is true, only checkout main, not the branch.
+          if [[ "$DEV_RUN" == "true" ]]; then
+            echo 'Do a develop run of the API docs, check out main branch.'
+            git pull origin main
+          fi
+          
+          if [[ "$DEV_RUN" == "true" ]]; then
+            echo "Do a normal run of the API docs, check out ${{ steps.ff3version.outputs.release }} branch
+            git pull origin ${{ steps.ff3version.outputs.release }}
+          fi
+          
           cd ..
           
           #
           # Run the actual build script.
           #
-          php build-api-docs.php ${{ steps.ff3version.outputs.release }}
+          # if developrun is true, only checkout main, not the branch.
+          if [[ "$DEV_RUN" == "true" ]]; then
+            echo 'Do a develop run of the API docs, build develop.'
+            php build-api-docs.php develop
+          fi
+          
+          if [[ "$DEV_RUN" == "true" ]]; then
+            echo 'Do a normal run of the API docs, build ${{ steps.ff3version.outputs.release }}'
+            php build-api-docs.php ${{ steps.ff3version.outputs.release }}
+          fi
           
           #
           # Back to the repository and push the changes.
