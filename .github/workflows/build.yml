@@ -75,14 +75,14 @@ jobs:
           git config user.email github-actions@github.com
           git config pull.rebase false
           
-          # if developrun is true, only checkout main, not the branch.
+          # if develop run is true, only checkout main, not the branch.
           if [[ "$DEV_RUN" == "true" ]]; then
             echo 'Do a develop run of the API docs, check out main branch.'
             git pull origin main
           fi
           
           if [[ "$DEV_RUN" == "true" ]]; then
-            echo "Do a normal run of the API docs, check out ${{ steps.ff3version.outputs.release }} branch
+            echo "Do a normal run of the API docs, check out ${{ steps.ff3version.outputs.release }} branch"
             git pull origin ${{ steps.ff3version.outputs.release }}
           fi
           
@@ -98,7 +98,7 @@ jobs:
           fi
           
           if [[ "$DEV_RUN" == "true" ]]; then
-            echo 'Do a normal run of the API docs, build ${{ steps.ff3version.outputs.release }}'
+            echo "Do a normal run of the API docs, build ${{ steps.ff3version.outputs.release }}"
             php build-api-docs.php ${{ steps.ff3version.outputs.release }}
           fi
           
