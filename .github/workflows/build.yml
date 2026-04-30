@@ -98,7 +98,7 @@ jobs:
             php build-api-docs.php develop
           fi
           
-          if [[ "$DEV_RUN" == "true" ]]; then
+          if [[ "$DEV_RUN" == "false" ]]; then
             echo "Do a normal run of the API docs, build ${{ steps.ff3version.outputs.release }}"
             php build-api-docs.php ${{ steps.ff3version.outputs.release }}
           fi
