@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Checkout website
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           path: 'api-docs'
           repository: 'firefly-iii/api-docs'
