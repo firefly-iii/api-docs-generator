@@ -23,22 +23,6 @@ jobs:
           repository: 'firefly-iii/api-docs'
           token: ${{ secrets.GIT_REPOS_TOKEN }}
           fetch-depth: 0
-      - id: ff3version
-        uses: pozetroninc/github-action-get-latest-release@master
-        with:
-          owner: firefly-iii
-          repo: firefly-iii
-          excludes: prerelease, draft
-          token: ${{ secrets.GIT_REPOS_TOKEN }}
-      - name: Create or find branch
-        run: |
-          PRIMARY_BRANCH=$(gh repo view firefly-iii/api-docs --json defaultBranchRef --jq .defaultBranchRef.name)
-          cd api-docs
-          echo "Git branch '$PRIMARY_BRANCH' already exists"
-          git checkout -b $PRIMARY_BRANCH origin/$PRIMARY_BRANCH
-          cd ..
-        env:
-          GH_TOKEN: ${{ github.token }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
