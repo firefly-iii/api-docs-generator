@@ -145,6 +145,10 @@ foreach ($Regex as $item) {
 foreach ($fullPaths as $fileName => $fullName) {
     // get exact version (with "-v1" or "-v2")
     $exactVersion = str_replace(['.yaml', 'firefly-iii-'], '', $fileName);
+    if(str_starts_with($exactVersion, 'v')) {
+        $exactVersion = substr($exactVersion, 1);
+    }
+
     $compare      = $exactVersion;
     // in version, replace -v1 and -v2 with something version_compare can handle.
     if (str_contains($exactVersion, 'beta')) {
