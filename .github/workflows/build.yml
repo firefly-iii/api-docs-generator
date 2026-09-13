@@ -32,15 +32,16 @@ jobs:
           token: ${{ secrets.GIT_REPOS_TOKEN }}
       - name: Create or find branch
         run: |
+          PRIMARY_BRANCH=$(gh repo view firefly-iii/api-docs --json defaultBranchRef --jq .defaultBranchRef.name)
           cd api-docs
-          RES=$(git ls-remote --heads origin ${{ steps.ff3version.outputs.release }})
+          RES=$(git ls-remote --heads origin $PRIMARY_BRANCH)
           if [[ $RES == '' ]]; then
-            echo "Git branch '${{ steps.ff3version.outputs.release }}' does not exist in the remote repository"
-            git checkout -b ${{ steps.ff3version.outputs.release }}
-            git push -u origin ${{ steps.ff3version.outputs.release }}
+            echo "Git branch '$PRIMARY_BRANCH' does not exist in the remote repository"
+            git checkout -b $PRIMARY_BRANCH
+            git push -u origin $PRIMARY_BRANCH
           else
-            echo "Git branch '${{ steps.ff3version.outputs.release }}' already exists"
-            git checkout -b ${{ steps.ff3version.outputs.release }} origin/${{ steps.ff3version.outputs.release }}
+            echo "Git branch '$PRIMARY_BRANCH' already exists"
+            git checkout -b $PRIMARY_BRANCH origin/$PRIMARY_BRANCH
           fi
           cd ..
       - name: Setup PHP
