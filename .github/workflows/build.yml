@@ -44,6 +44,8 @@ jobs:
             git checkout -b $PRIMARY_BRANCH origin/$PRIMARY_BRANCH
           fi
           cd ..
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
